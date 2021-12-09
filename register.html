@@ -1,0 +1,98 @@
+<!--
+FUNCIONES A LINKEAR O IMPLEMENTAR
+comprobarDNI()
+comprobarNombre()
+comprobarApellido()
+comprobarDireccion()
+comprobarTelefono()
+comprobarMail()
+-->
+
+<html>
+
+<head>
+
+
+	<script type="text/javascript" src="js/funcionesComunes.js"></script>
+	<script type="text/javascript" src="js/funcionesFormularios.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/register.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<script type="text/javascript" src="js/md5.js"></script>
+
+	<script type="text/javascript" src="Locale/idioma.js"></script>
+	<script type="text/javascript" src="Locale/Lang_EN.js"></script>
+	<script type="text/javascript" src="Locale/Lang_ES.js"></script>
+	<script type="text/javascript" src="Locale/Lang_GA.js"></script>
+
+
+	<link rel="stylesheet" href="./css/register.css">
+</head>
+
+<body>
+
+
+
+	<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:registrar();"
+		onsubmit="comprobarLogin();">
+
+		<div class="div_Input">
+			<p>DNI:</p>
+			<input type="text" name="dni" id="Idni" onblur="return comprobarDNI();"> <br>
+		</div>
+
+		<div class="div_Input">
+			<p>nombre:</p>
+			<input type="text" name="nombre" id="nombre" onblur="return comprobarNombre();"> <br>
+		</div>
+
+		<div class="div_Input">
+			<p>apellido:</p>
+			<input type="text" name="apellido" id="apellido" onblur="return comprobarApellido();"> <br>
+		</div>
+
+
+		<!--FECHA NACIMIENTO (Oscar sabe)-->
+
+		<div class="div_Input">
+			<p>dirección:</p>
+			<input type="text" name="direccion" id="direccion" onblur="return comprobarDireccion();"> <br>
+		</div>
+
+		<div class="div_Input">
+			<p>teléfono:</p>
+			<input type="text" name="telefono" id="telefono" onblur="return comprobarTelefono();"> <br>
+		</div>
+
+		<div class="div_Input">
+			<p>mail:</p>
+			<input type="text" name="mail" id="mail" onblur="return comprobarMail();"> <br>
+		</div>
+
+		<!--Foto persona-->
+
+		<div class="div_Input">
+			<p>Es celiaco:</p>
+			<input type="checkbox" id="cbox1" value="first_checkbox"><br>
+		</div>
+
+		<input type="submit" value="Registrarse">
+	</form>
+
+
+
+	<div id="modal" style="display:none">
+		<div id="contenido-interno">
+			<div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
+			<div id="mensajeError"></div>
+			<a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+				<img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
+				<span class="tooltiptext iconCerrar"></span>
+			</a>
+		</div>
+	</div>
+</body>
+
+</html>
