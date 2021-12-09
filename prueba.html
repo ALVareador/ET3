@@ -1,0 +1,47 @@
+<html>
+<head lang='es'>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<script type="text/javascript" src="js/funcionesComunes.js"></script>
+	<script type="text/javascript" src="js/editusuario.js"></script>
+	<script type="text/javascript" src="js/funcionesFormularios.js"></script>
+	<script type="text/javascript" src="js/login.js"></script>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/modal.css" />
+
+	<script type="text/javascript" src="js/md5.js"></script>
+
+	<script type="text/javascript" src="Locale/idioma.js"></script>
+    <script type="text/javascript" src="Locale/Lang_EN.js"></script>
+    <script type="text/javascript" src="Locale/Lang_ES.js"></script>
+    <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+
+</head>
+
+<body onload="setLang('');">
+
+	<div>
+		<a onclick = "showDetalleUsuario('1','1','1','1','1')" alt="Detalle Usuario"/>Detalle Usuario</a>
+	</div>
+
+	<div id="divdetalleusuario">
+	</div>
+
+		<div id="modal" style="display:none">
+                <div id="contenido-interno">
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
+                        <div id="mensajeError"></div>
+                        <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
+                                <span class="tooltiptext iconCerrar"></span>
+                        </a>
+                </div>
+        </div>
+
+    <a onclick = "$('#divdetalleusuario').attr('style', 'display: none');"><img src="./images/icons/volver.png" width="50px"  /></a>
+
+</body>
+</html>

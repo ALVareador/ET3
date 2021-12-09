@@ -1,0 +1,49 @@
+<html>
+
+<head>
+        <script type="text/javascript" src="js/addgrupo.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/funcionesComunes.js"></script>
+        <script type="text/javascript" src="js/funcionesFormularios.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+
+        <script type="text/javascript" src="Locale/idioma.js"></script>
+        <script type="text/javascript" src="Locale/Lang_EN.js"></script>
+        <script type="text/javascript" src="Locale/Lang_ES.js"></script>
+        <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/modal.css" />
+</head>      
+
+<body onload="includeCabecera();validaAutenticado();setLang('')">
+        <div id="menuIdioma"></div>
+        <div id="UserDesconectar"></div>
+        <div>
+                <form name='formaddgrupo' id='formaddgrupo' method="post" action="javascript:addgrupo();" onsubmit="">
+                        <label class='nombre_grupo'></label>
+                        <input type='text' name='nombre_grupo' id='txtnombre_grupo' onblur='return comprobarUser();'><br>
+                        <label class='descripcion_grupo'></label>
+                        <input type='text' name='descripcion_grupo' id='txtdescripcion_grupo' onblur='return comprobarDescripcion();'><br>
+
+                        <br>
+                        <button type='submit'><img src="./images/icons/addUser.png" width="50px"/></button><br>
+                </form>
+        </div>
+
+        <div id="modal" style="display:none">
+                <div id="contenido-interno">
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
+                        <div id="mensajeError"></div>
+                        <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
+                                <span class="tooltiptext iconCerrar"></span>
+                        </a>
+                </div>
+        </div>
+
+
+                <a href="showallgrupo.html"><img src="./images/icons/volver.png" width="50px"  /></a>
+
+
+</body>
+</html>

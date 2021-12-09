@@ -1,0 +1,58 @@
+<html>
+
+<head>
+        <script type="text/javascript" src="js/addusuario.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/funcionesComunes.js"></script>
+        <script type="text/javascript" src="js/funcionesFormularios.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+
+        <script type="text/javascript" src="Locale/idioma.js"></script>
+        <script type="text/javascript" src="Locale/Lang_EN.js"></script>
+        <script type="text/javascript" src="Locale/Lang_ES.js"></script>
+        <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/modal.css" />
+</head>      
+
+<body onload="includeCabecera();validaAutenticado();setLang('');rellenaid_grupo()">
+        <div id="menuIdioma"></div>
+        <div id="UserDesconectar"></div>
+        <div>
+                <form name='formaddusuario' id='formaddusuario' method="post" action="javascript:addusuario();" onsubmit="">
+                        <label class='usuario'></label>
+                        <input type='text' name='usuario' id='txtUsuario' onblur='return comprobarUser();'><br>
+                        <label class='contrasena'></label>
+                        <input type='text' name='contrasena' id='txtPassword' onblur='return comprobarPass();'><br>
+                        <label class='dni_usuario'></label>
+                        <input type='text' name='dni_usuario' id='txtdniusuario' onblur=''><br>
+                        <label class='id_grupo'></label>
+                        <select name='id_grupo' id='id_grupo' ></select><br>
+                        <label class='borrado_usuario'></label>
+                        <select name='borrado_usuario' id='borrado_usuario' >
+                                <option value="0">Si</option>
+                                <option value="1">No</option>
+                        </select>
+
+                        <br>
+                        <button type='submit'><img src="./images/icons/addUser.png" width="50px"/></button><br>
+                </form>
+        </div>
+
+        <div id="modal" style="display:none">
+                <div id="contenido-interno">
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
+                        <div id="mensajeError"></div>
+                        <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
+                                <span class="tooltiptext iconCerrar"></span>
+                        </a>
+                </div>
+        </div>
+
+
+                <a href="showallusuario.html"><img src="./images/icons/volver.png" width="50px"  /></a>
+
+
+</body>
+</html>

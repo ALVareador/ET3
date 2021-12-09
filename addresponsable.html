@@ -1,0 +1,58 @@
+<html>
+
+<head>
+        <script type="text/javascript" src="js/addresponsable.js"></script>
+        <script type="text/javascript" src="js/login.js"></script>
+        <script type="text/javascript" src="js/funcionesComunes.js"></script>
+        <script type="text/javascript" src="js/funcionesFormularios.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+
+        <script type="text/javascript" src="Locale/idioma.js"></script>
+        <script type="text/javascript" src="Locale/Lang_EN.js"></script>
+        <script type="text/javascript" src="Locale/Lang_ES.js"></script>
+        <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/modal.css" />
+</head>      
+
+<body onload="includeCabecera();validaAutenticado();setLang('');rellenaid_grupo()">
+        <div id="menuIdioma"></div>
+        <div id="UserDesconectar"></div>
+        <div>
+                <form name='formaddresponsable' id='formaddresponsable' method="post" action="javascript:addresponsable();" onsubmit="">
+                        <!--<label class='responsable'></label>
+                        <input type='text' name='responsable' id='txtresponsable' onblur='return comprobarUser();'><br>-->
+                        <label class='dni_responsable'></label>
+                        <input type='text' name='dni_responsable' id='txtdniresponsable' onblur=''><br>
+                        <label class='numCuenta_responsable'></label>
+                        <input type='text' name='numCuenta_responsable' id='txtnumcuentaresponsable' onblur='return comprobarNumCuenta();'><br>
+                        <label class='curriculum_responsable'></label>
+                        <input type='text' name='curriculum_responsable' id='txtcurriculumresponsable' onblur='return comprobarPass();'><br>
+                        <label class='borrado_responsable'></label>
+                        <select name='borrado_responsable' id='borrado_responsable' >
+                                <option value="0">Si</option>
+                                <option value="1">No</option>
+                        </select>
+
+                        <br>
+                        <button type='submit'><img src="./images/icons/addUser.png" width="50px"/></button><br>
+                </form>
+        </div>
+
+        <div id="modal" style="display:none">
+                <div id="contenido-interno">
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
+                        <div id="mensajeError"></div>
+                        <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
+                                <span class="tooltiptext iconCerrar"></span>
+                        </a>
+                </div>
+        </div>
+
+
+                <a href="showallresponsable.html"><img src="./images/icons/volver.png" width="50px"  /></a>
+
+
+</body>
+</html>
