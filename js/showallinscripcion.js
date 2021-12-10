@@ -29,3 +29,40 @@ function construyeFila(fila) {
 
     return filaTabla;
 }
+
+function getLisInscripcion() {
+
+    var idioma = getCookie('lang');
+    var idSession = getCookie('sessionId');
+
+    crearformoculto("formulariolistarinscripciones", "");
+
+    insertacampo(document.formulariolistarinscripciones,'ID_SESSION', idSession);
+    insertacampo(document.formulariolistarinscripciones,'controlador', 'inscripcion');
+    insertacampo(document.formulariolistarinscripciones,'action', 'buscar');
+
+    $.ajax({
+        method: "POST",
+        url: "http://193.147.87.202/ET3_IU/noRest.php",
+        data: $("#formulariolistarinscripciones").serialize(),  
+    }).done(function( response ) {       
+        if (response.ok == true) {
+            $("#datosInscripciones").html("");
+            for (var i = 0; i < response.resource.length; i++){
+                var tr = construyeFila(response.resource[i]);
+                $("#datosInscripciones").append(tr);
+            }
+            
+            setLang(idioma);
+        } else { 
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);         
+            $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+            $("#imagenAviso").attr('src', "images/icons/error.png");
+            setLang(idioma);
+            $("#modal").attr('style', 'display: block');
+        }              
+        
+        deleteActionController();
+    });
+}

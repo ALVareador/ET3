@@ -14,7 +14,7 @@
     <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 </head>
 
-<body onload="includeCabecera();validaAutenticado();getLisUsers();setLang('');">
+<body onload="includeCabecera();validaAutenticado();getLisInscripcion();setLang('');">
     <div id="menuIdioma"></div>
     <div id="UserDesconectar"></div>
     <div id="Funciones">
@@ -78,7 +78,7 @@
                 <select name='nombre_actividad' id='nombre_actividad'></select><br>
                 <!--Usuario que se inscribe-->
                 <label class='dni_usuario'></label>
-                <select name='dni_usuario' id='dni_usuario'></select><br>
+                <input type='text' name='dni_usuario' id='txtdniusuario' onblur=''><br>
                 <!--Fecha de la inscripcion-->
 
             </fieldset>
