@@ -50,6 +50,13 @@ arrayES={
 	'numCuenta_responsable' : 'Número de Cuenta',
 	'borrado_responsable' : 'Activo',
 
+	'fecha_solicitud_inscripcion' : 'Fecha Solicitud',
+	'documento_pago' : 'Documento Pago',
+	'fecha_pago_inscripcion' : 'Fecha Pago',
+	'fecha_aceptacion_inscripcion' : 'Fecha Aceptacion',
+
+	'nombre_actividad' : 'Nombre actividad',
+
 	//- warnning bloqueo mayusculas
 	'BLOQUEO_MAYUSCULAS' : 'Bloqueo de Mayúsculas activado',
 	'campoObligatorio' : 'Campo Obligatorio',

@@ -49,6 +49,14 @@ arrayEN={
 	'numCuenta_responsable' : 'Account Number',
 	'borrado_responsable' : 'Active',
 
+	
+	'fecha_solicitud_inscripcion' : 'Application date',
+	'documento_pago' : 'Payment Document',
+	'fecha_pago_inscripcion' : 'Pay day',
+	'fecha_aceptacion_inscripcion' : 'Acceptance Date',
+
+	'nombre_actividad' : 'Activity name',
+
 	//- warnning bloqueo mayusculas
 	'BLOQUEO_MAYUSCULAS' : 'Caps Lock enabled',
 	'campoObligatorio' : 'Required Field',

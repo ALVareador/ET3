@@ -50,6 +50,13 @@ arrayGA={
 	'numCuenta_responsable' : 'Número de Conta',
 	'borrado_responsable' : 'Activo',
 
+	'fecha_solicitud_inscripcion' : 'Fecha Solicitud',
+	'documento_pago' : 'Documento Pago',
+	'fecha_pago_inscripcion' : 'Fecha Pago',
+	'fecha_aceptacion_inscripcion' : 'Fecha Aceptacion',
+
+	'nombre_actividad' : 'Nome actividade',
+
 	//- warnning bloqueo mayusculas
 	'BLOQUEO_MAYUSCULAS' : 'Bloqueo de Maiúsculas activado',
 	'campoObligatorio' : 'Campo Obrigatorio',
