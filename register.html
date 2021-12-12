@@ -21,6 +21,7 @@ comprobarMail()
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/register.js"></script>
 
 	<script type="text/javascript" src="Locale/idioma.js"></script>
 	<script type="text/javascript" src="Locale/Lang_EN.js"></script>
@@ -35,22 +36,22 @@ comprobarMail()
 
 
 
-	<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:registrar();"
+	<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:registrarUsuario();"
 		onsubmit="comprobarLogin();">
 
 		<div class="div_Input">
 			<p>DNI:</p>
-			<input type="text" name="dni" id="Idni" onblur="return comprobarDNI();"> <br>
+			<input type="text" name="dni" id="Idni" onblur=""> <br>
 		</div>
 
 		<div class="div_Input">
 			<p>nombre:</p>
-			<input type="text" name="nombre" id="nombre" onblur="return comprobarNombre();"> <br>
+			<input type="text" name="nombre" id="nombre" onblur=""> <br>
 		</div>
 
 		<div class="div_Input">
 			<p>apellido:</p>
-			<input type="text" name="apellido" id="apellido" onblur="return comprobarApellido();"> <br>
+			<input type="text" name="apellido" id="apellido" onblur=""> <br>
 		</div>
 
 
@@ -58,17 +59,27 @@ comprobarMail()
 
 		<div class="div_Input">
 			<p>dirección:</p>
-			<input type="text" name="direccion" id="direccion" onblur="return comprobarDireccion();"> <br>
+			<input type="text" name="direccion" id="direccion" onblur=""> <br>
 		</div>
 
 		<div class="div_Input">
 			<p>teléfono:</p>
-			<input type="text" name="telefono" id="telefono" onblur="return comprobarTelefono();"> <br>
+			<input type="text" name="telefono" id="telefono" onblur=""> <br>
 		</div>
 
 		<div class="div_Input">
 			<p>mail:</p>
-			<input type="text" name="mail" id="mail" onblur="return comprobarMail();"> <br>
+			<input type="text" name="mail" id="mail" onblur=""> <br>
+		</div>
+
+		<div class="div_Input">
+			<p>usuario:</p>
+			<input type="text" name="usuario" id="usuario" onblur=""> <br>
+		</div>
+
+		<div class="div_Input">
+			<p>contraseña:</p>
+			<input type="text" name="contraseña" id="contraseña" onblur=""> <br>
 		</div>
 
 		<!--Foto persona-->
