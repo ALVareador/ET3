@@ -1,0 +1,107 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="js/showallinscripcion.js"></script>
+    <script type="text/javascript" src="js/editinscripcion.js"></script>
+    <script type="text/javascript" src="js/funcionesComunes.js"></script>
+    <script type="text/javascript" src="js/funcionesFormularios.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript" src="Locale/idioma.js"></script>
+    <script type="text/javascript" src="Locale/Lang_EN.js"></script>
+    <script type="text/javascript" src="Locale/Lang_ES.js"></script>
+    <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+</head>
+
+<body onload="includeCabecera();validaAutenticado();getLisInscripcion();setLang('');">
+    <div id="menuIdioma"></div>
+    <div id="UserDesconectar"></div>
+    <div id="Funciones">
+        <a class="ACCIONES">Insertar inscripcion</a>
+    </div>
+    <div id="divtablaInscripciones">
+        <table id="tablaInscripciones" border='1'>
+            <thead>
+                <th class="nombre_actividad">
+                    <div class="actividad"></div>
+                </th>
+                <th class="dni_usuario">
+                    <div class="usuario"></div>
+                </th>
+                <th class="fecha_solicitud_inscripcion">
+                </th>
+                <th class="documento_pago">
+                </th>
+                <th class="fecha_pago_inscripcion">
+                </th>
+                <th class="fecha_aceptacion_inscripcion">
+                </th>
+                <th class="borrado_inscipcion">
+                </th>
+                <th class="ACCIONES"></th>
+            </thead>
+            <tbody id="datosInscripciones">
+
+            </tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="modal" style="display:none">
+        <div id="contenido-interno">
+            <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
+            <div id="mensajeError"></div>
+            <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
+                <span class="tooltiptext iconCerrar"></span>
+            </a>
+        </div>
+    </div>
+
+    <a href="menu.html"><img src="./images/icons/volver.png" width="50px" /></a>
+
+    <div id="divdetalleinscripcion">
+    </div>
+
+    <div id='divformgenericoinscripcion' style="display:none">
+        <div id="tituloForms"></div>
+        <a onclick="cerrar('divformgenericoinscripcion','','');"><img src='./images/icons/close.png' width="50px"></a>
+        <form name='formgenericoinscripcion' id='formgenericoinscripcion' method="post" action="" onsubmit="">
+            <fieldset>
+                <legend class="datosInscripcion">Datos de la inscripcion:</legend>
+                <!-- Id Inscripcion-->
+                <label class='id_inscripcion'></label>
+                <input type='text' name='id' id='txtidInscripcion' onblur=''><br>
+                <!--Nombre de la Actividad a la que se va a inscribir-->
+                <label class='nombre_actividad'></label>
+                <select name='nombre_actividad' id='nombre_actividad'></select><br>
+                <!--Usuario que se inscribe-->
+                <label class='dni_usuario'></label>
+                <input type='text' name='dni_usuario' id='txtdniusuario' onblur=''><br>
+                <!--Fecha de la inscripcion-->
+
+            </fieldset>
+
+            <fieldset>
+                <legend class="datosPago">Datos del pago:</legend>
+                <!--Documento que acredita el Pago-->
+
+                <!--Fecha de realizacion del Pago-->
+
+                <!--Fecha aceptacion del Pago-->
+
+                <!--Borrado inscripcion-->
+                <select name='borrado_usuario' id='borrado_usuario'>
+                    <option value="0">Si</option>
+                    <option value="1">No</option>
+                </select><br>
+            </fieldset>
+
+            <button type='submit'><img src="./images/icons/editUser.png" width="50px" /></button><br>
+        </form>
+    </div>
+
+</body>
+
+</html>
