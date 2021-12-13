@@ -54,6 +54,7 @@ arrayES={
 	'documento_pago' : 'Documento Pago',
 	'fecha_pago_inscripcion' : 'Fecha Pago',
 	'fecha_aceptacion_inscripcion' : 'Fecha Aceptacion',
+	'borrado_inscripcion' : 'Activo',
 
 	'nombre_actividad' : 'Nombre actividad',
 

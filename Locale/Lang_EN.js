@@ -53,6 +53,7 @@ arrayEN={
 	'documento_pago' : 'Payment Document',
 	'fecha_pago_inscripcion' : 'Pay day',
 	'fecha_aceptacion_inscripcion' : 'Acceptance Date',
+	'borrado_inscripcion' : 'Active',
 
 	'nombre_actividad' : 'Activity name',
 
