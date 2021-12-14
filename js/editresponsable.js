@@ -1,4 +1,34 @@
 //*
+// funcion addresponsable, recibe los datos del formulario addresponsble y los envia al back
+//*
+function addresponsable() {
+
+	var idSession = getCookie('sessionId');
+
+	insertacampo(document.formaddresponsable,'ID_SESSION', idSession);
+   	addActionControler(document.formaddresponsable, "add", "responsable");
+
+	var idioma = getCookie('lang');
+
+	$.ajax({
+		method: "POST",
+	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
+	  	data: $("#formaddresponsable").serialize(),  
+	}).done(function( response ) {
+		if (response.ok == true) {
+			respuestaOKAjax();
+		} else {
+			respuestaKOAjax('add');
+		}
+
+		actualizaMensajesRespuestAjax(response.code);	
+				
+		deleteActionController();
+	});		
+
+}
+
+//*
 // funcion editresponsable, recibe los datos del formulario editresponsable y los envia al back
 //*
 function editresponsable() {
@@ -8,7 +38,7 @@ function editresponsable() {
 	insertacampo(document.formgenericoresponsable,'ID_SESSION', idSession);
    	addActionControler(document.formgenericoresponsable, "edit", "responsable");
 
-   	$("#txtidResponsable").attr("disabled", false);
+   	$("#txtidresponsable").attr("disabled", false);
 
 	var idioma = getCookie('lang');
 
@@ -78,20 +108,19 @@ function showEditarResponsable(id, dni_responsable, numCuenta_responsable, curri
 	$("#formgenericoresponsable").attr('onsubmit' , 'comprobareditsubmit();');
 
 	//rellenamos los tipo text
-	$("#txtidResponsable").val(id);
+	$("#txtidresponsable").val(id);
 	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
 	$("#txtcurriculumresponsable").val(curriculum_responsable);
+	$("#txtidresponsable").val(dni_responsable);
 
 	// rellenamos los onblur de los input que se validad
 	$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
 	$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
 
 	// se rellena los select
-	deleteoptionsSelect("dni_responsable");
-	rellenaid_grupo(dni_responsable, borrado_responsable);
-
+	
 	// se deshabilita el id para que no pueda cambiarse
-	$("#txtidResponsable").attr('disabled', true);	
+	//$("#txtidresponsable").attr('disabled', true);	
 
 }
 
@@ -145,22 +174,25 @@ function showDetalleResponsable(id, dni_responsable, numCuenta_responsable, curr
 	$("#txtdniresponsable").attr('disabled', true);
 	$("#formdetalleresponsable").append('<br>');
 
-	label = "<label class='responsable'></label>";
+	label = "<label class='numCuenta_responsable'></label>";
 	$("#formdetalleresponsable").append(label);
-	insertacampovisible(form,'txtresponsable',dni_responsable);
-	$("#txtresponsable").attr('disabled', true);
+	insertacampovisible(form,'txtnumcuentaresponsable',numCuenta_responsable);
+	$("#txtnumcuentaresponsable").attr('disabled', true);
 	$("#formdetalleresponsable").append('<br>');
 
-	label = "<label class='id_grupo'></label>"+
-			"<select name='id_grupo' id='id_grupo' ></select><br>"+
-            "<label class='borrado_responsable'></label>"+
+	label = "<label class='curriculum_responsable'></label>";
+	$("#formdetalleresponsable").append(label);
+	insertacampovisible(form,'txtcurriculumresponsable',curriculum_responsable);
+	$("#txtcurriculumresponsable").attr('disabled', true);
+	$("#formdetalleresponsable").append('<br>');
+
+	label = "<label class='borrado_responsable'></label>"+
             "<select name='borrado_responsable' id='borrado_responsable' >"+
             "       <option value='0'>Si</option>"+
             "       <option value='1'>No</option>"+
             "</select><br>";
     $("#formdetalleresponsable").append(label);
 
-	$("#id_grupo").attr('disabled', true);
 	$("#borrado_responsable").attr('disabled', true);
 
 	$("#divdetalleresponsable").append(formdetalleresponsable);
@@ -175,14 +207,12 @@ function showEliminarResponsable(id, dni_responsable, numCuenta_responsable, cur
 	$("#formgenericoresponsable").attr('action' , 'javascript:deleteresponsable();');
 	$("#formgenericoresponsable").attr('onsubmit' , '');
 
-    $("#txtidResponsable").val(id);
+    $("#txtidresponsable").val(id);
 	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
 	$("#txtcurriculumresponsable").val(curriculum_responsable);
+	$("#txtdniresponsable").val(dni_responsable);
 
-	deleteoptionsSelect("dni_responsable");
-	rellenaid_grupo(dni_responsable, borrado_responsable);
-
-	$("#txtidResponsable").attr('disabled', true);
+	$("#txtidresponsable").attr('disabled', true);
 	$("#txtdniresponsable").attr('disabled', true);
 	$("#txtnumcuentaresponsable").attr('disabled', true);
 	$("#txtcurriculumresponsable").attr('disabled', true);
@@ -191,23 +221,49 @@ function showEliminarResponsable(id, dni_responsable, numCuenta_responsable, cur
 
 }
 
+function showAddResponsable(){
+
+	// se resetea todo el formulario generico
+	resetearformularioresponsable();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoresponsable").attr('style', 'display: block');
+	$("#formgenericoresponsable").attr('action' , 'javascript:addresponsable();');
+	$("#formgenericoresponsable").attr('onsubmit' , 'comprobareditsubmit();');
+
+	//rellenamos los tipo text
+	/*$("#txtidresponsable").val("1");
+	$("#txtnumcuentaresponsable").val("1");
+	$("#txtcurriculumresponsable").val("1");*/
+
+	// rellenamos los onblur de los input que se validad
+	$("#txtdniresponsable").attr('onblur', 'comprobarDNI();');
+	$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
+	$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
+
+	// se rellena los select
+
+	// se deshabilita el id para que no pueda cambiarse
+	$("#txtidresponsable").attr('disabled', true);	
+	$("#txtnumcuentaresponsable").attr('disabled', false);	
+	$("#txtcurriculumresponsable").attr('disabled', false);	
+}
+
 function resetearformularioresponsable(idformUsado){
 
 	$("idformUsado").attr('action' , '');
 	$("idformUsado").attr('onsubmit' , '');
 
-	$("#txtidResponsable").attr('disabled', true);
+	$("#txtidresponsable").attr('disabled', true);
 	$("#txtdniresponsable").attr('disabled', true);
-	$("#txtnumcuentaresponsable").attr('disabled', true);
-	$("#txtcurriculumresponsable").attr('disabled', true);
 	$("#borrado_responsable").attr('disabled', true);
 
-	$("#txtidResponsable").val('');
+	$("#txtidresponsable").val('');
 	$("#txtdniresponsable").val('');
 	$("#txtnumcuentaresponsable").val('');
 	$("#txtcurriculumresponsable").val('');
 
-	$("#txtidResponsable").attr('onblur', '');
+	$("#txtidresponsable").attr('onblur', '');
 	$("#txtdniresponsable").attr('onblur', '');
 	$("#txtnumcuentaresponsable").attr('onblur', '');
 	$("#txtcurriculumresponsable").attr('onblur', '');
