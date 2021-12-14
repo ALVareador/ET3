@@ -107,11 +107,12 @@ function showEditarResponsable(id, dni_responsable, numCuenta_responsable, curri
 	$("#formgenericoresponsable").attr('action' , 'javascript:editresponsable();');
 	$("#formgenericoresponsable").attr('onsubmit' , 'comprobareditsubmit();');
 
+	console.log(curriculum_responsable);
 	//rellenamos los tipo text
 	$("#txtidresponsable").val(id);
 	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
 	$("#txtcurriculumresponsable").val(curriculum_responsable);
-	$("#txtidresponsable").val(dni_responsable);
+	$("#txtdniresponsable").val(dni_responsable);
 
 	// rellenamos los onblur de los input que se validad
 	$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');

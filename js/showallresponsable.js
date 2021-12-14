@@ -1,6 +1,6 @@
 function construyeFila(fila) {
 
-    let atributosFunciones = ["'" + fila.id + "'","'" + fila.dni_responsable + "'", "'" + fila.numCuenta_responsable + "'", "'" + fila.borrado_responsable + "'"];
+    let atributosFunciones = ["'" + fila.id + "'","'" + fila.dni_responsable + "'", "'" + fila.numCuenta_responsable + "'", "'" + fila.curriculum_responsable + "'", "'" + fila.borrado_responsable + "'"];
 
     var celdaAccionesDetalle = '<div><a onclick="showDetalleResponsable(' + atributosFunciones + 
                                ')" alt="Detalle Responsable"/>Detalle Responsable</a></div>';
@@ -13,6 +13,7 @@ function construyeFila(fila) {
 
     var filaTabla = '<tr> <td>' + fila.dni_responsable + 
                 '</td> <td>' + fila.numCuenta_responsable + 
+                '</td> <td>' + fila.curriculum_responsable + 
                 '</td> <td>' + fila.borrado_responsable +  
                 '</td> <td>' + celdaAcciones +  
                 '</td> </tr>';
