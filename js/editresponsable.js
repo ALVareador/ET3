@@ -158,7 +158,7 @@ function showDetalleResponsable(id, dni_responsable, numCuenta_responsable, curr
 	$('#divdetalleresponsable').attr('style', 'display: block');
 	$('#divdetalleresponsable').attr('style', 'border: 1px solid black');
 
-	crearformoculto('formdetalleresponsable','none');
+	crearformvisible('formdetalleresponsable','none');
     $('#formdetalleresponsable').attr('style', 'display: block');
 
     form = document.getElementById('formdetalleresponsable');
@@ -169,7 +169,7 @@ function showDetalleResponsable(id, dni_responsable, numCuenta_responsable, curr
 	$("#id").attr('disabled', true);
 	$("#formdetalleresponsable").append('<br>');
 
-	label = "<label class='dni_responsable'></label>";
+	label = "<label class='dni_responsable' disabled='disabled'></label>";
 	$("#formdetalleresponsable").append(label);
 	insertacampovisible(form,'txtdniresponsable',dni_responsable);
 	$("#txtdniresponsable").attr('disabled', true);
@@ -246,8 +246,8 @@ function showAddResponsable(){
 
 	// se deshabilita el id para que no pueda cambiarse
 	$("#txtidresponsable").attr('disabled', true);	
-	$("#txtnumcuentaresponsable").attr('disabled', false);	
-	$("#txtcurriculumresponsable").attr('disabled', false);	
+	//$("#txtnumcuentaresponsable").attr('disabled', false);	
+	//$("#txtcurriculumresponsable").attr('disabled', false);	
 }
 
 function resetearformularioresponsable(idformUsado){

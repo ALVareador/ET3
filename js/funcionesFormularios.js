@@ -14,6 +14,22 @@ function crearformoculto(name, action){
 	
 }
 
+/**Función para crear un formulario visible*/
+function crearformvisible(name, action){
+
+	if ( $("#" + name).length == 0) {
+
+		var formu = document.createElement('form');
+		document.body.appendChild(formu);
+	    formu.name = name;
+	    formu.action = action; 
+	    formu.id = name;  
+	    //formu.style.display = "none";
+
+	}
+	
+}
+
 /**Función para insertar campos en el formulario a mayores*/
 function insertacampo(form, name, value){
 	
