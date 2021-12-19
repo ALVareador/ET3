@@ -15,6 +15,7 @@ function comprobarLogin() {
         return true;
 	} else {
 		return false;
+		
 	}
 
 }
