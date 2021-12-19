@@ -46,7 +46,7 @@ function GetLisResponsables() {
                       //  alert(item.id);
                     }
                 }
-                alert(nodos);
+                //alert(nodos);
                 for (var i = 0; i < response.resource.length; i++){
                     var tr = construyeFila(response.resource[i]);
                     $("#datosResponsables").append(tr);
@@ -65,6 +65,7 @@ function GetLisResponsables() {
             deleteActionController();
         });
 }
+
 
 
 

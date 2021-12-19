@@ -3,8 +3,8 @@
 <head lang='es'>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script type="text/javascript" src="js/showallresponsable.js"></script>
-        <script type="text/javascript" src="js/editresponsable.js"></script>
-<script type="text/javascript" src="js/funcionesComunes.js"></script>
+        
+        <script type="text/javascript" src="js/funcionesComunes.js"></script>
         <script type="text/javascript" src="js/funcionesFormularios.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
 
@@ -21,7 +21,7 @@
         <div id="UserDesconectar"></div>
         <div id="Funciones">
 
-                <button src="editresponsable.js" onclick="showAddResponsable()" alt="Insertar responsable">Insertar responsable</button>
+                <button onclick="showAddResponsable()" alt="Insertar responsable">Insertar responsable</button>
                 <a href='addresponsable.html'>Insertar responsable</a>
         </div>
         <div id="divtablaResponsables">
@@ -64,7 +64,7 @@
         <div id='divformgenericoresponsable' style="display:none">
                 <div id="tituloForms"></div>
                 <a onclick = "cerrar('divformgenericoresponsable','','');"><img src = './images/icons/close.png' width="50px"></a>
-                <form name='formgenericoresponsable' id='formgenericoresponsable' onsubmit="">
+                <form name='formgenericoresponsable' id='formgenericoresponsable'>
                         
                         <label class='dni_responsable'></label>
                         <input type='text' name='dni_responsable' id='dni_responsable' onblur=''><br>
@@ -82,10 +82,9 @@
                         <select name='borrado_responsable' id='borrado_responsable' >
                                 <option value="0">Si</option>
                                 <option value="1">No</option>
-                        </select>
+                        </select><br>
 
-                        <br>
-                        <button src="js/editresponsable.js" type='submit'><img src="./images/icons/editUser.png" width="50px" onclick="addResponsable()"/></button><br>
+                        <button id='submitbuttom' src="js/editresponsable.js" type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
                 </form>
         </div>        
 
@@ -93,4 +92,5 @@
 
 
 </body>
+<script type="text/javascript" src="js/editresponsable.js"></script>
 </html>
