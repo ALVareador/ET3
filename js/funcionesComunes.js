@@ -1,6 +1,6 @@
 /**Función que valida el usuario*/
 function comprobarUser() {
-
+/*
 	document.getElementById("txtUsuario").style.borderWidth = "2px";
 		
 	if (validaNoVacio("txtUsuario", "errorFormatoUser", "usuarioLogin") && comprobarLetrasNumeros("txtUsuario", 15, 3, "errorFormatoUser", "usuarioLogin")) {
@@ -10,7 +10,7 @@ function comprobarUser() {
 		validacionKO("txtUsuario", "errorFormatoUser");		
 		return false;
 	}
-
+*/
 }
 
 /**Función que valida el dni*/
