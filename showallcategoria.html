@@ -1,0 +1,78 @@
+<html>
+
+<head lang='es'>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="js/showallcategoria.js"></script>
+        <script type="text/javascript" src="js/editcategoria.js"></script>
+        <script type="text/javascript" src="js/funcionesComunes.js"></script>
+        <script type="text/javascript" src="js/funcionesFormularios.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+
+        <script type="text/javascript" src="Locale/idioma.js"></script>
+        <script type="text/javascript" src="Locale/Lang_EN.js"></script>
+        <script type="text/javascript" src="Locale/Lang_ES.js"></script>
+        <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+
+
+</head>      
+
+<body onload="includeCabecera();validaAutenticado();getLisCategorias();setLang('');">
+        <div id="menuIdioma"></div>
+        <div id="UserDesconectar"></div>
+        <div id="Funciones">
+                <a href='addcategoria.html'>Insertar categoria</a>
+        </div>
+        <div id="divtablaCategorias">
+                <table id="tablaCategorias" border= '1'>
+                        <thead >
+                                <th class="nombre_categoria"><div class="categoria"></div>
+                                </th>
+                                <th class="descripcion_categoria"><div class="categoria"></div>
+                                </th>
+                                <th class="ACCIONES"></th>
+                        </thead>
+                        <tbody id="datosCategorias">
+
+                        </tbody>
+                        </tbody>
+                </table>
+        </div>
+
+        <div id="modal" style="display:none">
+                <div id="contenido-interno">
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
+                        <div id="mensajeError"></div>
+                        <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
+                                <span class="tooltiptext iconCerrar"></span>
+                        </a>
+                </div>
+        </div>
+
+
+        <a href="menu.html"><img src="./images/icons/volver.png" width="50px"  /></a>
+
+        <div id="divdetallecategoria">
+        </div>
+
+        <div id='divformgenericocategoria' style="display:none">
+                <div id="tituloForms"></div>
+                <a onclick = "cerrar('divformgenericocategoria','','');"><img src = './images/icons/close.png' width="50px"></a>
+                <form name='formgenericocategoria' id='formgenericocategoria' method="post" action="" onsubmit="">
+                        <label class='id_categoria'></label>
+                        <input type='text' name='id' id='inputtxtidcategoria' onblur=''><br>
+                        <label class='nombre_categoria'></label>
+                        <input type='text' name='nombre_categoria' id='inputtxtnombre_categoria' onblur=''><br>
+                        <div style="display:none" id="errorFormatoNombre"></div> 
+                        <label class='descripcion_categoria'></label>
+                        <input type='text' name='descripcion_categoria' id='inputtxtdescripcion_categoria' onblur=''><br>
+                        <div style="display:none" id="errorFormatoDescripcion"></div> 
+
+                        <br>
+                        <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
+                </form>
+        </div>        
+
+
+</body>
+</html>
