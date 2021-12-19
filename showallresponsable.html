@@ -65,18 +65,17 @@
                 <div id="tituloForms"></div>
                 <a onclick = "cerrar('divformgenericoresponsable','','');"><img src = './images/icons/close.png' width="50px"></a>
                 <form name='formgenericoresponsable' id='formgenericoresponsable' method="post" action="" onsubmit="">
-                        <label class='id_responsable'></label>
-                        <input type='text' name='id' id='txtidresponsable' onblur=''><br>
                         
                         <label class='dni_responsable'></label>
-                        <input type='text' name='dni_responsable' id='txtdniresponsable' onblur=''><br>
-
+                        <input type='text' name='dni_responsable' id='Inputtxtdniresponsable' onblur='return comprobarDNI();'><br>
+                        <div style="display:none" id="errorFormatoPass"></div> 
+                        
                         <label class='numCuenta_responsable'></label>
-                        <input type='text' name='numCuenta_responsable' id='txtnumcuentaresponsable' onblur=''><br>
+                        <input type='text' name='numCuenta_responsable' id='Inputtxtnumcuentaresponsable' onblur='return comprobarNumCuenta();'><br>
                         <div style="display:none" id="errorFormatoPass"></div> 
 
                         <label class='curriculum_responsable'></label>
-                        <input type='text' name='curriculum_responsable' id='txtcurriculumresponsable' onblur=''><br>
+                        <input type='text' name='curriculum_responsable' id='Inputtxtcurriculumresponsable' onblur='return comprobarPass();'><br>
                         <div style="display:none" id="errorFormatoPass"></div> 
                         
                         <label class='borrado_responsable'></label>
