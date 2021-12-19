@@ -6,7 +6,7 @@ function addresponsable() {
 	var idSession = getCookie('sessionId');
 
 	insertacampo(document.formaddresponsable,'ID_SESSION', idSession);
-   	addActionControler(document.formaddresponsable, "add", "responsable");
+   	addActionControler(document.formaddresponsable, "insertar", "responsable");
 
 	var idioma = getCookie('lang');
 

@@ -1,19 +1,21 @@
 //*
 // funcion addresponsable, recibe los datos del formulario addresponsble y los envia al back
 //*
-function addresponsable() {
+
+function addResponsable() {
+
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formaddresponsable,'ID_SESSION', idSession);
-   	addActionControler(document.formaddresponsable, "add", "responsable");
+	insertacampo(document.formgenericoresponsable,'ID_SESSION', idSession);
+   	addActionControler(document.formgenericoresponsable, "insertar", "responsable");
 
 	var idioma = getCookie('lang');
 
 	$.ajax({
 		method: "POST",
 	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formaddresponsable").serialize(),  
+	  	data: $("#formgenericoresponsable").serialize(),  
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
@@ -27,6 +29,7 @@ function addresponsable() {
 	});		
 
 }
+
 
 //*
 // funcion editresponsable, recibe los datos del formulario editresponsable y los envia al back

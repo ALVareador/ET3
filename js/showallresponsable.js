@@ -1,6 +1,6 @@
 function construyeFila(fila) {
 
-    let atributosFunciones = ["'" + fila.id + "'","'" + fila.dni_responsable + "'", "'" + fila.numCuenta_responsable + "'", "'" + fila.curriculum_responsable + "'", "'" + fila.borrado_responsable + "'"];
+    let atributosFunciones = ["'" + fila.dni_responsable + "'", "'" + fila.numCuenta_responsable + "'", "'" + fila.curriculum_responsable + "'", "'" + fila.borrado_responsable + "'"];
 
     var celdaAccionesDetalle = '<div><a onclick="showDetalleResponsable(' + atributosFunciones + 
                                ')" alt="Detalle Responsable"/>Detalle Responsable</a></div>';
@@ -21,21 +21,21 @@ function construyeFila(fila) {
     return filaTabla;
 }
 
-function getLisResponsables() {
+function GetLisResponsables() {
 
         var idioma = getCookie('lang');
         var idSession = getCookie('sessionId');
 
-        crearformoculto("formulariolistarresponsables", "");
+        crearformoculto("formgenericoresponsable", "");
 
-        insertacampo(document.formulariolistarresponsables,'ID_SESSION', idSession);
-        insertacampo(document.formulariolistarresponsables,'controlador', 'responsable');
-        insertacampo(document.formulariolistarresponsables,'action', 'buscar');
+        insertacampo(document.formgenericoresponsable,'ID_SESSION', idSession);
+        insertacampo(document.formgenericoresponsable,'controlador', 'responsable');
+        insertacampo(document.formgenericoresponsable,'action', 'buscar');
 
         $.ajax({
             method: "POST",
             url: "http://193.147.87.202/ET3_IU/noRest.php",
-            data: $("#formulariolistarresponsables").serialize(),  
+            data: $("#formgenericoresponsable").serialize(),  
         }).done(function( response ) {       
             if (response.ok == true) {
                 $("#datosResponsables").html("");
@@ -65,3 +65,6 @@ function getLisResponsables() {
             deleteActionController();
         });
 }
+
+
+
