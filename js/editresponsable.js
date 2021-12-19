@@ -3,8 +3,6 @@
 //*
 
 function addResponsable() {
-
-
 	var idSession = getCookie('sessionId');
 
 	insertacampo(document.formgenericoresponsable,'ID_SESSION', idSession);
@@ -24,12 +22,12 @@ function addResponsable() {
 		}
 
 		actualizaMensajesRespuestAjax(response.code);	
-				
+		
+		//eleminia del formulario los campos action y controlador
 		deleteActionController();
 	});		
 
-}
-
+};
 
 //*
 // funcion editresponsable, recibe los datos del formulario editresponsable y los envia al back
@@ -232,7 +230,7 @@ function showAddResponsable(){
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoresponsable").attr('style', 'display: block');
-	$("#formgenericoresponsable").attr('action' , 'javascript:addresponsable();');
+	$("#formgenericoresponsable").attr('action' , 'javascript:addResponsable();');
 	$("#formgenericoresponsable").attr('onsubmit' , 'comprobareditsubmit();');
 
 	//rellenamos los tipo text

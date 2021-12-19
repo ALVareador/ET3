@@ -177,9 +177,11 @@ function respuestaKOAjax(opcion) {
 
 /**Función que actualiza el mensaje con el código que nos llega de la petición Ajax y aplica estilos*/
 function actualizaMensajesRespuestAjax(codigo) {
-
+    console.log("actualizaMensajesRespuestAjax call");
+    console.log(codigo);
     $("#mensajeError").removeClass();
     $("#mensajeError").addClass(codigo); 
+    $("#mensajeError").append(codigo);
     $("#imagenAviso").attr('style', 'width: 16%; margin-top: 0');
     $("#modal").attr('style', 'background-color: rgba(1, 1, 1, 0.5); z-index: 1030; display: block'); 
 
