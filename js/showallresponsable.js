@@ -55,7 +55,8 @@ function GetLisResponsables() {
                 setLang(idioma);
             } else { 
                 $("#mensajeError").removeClass();
-                $("#mensajeError").addClass(response.code);         
+                $("#mensajeError").addClass(response.code);      
+                $("#mensajeError").append(response.code);   
                 $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
                 $("#imagenAviso").attr('src', "images/icons/error.png");
                 setLang(idioma);
