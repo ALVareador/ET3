@@ -34,6 +34,8 @@
                                 <th class="numPlazas_actividad"></th>
                                 <th class="color_actividad"></th>
                                 <th class="color_nombre_actividad"></th>
+                                <th class="id_espacio"></th>
+                                <th class="id_categoria"></th>
                                 <th class="ACCIONES">
                                 </th>
                         </thead>
@@ -61,13 +63,10 @@
         <div id="divdetalleActividad">
         </div>
 
-        <div id='DivformgenericoActividad' style="display:none">
+        <div id='divformgenericoActividad' style="display:none">
                 <div id="tituloForms"></div>
                 <a onclick = "cerrar('formgenericoActividad','','');"><img src = './images/icons/close.png' width="50px"></a>
                 <form name='formgenericoActividad' id='formgenericoActividad'>
-                    
-
-                        <!-- Añadir a traves del JS: id, id_Espacio, id_Categoria, controlador, accion-->
 
                         <label class='id_actividad'></label>
                         <input type='text' name='id_actividad' id='id_actividad' onblur=''><br>
@@ -78,15 +77,6 @@
                         <input type='text' name='nombre_actividad' id='nombre_actividad' onblur=''><br>
                         <div style="display:none" id="errorFormatoPass"></div> 
 
-                        <label class='descripcion_actividad'></label>
-                        <input type='text' name='descripcion_actividad' id='descripcion_actividad' onblur=''><br>
-                        <div style="display:none" id="errorFormatoPass"></div> 
-
-                        <!-- En http://193.147.87.202/ET3_IU/pruebanoREST.php aparecen 2 descripcion_actividad en vez de una, lo dejo con 1 por ahora-->
-                        <label class='descripcion_actividad'></label>
-                        <input type='text' name='descripcion_actividad' id='descripcion_actividad' onblur=''><br>
-                        <div style="display:none" id="errorFormatoPass"></div>
-                        
                         <label class='descripcion_actividad'></label>
                         <input type='text' name='descripcion_actividad' id='descripcion_actividad' onblur=''><br>
                         <div style="display:none" id="errorFormatoPass"></div> 
@@ -118,3 +108,5 @@
 <script type="text/javascript" src="js/editActividad.js"></script>
 <script type="text/javascript" src="js/showallActividad.js"></script>
 </html>
+
+

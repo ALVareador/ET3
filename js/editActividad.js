@@ -35,21 +35,20 @@ function addActividad() {
 //*
 // funcion editresponsable, recibe los datos del formulario editresponsable y los envia al back
 //*
-function editresponsable() {
+function editActividad() {
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericoresponsable,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericoresponsable, "edit", "responsable");
-
-   	$("#txtidresponsable").attr("disabled", false);
+    insertacampo(document.formgenericoActividad,'controlador', 'actividad');
+    insertacampo(document.formgenericoActividad,'action', 'editar');
+    insertacampo(document.formgenericoActividad,'ID_SESSION', idSession);
 
 	var idioma = getCookie('lang');
 
 	$.ajax({
 		method: "POST",
 	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formgenericoresponsable").serialize(),  
+	  	data: $("#formgenericoActividad").serialize(),  
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
@@ -69,12 +68,13 @@ function editresponsable() {
 //*
 // funcion deleteresponsable, recibe los datos del formulario formdeleteresponsable y los envia al back para borrarlo
 //*
-function deleteresponsable() {
+function deleteActividad() {
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericoresponsable,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericoresponsable, "delete", "responsable");
+    insertacampo(document.formgenericoActividad,'controlador', 'actividad');
+    insertacampo(document.formgenericoActividad,'action', 'borrar');
+    insertacampo(document.formgenericoActividad,'ID_SESSION', idSession);
 
    	$("#txtdniresponsable").attr("disabled", false);
 
@@ -83,7 +83,7 @@ function deleteresponsable() {
 	$.ajax({
 		method: "POST",
 	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formgenericoresponsable").serialize(),  
+	  	data: $("#formgenericoActividad").serialize(),  
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
@@ -101,26 +101,31 @@ function deleteresponsable() {
 }
 
 
-function showEditarResponsable(id, dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable){
+function showEditarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad,numPlazas_actividad,color_actividad,color_nombre_actividad,id_espacio,id_categoria){
 
+	console.log(" showEditarActividad -> showEditarActividad trigered");
 	// se resetea todo el formulario generico
-	resetearformularioresponsable();
+	//resetearformularioresponsable();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoresponsable").attr('style', 'display: block');
-	$("#formgenericoresponsable").attr('action' , 'javascript:editresponsable();');
-	$("#formgenericoresponsable").attr('onsubmit' , 'comprobareditsubmit();');
+	$("#divformgenericoActividad").attr('style', 'display: block');
+	$("#formgenericoActividad").attr('action' , 'javascript:editActividad();');
+	$("#formgenericoActividad").attr('onsubmit' , 'comprobareditsubmit();');
 
-	console.log(curriculum_responsable);
 	//rellenamos los tipo text
-	$("#txtidresponsable").val(id);
-	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
-	$("#txtcurriculumresponsable").val(curriculum_responsable);
-	$("#txtdniresponsable").val(dni_responsable);
+	$("#id_actividad").val(id_actividad);
+	$("#nombre_actividad").val(nombre_actividad);
+	$("#descripcion_actividad").val(descripcion_actividad);
+	$("#precio_actividad").val(precio_actividad);
+	$("#numPlazas_actividad").val(numPlazas_actividad);
+	$("#color_actividad").val(color_actividad);
+	$("#color_nombre_actividad").val(color_nombre_actividad);
+	$("#id_espacio").val(id_espacio);
+	$("#id_categoria").val(id_categoria);
 
 	// rellenamos los onblur de los input que se validad
-	$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
-	$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
+	//$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
+	//$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
 
 	// se rellena los select
 	
@@ -148,8 +153,31 @@ function comprobareditsubmit(){
 	}
 }
 
-function showDetalleResponsable(id, dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable){
+function showDetalleActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad,numPlazas_actividad,color_actividad,color_nombre_actividad,id_espacio,id_categoria){
 
+
+	console.log(" showDetalleResponsable -> showDetalleResponsable trigered");
+
+	// se resetea todo el formulario generico
+	//resetearformularioresponsable();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoActividad").attr('style', 'display: disabled');
+	$("#formgenericoActividad").attr('action' , 'javascript:editActividad();');
+	$("#formgenericoActividad").attr('onsubmit' , 'comprobareditsubmit();');
+
+	//rellenamos los tipo text
+	$("#id_actividad").val(id_actividad);
+	$("#nombre_actividad").val(nombre_actividad);
+	$("#descripcion_actividad").val(descripcion_actividad);
+	$("#precio_actividad").val(precio_actividad);
+	$("#numPlazas_actividad").val(numPlazas_actividad);
+	$("#color_actividad").val(color_actividad);
+	$("#color_nombre_actividad").val(color_nombre_actividad);
+	$("#id_espacio").val(id_espacio);
+	$("#id_categoria").val(id_categoria);
+	$("#submitbuttom");
+/*
 	//divdetalleresponsable = document.createElement('div');
 	//divdetalleresponsable.id = 'divdetalleresponsable';
 	//document.body.appendChild(divdetalleresponsable);
@@ -203,36 +231,45 @@ function showDetalleResponsable(id, dni_responsable, numCuenta_responsable, curr
 	$("#divdetalleresponsable").append(formdetalleresponsable);
 
 	setLang('');
-	
+	*/
 }
 
-function showEliminarResponsable(id, dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable){
+function showEliminarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad,numPlazas_actividad,color_actividad,color_nombre_actividad,id_espacio,id_categoria){
 
-	$("#divformgenericoresponsable").attr('style', 'display: block');
-	$("#formgenericoresponsable").attr('action' , 'javascript:deleteresponsable();');
-	$("#formgenericoresponsable").attr('onsubmit' , '');
+	console.log(" showDetalleResponsable -> showDetalleResponsable trigered");
 
-    $("#txtidresponsable").val(id);
-	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
-	$("#txtcurriculumresponsable").val(curriculum_responsable);
-	$("#txtdniresponsable").val(dni_responsable);
+	// se resetea todo el formulario generico
+	//resetearformularioresponsable();
 
-	$("#txtidresponsable").attr('disabled', true);
-	$("#txtdniresponsable").attr('disabled', true);
-	$("#txtnumcuentaresponsable").attr('disabled', true);
-	$("#txtcurriculumresponsable").attr('disabled', true);
-	$("#borrado_responsable").attr('disabled', true);
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoActividad").attr('style', 'display: disabled');
+	$("#formgenericoActividad").attr('action' , 'javascript:deleteActividad();');
+	$("#formgenericoActividad").attr('onsubmit' , 'comprobareditsubmit();');
+
+	//rellenamos los tipo text
+	$("#id_actividad").val(id_actividad);
+	$("#nombre_actividad").val(nombre_actividad);
+	$("#descripcion_actividad").val(descripcion_actividad);
+	$("#precio_actividad").val(precio_actividad);
+	$("#numPlazas_actividad").val(numPlazas_actividad);
+	$("#color_actividad").val(color_actividad);
+	$("#color_nombre_actividad").val(color_nombre_actividad);
+	$("#id_espacio").val(id_espacio);
+	$("#id_categoria").val(id_categoria);
+	$("#submitbuttom");
 
 
 }
 
 function showAddActividad(){
 
+	
+
 	// se resetea todo el formulario generico
 	resetearformularioresponsable();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#DivformgenericoActividad").attr('style', 'display: block');
+	$("#divformgenericoActividad").attr('style', 'display: block');
 	$("#formgenericoActividad").attr('action' , 'javascript:addActividad();');
 	$("#formgenericoActividad").attr('onsubmit' , 'comprobareditsubmit();');
 

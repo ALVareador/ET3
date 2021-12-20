@@ -1,6 +1,6 @@
 function construyeFila(fila) {
 
-    let atributosFunciones = [ "'" + fila.id_actividad + "'", "'" + fila.nombre_actividad + "'", "'" + fila.descripcion_actividad + "'", "'" + fila.precio_actividad + "'", "'" + fila.numPlazas_actividad + "'", "'" + fila.color_actividad + "'", "'" + fila.color_nombre_actividad + "'"];
+    let atributosFunciones = [ "'" + fila.id_actividad + "'", "'" + fila.nombre_actividad + "'", "'" + fila.descripcion_actividad + "'", "'" + fila.precio_actividad + "'", "'" + fila.numPlazas_actividad + "'", "'" + fila.color_actividad + "'", "'" + fila.color_nombre_actividad + "'","'" + fila.id_espacio + "'","'" + fila.id_categoria + "'"];
 
     var celdaAccionesDetalle = '<div><a onclick="showDetalleActividad(' + atributosFunciones + 
                                ')" alt="Detalle Actividad"/>Detalle Actividad</a></div>';
@@ -17,7 +17,9 @@ function construyeFila(fila) {
                 '</td> <td>' + fila.precio_actividad +  
                 '</td> <td>' + fila.numPlazas_actividad + 
                 '</td> <td>' + fila.color_actividad + 
-                '</td> <td>' + fila.color_nombre_actividad + 
+                '</td> <td>' + fila.color_nombre_actividad +
+                '</td> <td>' + fila.id_espacio +
+                '</td> <td>' + fila.id_categoria + 
                 '</td> <td>' + celdaAcciones +  
                 '</td> </tr>';
 
@@ -25,18 +27,18 @@ function construyeFila(fila) {
 }
 
 function GetLisActividades() {
-        console.log("GetLisActividades trigered");
+        console.log("GetLisActividades -> GetLisActividades trigered");
 
     var idioma = getCookie('lang');
     var idSession = getCookie('sessionId');
-    console.log("formulario oculto  construyendose");
+    console.log("GetLisActividades -> formulario oculto  construyendose");
     insertacampo(document.formgenericoActividad,'id_espacio', '');
     insertacampo(document.formgenericoActividad,'id_categoria', '');
     insertacampo(document.formgenericoActividad,'controlador', 'actividad');
     insertacampo(document.formgenericoActividad,'action', 'buscar');
     insertacampo(document.formgenericoActividad,'ID_SESSION', idSession);
 
-    console.log("formulario oculto  construido");
+    console.log("GetLisActividades ->formulario oculto  construido");
     console.log(document.formgenericoActividad);
 
     $.ajax({

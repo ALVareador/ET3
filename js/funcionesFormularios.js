@@ -35,7 +35,8 @@ function insertacampo(form, name, value){
 	
 	var formulario = form;
 	var input = document.createElement('input');
-	input.type = 'hidden';
+    //Al acabar habra que poner esto en hiden, pero para las pruebas se queda asi
+	input.type = 'shown';
 	input.name = name;
     input.id = name;
 	input.value = value;
