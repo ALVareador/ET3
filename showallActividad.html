@@ -27,6 +27,7 @@
         <div id="divtablaActividades">
                 <table id="tablaActividades" border= '1'>
                         <thead>
+                                <th class="id_actividad"></th>
                                 <th class="nombre_actividad"></th>
                                 <th class="descripcion_actividad"></th>
                                 <th class="precio_actividad"></th>
@@ -64,9 +65,14 @@
                 <div id="tituloForms"></div>
                 <a onclick = "cerrar('formgenericoActividad','','');"><img src = './images/icons/close.png' width="50px"></a>
                 <form name='formgenericoActividad' id='formgenericoActividad'>
-                        
+                    
 
                         <!-- Añadir a traves del JS: id, id_Espacio, id_Categoria, controlador, accion-->
+
+                        <label class='id_actividad'></label>
+                        <input type='text' name='id_actividad' id='id_actividad' onblur=''><br>
+                        <div style="display:none" id="errorFormatoPass"></div> 
+
 
                         <label class='nombre_actividad'></label>
                         <input type='text' name='nombre_actividad' id='nombre_actividad' onblur=''><br>

@@ -35,7 +35,7 @@ function insertacampo(form, name, value){
 	
 	var formulario = form;
 	var input = document.createElement('input');
-	input.type = 'show';
+	input.type = 'hidden';
 	input.name = name;
     input.id = name;
 	input.value = value;

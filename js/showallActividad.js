@@ -1,18 +1,18 @@
 function construyeFila(fila) {
 
-    let atributosFunciones = ["'" + fila.dni_responsable + "'", "'" + fila.numCuenta_responsable + "'", "'" + fila.curriculum_responsable + "'", "'" + fila.borrado_responsable + "'"];
+    let atributosFunciones = [ "'" + fila.id_actividad + "'", "'" + fila.nombre_actividad + "'", "'" + fila.descripcion_actividad + "'", "'" + fila.precio_actividad + "'", "'" + fila.numPlazas_actividad + "'", "'" + fila.color_actividad + "'", "'" + fila.color_nombre_actividad + "'"];
 
-    var celdaAccionesDetalle = '<div><a onclick="showDetalleResponsable(' + atributosFunciones + 
-                               ')" alt="Detalle Responsable"/>Detalle Responsable</a></div>';
-    var celdaAccionesEditar = '<div><a onclick="showEditarResponsable(' + atributosFunciones + 
-                                ')" alt="Editar Responsable"/>Editar Responsable</a></div>';
-    var celdaAccionesEliminar = '<div><a onclick="showEliminarResponsable(' + atributosFunciones + 
-                               ')" alt="Eliminar Responsable"/>Eliminar Responsable</a></div>';
+    var celdaAccionesDetalle = '<div><a onclick="showDetalleActividad(' + atributosFunciones + 
+                               ')" alt="Detalle Actividad"/>Detalle Actividad</a></div>';
+    var celdaAccionesEditar = '<div><a onclick="showEditarActividad(' + atributosFunciones + 
+                                ')" alt="Editar Actividad"/>Editar Actividad</a></div>';
+    var celdaAccionesEliminar = '<div><a onclick="showEliminarActividad(' + atributosFunciones + 
+                               ')" alt="Eliminar Actividad"/>Eliminar Actividad</a></div>';
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
-    var filaTabla = '<tr> <td>' + fila.nombre_actividad + 
-                '</td> <td>' + fila.numCuenta_responsable + 
+    var filaTabla = '<tr> <td>' + fila.id_actividad + 
+                '</td> <td>' + fila.nombre_actividad +  
                 '</td> <td>' + fila.descripcion_actividad + 
                 '</td> <td>' + fila.precio_actividad +  
                 '</td> <td>' + fila.numPlazas_actividad + 
@@ -30,12 +30,12 @@ function GetLisActividades() {
     var idioma = getCookie('lang');
     var idSession = getCookie('sessionId');
     console.log("formulario oculto  construyendose");
-    insertacampo(document.formgenericoActividad,'ID_SESSION', idSession);
-    insertacampo(document.formgenericoActividad,'controlador', 'actividad');
-    insertacampo(document.formgenericoActividad,'action', 'buscar');
-    insertacampo(document.formgenericoActividad,'id_actividad', '');
     insertacampo(document.formgenericoActividad,'id_espacio', '');
     insertacampo(document.formgenericoActividad,'id_categoria', '');
+    insertacampo(document.formgenericoActividad,'controlador', 'actividad');
+    insertacampo(document.formgenericoActividad,'action', 'buscar');
+    insertacampo(document.formgenericoActividad,'ID_SESSION', idSession);
+
     console.log("formulario oculto  construido");
     console.log(document.formgenericoActividad);
 

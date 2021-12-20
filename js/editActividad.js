@@ -2,13 +2,12 @@
 // funcion addresponsable, recibe los datos del formulario addresponsble y los envia al back
 //*
 
-function addResponsable() {
+function addActividad() {
 	var idSession = getCookie('sessionId');
 
-	//insertacampo(document.formgenericoresponsable,'ID_SESSION', idSession);             --> No se donde era, pero hay un sitio donde lo añade era algo del getList o algo asi.
-   	//addActionControler(document.formgenericoresponsable, "insertar", "responsable");	  --> Nofunciona bien, no añade el actio hay que revisarlo, las dos lineas de abajo sustituyen a esta.
-	insertacampo(document.formgenericoresponsable,"action", "insertar");
-	insertacampo(document.formgenericoresponsable,"controlador", "responsable");
+    insertacampo(document.formgenericoActividad,'controlador', 'actividad');
+    insertacampo(document.formgenericoActividad,'action', 'insertar');
+    insertacampo(document.formgenericoActividad,'ID_SESSION', idSession);
 
 	var idioma = getCookie('lang');
 	console.log(document.formgenericoresponsable);
@@ -16,7 +15,7 @@ function addResponsable() {
 	$.ajax({
 		method: "POST",
 	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formgenericoresponsable").serialize(),  
+	  	data: $("#formgenericoActividad").serialize(),  
 		
 	}).done(function( response ) {
 		if (response.ok == true) {
@@ -227,15 +226,15 @@ function showEliminarResponsable(id, dni_responsable, numCuenta_responsable, cur
 
 }
 
-function showAddResponsable(){
+function showAddActividad(){
 
 	// se resetea todo el formulario generico
 	resetearformularioresponsable();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoresponsable").attr('style', 'display: block');
-	$("#formgenericoresponsable").attr('action' , 'javascript:addResponsable();');
-	$("#formgenericoresponsable").attr('onsubmit' , 'comprobareditsubmit();');
+	$("#DivformgenericoActividad").attr('style', 'display: block');
+	$("#formgenericoActividad").attr('action' , 'javascript:addActividad();');
+	$("#formgenericoActividad").attr('onsubmit' , 'comprobareditsubmit();');
 
 	//rellenamos los tipo text
 	/*$("#txtidresponsable").val("1");
@@ -243,9 +242,9 @@ function showAddResponsable(){
 	$("#txtcurriculumresponsable").val("1");*/
 
 	// rellenamos los onblur de los input que se validad
-	$("#txtdniresponsable").attr('onblur', 'comprobarDNI();');
-	$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
-	$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
+	//$("#txtdniresponsable").attr('onblur', 'comprobarDNI();');
+	//$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
+	//$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
 
 	// se rellena los select
 
