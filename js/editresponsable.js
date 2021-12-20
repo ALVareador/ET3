@@ -5,15 +5,19 @@
 function addResponsable() {
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericoresponsable,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericoresponsable, "insertar", "responsable");
+	//insertacampo(document.formgenericoresponsable,'ID_SESSION', idSession);             --> No se donde era, pero hay un sitio donde lo añade era algo del getList o algo asi.
+   	//addActionControler(document.formgenericoresponsable, "insertar", "responsable");	  --> Nofunciona bien, no añade el actio hay que revisarlo, las dos lineas de abajo sustituyen a esta.
+	insertacampo(document.formgenericoresponsable,"action", "insertar");
+	insertacampo(document.formgenericoresponsable,"controlador", "responsable");
 
 	var idioma = getCookie('lang');
+	console.log(document.formgenericoresponsable);
 
 	$.ajax({
 		method: "POST",
 	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
 	  	data: $("#formgenericoresponsable").serialize(),  
+		
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
