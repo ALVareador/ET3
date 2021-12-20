@@ -165,6 +165,20 @@ arrayES={
 	'GRUPO_BORRAR_OK' : 'Grupo borrado correctamente',
 
 	//************************************************************************************************
+	// Categoría
+	//************************************************************************************************
+	"id_categoría":'Id de categoría',
+	"nombre_categoría":'Nombre de categoría',
+	"descripcion_categoría":'Descripción de categoría',
+	
+	//************************************************************************************************
+	// Espacio
+	//************************************************************************************************
+	"id_espacio":'Id de espacio',
+	"nombre_espacio":'Nombre de espacio',
+	"descripcion_espacio":'Descripción de espacio',
+
+	//************************************************************************************************
 	// Actividad
 	//************************************************************************************************
 
@@ -289,5 +303,5 @@ arrayES={
 	'ACTIVIDAD_BORRAR_NO_EXISTE':'La actividad a eliminar no existe',
 	'ACTIVIDAD_BORRAR_OK':'Actividad eliminada correctamente',
 	'USUARIO_BORRAR_OK':'Usuario eliminado correctamente',
-	'PERSONA_BORRAR_OK':'Persona eliminada corrcetamente',
+	'PERSONA_BORRAR_OK':'Persona eliminada correctamente',
 }

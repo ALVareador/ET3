@@ -1,0 +1,77 @@
+<html>
+
+<head lang='es'>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="js/showallespacio.js"></script>
+        <script type="text/javascript" src="js/editespacio.js"></script>
+        <script type="text/javascript" src="js/funcionesComunes.js"></script>
+        <script type="text/javascript" src="js/funcionesFormularios.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+
+        <script type="text/javascript" src="Locale/idioma.js"></script>
+        <script type="text/javascript" src="Locale/Lang_EN.js"></script>
+        <script type="text/javascript" src="Locale/Lang_ES.js"></script>
+        <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+
+
+</head>      
+
+<body onload="includeCabecera();validaAutenticado();getLisEspacios();setLang('');">
+        <div id="menuIdioma"></div>
+        <div id="UserDesconectar"></div>
+        <div id="Funciones">
+                <a href='addespacio.html'>Insertar espacio</a>
+        </div>
+        <div id="divtablaEspacios">
+                <table id="tablaEspacios" border= '1'>
+                        <thead >
+                                <th class="nombre_espacio"><div class="espacio"></div>
+                                </th>
+                                <th class="descripcion_espacio"><div class="espacio"></div>
+                                </th>
+                                <th class="ACCIONES"></th>
+                        </thead>
+                        <tbody id="datosEspacios">
+
+                        </tbody>
+                        </tbody>
+                </table>
+        </div>
+
+        <div id="modal" style="display:none">
+                <div id="contenido-interno">
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
+                        <div id="mensajeError"></div>
+                        <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
+                                <span class="tooltiptext iconCerrar"></span>
+                        </a>
+                </div>
+        </div>
+
+
+        <a href="menu.html"><img src="./images/icons/volver.png" width="50px"  /></a>
+
+        <div id="divdetalleespacio">
+        </div>
+
+        <div id='divformgenericoespacio' style="display:none">
+                <div id="tituloForms"></div>
+                <a onclick = "cerrar('divformgenericoespacio','','');"><img src = './images/icons/close.png' width="50px"></a>
+                <form name='formgenericoespacio' id='formgenericoespacio' method="post" action="" onsubmit="">
+                        <label class='id_espacio'></label>
+                        <input type='text' name='id' id='inputtxtidespacio' onblur=''><br>
+                        <label class='nombre_espacio'></label>
+                        <input type='text' name='nombre_espacio' id='inputtxtnombre_espacio' onblur=''><br>
+                        <div style="display:none" id="errorFormatoUser"></div> 
+                        <label class='descripcion_espacio'></label>
+                        <input type='text' name='descripcion_espacio' id='inputtxtdescripcion_espacio' onblur=''><br>
+
+                        <br>
+                        <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
+                </form>
+        </div>        
+
+
+</body>
+</html>

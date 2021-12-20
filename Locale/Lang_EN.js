@@ -136,6 +136,32 @@ arrayEN={
 	'02125' : 'Compromised password security. Long encrypted password',
 	'02126' : 'Compromised password security. Encrypted password with not allowed characters',
 
+	//************************************************************************************************
+	// Categoría
+	//************************************************************************************************
+	"id_categoría":'Category id',
+	"nombre_categoría":'Category name',
+	"descripcion_categoría":'Category description',
+	
+	//************************************************************************************************
+	// Espacio
+	//************************************************************************************************
+	"id_espacio":'Space Id',
+	"nombre_espacio":'Space Name',
+	"descripcion_espacio":'Space Description',
+
+	//************************************************************************************************
+	// Actividad
+	//************************************************************************************************
+
+	"id_actividad":'Id de actividad',
+	"nombre_actividad":'Nombre de actividad',
+	"descripcion_actividad":'Descripción de actividad',
+	"precio_actividad":'Precio de actividad',
+	"numPlazas_actividad":'NºPlazas',
+	"color_actividad":'Color de actividad',
+	"color_nombre_actividad":'Color del nombre de actividad',
+
 	//test
 	'PRUEBA' : 'Test',
 	'VALORESPERADO' : 'Expected Value',

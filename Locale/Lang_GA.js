@@ -137,6 +137,32 @@ arrayGA={
 	'02125' : 'Seguridade da password comprometida. Password  encriptada longa',
 	'02126' : 'Seguridade da password comprometida. Password  encriptada caracteres non permitidos',	
 
+	//************************************************************************************************
+	// Categoría
+	//************************************************************************************************
+	"id_categoría":'Id da categoría',
+	"nombre_categoría":'Nombre da categoría',
+	"descripcion_categoría":'Descripción da categoría',
+	
+	//************************************************************************************************
+	// Espacio
+	//************************************************************************************************
+	"id_espacio":'Id de espacio',
+	"nombre_espacio":'Nombre de espacio',
+	"descripcion_espacio":'Descripción de espacio',
+
+	//************************************************************************************************
+	// Actividad
+	//************************************************************************************************
+
+	"id_actividad":'Id da actividade',
+	"nombre_actividad":'Nome da actividade',
+	"descripcion_actividad":'Descripción da actividade',
+	"precio_actividad":'Precio de actividade',
+	"numPlazas_actividad":'NºPlazas',
+	"color_actividad":'Cor de actividade',
+	"color_nombre_actividad":'Cor do nome da actividade',
+
 	//test
 	'PRUEBA' : 'Proba',
 	'VALORESPERADO' : 'Valor Esperado',
