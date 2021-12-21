@@ -29,14 +29,48 @@ function addEspacio() {
 
 }
 
+function showAddEspacio(){
+
+	
+
+	// se resetea todo el formulario generico
+	resetearformularioespacio();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoEspacio").attr('style', 'display: block');
+	$("#formgenericoEspacio").attr('action' , 'javascript:addEspacio();');
+	$("#formgenericoEspacio").attr('onsubmit' , 'comprobareditsubmit();');
+
+	//rellenamos los tipo text
+	/*$("#txtidresponsable").val("1");
+	$("#txtnumcuentaresponsable").val("1");
+	$("#txtcurriculumresponsable").val("1");*/
+
+	// rellenamos los onblur de los input que se validad
+	
+	/*
+	$("#idEspacio").attr('onblur', 'comprobarDNI();');
+	$("#nombre_espacio").attr('onblur', 'comprobarNumCuenta();');
+	$("#descripcion_espacio").attr('onblur', 'comprobarCurriculum();');
+	*/
+
+	// se rellena los select
+
+	// se deshabilita el id para que no pueda cambiarse
+	//$("#idEspacio").attr('disabled', true);	
+	//$("#txtnumcuentaresponsable").attr('disabled', false);	
+	//$("#txtcurriculumresponsable").attr('disabled', false);	
+}
+
 function editEspacio() {
 
 	var idSession = getCookie('sessionId');
 
 	//insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericoEspacio, "edit", "espacio");
+	insertacampo(document.formgenericoEspacio,'controlador', 'espacio');
+    insertacampo(document.formgenericoEspacio,'action', 'editar');
 
-   	$("#idEspacio").attr("disabled", false);
+   	$("#id_espacio").attr("disabled", false);
 
 	var idioma = getCookie('lang');
 
@@ -68,9 +102,10 @@ function deleteEspacio() {
 	var idSession = getCookie('sessionId');
 
 	//insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericoEspacio, "delete", "espacio");
+	insertacampo(document.formgenericoEspacio,'controlador', 'espacio');
+    insertacampo(document.formgenericoEspacio,'action', 'borrar');
 
-   	$("#idEspacio").attr("disabled", false);
+   	$("#id_espacio").attr("disabled", false);
 
 	var idioma = getCookie('lang');
 
@@ -184,39 +219,6 @@ function showEliminarEspacio(id_espacio, nombre_espacio, descripcion_espacio){
 	$("#nombre_espacio").attr('disabled', true);
 	$("#descripcion_espacio").attr('disabled', true);
 	
-}
-
-function showAddEspacio(){
-
-	
-
-	// se resetea todo el formulario generico
-	resetearformularioespacio();
-
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoEspacio").attr('style', 'display: block');
-	$("#formgenericoEspacio").attr('action' , 'javascript:addEspacio();');
-	$("#formgenericoEspacio").attr('onsubmit' , 'comprobareditsubmit();');
-
-	//rellenamos los tipo text
-	/*$("#txtidresponsable").val("1");
-	$("#txtnumcuentaresponsable").val("1");
-	$("#txtcurriculumresponsable").val("1");*/
-
-	// rellenamos los onblur de los input que se validad
-	
-	/*
-	$("#idEspacio").attr('onblur', 'comprobarDNI();');
-	$("#nombre_espacio").attr('onblur', 'comprobarNumCuenta();');
-	$("#descripcion_espacio").attr('onblur', 'comprobarCurriculum();');
-	*/
-
-	// se rellena los select
-
-	// se deshabilita el id para que no pueda cambiarse
-	//$("#idEspacio").attr('disabled', true);	
-	//$("#txtnumcuentaresponsable").attr('disabled', false);	
-	//$("#txtcurriculumresponsable").attr('disabled', false);	
 }
 
 function resetearformularioespacio(idformUsado){
