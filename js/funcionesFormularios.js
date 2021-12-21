@@ -36,7 +36,7 @@ function insertacampo(form, name, value){
 	var formulario = form;
 	var input = document.createElement('input');
     //Al acabar habra que poner esto en hiden, pero para las pruebas se queda asi
-	input.type = 'shown';
+	input.type = 'hidden';
 	input.name = name;
     input.id = name;
 	input.value = value;
@@ -110,6 +110,8 @@ function addActionControler(form, action, controller) {
         	accion = 'test';
         break;
     }
+
+    console.log("addActionControler -> " + action);
 
     insertacampo(form,'action', accion); 
     insertacampo(form,'controlador', controller);

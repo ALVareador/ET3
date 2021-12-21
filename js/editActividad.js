@@ -5,12 +5,10 @@
 function addActividad() {
 	var idSession = getCookie('sessionId');
 
-    insertacampo(document.formgenericoActividad,'controlador', 'actividad');
-    insertacampo(document.formgenericoActividad,'action', 'insertar');
-    insertacampo(document.formgenericoActividad,'ID_SESSION', idSession);
+
+	addActionControler(document.formgenericoActividad,"add","actividad");
 
 	var idioma = getCookie('lang');
-	console.log(document.formgenericoresponsable);
 
 	$.ajax({
 		method: "POST",
@@ -28,6 +26,7 @@ function addActividad() {
 		
 		//eleminia del formulario los campos action y controlador
 		deleteActionController();
+		eliminarcampo("ID_SESSION");
 	});		
 
 };
@@ -39,9 +38,7 @@ function editActividad() {
 
 	var idSession = getCookie('sessionId');
 
-    insertacampo(document.formgenericoActividad,'controlador', 'actividad');
-    insertacampo(document.formgenericoActividad,'action', 'editar');
-    insertacampo(document.formgenericoActividad,'ID_SESSION', idSession);
+	addActionControler(document.formgenericoActividad,"edit","actividad");
 
 	var idioma = getCookie('lang');
 
@@ -72,9 +69,7 @@ function deleteActividad() {
 
 	var idSession = getCookie('sessionId');
 
-    insertacampo(document.formgenericoActividad,'controlador', 'actividad');
-    insertacampo(document.formgenericoActividad,'action', 'borrar');
-    insertacampo(document.formgenericoActividad,'ID_SESSION', idSession);
+	addActionControler(document.formgenericoActividad,"delete","actividad")
 
    	$("#txtdniresponsable").attr("disabled", false);
 
@@ -102,6 +97,18 @@ function deleteActividad() {
 
 
 function showEditarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad,numPlazas_actividad,color_actividad,color_nombre_actividad,id_espacio,id_categoria){
+	
+	//deshabilito todos los imputs
+	$("#id_actividad").attr('disabled',false);
+	$("#nombre_actividad").attr('disabled',false);
+	$("#descripcion_actividad").attr('disabled',false);
+	$("#precio_actividad").attr('disabled',false);
+	$("#numPlazas_actividad").attr('disabled',false);
+	$("#color_actividad").attr('disabled',false);
+	$("#color_nombre_actividad").attr('disabled',false);
+	$("#id_espacio").attr('disabled',false);
+	$("#id_categoria").attr('disabled',false);
+
 
 	console.log(" showEditarActividad -> showEditarActividad trigered");
 	// se resetea todo el formulario generico
@@ -114,6 +121,7 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
 
 	//rellenamos los tipo text
 	$("#id_actividad").val(id_actividad);
+	$("#id_actividad").attr('disabled',true);
 	$("#nombre_actividad").val(nombre_actividad);
 	$("#descripcion_actividad").val(descripcion_actividad);
 	$("#precio_actividad").val(precio_actividad);
@@ -176,62 +184,20 @@ function showDetalleActividad(id_actividad, nombre_actividad, descripcion_activi
 	$("#color_nombre_actividad").val(color_nombre_actividad);
 	$("#id_espacio").val(id_espacio);
 	$("#id_categoria").val(id_categoria);
-	$("#submitbuttom");
-/*
-	//divdetalleresponsable = document.createElement('div');
-	//divdetalleresponsable.id = 'divdetalleresponsable';
-	//document.body.appendChild(divdetalleresponsable);
+	$("#submitbuttom").remove();
 
-	$("#formdetalleresponsable").remove();
-	$("#botoncerrar").remove();
 
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divdetalleresponsable','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divdetalleresponsable').append(label);
-	$('#divdetalleresponsable').attr('style', 'display: block');
-	$('#divdetalleresponsable').attr('style', 'border: 1px solid black');
+	//deshabilito todos los imputs
+	$("#id_actividad").attr('disabled',true);
+	$("#nombre_actividad").attr('disabled',true);
+	$("#descripcion_actividad").attr('disabled',true);
+	$("#precio_actividad").attr('disabled',true);
+	$("#numPlazas_actividad").attr('disabled',true);
+	$("#color_actividad").attr('disabled',true);
+	$("#color_nombre_actividad").attr('disabled',true);
+	$("#id_espacio").attr('disabled',true);
+	$("#id_categoria").attr('disabled',true);
 
-	crearformvisible('formdetalleresponsable','none');
-    $('#formdetalleresponsable').attr('style', 'display: block');
-
-    form = document.getElementById('formdetalleresponsable');
-
-	label = "<label class='id_responsable'></label>";
-	$("#formdetalleresponsable").append(label);
-	insertacampovisible(form,'id',id);
-	$("#id").attr('disabled', true);
-	$("#formdetalleresponsable").append('<br>');
-
-	label = "<label class='dni_responsable' disabled='disabled'></label>";
-	$("#formdetalleresponsable").append(label);
-	insertacampovisible(form,'txtdniresponsable',dni_responsable);
-	$("#txtdniresponsable").attr('disabled', true);
-	$("#formdetalleresponsable").append('<br>');
-
-	label = "<label class='numCuenta_responsable'></label>";
-	$("#formdetalleresponsable").append(label);
-	insertacampovisible(form,'txtnumcuentaresponsable',numCuenta_responsable);
-	$("#txtnumcuentaresponsable").attr('disabled', true);
-	$("#formdetalleresponsable").append('<br>');
-
-	label = "<label class='curriculum_responsable'></label>";
-	$("#formdetalleresponsable").append(label);
-	insertacampovisible(form,'txtcurriculumresponsable',curriculum_responsable);
-	$("#txtcurriculumresponsable").attr('disabled', true);
-	$("#formdetalleresponsable").append('<br>');
-
-	label = "<label class='borrado_responsable'></label>"+
-            "<select name='borrado_responsable' id='borrado_responsable' >"+
-            "       <option value='0'>Si</option>"+
-            "       <option value='1'>No</option>"+
-            "</select><br>";
-    $("#formdetalleresponsable").append(label);
-
-	$("#borrado_responsable").attr('disabled', true);
-
-	$("#divdetalleresponsable").append(formdetalleresponsable);
-
-	setLang('');
-	*/
 }
 
 function showEliminarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad,numPlazas_actividad,color_actividad,color_nombre_actividad,id_espacio,id_categoria){
@@ -256,12 +222,36 @@ function showEliminarActividad(id_actividad, nombre_actividad, descripcion_activ
 	$("#color_nombre_actividad").val(color_nombre_actividad);
 	$("#id_espacio").val(id_espacio);
 	$("#id_categoria").val(id_categoria);
-	$("#submitbuttom");
+	$("#submitbuttom").remove();
+
+
+	//deshabilito todos los imputs
+	$("#id_actividad").attr('disabled',true);
+	$("#nombre_actividad").attr('disabled',true);
+	$("#descripcion_actividad").attr('disabled',true);
+	$("#precio_actividad").attr('disabled',true);
+	$("#numPlazas_actividad").attr('disabled',true);
+	$("#color_actividad").attr('disabled',true);
+	$("#color_nombre_actividad").attr('disabled',true);
+	$("#id_espacio").attr('disabled',true);
+	$("#id_categoria").attr('disabled',true);
 
 
 }
 
 function showAddActividad(){
+
+
+		//deshabilito todos los imputs
+		$("#id_actividad").attr('disabled',false);
+		$("#nombre_actividad").attr('disabled',false);
+		$("#descripcion_actividad").attr('disabled',false);
+		$("#precio_actividad").attr('disabled',false);
+		$("#numPlazas_actividad").attr('disabled',false);
+		$("#color_actividad").attr('disabled',false);
+		$("#color_nombre_actividad").attr('disabled',false);
+		$("#id_espacio").attr('disabled',false);
+		$("#id_categoria").attr('disabled',false);
 
 	
 

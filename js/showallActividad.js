@@ -32,10 +32,7 @@ function GetLisActividades() {
     var idioma = getCookie('lang');
     var idSession = getCookie('sessionId');
     console.log("GetLisActividades -> formulario oculto  construyendose");
-    insertacampo(document.formgenericoActividad,'id_espacio', '');
-    insertacampo(document.formgenericoActividad,'id_categoria', '');
-    insertacampo(document.formgenericoActividad,'controlador', 'actividad');
-    insertacampo(document.formgenericoActividad,'action', 'buscar');
+    addActionControler(document.formgenericoActividad,'search','actividad')
     insertacampo(document.formgenericoActividad,'ID_SESSION', idSession);
 
     console.log("GetLisActividades ->formulario oculto  construido");
@@ -73,5 +70,6 @@ function GetLisActividades() {
         }              
         
         deleteActionController();
+
     });
 }
