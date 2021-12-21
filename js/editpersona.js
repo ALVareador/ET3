@@ -1,242 +1,444 @@
 function addpersona() {
 
-	var idSession = getCookie('sessionId');
+    var idSession = getCookie('sessionId');
 
-	insertacampo(document.formaddpersona,'ID_SESSION', idSession);
-   	addActionControler(document.formaddpersona, "add", "persona");
+    insertacampo(document.formgenericopersona,'ID_SESSION', idSession);
+    addActionControler(document.formgenericopersona, "add", "persona");
+    
+    var idioma = getCookie('lang');
 
-	var idioma = getCookie('lang');
+    var formdata = $("#formgenericopersona").serialize();
+    var file = $("#txtsubefotopersona")[0].files[0];
+    var datos = new FormData();
+    datos.append("upload", file);
+    datos.append("formulario", formdata);
 
-	$.ajax({
-		method: "POST",
-	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formaddpersona").serialize(),  
-	}).done(function( response ) {
-		if (response.ok == true) {
-			respuestaOKAjax();
-		} else {
-			respuestaKOAjax('add');
-		}
+    $.ajax({
+        method: "POST",
+        url: urlPeticionesAjax,
+        data: datos,
+        contentType: false,
+        processData: false,
+    }).done(function( response ) {
+        if (response.ok == true) {
+            respuestaOKAjax();
+        } else {
+             respuestaKOAjax('add');
+        }
 
-		actualizaMensajesRespuestAjax(response.code);	
-				
-		deleteActionController();
-	});		
+        actualizaMensajesRespuestAjax(response.code);  
+
+        setLang(idioma);
+
+        resetearformulariopersona();
+
+        getLisPersonas();
+                
+    });     
 
 }
+
 function editpersona() {
 
-	var idSession = getCookie('sessionId');
+    var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericopersona,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericopersona, "edit", "persona");
+    insertacampo(document.formgenericoPersona,'ID_SESSION', idSession);
+    addActionControler(document.formgenericoPersona, "edit", "persona");
 
-   	$("#txtidPersona").attr("disabled", false);
+    $("#txtdnipersona").attr("disabled", false);
+    $("#txtfotopersona").attr("disabled", false);
 
-	var idioma = getCookie('lang');
+    var idioma = getCookie('lang');
 
-	$.ajax({
-		method: "POST",
-	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formgenericopersona").serialize(),  
-	}).done(function( response ) {
-		if (response.ok == true) {
-			respuestaOKAjax();
-		} else {
-			respuestaKOAjax('edit');
-		}
+    var formdata = $("#formgenericoPersona").serialize();
+    var file = $("#txtsubefotoPersona")[0].files[0];
+    var datos = new FormData();
+    datos.append("upload", file);
+    datos.append("formulario", formdata);
 
-		actualizaMensajesRespuestAjax(response.code);	
-				
-		setLang(idioma);
+    $.ajax({
+        method: "POST",
+        url: urlPeticionesAjax,
+        data: datos,
+        contentType: false,
+        processData: false,
+    }).done(function( response ) {
+        if (response.ok == true) {
+            respuestaOKAjax();
+        } else {
+            respuestaKOAjax('edit');
+        }
 
-		deleteActionController();
-	});		
+        actualizaMensajesRespuestAjax(response.code); 
+
+        resetearformulariopersona(); 
+
+        getLisPersonas() 
+                
+        setLang(idioma);
+
+    });     
 
 }
 
-//*
-// funcion deleteusuario, recibe los datos del formulario formdeleteusuario y los envia al back para borrarlo
-//*
+//
+// funcion deletepersona, recibe los datos del formulario formdeletegenerico modificado para delete y los envia al back para borrarlo
+//
 function deletepersona() {
 
-	var idSession = getCookie('sessionId');
+    var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericopersona,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericopersona, "delete", "persona");
+    insertacampo(document.formgenericoPersona,'ID_SESSION', idSession);
+    addActionControler(document.formgenericoPersona, "delete", "persona");
 
-   	$("#txtidPersona").attr("disabled", false);
+    $("#txtdnipersona").attr("disabled", false);
 
-	var idioma = getCookie('lang');
+    var idioma = getCookie('lang');
 
-	$.ajax({
-		method: "POST",
-	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formgenericopersona").serialize(),  
-	}).done(function( response ) {
-		if (response.ok == true) {
-			respuestaOKAjax();
-		} else {
-			respuestaKOAjax('borrar');
-		}
+    $.ajax({
+        method: "POST",
+        url: urlPeticionesAjax,
+        data: $("#formgenericoPersona").serialize(),  
+    }).done(function( response ) {
+        if (response.ok == true) {
+            respuestaOKAjax();
+        } else {
+            respuestaKOAjax('delete');
+        }
 
-		actualizaMensajesRespuestAjax(response.code);	
-				
-		setLang(idioma);
+        actualizaMensajesRespuestAjax(response.code); 
 
-		deleteActionController();
-	});		
+        resetearformulariopersona(); 
+
+        getLisPersonas() 
+                
+        setLang(idioma);
+
+    });     
+
+}
+
+function showInsertarPersona(){
+
+    // se resetea todo el formulario generico
+    resetearformulariopersona();
+
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericopersona").attr('style', 'display: block');
+    $("#formgenericopersona").attr('action' , 'javascript:addpersona();');
+    //$("#formgenericopersona").attr('onsubmit' , 'comprobaraddpersonasubmit();');
+
+    // eliminar input no necesario
+    $("#labeltxtfotopersona").attr('style','display:none');
+    $("#txtfotopersona").attr('style','display:none');
+    $("#txtfotopersona").attr('disabled',true);
+
+    // rellenamos los onblur de los input que se validan
+   
+    $("#txtdnipersona").attr('onblur', '');
+    $("#txtnombrepersona").attr('onblur', '');
+    $("#txtapellidospersona").attr('onblur', '');
+    $("#txtfechanacimientopersona").attr('onblur', '');
+    $("#txtdireccionpersona").attr('onblur', '');
+    $("#txttelefonopersona").attr('onblur', '');
+    $("#txtemailpersona").attr('onblur', '');
+    $("#txtsubefotopersona").attr('onblur','');
+    
+    //cambiar icono submit
+    $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
+ 
+}
+
+function showEliminarPersona(dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona){
+
+    // se resetea todo el formulario generico
+    resetearformulariopersona();
+
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericopersona").attr('style', 'display: block');
+    $("#formgenericopersona").attr('action' , 'javascript:deletepersona();');
+    $("#formgenericopersona").attr('onsubmit' , '');
+
+    // rellenamos los value de los input 
+
+    $("#txtdnipersona").val(dni_persona);
+    $("#txtnombrepersona").val(nombre_persona);
+    $("#txtapellidospersona").val(apellidos_persona);
+    $("#txtfechanacimientopersona").val(fechaNacimiento_persona);
+    $("#txtdireccionpersona").val(direccion_persona);
+    $("#txttelefonopersona").val(telefono_persona);
+    $("#txtemailpersona").val(email_persona);
+    $("#txtfotopersona").val(foto_persona);
+
+    $("#labeltxtsubefotopersona").attr('style','display:none');
+    $("#txtsubefotopersona").attr('style','display:none');
+        
+    // se deshabilitan todos los atributos para que no puedan cambiarse
+    $("#txtdnipersona").attr('disabled', true);
+    $("#txtnombrepersona").attr('disabled', true);
+    $("#txtapellidospersona").attr('disabled', true);
+    $("#txtfechanacimientopersona").attr('disabled', true);
+    $("#txtdireccionpersona").attr('disabled', true);
+    $("#txttelefonopersona").attr('disabled', true);
+    $("#txtemailpersona").attr('disabled', true);
+    $("#txtfotopersona").attr('disabled', true);
+    $("#txtesceliacopersona").attr('disabled', true); 
+    $("#txtborradopersona").attr('disabled', true);
+
+    // se rellena los select
+    $("#txtesceliacopersona option[value='" + esCeliaco_persona + "'").attr("selected",true);
+    $("#txtborradopersona option[value='" + borrado_persona + "'").attr("selected",true);
+
+    //cambiar icono submit
+    $("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");  
+        
+}
+
+//
+// Funcion para modificar un formulario generico para editar una persona
+//
+function showEditarPersona(dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona){
+
+    // se resetea todo el formulario generico
+    resetearformulariopersona();
+
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericopersona").attr('style', 'display: block');
+    $("#formgenericopersona").attr('action' , 'javascript:editpersona();');
+    $("#formgenericopersona").attr('onsubmit' , '');
+
+    // rellenamos los value de los input 
+
+    $("#txtdnipersona").val(dni_persona);
+    $("#txtnombrepersona").val(nombre_persona);
+    $("#txtapellidospersona").val(apellidos_persona);
+    $("#txtfechanacimientopersona").val(fechaNacimiento_persona);
+    $("#txtdireccionpersona").val(direccion_persona);
+    $("#txttelefonopersona").val(telefono_persona);
+    $("#txtemailpersona").val(email_persona);
+    $("#txtfotopersona").val(foto_persona);
+
+    // se deshabilitan todos los atributos para que no puedan cambiarse
+    $("#txtdnipersona").attr('disabled', true);
+    $("#txtfotopersona").attr('disabled', true);
+
+    // se rellena los select
+    $("#txtesceliacopersona option[value='" + esCeliaco_persona + "'").attr("selected",true);
+    $("#txtborradopersona option[value='" + borrado_persona + "'").attr("selected",true);
+
+    //cambiar icono submit
+    $("#iconoAcciones").attr('src', "./images/icons/editUser.png");  
 
 }
 
 //
-// Funcion para modificar un formulario generico para editar un usuario
+// Funcion para volver de ver el detalle de una persona
 //
-function showEditarPersona(id_persona, dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona){
+function detallepersona(){
 
-	// se resetea todo el formulario generico
-	resetearformulariopersona();
+        var idioma = getCookie('lang');
 
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericopersona").attr('style', 'display: block');
-	$("#formgenericopersona").attr('action' , 'javascript:editpersona();');
-	$("#formgenericopersona").attr('onsubmit' , 'comprobareditsubmit();');
+        resetearformulariopersona(); 
 
-	//rellenamos los tipo text
-	$("#txtidPersona").val(id_persona);
-	$("#nombre_Persona").val(nombre_grupo);
-	$("#descripcion_Persona").val(descripcion_grupo);
+        getLisPersonas() 
+                
+        setLang(idioma);    
+}
 
-	// rellenamos los onblur de los input que se validad
-	$("#nombre_persona").attr('onblur', 'comprobarNombre();');
-	$("#descripcion_persona").attr('onblur', 'comprobarDescripcion();');
+//
+// Funcion para modificar un formulario generico para mostrar el detalle de una persona
+//
+function showDetallePersona(dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona){
 
-	// se deshabilita el id para que no pueda cambiarse
-	$("#txtidPersona").attr('disabled', true);	
+    // se resetea todo el formulario generico
+    resetearformulariopersona();
+
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericopersona").attr('style', 'display: block');
+    $("#formgenericopersona").attr('action' , 'javascript:detallepersona();');
+    $("#formgenericopersona").attr('onsubmit' , '');
+
+    // rellenamos los value de los input 
+
+    $("#txtdnipersona").val(dni_persona);
+    $("#txtnombrepersona").val(nombre_persona);
+    $("#txtapellidospersona").val(apellidos_persona);
+    $("#txtfechanacimientopersona").val(fechaNacimiento_persona);
+    $("#txtdireccionpersona").val(direccion_persona);
+    $("#txttelefonopersona").val(telefono_persona);
+    $("#txtemailpersona").val(email_persona);
+    $("#txtfotopersona").val(foto_persona);
+
+    $("#labeltxtsubefotopersona").attr('style','display:none');
+    $("#txtsubefotopersona").attr('style','display:none');
+        
+    // se deshabilitan todos los atributos para que no puedan cambiarse
+    $("#txtdnipersona").attr('disabled', true);
+    $("#txtnombrepersona").attr('disabled', true);
+    $("#txtapellidospersona").attr('disabled', true);
+    $("#txtfechaNacimiento_persona").attr('disabled', true);
+    $("#txtdireccion_persona").attr('disabled', true);
+    $("#txttelefono_persona").attr('disabled', true);
+    $("#txtemail_persona").attr('disabled', true);
+    $("#txtfoto_persona").attr('disabled', true);
+    $("#txtesceliaco_persona").attr('disabled', true); 
+    $("#txtborrado_persona").attr('disabled', true);
+
+    // se rellena los select
+    $("#txtesceliaco_persona option[value='" + esCeliaco_persona + "'").attr("selected",true);
+    $("#txtborrado_persona option[value='" + borrado_persona + "'").attr("selected",true);
+
+    //cambiar icono submit
+    $("#iconoAcciones").attr('src', "./images/icons/volver.png");  
+
 
 }
 
-function comprobareditsubmit(){
+//*
+// funcion searchpersona, recibe los datos del formulario formgenericopersona y los envia al back
+//*
+function searchpersona() {
 
-	if(comprobarUser()) {
-		/*pass = document.getElementById("txtPassword").value;
-		longitud = document.getElementById("txtPassword").value.length;
-		if ((pass == null) || (longitud = 0)){
-			return true;
-	    } 
-	    else {
-			encriptar("txtPassword");
-			return true;
-		}*/
-		return true;
-	}
-	else {
-		return false;
-	}
-}
+    var idSession = getCookie('sessionId');
 
-function showDetallePersona(id_persona, dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona){
+    insertacampo(document.formgenericopersona,'ID_SESSION', idSession);
+    addActionControler(document.formgenericopersona, "search", "persona");
+    
+    var idioma = getCookie('lang');
 
-	$("#formdetallepersona").remove();
-	$("#botoncerrar").remove();
+    $.ajax({
+        method: "POST",
+        url: urlPeticionesAjax,
+        data: $("#formgenericopersona").serialize(),  
+    }).done(function( response ) {
+        if (response.ok == true) {
+            $("#datosPersonas").html("");
+                for (var i = 0; i < response.resource.length; i++){
+                    var tr = construyeFilapersona(response.resource[i]);
+                    $("#datosPersonas").append(tr);
+                }
+                
+            setLang(idioma);
+        } else {
+             respuestaKOAjax('search');
+        }
 
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divdetallepersona','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divdetallepersona').append(label);
-	$('#divdetallepersona').attr('style', 'display: block');
-	$('#divdetallepersona').attr('style', 'border: 1px solid black');
+        setLang(idioma);
 
-	crearformoculto('formdetallepersona','none');
-    $('#formdetallepersona').attr('style', 'display: block');
+        resetearformulariopersona();
 
-    form = document.getElementById('formdetallepersona');
-
-	label = "<label class='id_persona'></label>";
-	$("#formdetallepersona").append(label);
-	insertacampovisible(form,'id',id);
-	$("#id").attr('disabled', true);
-	$("#formdetallepersona").append('<br>');
-
-	label = "<label class='nombre_persona'></label>";
-	$("#formdetallepersona").append(label);
-	insertacampovisible(form,'txtnombre_persona',dni_usuario);
-	$("#txtnombre_persona").attr('disabled', true);
-	$("#formdetallepersona").append('<br>');
-
-	label = "<label class='descripcion_persona'></label>";
-	$("#formdetallepersona").append(label);
-	$("#txtpersona").attr('disabled', true);
-	$("#formdetallepersona").append('<br>');
-
-    $("#formdetallepersona").append(label);
-	$("#divdetallepersona").append(formdetallepersona);
-
-	setLang('');
-	
-}
-
-function showEliminarUsuario(id_persona, dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona){
-
-	$("#divformgenericopersona").attr('style', 'display: block');
-	$("#formgenericopersona").attr('action' , 'javascript:deletepersona();');
-	$("#formgenericopersona").attr('onsubmit' , '');
-
-    $("#txtidPersona").val(id_persona);
-    $("#dni_persona").val(dni_persona);
-    $("#nombre_persona").val(nombre_persona);
-    $("#apellidos_persona").val(apellidos_persona);
-    $("#fechaNacimiento_persona").val(fechaNacimiento_persona);
-    $("#direccion_persona").val(direccion_persona);
-    $("#telefono_persona").val(telefono_persona);
-    $("#email_persona").val(email_persona);
-    $("#foto_persona").val(foto_persona);
-    $("#esCeliaco_persona").val(esCeliaco_persona);
-
-    $("#idPersona").attr('disabled', true);
-	$("#dni_persona").attr('disabled', true);
-	$("#nombre_persona").attr('disabled', true);
-    $("#fechaNacimiento_persona").attr('disabled', true);
-	$("#direccion_persona").attr('disabled', true);
-    $("#telefono_persona").attr('disabled', true);
-	$("#email_persona").attr('disabled', true);
-    $("#foto_persona").attr('disabled', true);
-	$("#esCeliaco_persona").attr('disabled', true);
-}
-
-function resetearformulariopersona(idformUsado){
-
-	$("idformUsado").attr('action' , '');
-	$("idformUsado").attr('onsubmit' , '');
-
-	$("#txtidPersona").attr('disabled', false);
-	$("#dni_persona").attr('disabled', false);
-	$("#nombre_persona").attr('disabled', false);
-    $("#fechaNacimiento_persona").attr('disabled', false);
-	$("#direccion_persona").attr('disabled', false);
-    $("#telefono_persona").attr('disabled', false);
-	$("#email_persona").attr('disabled', false);
-    $("#foto_persona").attr('disabled', false);
-	$("#esCeliaco_persona").attr('disabled', false);
-
-    $("#txtidPersona").val('');
-    $("#dni_persona").val('');
-    $("#nombre_persona").val('');
-    $("#fechaNacimiento_persona").val('');
-    $("#direccion_persona").val('');
-    $("#telefono_persona").val('');
-    $("#email_persona").val('');
-    $("#foto_persona").val('');
-    $("#esCeliaco_persona").val('');
-
-    $("#txtidPersona").attr('onblur', '');
-    $("#dni_persona").attr('onblur', '');
-    $("#nombre_persona").attr('onblur', '');
-    $("#fechaNacimiento_persona").attr('onblur', '');
-    $("#direccion_persona").attr('onblur', '');
-    $("#telefono_persona").attr('onblur', '');
-    $("#email_persona").attr('onblur', '');
-    $("#foto_persona").attr('onblur', '');
-    $("#esCeliaco_persona").attr('onblur', '');
-
-	$("divformgenericopersona").attr('style', 'display: none');
+                
+    });     
 
 }
+
+//
+// Funcion para modificar un formulario generico para buscar una persona
+//
+function showBuscarPersona(){
+
+    // se resetea todo el formulario generico
+    resetearformulariopersona();
+
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericopersona").attr('style', 'display: block');
+    $("#formgenericopersona").attr('action' , 'javascript:searchpersona();');
+    //$("#formgenericopersona").attr('onsubmit' , 'comprobaraddpersonasubmit();');
+
+    // eliminar input no necesario
+    $("#labeltxtsubefotopersona").attr('style','display:none');
+    $("#txtsubefotopersona").attr('style','display:none');
+    $("#txtsubefotopersona").attr('disabled',true);
+
+    // rellenamos los onblur de los input que se validan
+   
+    $("#txtdni_persona").attr('onblur', '');
+    $("#txtnombre_persona").attr('onblur', '');
+    $("#txtapellidos_persona").attr('onblur', '');
+    $("#txtfechaNacimiento_persona").attr('onblur', '');
+    $("#txtdireccion_persona").attr('onblur', '');
+    $("#txttelefono_persona").attr('onblur', '');
+    $("#txtemail_persona").attr('onblur', '');
+    $("#txtfoto_persona").attr('onblur','');
+
+    //dar valores neutros a los desplegables
+    var opcion = document.createElement("option");
+    opcion.value = '';
+    opcion.text = '---';
+    document.getElementById('txtesceliaco_persona').add(opcion);
+    $("#txtesceliacopersona option[value='']").attr("selected",true);
+
+    var opcion = document.createElement("option");
+    opcion.value = '';
+    opcion.text = '---';
+    document.getElementById('txtborradopersona').add(opcion);
+    $("#txtborradopersona option[value='']").attr("selected",true);
+    
+    //cambiar icono submit
+    $("#iconoAcciones").attr('src', "./images/icons/searchUser.png");
+ 
+}
+
+
+function resetearformulariopersona(){
+
+    $("#formgenericopersona").attr('action' , '');
+    $("#formgenericopersona").attr('onsubmit' , '');
+
+    $("#txtdnipersona").val('');
+    $("#txtnombrepersona").val('');
+    $("#txtapellidospersona").val('');
+    $("#txtfechanacimientopersona").val('');
+    $("#txtdireccionpersona").val('');
+    $("#txttelefonopersona").val('');
+    $("#txtemailpersona").val('');
+    $("#txtfotopersona").val('');
+    $("#txtesceliacopersona").val('0'); //hacer funcion eliminacion selected en options
+    $("#txtborradopersona").val('0'); //hacer funcion eliminacion selected en options
+
+    $("#txtdnipersona").attr('disabled', false);
+    $("#txtnombrepersona").attr('disabled', false);
+    $("#txtapellidospersona").attr('disabled', false);
+    $("#txtfechanacimientopersona").attr('disabled', false);
+    $("#txtdireccionpersona").attr('disabled', false);
+    $("#txttelefonopersona").attr('disabled', false);
+    $("#txtemailpersona").attr('disabled', false);
+    $("#txtfotopersona").attr('disabled', false);
+    $("#txtsubefotopersona").attr('disabled', false);
+    $("#txtesceliacopersona").attr('disabled', false); 
+    $("#txtborradopersona").attr('disabled', false);
+
+    $("#txtdnipersona").attr('onblur', '');
+    $("#txtnombrepersona").attr('onblur', '');
+    $("#txtapellidospersona").attr('onblur', '');
+    $("#txtfechanacimientopersona").attr('onblur', '');
+    $("#txtdireccionpersona").attr('onblur', '');
+    $("#txttelefonopersona").attr('onblur', '');
+    $("#txtemailpersona").attr('onblur', '');
+    $("#txtfotopersona").attr('onblur', '');
+    $("#txtsubefotopersona").attr('onblur', '');
+
+    $("#labeltxtfotopersona").attr('style','display:block');
+    $("#txtfotopersona").attr('style','display:block');
+    $("#labeltxtsubefotopersona").attr('style','display:block');
+    $("#txtsubefotopersona").attr('style','display:block');
+
+    session = document.getElementById('ID_SESSION');
+    if (session != null){ session.remove(); }
+    controlador = document.getElementById('controlador');
+    if (controlador != null){ controlador.remove(); }
+    action = document.getElementById('action');
+    if (action != null){ action.remove(); }
+
+    // borrar options por defecto para las busquedas
+    document.getElementById('txtesceliacopersona').remove(2);
+    document.getElementById('txtborradopersona').remove(2);
+
+
+    //cambiar icono submit
+    $("#iconoAcciones").attr('src', ""); 
+        
+    $("#divformgenericopersona").attr('style', 'display: none');
+
+}
+

@@ -20,18 +20,21 @@
         <div id="menuIdioma"></div>
         <div id="UserDesconectar"></div>
         <div id="Funciones">
-                <a href='addespacio.html'>Insertar espacio</a>
+                <button onclick="showAddEspacio()" alt="Insertar Espacio">Insertar Espacio</button>
         </div>
+
         <div id="divtablaEspacios">
                 <table id="tablaEspacios" border= '1'>
                         <thead >
-                                <th class="nombre_espacio"><div class="espacio"></div>
+                                <th class="id_espacio"></div>
                                 </th>
-                                <th class="descripcion_espacio"><div class="espacio"></div>
+                                <th class="nombre_espacio"></div>
+                                </th>
+                                <th class="descripcion_espacio"></div>
                                 </th>
                                 <th class="ACCIONES"></th>
                         </thead>
-                        <tbody id="datosEspacios">
+                        <tbody id="datosEspacio">
 
                         </tbody>
                         </tbody>
@@ -52,20 +55,18 @@
 
         <a href="menu.html"><img src="./images/icons/volver.png" width="50px"  /></a>
 
-        <div id="divdetalleespacio">
-        </div>
-
-        <div id='divformgenericoespacio' style="display:none">
+        <div id='divformgenericoEspacio' style="display:none">
                 <div id="tituloForms"></div>
-                <a onclick = "cerrar('divformgenericoespacio','','');"><img src = './images/icons/close.png' width="50px"></a>
-                <form name='formgenericoespacio' id='formgenericoespacio' method="post" action="" onsubmit="">
+                <a onclick = "cerrar('divformgenericoEspacio','','');"><img src = './images/icons/close.png' width="50px"></a>
+                <form name='formgenericoEspacio' id='formgenericoEspacio' method="post" action="" onsubmit="">
                         <label class='id_espacio'></label>
-                        <input type='text' name='id' id='inputtxtidespacio' onblur=''><br>
+                        <input type='text' name='id' id='id_espacio' onblur=''><br>
                         <label class='nombre_espacio'></label>
-                        <input type='text' name='nombre_espacio' id='inputtxtnombre_espacio' onblur=''><br>
+                        <input type='text' name='nombre_espacio' id='nombre_espacio' onblur=''><br>
                         <div style="display:none" id="errorFormatoUser"></div> 
                         <label class='descripcion_espacio'></label>
-                        <input type='text' name='descripcion_espacio' id='inputtxtdescripcion_espacio' onblur=''><br>
+                        <input type='text' name='descripcion_espacio' id='descripcion_espacio' onblur=''><br>
+                        <div style="display:none" id="errorFormatoUser"></div> 
 
                         <br>
                         <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>

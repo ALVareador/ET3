@@ -1,21 +1,48 @@
 //*
 // funcion addusuario, recibe los datos del formulario addusuario y los envia al back
 //*
-function editespacio() {
+function addEspacio() {
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericoespacio,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericoespacio, "edit", "espacio");
-
-   	$("#txtidEspacio").attr("disabled", false);
+	insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession);
+   	addActionControler(document.formgenericoEspacio, "add", "espacio");
 
 	var idioma = getCookie('lang');
 
 	$.ajax({
 		method: "POST",
 	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formgenericoespacio").serialize(),  
+	  	data: $("#formgenericoEspacio").serialize(),  
+	}).done(function( response ) {
+		if (response.ok == true) {
+			respuestaOKAjax();
+		} else {
+			respuestaKOAjax('add');
+		}
+
+		actualizaMensajesRespuestAjax(response.code);	
+				
+		deleteActionController();
+	});		
+
+}
+
+function editEspacio() {
+
+	var idSession = getCookie('sessionId');
+
+	insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession);
+   	addActionControler(document.formgenericoEspacio, "edit", "espacio");
+
+   	$("#idEspacio").attr("disabled", false);
+
+	var idioma = getCookie('lang');
+
+	$.ajax({
+		method: "POST",
+	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
+	  	data: $("#formgenericoEspacio").serialize(),  
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
@@ -35,21 +62,21 @@ function editespacio() {
 //*
 // funcion deleteusuario, recibe los datos del formulario formdeleteusuario y los envia al back para borrarlo
 //*
-function deleteespacio() {
+function deleteEspacio() {
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericoespacio,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericoespacio, "delete", "espacio");
+	insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession);
+   	addActionControler(document.formgenericoEspacio, "delete", "espacio");
 
-   	$("#txtidEspacio").attr("disabled", false);
+   	$("#idEspacio").attr("disabled", false);
 
 	var idioma = getCookie('lang');
 
 	$.ajax({
 		method: "POST",
 	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formgenericoespacio").serialize(),  
+	  	data: $("#formgenericoEspacio").serialize(),  
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
@@ -69,27 +96,27 @@ function deleteespacio() {
 //
 // Funcion para modificar un formulario generico para editar un usuario
 //
-function showEditarUsuario(id_espacio, nombre_espacio, descripcion_espacio){
+function showEditarEspacio(id_espacio, nombre_espacio, descripcion_espacio){
 
 	// se resetea todo el formulario generico
 	resetearformularioespacio();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoespacio").attr('style', 'display: block');
-	$("#formgenericoespacio").attr('action' , 'javascript:editespacio();');
-	$("#formgenericoespacio").attr('onsubmit' , 'comprobareditsubmit();');
+	$("#divformgenericoEspacio").attr('style', 'display: block');
+	$("#formgenericoEspacio").attr('action' , 'javascript:editEspacio();');
+	$("#formgenericoEspacio").attr('onsubmit' , 'comprobareditsubmit();');
 
 	//rellenamos los tipo text
-	$("#txtidEspacio").val(id_espacio);
-	$("#txtnombre_espacio").val(nombre_espacio);
-	$("#txtdescripcion_espacio").val(descripcion_espacio);
+	$("#id_espacio").val(id_espacio);
+	$("#nombre_espacio").val(nombre_espacio);
+	$("#descripcion_espacio").val(descripcion_espacio);
 
 	// rellenamos los onblur de los input que se validad
-	$("#txtnombre_espacio").attr('onblur', 'comprobarNombre();');
-	$("#txtdescripcion_espacio").attr('onblur', 'comprobarDescripcion();');
+	$("#nombre_espacio").attr('onblur', 'comprobarNombreEspacio();');
+	$("#descripcion_espacio").attr('onblur', 'comprobarDescripcionEspacio();');
 
 	// se deshabilita el id para que no pueda cambiarse
-	$("#txtidEspacio").attr('disabled', true);	
+	$("#id_espacio").attr('disabled', true);	
 
 }
 
@@ -103,78 +130,109 @@ function comprobareditsubmit(){
 	}
 }
 
-function showDetalleUsuario(id_espacio, nombre_espacio, descripcion_espacio){
+function showDetalleEspacio(id_espacio, nombre_espacio, descripcion_espacio){
 
-	$("#formdetalleespacio").remove();
+	$("#formdetalleEspacio").remove();
 	$("#botoncerrar").remove();
 
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divdetalleespacio','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divdetalleespacio').append(label);
-	$('#divdetalleespacio').attr('style', 'display: block');
-	$('#divdetalleespacio').attr('style', 'border: 1px solid black');
+	label = "<div id='botoncerrar'><a onclick = \"cerrar('divdetalleEspacio','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
+	$('#divdetalleEspacio').append(label);
+	$('#divdetalleEspacio').attr('style', 'display: block');
+	$('#divdetalleEspacio').attr('style', 'border: 1px solid black');
 
-	crearformoculto('formdetalleespacio','none');
-    $('#formdetalleespacio').attr('style', 'display: block');
+	crearformvisible('formdetalleEspacio','none');
+    $('#formdetalleEspacio').attr('style', 'display: block');
 
-    form = document.getElementById('formdetalleespacio');
+    form = document.getElementById('formdetalleEspacio');
 
 	label = "<label class='id_espacio'></label>";
-	$("#formdetalleespacio").append(label);
-	insertacampovisible(form,'id',id);
-	$("#id").attr('disabled', true);
-	$("#formdetalleespacio").append('<br>');
+	$("#formdetalleEspacio").append(label);
+	insertacampovisible(form,'blid_espacio',id_espacio);
+	$("#blid_espacio").attr('disabled', true);
+	$("#formdetalleEspacio").append('<br>');
 
-	label = "<label class='nombre_espacio'></label>";
-	$("#formdetalleespacio").append(label);
-	insertacampovisible(form,'txtnombre_espacio',dni_usuario);
-	$("#txtnombre_espacio").attr('disabled', true);
-	$("#formdetalleespacio").append('<br>');
+	label = "<label class='nombre_espacio' disabled='disabled'></label>";
+	$("#formdetalleEspacio").append(label);
+	insertacampovisible(form,'blnombre_espacio',nombre_espacio);
+	$("#blnombre_espacio").attr('disabled', true);
+	$("#formdetalleEspacio").append('<br>');
 
 	label = "<label class='descripcion_espacio'></label>";
-	$("#formdetalleespacio").append(label);
-	$("#txtespacio").attr('disabled', true);
-	$("#formdetalleespacio").append('<br>');
+	$("#formdetalleEspacio").append(label);
+	insertacampovisible(form,'bldescripcion_espacio',descripcion_espacio);
+	$("#bldescripcion_espacio").attr('disabled', true);
+	$("#formdetalleEspacio").append('<br>');
 
-    $("#formdetalleespacio").append(label);
-	$("#divdetalleespacio").append(formdetalleespacio);
+	$("#divdetalleEspacio").append(formdetalleEspacio);
 
 	setLang('');
 	
 }
 
-function showEliminarUsuario(id_espacio, nombre_espacio, descripcion_espacio){
+function showEliminarEspacio(id_espacio, nombre_espacio, descripcion_espacio){
+	
+	$("#divformgenericoEspacio").attr('style', 'display: block');
+	$("#formgenericoEspacio").attr('action' , 'javascript:deleteEspacio();');
+	$("#formgenericoEspacio").attr('onsubmit' , '');
 
-	$("#divformgenericoespacio").attr('style', 'display: block');
-	$("#formgenericoespacio").attr('action' , 'javascript:deleteespacio();');
-	$("#formgenericoespacio").attr('onsubmit' , '');
+	$("#id_espacio").val(id_espacio);
+	$("#nombre_espacio").val(nombre_espacio);
+	$("#descripcion_espacio").val(descripcion_espacio);
 
-	$("#txtidEspacio").val(id_espacio);
-	$("#txtnombre_espacio").val(nombre_espacio);
-	$("#txtdescripcion_espacio").val(descripcion_espacio);
-
-	$("#txtidEspacio").attr('disabled', true);
-	$("#txtnombre_espacio").attr('disabled', true);
-	$("#txtdescripcion_espacio").attr('disabled', true);
+	$("#idEspacio").attr('disabled', true);
+	$("#nombre_espacio").attr('disabled', true);
+	$("#descripcion_espacio").attr('disabled', true);
+	
 }
 
-function resetearformulariogrupo(idformUsado){
+function showAddEspacio(){
+
+	
+
+	// se resetea todo el formulario generico
+	resetearformularioespacio(idFormUsado);
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoEspacio").attr('style', 'display: block');
+	$("#formgenericoEspacio").attr('action' , 'javascript:addEspacio();');
+	$("#formgenericoEspacio").attr('onsubmit' , 'comprobareditsubmit();');
+
+	//rellenamos los tipo text
+	/*$("#txtidresponsable").val("1");
+	$("#txtnumcuentaresponsable").val("1");
+	$("#txtcurriculumresponsable").val("1");*/
+
+	// rellenamos los onblur de los input que se validad
+	$("#idEspacio").attr('onblur', 'comprobarDNI();');
+	$("#nombre_espacio").attr('onblur', 'comprobarNumCuenta();');
+	$("#descripcion_espacio").attr('onblur', 'comprobarCurriculum();');
+
+	// se rellena los select
+
+	// se deshabilita el id para que no pueda cambiarse
+	//$("#idEspacio").attr('disabled', true);	
+	//$("#txtnumcuentaresponsable").attr('disabled', false);	
+	//$("#txtcurriculumresponsable").attr('disabled', false);	
+}
+
+function resetearformularioespacio(idformUsado){
 
 	$("idformUsado").attr('action' , '');
 	$("idformUsado").attr('onsubmit' , '');
 
-	$("#txtidEspacio").attr('disabled', false);
-	$("#txtnombre_espacio").attr('disabled', false);
-	$("#txtdescripcion_espacio").attr('disabled', false);
+	$("#idEspacio").attr('disabled', false);
+	$("#nombre_espacio").attr('disabled', false);
+	$("#descripcion_espacio").attr('disabled', false);
 
-	$("#txtidEspacio").val('');
-	$("#txtnombre_espacio").val('');
-	$("#txtdescripcion_espacio").val('');
+	$("#idEspacio").val('');
+	$("#nombre_espacio").val('');
+	$("#descripcion_espacio").val('');
 
-	$("#txtidEspacio").attr('onblur', '');
-	$("#txtnombre_espacio").attr('onblur', '');
-	$("#txtdescripcion_espacio").attr('onblur', '');
+	$("#idEspacio").attr('onblur', '');
+	$("#nombre_espacio").attr('onblur', '');
+	$("#descripcion_espacio").attr('onblur', '');
 		
-	$("divformgenericoespacio").attr('style', 'display: none');
+	$("divformgenericoEspacio").attr('style', 'display: none');
 
 }
 			

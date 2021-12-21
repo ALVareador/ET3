@@ -394,3 +394,16 @@ function comprobarCurriculum() {
 		return false;
 	}
 }
+
+function comprobarNombrePersona() {
+
+	document.getElementById("nombre_persona").style.borderWidth = "2px";
+	
+	if (validaNoVacio("nombre_persona", "errorFormatoPass", "nombre_persona") && comprobarLetrasNumeros("nombre_persona", 45, 0, "errorFormatoPass", "nombre_persona")) {
+		validacionOK("nombre_persona", "errorFormatoPass");
+		return true;
+	} else {
+		validacionKO("nombre_persona", "errorFormatoPass");		
+		return false;
+	}
+}
