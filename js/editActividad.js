@@ -98,6 +98,7 @@ function deleteActividad() {
 
 function showEditarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad,numPlazas_actividad,color_actividad,color_nombre_actividad,id_espacio,id_categoria){
 	
+	resetearformularioActividad()
 	//deshabilito todos los imputs
 	$("#id_actividad").attr('disabled',false);
 	$("#nombre_actividad").attr('disabled',false);
@@ -163,7 +164,7 @@ function comprobareditsubmit(){
 
 function showDetalleActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad,numPlazas_actividad,color_actividad,color_nombre_actividad,id_espacio,id_categoria){
 
-
+	resetearformularioActividad()
 	console.log(" showDetalleResponsable -> showDetalleResponsable trigered");
 
 	// se resetea todo el formulario generico
@@ -184,8 +185,8 @@ function showDetalleActividad(id_actividad, nombre_actividad, descripcion_activi
 	$("#color_nombre_actividad").val(color_nombre_actividad);
 	$("#id_espacio").val(id_espacio);
 	$("#id_categoria").val(id_categoria);
-	$("#submitbuttom").remove();
-
+	$("#submitbuttom").attr('style','');
+	document.getElementById('submitbuttom').style.visibility = 'hidden';
 
 	//deshabilito todos los imputs
 	$("#id_actividad").attr('disabled',true);
@@ -204,6 +205,7 @@ function showEliminarActividad(id_actividad, nombre_actividad, descripcion_activ
 
 	console.log(" showDetalleResponsable -> showDetalleResponsable trigered");
 
+	resetearformularioActividad()
 	// se resetea todo el formulario generico
 	//resetearformularioresponsable();
 
@@ -222,7 +224,6 @@ function showEliminarActividad(id_actividad, nombre_actividad, descripcion_activ
 	$("#color_nombre_actividad").val(color_nombre_actividad);
 	$("#id_espacio").val(id_espacio);
 	$("#id_categoria").val(id_categoria);
-	$("#submitbuttom").remove();
 
 
 	//deshabilito todos los imputs
@@ -241,66 +242,71 @@ function showEliminarActividad(id_actividad, nombre_actividad, descripcion_activ
 
 function showAddActividad(){
 
-
-		//deshabilito todos los imputs
-		$("#id_actividad").attr('disabled',false);
-		$("#nombre_actividad").attr('disabled',false);
-		$("#descripcion_actividad").attr('disabled',false);
-		$("#precio_actividad").attr('disabled',false);
-		$("#numPlazas_actividad").attr('disabled',false);
-		$("#color_actividad").attr('disabled',false);
-		$("#color_nombre_actividad").attr('disabled',false);
-		$("#id_espacio").attr('disabled',false);
-		$("#id_categoria").attr('disabled',false);
-
-	
-
 	// se resetea todo el formulario generico
-	resetearformularioresponsable();
+	resetearformularioActividad();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoActividad").attr('style', 'display: block');
 	$("#formgenericoActividad").attr('action' , 'javascript:addActividad();');
 	$("#formgenericoActividad").attr('onsubmit' , 'comprobareditsubmit();');
 
-	//rellenamos los tipo text
-	/*$("#txtidresponsable").val("1");
-	$("#txtnumcuentaresponsable").val("1");
-	$("#txtcurriculumresponsable").val("1");*/
-
 	// rellenamos los onblur de los input que se validad
-	//$("#txtdniresponsable").attr('onblur', 'comprobarDNI();');
-	//$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
-	//$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
-
-	// se rellena los select
-
-	// se deshabilita el id para que no pueda cambiarse
-	$("#txtidresponsable").attr('disabled', true);	
-	//$("#txtnumcuentaresponsable").attr('disabled', false);	
-	//$("#txtcurriculumresponsable").attr('disabled', false);	
+	$("#id_actividad").attr('onblur', 'comprobarIdActividad(\"id_actividad\");');
+	$("#nombre_actividad").attr('onblur', 'comprobarNombreActividad();');
 }
 
-function resetearformularioresponsable(idformUsado){
+function resetearformularioActividad(){
 
-	$("idformUsado").attr('action' , '');
-	$("idformUsado").attr('onsubmit' , '');
+	$("formgenericoActividad").attr('action' , '');
+	$("formgenericoActividad").attr('onsubmit' , '');
 
-	$("#txtidresponsable").attr('disabled', true);
-	$("#txtdniresponsable").attr('disabled', true);
-	$("#borrado_responsable").attr('disabled', true);
+	//limpiar los valores de todos los campos
+	$("#id_actividad").val(null);
+	$("#nombre_actividad").val(null);
+	$("#descripcion_actividad").val(null);
+	$("#precio_actividad").val(null);
+	$("#numPlazas_actividad").val(null);
+	$("#color_actividad").val(null);
+	$("#color_nombre_actividad").val(null);
+	$("#id_espacio").val(null);
+	$("#id_categoria").val(null);
+	//poner todo habilitado
 
-	$("#txtidresponsable").val('');
-	$("#txtdniresponsable").val('');
-	$("#txtnumcuentaresponsable").val('');
-	$("#txtcurriculumresponsable").val('');
+	//habilito todos los imputs
+	$("#id_actividad").attr('disabled',false);
+	$("#nombre_actividad").attr('disabled',false);
+	$("#descripcion_actividad").attr('disabled',false);
+	$("#precio_actividad").attr('disabled',false);
+	$("#numPlazas_actividad").attr('disabled',false);
+	$("#color_actividad").attr('disabled',false);
+	$("#color_nombre_actividad").attr('disabled',false);
+	$("#id_espacio").attr('disabled',false);
+	$("#id_categoria").attr('disabled',false);
+	document.getElementById('submitbuttom').style.visibility = 'visible';
+	
+	//limpiar los mensajes de error	
+	resetValidacion("id_actividad","","errorFormatoId");
 
-	$("#txtidresponsable").attr('onblur', '');
-	$("#txtdniresponsable").attr('onblur', '');
-	$("#txtnumcuentaresponsable").attr('onblur', '');
-	$("#txtcurriculumresponsable").attr('onblur', '');
+
+	$("divformgenericoActividad").attr('style', 'display: none');
+
+}
+
+function comprobarIdActividad(campoId){
+	var linea = document.getElementById('id_actividad');
+	var data = linea.value;
+
+	//Si es vacio
+	if(data.length == 0){
+		validacionKO('id_actividad','errorFormatoId');
+		showError('errorFormatoId',20,'red',"ERROR: El campo id no puede quedar vacio");
 		
-	$("divformgenericoresponsable").attr('style', 'display: none');
+	}
 
+	//si la ID son mas de 11 caracteres
+	if(data.length > 11){
+		validacionKO('id_actividad','errorFormatoId');
+		showError('errorFormatoId',20,'red',"ERROR: La id no puede tener mas de 11 caracteres");
+		
+	}
 }
-			

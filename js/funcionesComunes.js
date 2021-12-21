@@ -407,3 +407,21 @@ function comprobarNombrePersona() {
 		return false;
 	}
 }
+
+//Añade al div que se indique a traves de la ID, el mensaje especificado con el tamaño de letra y color especificado
+//IMPORTANTE:El tamaño debe pasar como numero y NO como string
+function showError(idError,tamañoLetra,colorTexto,mensaje){
+	var divError = document.getElementById(idError);
+	divError.style.height = tamañoLetra + 20 + "px";
+	divError.style.fontSize = tamañoLetra  + "px";
+	divError.style.color = colorTexto + "";
+	divError.innerHTML = mensaje + "" ;
+}
+
+
+function resetValidacion(idElemento,colorOriginal,idError){
+
+	document.getElementById(idElemento).style.borderColor = colorOriginal + "";
+
+	showError(idError,-20,'',"");
+}
