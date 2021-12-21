@@ -38,13 +38,6 @@ function getLisEspacios() {
         }).done(function( response ) {       
             if (response.ok == true) {
                 $("#datosEspacio").html("");
-                nodos = document.getElementById("formgenericoEspacio").childNodes;
-            for (var i = 0; i < nodos.length; i++) {
-                var item = nodos[i];
-                if (item.id != undefined){
-                  //  alert(item.id);
-                }
-            }
             for (var i = 0; i < response.resource.length; i++){
                 var tr = construyeFila(response.resource[i]);
                 $("#datosEspacio").append(tr);

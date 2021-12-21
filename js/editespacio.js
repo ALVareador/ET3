@@ -5,9 +5,10 @@ function addEspacio() {
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericoEspacio, "add", "espacio");
-
+	insertacampo(document.formgenericoEspacio,'controlador', 'espacio');
+    insertacampo(document.formgenericoEspacio,'action', 'insertar');
+    //insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession); Solo para buscar
+	console.log(document.formgenericoEspacio);
 	var idioma = getCookie('lang');
 
 	$.ajax({
@@ -32,7 +33,7 @@ function editEspacio() {
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession);
+	//insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession);
    	addActionControler(document.formgenericoEspacio, "edit", "espacio");
 
    	$("#idEspacio").attr("disabled", false);
@@ -66,7 +67,7 @@ function deleteEspacio() {
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession);
+	//insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession);
    	addActionControler(document.formgenericoEspacio, "delete", "espacio");
 
    	$("#idEspacio").attr("disabled", false);
@@ -132,38 +133,38 @@ function comprobareditsubmit(){
 
 function showDetalleEspacio(id_espacio, nombre_espacio, descripcion_espacio){
 
-	$("#formdetalleEspacio").remove();
+	$("#formgenericoEspacio").remove();
 	$("#botoncerrar").remove();
 
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divdetalleEspacio','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divdetalleEspacio').append(label);
-	$('#divdetalleEspacio').attr('style', 'display: block');
-	$('#divdetalleEspacio').attr('style', 'border: 1px solid black');
+	label = "<div id='botoncerrar'><a onclick = \"cerrar('divgenericoEspacio','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
+	$('#divgenericoEspacio').append(label);
+	$('#divgenericoEspacio').attr('style', 'display: block');
+	$('#divgenericoEspacio').attr('style', 'border: 1px solid black');
 
-	crearformvisible('formdetalleEspacio','none');
-    $('#formdetalleEspacio').attr('style', 'display: block');
+	crearformvisible('formgenericoEspacio','none');
+    $('#formgenericoEspacio').attr('style', 'display: block');
 
-    form = document.getElementById('formdetalleEspacio');
+    form = document.getElementById('formgenericoEspacio');
 
 	label = "<label class='id_espacio'></label>";
-	$("#formdetalleEspacio").append(label);
+	$("#formgenericoEspacio").append(label);
 	insertacampovisible(form,'blid_espacio',id_espacio);
 	$("#blid_espacio").attr('disabled', true);
-	$("#formdetalleEspacio").append('<br>');
+	$("#formgenericoEspacio").append('<br>');
 
 	label = "<label class='nombre_espacio' disabled='disabled'></label>";
-	$("#formdetalleEspacio").append(label);
+	$("#formgenericoEspacio").append(label);
 	insertacampovisible(form,'blnombre_espacio',nombre_espacio);
 	$("#blnombre_espacio").attr('disabled', true);
-	$("#formdetalleEspacio").append('<br>');
+	$("#formgenericoEspacio").append('<br>');
 
 	label = "<label class='descripcion_espacio'></label>";
-	$("#formdetalleEspacio").append(label);
+	$("#formgenericoEspacio").append(label);
 	insertacampovisible(form,'bldescripcion_espacio',descripcion_espacio);
 	$("#bldescripcion_espacio").attr('disabled', true);
-	$("#formdetalleEspacio").append('<br>');
+	$("#formgenericoEspacio").append('<br>');
 
-	$("#divdetalleEspacio").append(formdetalleEspacio);
+	$("#divgenericoEspacio").append(formgenericoEspacio);
 
 	setLang('');
 	
@@ -179,7 +180,7 @@ function showEliminarEspacio(id_espacio, nombre_espacio, descripcion_espacio){
 	$("#nombre_espacio").val(nombre_espacio);
 	$("#descripcion_espacio").val(descripcion_espacio);
 
-	$("#idEspacio").attr('disabled', true);
+	$("#id_espacio").attr('disabled', true);
 	$("#nombre_espacio").attr('disabled', true);
 	$("#descripcion_espacio").attr('disabled', true);
 	
@@ -190,7 +191,7 @@ function showAddEspacio(){
 	
 
 	// se resetea todo el formulario generico
-	resetearformularioespacio(idFormUsado);
+	resetearformularioespacio();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoEspacio").attr('style', 'display: block');
@@ -203,9 +204,12 @@ function showAddEspacio(){
 	$("#txtcurriculumresponsable").val("1");*/
 
 	// rellenamos los onblur de los input que se validad
+	
+	/*
 	$("#idEspacio").attr('onblur', 'comprobarDNI();');
 	$("#nombre_espacio").attr('onblur', 'comprobarNumCuenta();');
 	$("#descripcion_espacio").attr('onblur', 'comprobarCurriculum();');
+	*/
 
 	// se rellena los select
 
