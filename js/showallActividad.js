@@ -27,7 +27,8 @@ function construyeFila(fila) {
 }
 
 function GetLisActividades() {
-        console.log("GetLisActividades -> GetLisActividades trigered");
+    
+    console.log("GetLisActividades -> GetLisActividades trigered");
 
     var idioma = getCookie('lang');
     var idSession = getCookie('sessionId');

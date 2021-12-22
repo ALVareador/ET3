@@ -425,3 +425,4 @@ function resetValidacion(idElemento,colorOriginal,idError){
 
 	showError(idError,-20,'',"");
 }
+

@@ -18,6 +18,9 @@ function addActividad() {
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
+			location.reload();
+			alert(response.code);
+			
 		} else {
 			respuestaKOAjax('add');
 		}
@@ -31,6 +34,63 @@ function addActividad() {
 
 };
 
+function buscarActividad(){
+
+	console.log("GetLisActividades -> GetLisActividades trigered");
+
+    var idioma = getCookie('lang');
+    var idSession = getCookie('sessionId');
+    console.log("GetLisActividades -> formulario oculto  construyendose");
+    addActionControler(document.formgenericoActividad,'search','actividad')
+    insertacampo(document.formgenericoActividad,'ID_SESSION', idSession);
+
+    console.log("GetLisActividades ->formulario oculto  construido");
+    console.log(document.formgenericoActividad);
+
+    $.ajax({
+        method: "POST",
+        url: "http://193.147.87.202/ET3_IU/noRest.php",
+        data: $("#formgenericoActividad").serialize(),  
+    }).done(function( response ) {       
+        if (response.ok == true) {
+            $("#datosActividad").html("");
+            nodos = document.getElementById("formgenericoActividad").childNodes;
+            for (var i = 0; i < nodos.length; i++) {
+                var item = nodos[i];
+                if (item.id != undefined){
+                  //  alert(item.id);
+                }
+            }
+            //alert(nodos);
+            for (var i = 0; i < response.resource.length; i++){
+                var tr = construyeFila(response.resource[i]);
+                $("#datosActividad").append(tr);
+            }
+            
+            setLang(idioma);
+        } else { 
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);    
+            $("#mensajeError").append(response.code);      
+            $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+            $("#imagenAviso").attr('src', "images/icons/error.png");
+            setLang(idioma);
+            $("#modal").attr('style', 'display: block');
+        }              
+        
+        deleteActionController();
+
+    });
+
+
+
+
+
+
+
+
+}
+
 //*
 // funcion editresponsable, recibe los datos del formulario editresponsable y los envia al back
 //*
@@ -38,6 +98,8 @@ function editActividad() {
 
 	var idSession = getCookie('sessionId');
 
+	//Hay que rehabilitar porque sino no edita
+	$("#id_actividad").attr('disabled',false);
 	addActionControler(document.formgenericoActividad,"edit","actividad");
 
 	var idioma = getCookie('lang');
@@ -49,6 +111,8 @@ function editActividad() {
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
+			location.reload();
+			alert(response.code);
 		} else {
 			respuestaKOAjax('edit');
 		}
@@ -69,6 +133,8 @@ function deleteActividad() {
 
 	var idSession = getCookie('sessionId');
 
+	//Hay que rehabilitar porque sino no elimina
+	$("#id_actividad").attr('disabled',false);
 	addActionControler(document.formgenericoActividad,"delete","actividad")
 
    	//$("#txtdniresponsable").attr("disabled", false);
@@ -82,6 +148,8 @@ function deleteActividad() {
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
+			location.reload();
+			alert(response.code);
 		} else {
 			respuestaKOAjax('borrar');
 		}
@@ -255,6 +323,21 @@ function showAddActividad(){
 	$("#nombre_actividad").attr('onblur', 'comprobarNombreActividad();');
 }
 
+function showBuscarActividad(){
+
+// se resetea todo el formulario generico
+resetearformularioActividad();
+
+// se pone visible el formulario y se rellena el action y el onsubmit
+$("#divformgenericoActividad").attr('style', 'display: block');
+$("#formgenericoActividad").attr('action' , 'javascript:buscarActividad();');
+$("#formgenericoActividad").attr('onsubmit' , 'comprobareditsubmit();');
+
+// rellenamos los onblur de los input que se validad
+$("#id_actividad").attr('onblur', 'comprobarIdActividad(\"id_actividad\");');
+$("#nombre_actividad").attr('onblur', 'comprobarNombreActividad();');
+}
+
 function resetearformularioActividad(){
 
 	$("formgenericoActividad").attr('action' , '');
@@ -295,18 +378,32 @@ function resetearformularioActividad(){
 function comprobarIdActividad(campoId){
 	var linea = document.getElementById('id_actividad');
 	var data = linea.value;
+	var patron = /^[0-9]+$/;
+
+
+
 
 	//Si es vacio
 	if(data.length == 0){
 		validacionKO('id_actividad','errorFormatoId');
-		showError('errorFormatoId',20,'red',"ERROR: El campo id no puede quedar vacio");
-		
+		showError('errorFormatoId',20,'red',"ERROR: El campo id no puede estar vacio");
+		return false;
+	}
+
+	//Si contiene espacios o letras
+	if(!patron.test(data)){
+		validacionKO('id_actividad','errorFormatoId');
+		showError('errorFormatoId',20,'red',"ERROR: El campo id no puede contener espacios ni letras");
+		return false;
 	}
 
 	//si la ID son mas de 11 caracteres
 	if(data.length > 11){
 		validacionKO('id_actividad','errorFormatoId');
 		showError('errorFormatoId',20,'red',"ERROR: La id no puede tener mas de 11 caracteres");
-		
+		return false;
 	}
+
+	validacionOK('id_actividad','errorFormatoId');
+	return true;
 }
