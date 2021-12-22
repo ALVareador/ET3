@@ -28,18 +28,15 @@ comprobarMail()
 	<script type="text/javascript" src="Locale/Lang_ES.js"></script>
 	<script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
-
 	<link rel="stylesheet" href="./css/register.css">
 
-	<!--Oscar no sabe-->
+	<!--Recursos del calendario-->
 	<link rel="stylesheet" type="text/css" href="css/tcal.css" />
 	<script type="text/javascript" src="js/tcal.js"></script> 
-	<!--No sabe-->
+	<!--Recursos del calendario fin-->
 </head>
 
 <body>
-
-
 
 	<form name="formularioLogin" id="formularioLogin" enctype="multipart/form-data" method="post" action="javascript:registrarUsuario();"
 		onsubmit="comprobarLogin();">
@@ -59,15 +56,10 @@ comprobarMail()
 			<input type="text" name="apellidos_persona" id="apellidos_persona" onblur=""> <br>
 		</div>
 
-
-		<!--FECHA NACIMIENTO (Oscar sabe)-->
-
 		<div class="div_Input">
 			<p>Fecha de Nacimiento:</p>
-			<input type="text" name="date" id="fechaNacimiento_persona" class="tcal" onblur=""> <br>
+			<input type="text" name="date" id="fechaNacimiento_persona" class="tcal" readonly onblur=""> <br>
 		</div>
-
-		<!--OscarInventa-->
 
 		<div class="div_Input">
 			<p>Dirección:</p>
@@ -84,7 +76,6 @@ comprobarMail()
 			<input type="text" name="email_persona" id="email_persona" onblur=""> <br>
 		</div>
 
-		<!--Foto persona-->
 		<div class="div_Input">
 			<p>Foto Persona:</p>
 			<input type="file" accept=".jpg,.png,.gif" name="foto_persona" id="email_pfoto_personarsona" onblur=""> <br>
@@ -108,8 +99,6 @@ comprobarMail()
 		<input type="submit" value="Registrarse">
 	</form>
 
-
-
 	<div id="modal" style="display:none">
 		<div id="contenido-interno">
 			<div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
@@ -121,39 +110,4 @@ comprobarMail()
 		</div>
 	</div>
 </body>
-<!--[if true]-->
-<!--Script FechaNacimiento-->
-<!--Vinculamos a la fecha nacimiento y establecemos formato-->
-<!--https://github.com/Pikaday/Pikaday -->
-<script src="moment.js"></script>
-<script src="pikaday.js"></script>
-
-<script>
-	var eleman = document.getElementById(id);
-    eleman.setAttribute("disabled", false);
-    eleman.setAttribute("editable", true);
-
-    var picker = new Pikaday({
-    field: document.getElementById('fechaNacimiento_persona'),
-    format: 'D/M/YYYY',
-    toString(date, format) {
-        // you should do formatting based on the passed format,
-        // but we will just return 'D/M/YYYY' for simplicity
-        const day = date.getDate();
-        const month = date.getMonth() + 1;
-        const year = date.getFullYear();
-        return `${day}/${month}/${year}`;
-    },
-    parse(dateString, format) {
-        // dateString is the result of `toString` method
-        const parts = dateString.split('/');
-        const day = parseInt(parts[0], 10);
-        const month = parseInt(parts[1], 10) - 1;
-        const year = parseInt(parts[2], 10);
-        return new Date(year, month, day);
-    }
-});
-</script>
-<!--[endif]-->
-
 </html>
