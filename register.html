@@ -12,7 +12,7 @@ comprobarMail()
 
 <head>
 
-
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<script type="text/javascript" src="js/funcionesComunes.js"></script>
 	<script type="text/javascript" src="js/funcionesFormularios.js"></script>
 	<script type="text/javascript" src="js/login.js"></script>
@@ -85,6 +85,7 @@ comprobarMail()
 			<input type="text" name="email_persona" id="email_persona" onblur=""> <br>
 		</div>
 
+		<!--Foto persona-->
 		<div class="div_Input">
 			<p>Foto Persona:</p>
 			<input type="text" name="foto_persona" id="email_pfoto_personarsona" onblur=""> <br>
@@ -99,8 +100,6 @@ comprobarMail()
 			<p>Contraseña:</p>
 			<input type="text" name="contrasena" id="contrasena" onblur=""> <br>
 		</div>
-
-		<!--Foto persona-->
 
 		<div class="div_Input">
 			<p>Es celiaco:</p>
@@ -123,5 +122,34 @@ comprobarMail()
 		</div>
 	</div>
 </body>
+
+<!--Script FechaNacimiento-->
+<!--Vinculamos a la fecha nacimiento y establecemos formato-->
+<!--https://github.com/Pikaday/Pikaday-->
+<script src="moment.js"></script>
+<script src="pikaday.js"></script>
+<script>
+    var picker = new Pikaday({
+    field: document.getElementById('fechaNacimiento_persona'),
+    format: 'D/M/YYYY',
+    toString(date, format) {
+        // you should do formatting based on the passed format,
+        // but we will just return 'D/M/YYYY' for simplicity
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+    },
+    parse(dateString, format) {
+        // dateString is the result of `toString` method
+        const parts = dateString.split('/');
+        const day = parseInt(parts[0], 10);
+        const month = parseInt(parts[1], 10) - 1;
+        const year = parseInt(parts[2], 10);
+        return new Date(year, month, day);
+    }
+});
+</script>
+
 
 </html>
