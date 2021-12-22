@@ -485,6 +485,7 @@ function comprobarNombreEspacio() {
 	
 	if (validaNoVacio("nombre_persona", "errorFormatoPass", "nombre_persona") && comprobarLetrasNumeros("nombre_persona", 45, 0, "errorFormatoPass", "nombre_persona")) {
 		validacionOK("nombre_persona", "errorFormatoPass");
+	}
 	if (validaNoVacio("nombre_espacio", "errorFormatoNombre", "nombre_espacio") && comprobarLetrasNumeros("nombre_espacio", 45, 3, "errorFormatoNombre", "nombre_espacio")) {
 		validacionOK("nombre_espacio", "errorFormatoNombre");
 		return true;
