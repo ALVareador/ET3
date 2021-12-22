@@ -1,8 +1,10 @@
 <html>
-<head>
-</head>
+<head lang='es'>
 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="js/config.js"></script>
 	<script type="text/javascript" src="js/funcionesComunes.js"></script>
+	<script type="text/javascript" src="js/showallusuario.js"></script>
 	<script type="text/javascript" src="js/funcionesFormularios.js"></script>
 	<script type="text/javascript" src="js/login.js"></script>
 	<script type="text/javascript" src="js/md5.js"></script>
@@ -15,9 +17,9 @@
     <script type="text/javascript" src="Locale/Lang_ES.js"></script>
     <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
-<body onload="includeCabecera();setLang('');">
-	
-	<div id="menuIdioma"></div>
+</head>
+
+<body onload="setLang('')";>
 <form name="formularioLogin" id="formularioLogin" method="post" action="javascript:login();" onsubmit="comprobarLogin();">
 	<input type = "text" name= "usuario" id="txtUsuario" onblur="return comprobarUser();"> <br>
 	<div style="display:none" id="errorFormatoUser"></div> 
@@ -25,6 +27,20 @@
 	<div style="display:none" id="errorFormatoPass"></div> 
 	<input type = "submit" value = "login">
 </form>
+
+	<div id="quieresrecuperar">
+		<a onclick = 'javascript:recuperarcontrasena();'>Recuperar Contraseña</a>
+	</div>
+
+	<div id="divrecuperarcontrasena" style="display:none">
+		<form name="formulariorecuperar" id="formulariorecuperar" method="post" action="javascript:recuperar();" onsubmit="">
+			<label class='correorecuperacion'></label>
+	        <input type='text' name='correorecuperacion' id='txtcorreorecuperacion' onblur=''><br>
+	        <label class='usuariorecuperacion'></label>
+	        <input type='text' name='usuariorecuperacion' id='txtusuariorecuperacion' onblur=''><br>
+	        <input type = "submit" value = "recuperar">
+	    </form>
+	</div>
 
 		<div id="modal" style="display:none">
                 <div id="contenido-interno">
