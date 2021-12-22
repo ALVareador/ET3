@@ -408,6 +408,148 @@ function comprobarNombrePersona() {
 	}
 }
 
+function sololetrasyespacio(idElemento,idElementoError, campo){
+	var valor = document.getElementById(idElemento).value;
+	var patron = /^[A-Z]+\s$/i;
+
+	if (!patron.test(valor)) { 
+    	switch(campo) {
+	    	case 'usuarioLogin' : 
+		  		codigo = "02112";
+			break;
+			case 'passLogin' :
+				codigo = "02115"
+			break;
+		}
+		addCodeError(idElementoError, codigo);
+    	return false;
+  	}
+		
+}
+
+function comprobarApellido(){
+	document.getElementById("apellidos_persona").style.borderWidth = "2px";
+	
+	if (validaNoVacio("apellidos_persona", "errorFormatoApll", "apellidos_persona") && comprobarLetrasNumeros("apellidos_persona", 100, 0, "errorFormatoApll", "apellidos_persona")) {
+		validacionOK("apellidos_persona", "errorFormatoApll");
+		return true;
+	} else {
+		validacionKO("apellidos_persona", "errorFormatoApll");		
+		return false;
+	}
+}
+function comprobarDireccion(){
+	document.getElementById("direccion_persona").style.borderWidth = "2px";
+	
+	if (validaNoVacio("direccion_persona", "errorFormatoApll", "apelliddireccion_personaos_persona") && comprobarLetrasNumeros("direccion_persona", 200, 0, "errorFormatoApll", "direccion_persona")) {
+		validacionOK("direccion_persona", "errorFormatoApll");
+		return true;
+	} else {
+		validacionKO("direccion_persona", "errorFormatoApll");		
+		return false;
+	}
+}
+
+
+
+function comprobarNombreGrupo() {
+
+	document.getElementById("nombre_grupo").style.borderWidth = "2px";
+	
+	if (validaNoVacio("nombre_grupo", "errorFormatoNombre", "nombre_grupo") && comprobarLetrasNumeros("nombre_grupo", 45, 3, "errorFormatoNombre", "nombre_grupo")) {
+		validacionOK("nombre_grupo", "errorFormatoNombre");
+		return true;
+	} else {
+		validacionKO("nombre_grupo", "errorFormatoNombre");		
+		return false;
+	}
+}
+
+function comprobarNombreCategoria() {
+
+	document.getElementById("nombre_categoria").style.borderWidth = "2px";
+	
+	if (validaNoVacio("nombre_categoria", "errorFormatoNombre", "nombre_categoria") && comprobarLetrasNumeros("nombre_categoria", 45, 3, "errorFormatoNombre", "nombre_categoria")) {
+		validacionOK("nombre_categoria", "errorFormatoNombre");
+		return true;
+	} else {
+		validacionKO("nombre_categoria", "errorFormatoNombre");		
+		return false;
+	}
+}
+
+function comprobarNombreEspacio() {
+
+	document.getElementById("nombre_persona").style.borderWidth = "2px";
+	document.getElementById("nombre_espacio").style.borderWidth = "2px";
+	
+	if (validaNoVacio("nombre_persona", "errorFormatoPass", "nombre_persona") && comprobarLetrasNumeros("nombre_persona", 45, 0, "errorFormatoPass", "nombre_persona")) {
+		validacionOK("nombre_persona", "errorFormatoPass");
+	if (validaNoVacio("nombre_espacio", "errorFormatoNombre", "nombre_espacio") && comprobarLetrasNumeros("nombre_espacio", 45, 3, "errorFormatoNombre", "nombre_espacio")) {
+		validacionOK("nombre_espacio", "errorFormatoNombre");
+		return true;
+	} else {
+		validacionKO("nombre_persona", "errorFormatoPass");		
+		validacionKO("nombre_espacio", "errorFormatoNombre");		
+		return false;
+	}
+}
+
+function comprobarDescrGrupo() {
+
+	document.getElementById("descripcion_grupo").style.borderWidth = "2px";
+	
+	if (validaNoVacio("descripcion_grupo", "errorFormatoDescr", "descripcion_grupo") && comprobarLetrasNumeros("descripcion_grupo", 200, 20, "errorFormatoDescr", "descripcion_grupo")) {
+		validacionOK("descripcion_grupo", "errorFormatoDescr");
+		return true;
+	} else {
+		validacionKO("descripcion_grupo", "errorFormatoDescr");		
+		return false;
+	}
+}
+
+function comprobarDescrCategoria() {
+
+	document.getElementById("descripcion_categoria").style.borderWidth = "2px";
+	
+	if (validaNoVacio("descripcion_categoria", "errorFormatoDescr", "descripcion_categoria") && comprobarLetrasNumeros("descripcion_categoria", 200, 20, "errorFormatoDescr", "descripcion_categoria")) {
+		validacionOK("descripcion_categoria", "errorFormatoDescr");
+		return true;
+	} else {
+		validacionKO("descripcion_categoria", "errorFormatoDescr");		
+		return false;
+	}
+}
+
+function comprobarDescrEspacio() {
+
+	document.getElementById("descripcion_espacio").style.borderWidth = "2px";
+	
+	if (validaNoVacio("descripcion_espacio", "errorFormatoDescr", "descripcion_espacio") && comprobarLetrasNumeros("descripcion_espacio", 200, 20, "errorFormatoDescr", "descripcion_espacio")) {
+		validacionOK("descripcion_espacio", "errorFormatoDescr");
+		return true;
+	} else {
+		validacionKO("descripcion_espacio", "errorFormatoDescr");		
+		return false;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Añade al div que se indique a traves de la ID, el mensaje especificado con el tamaño de letra y color especificado
 //IMPORTANTE:El tamaño debe pasar como numero y NO como string
 function showError(idError,tamañoLetra,colorTexto,mensaje){
