@@ -1,18 +1,80 @@
-function editcategoria() {
+function addCategoria() {
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericocategoria,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericocategoria, "edit", "categoria");
+	insertacampo(document.formgenericoCategoria,'controlador', 'categoria');
+    insertacampo(document.formgenericoCategoria,'action', 'insertar');
+    //insertacampo(document.formgenericoCategoria,'ID_SESSION', idSession); Solo para buscar
+	console.log(document.formgenericoCategoria);
+	var idioma = getCookie('lang');
 
-   	$("#txtidCategoria").attr("disabled", false);
+	$.ajax({
+		method: "POST",
+	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
+	  	data: $("#formgenericoCategoria").serialize(),  
+	}).done(function( response ) {
+		if (response.ok == true) {
+			respuestaOKAjax();
+		} else {
+			respuestaKOAjax('add');
+		}
+
+		actualizaMensajesRespuestAjax(response.code);	
+				
+		deleteActionController();
+	});		
+
+}
+
+function showAddCategoria(){
+
+	
+
+	// se resetea todo el formulario generico
+	resetearformulariocategoria();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoCategoria").attr('style', 'display: block');
+	$("#formgenericoCategoria").attr('action' , 'javascript:addCategoria();');
+	$("#formgenericoCategoria").attr('onsubmit' , 'comprobareditsubmit();');
+
+	//rellenamos los tipo text
+	/*$("#txtidresponsable").val("1");
+	$("#txtnumcuentaresponsable").val("1");
+	$("#txtcurriculumresponsable").val("1");*/
+
+	// rellenamos los onblur de los input que se validad
+	
+	/*
+	$("#idcategoria").attr('onblur', 'comprobarDNI();');
+	$("#nombre_categoria").attr('onblur', 'comprobarNumCuenta();');
+	$("#descripcion_categoria").attr('onblur', 'comprobarCurriculum();');
+	*/
+
+	// se rellena los select
+
+	// se deshabilita el id para que no pueda cambiarse
+	//$("#idCategoria").attr('disabled', true);	
+	//$("#txtnumcuentaresponsable").attr('disabled', false);	
+	//$("#txtcurriculumresponsable").attr('disabled', false);	
+}
+
+function editCategoria() {
+
+	var idSession = getCookie('sessionId');
+
+	//insertacampo(document.formgenericoCategoria,'ID_SESSION', idSession);
+	insertacampo(document.formgenericoCategoria,'controlador', 'categoria');
+    insertacampo(document.formgenericoCategoria,'action', 'editar');
+
+   	$("#id_categoria").attr("disabled", false);
 
 	var idioma = getCookie('lang');
 
 	$.ajax({
 		method: "POST",
 	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formgenericocategoria").serialize(),  
+	  	data: $("#formgenericoCategoria").serialize(),  
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
@@ -29,21 +91,25 @@ function editcategoria() {
 
 }
 
-function deletecategoria() {
+//*
+// funcion deleteusuario, recibe los datos del formulario formdeleteusuario y los envia al back para borrarlo
+//*
+function deleteCategoria() {
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericocategoria,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericocategoria, "delete", "categoria");
+	//insertacampo(document.formgenericoCategoria,'ID_SESSION', idSession);
+	insertacampo(document.formgenericoCategoria,'controlador', 'categoria');
+    insertacampo(document.formgenericoCategoria,'action', 'borrar');
 
-   	$("#txtidCategoria").attr("disabled", false);
+   	$("#id_categoria").attr("disabled", false);
 
 	var idioma = getCookie('lang');
 
 	$.ajax({
 		method: "POST",
 	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formgenericocategoria").serialize(),  
+	  	data: $("#formgenericoCategoria").serialize(),  
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
@@ -66,22 +132,25 @@ function deletecategoria() {
 function showEditarCategoria(id_categoria, nombre_categoria, descripcion_categoria){
 
 	// se resetea todo el formulario generico
-	resetearformulariogrupo();
+	resetearformulariocategoria();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericocategoria").attr('style', 'display: block');
-	$("#formgenericocategoria").attr('action' , 'javascript:editcategoria();');
-	$("#formgenericocategoria").attr('onsubmit' , 'comprobareditsubmit();');
+	$("#divformgenericoCategoria").attr('style', 'display: block');
+	$("#formgenericoCategoria").attr('action' , 'javascript:editCategoria();');
+	$("#formgenericoCategoria").attr('onsubmit' , 'comprobareditsubmit();');
 
-	$("#txtnombre_categoria").val(nombre_categoria);
-	$("#txtdescripcion_categoria").val(descripcion_categoria);
+	//rellenamos los tipo text
+	$("#id_categoria").val(id_categoria);
+	$("#nombre_categoria").val(nombre_categoria);
+	$("#descripcion_categoria").val(descripcion_categoria);
 
 	// rellenamos los onblur de los input que se validad
-	$("#txtnombre_categoria").attr('onblur', 'comprobarNombre();');
-	$("#txtdescripcion_categoria").attr('onblur', 'comprobarDescripcion();');
+	$("#nombre_categoria").attr('onblur', 'comprobarNombreCategoria();');
+	$("#descripcion_categoria").attr('onblur', 'comprobarDescripcionCategoria();');
 
 	// se deshabilita el id para que no pueda cambiarse
-	$("#txtidCategoria").attr('disabled', true);	
+	$("#id_categoria").attr('disabled', true);
+	$("#nombre_categoria").attr('disabled', false);	
 
 }
 
@@ -97,58 +166,57 @@ function comprobareditsubmit(){
 
 function showDetalleCategoria(id_categoria, nombre_categoria, descripcion_categoria){
 
-	$("#formdetallecategoria").remove();
+	$("#formgenericoCategoria").remove();
 	$("#botoncerrar").remove();
 
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divdetallecategoria','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divdetallecategoria').append(label);
-	$('#divdetallecategoria').attr('style', 'display: block');
-	$('#divdetallecategoria').attr('style', 'border: 1px solid black');
+	label = "<div id='botoncerrar'><a onclick = \"cerrar('divgenericoCategoria','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
+	$('#divgenericoCategoria').append(label);
+	$('#divgenericoCategoria').attr('style', 'display: block');
+	$('#divgenericoCategoria').attr('style', 'border: 1px solid black');
 
-	crearformoculto('formdetallecategoria','none');
-    $('#formdetallecategoria').attr('style', 'display: block');
+	crearformvisible('formgenericoCategoria','none');
+    $('#formgenericoCategoria').attr('style', 'display: block');
 
-    form = document.getElementById('formdetallecategoria');
+    form = document.getElementById('formgenericoCategoria');
 
 	label = "<label class='id_categoria'></label>";
-	$("#formdetallecategoria").append(label);
-	insertacampovisible(form,'id',id_categoria);
-	$("#id").attr('disabled', true);
-	$("#formdetallecategoria").append('<br>');
+	$("#formgenericoCategoria").append(label);
+	insertacampovisible(form,'blid_categoria',id_categoria);
+	$("#blid_categoria").attr('disabled', true);
+	$("#formgenericoCategoria").append('<br>');
 
-	label = "<label class='nombre_categoria'></label>";
-	$("#formdetallecategoria").append(label);
-	insertacampovisible(form,'txtnombre_categoria',nombre_categoria);
-	$("#txtnombre_categoria").attr('disabled', true);
-	$("#formdetallecategoria").append('<br>');
+	label = "<label class='nombre_categoria' disabled='disabled'></label>";
+	$("#formgenericoCategoria").append(label);
+	insertacampovisible(form,'blnombre_categoria',nombre_categoria);
+	$("#blnombre_categoria").attr('disabled', true);
+	$("#formgenericoCategoria").append('<br>');
 
 	label = "<label class='descripcion_categoria'></label>";
-	$("#formdetallecategoria").append(label);
-	insertacampovisible(form,'txtdescripcion_categoria',descripcion_categoria);
-	$("#txtdescripcion_categoria").attr('disabled', true);
-	$("#formdetallecategoria").append('<br>');
+	$("#formgenericoCategoria").append(label);
+	insertacampovisible(form,'bldescripcion_categoria',descripcion_categoria);
+	$("#bldescripcion_categoria").attr('disabled', true);
+	$("#formgenericoCategoria").append('<br>');
 
-	$("#divdetallecategoria").append(formdetallecategoria);
+	$("#divgenericoCategoria").append(formgenericoCategoria);
 
 	setLang('');
 	
 }
 
 function showEliminarCategoria(id_categoria, nombre_categoria, descripcion_categoria){
+	
+	$("#divformgenericoCategoria").attr('style', 'display: block');
+	$("#formgenericoCategoria").attr('action' , 'javascript:deleteCategoria();');
+	$("#formgenericoCategoria").attr('onsubmit' , '');
 
-	$("#divformgenericocategoria").attr('style', 'display: block');
-	$("#formgenericocategoria").attr('action' , 'javascript:deletecategoria();');
-	$("#formgenericocategoria").attr('onsubmit' , '');
+	$("#id_categoria").val(id_categoria);
+	$("#nombre_categoria").val(nombre_categoria);
+	$("#descripcion_categoria").val(descripcion_categoria);
 
-	$("#txtidCategoria").val(id_categoria);
-	$("#txtnombre_categoria").val(nombre_categoria);
-	$("#txtdescripcion_categoria").val(descripcion_categoria);
-
-	$("#txtidCategoria").attr('type', 'hidden');	
-	$("#txtidCategoria").attr('disabled', true);
-
-	$("#txtnombre_categoria").attr('disabled', true);
-	$("#txtdescripcion_categoria").attr('disabled', true);
+	$("#id_categoria").attr('disabled', true);
+	$("#nombre_categoria").attr('disabled', true);
+	$("#descripcion_categoria").attr('disabled', true);
+	
 }
 
 function resetearformulariocategoria(idformUsado){
@@ -156,19 +224,19 @@ function resetearformulariocategoria(idformUsado){
 	$("idformUsado").attr('action' , '');
 	$("idformUsado").attr('onsubmit' , '');
 
-	$("#txtidCategoria").attr('disabled', false);
-	$("#txtnombre_categoria").attr('disabled', false);
-	$("#txtdescripcion_categoria").attr('disabled', false);
+	$("#idCategoria").attr('disabled', false);
+	$("#nombre_categoria").attr('disabled', false);
+	$("#descripcion_categoria").attr('disabled', false);
 
-	$("#txtidCategoria").val('');
-	$("#txtnombre_categoria").val('');
-	$("#txtdescripcion_categoria").val('');
+	$("#idcategoria").val('');
+	$("#nombre_categoria").val('');
+	$("#descripcion_categoria").val('');
 
-	$("#txtidCategoria").attr('onblur', '');
-	$("#txtnombre_categoria").attr('onblur', '');
-	$("#txtdescripcion_categoria").attr('onblur', '');
+	$("#idcategoria").attr('onblur', '');
+	$("#nombre_categoria").attr('onblur', '');
+	$("#descripcion_categoria").attr('onblur', '');
 		
-	$("divformgenericocategoria").attr('style', 'display: none');
+	$("divformgenericoCategoria").attr('style', 'display: none');
 
 }
 			

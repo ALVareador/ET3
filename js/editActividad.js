@@ -71,7 +71,7 @@ function deleteActividad() {
 
 	addActionControler(document.formgenericoActividad,"delete","actividad")
 
-   	$("#txtdniresponsable").attr("disabled", false);
+   	//$("#txtdniresponsable").attr("disabled", false);
 
 	var idioma = getCookie('lang');
 

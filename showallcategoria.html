@@ -20,18 +20,21 @@
         <div id="menuIdioma"></div>
         <div id="UserDesconectar"></div>
         <div id="Funciones">
-                <a href='addcategoria.html'>Insertar categoria</a>
+                <button onclick="showAddCategoria()" alt="Insertar Categoria">Insertar Categoria</button>
         </div>
+
         <div id="divtablaCategorias">
                 <table id="tablaCategorias" border= '1'>
                         <thead >
-                                <th class="nombre_categoria"><div class="categoria"></div>
+                                <th class="id_categoria"></div>
                                 </th>
-                                <th class="descripcion_categoria"><div class="categoria"></div>
+                                <th class="nombre_categoria"></div>
+                                </th>
+                                <th class="descripcion_categoria"></div>
                                 </th>
                                 <th class="ACCIONES"></th>
                         </thead>
-                        <tbody id="datosCategorias">
+                        <tbody id="datosCategoria">
 
                         </tbody>
                         </tbody>
@@ -52,21 +55,18 @@
 
         <a href="menu.html"><img src="./images/icons/volver.png" width="50px"  /></a>
 
-        <div id="divdetallecategoria">
-        </div>
-
-        <div id='divformgenericocategoria' style="display:none">
+        <div id='divformgenericoCategoria' style="display:none">
                 <div id="tituloForms"></div>
-                <a onclick = "cerrar('divformgenericocategoria','','');"><img src = './images/icons/close.png' width="50px"></a>
-                <form name='formgenericocategoria' id='formgenericocategoria' method="post" action="" onsubmit="">
+                <a onclick = "cerrar('divformgenericoCategoria','','');"><img src = './images/icons/close.png' width="50px"></a>
+                <form name='formgenericoCategoria' id='formgenericoCategoria' method="post" action="" onsubmit="">
                         <label class='id_categoria'></label>
-                        <input type='text' name='id' id='inputtxtidcategoria' onblur=''><br>
+                        <input type='text' name='id_categoria' id='id_categoria' onblur=''><br>
                         <label class='nombre_categoria'></label>
-                        <input type='text' name='nombre_categoria' id='inputtxtnombre_categoria' onblur=''><br>
-                        <div style="display:none" id="errorFormatoNombre"></div> 
+                        <input type='text' name='nombre_categoria' id='nombre_categoria' onblur=''><br>
+                        <div style="display:none" id="errorFormatoUser"></div> 
                         <label class='descripcion_categoria'></label>
-                        <input type='text' name='descripcion_categoria' id='inputtxtdescripcion_categoria' onblur=''><br>
-                        <div style="display:none" id="errorFormatoDescripcion"></div> 
+                        <input type='text' name='descripcion_categoria' id='descripcion_categoria' onblur=''><br>
+                        <div style="display:none" id="errorFormatoUser"></div> 
 
                         <br>
                         <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>

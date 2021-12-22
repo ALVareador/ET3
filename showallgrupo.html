@@ -20,18 +20,21 @@
         <div id="menuIdioma"></div>
         <div id="UserDesconectar"></div>
         <div id="Funciones">
-                <a href='addgrupo.html'>Insertar grupo</a>
+                <button onclick="showAddGrupo()" alt="Insertar Grupo">Insertar Grupo</button>
         </div>
+
         <div id="divtablaGrupos">
                 <table id="tablaGrupos" border= '1'>
                         <thead >
-                                <th class="nombre_grupo"><div class="grupo"></div>
+                                <th class="id_grupo"></div>
                                 </th>
-                                <th class="descripcion_grupo"><div class="grupo"></div>
+                                <th class="nombre_grupo"></div>
+                                </th>
+                                <th class="descripcion_grupo"></div>
                                 </th>
                                 <th class="ACCIONES"></th>
                         </thead>
-                        <tbody id="datosGrupos">
+                        <tbody id="datosGrupo">
 
                         </tbody>
                         </tbody>
@@ -52,20 +55,18 @@
 
         <a href="menu.html"><img src="./images/icons/volver.png" width="50px"  /></a>
 
-        <div id="divdetallegrupo">
-        </div>
-
-        <div id='divformgenericogrupo' style="display:none">
+        <div id='divformgenericoGrupo' style="display:none">
                 <div id="tituloForms"></div>
-                <a onclick = "cerrar('divformgenericogrupo','','');"><img src = './images/icons/close.png' width="50px"></a>
-                <form name='formgenericogrupo' id='formgenericogrupo' method="post" action="" onsubmit="">
+                <a onclick = "cerrar('divformgenericoGrupo','','');"><img src = './images/icons/close.png' width="50px"></a>
+                <form name='formgenericoGrupo' id='formgenericoGrupo' method="post" action="" onsubmit="">
                         <label class='id_grupo'></label>
-                        <input type='text' name='id' id='txtidgrupo' onblur=''><br>
+                        <input type='text' name='id_grupo' id='id_grupo' onblur=''><br>
                         <label class='nombre_grupo'></label>
-                        <input type='text' name='nombre_grupo' id='txtnombre_grupo' onblur=''><br>
+                        <input type='text' name='nombre_grupo' id='nombre_grupo' onblur=''><br>
                         <div style="display:none" id="errorFormatoUser"></div> 
                         <label class='descripcion_grupo'></label>
-                        <input type='text' name='descripcion_grupo' id='txtdescripcion_grupo' onblur=''><br>
+                        <input type='text' name='descripcion_grupo' id='descripcion_grupo' onblur=''><br>
+                        <div style="display:none" id="errorFormatoUser"></div> 
 
                         <br>
                         <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>

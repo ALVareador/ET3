@@ -1,6 +1,6 @@
 function construyeFila(fila) {
 
-    let atributosFunciones = ["'" + fila.id_categoria + "'","'" + fila.nombre_categoria + "'", "'" + fila.descripcion_categoria + "'"];
+    let atributosFunciones = ["'" + fila.id_categoria + "'","'" + fila.nombre_categoria  + "'", "'" + fila.descripcion_categoria  + "'"];
 
     var celdaAccionesDetalle = '<div><a onclick="showDetalleCategoria(' + atributosFunciones + 
                                ')" alt="Detalle Categoria"/>Detalle Categoria</a></div>';
@@ -11,10 +11,11 @@ function construyeFila(fila) {
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
-    var filaTabla = '<tr> <td>' + fila.nombre_categoria + 
-                '</td> <td>' + fila.descripcion_categoria +  
-                '</td> <td>' + celdaAcciones +  
-                '</td> </tr>';
+    var filaTabla = '<tr> <td>' + fila.id_categoria + 
+                    '</td> <td>' + fila.nombre_categoria + 
+                    '</td> <td>' + fila.descripcion_categoria +  
+                    '</td> <td>' + celdaAcciones +  
+                    '</td> </tr>';
 
     return filaTabla;
 }
@@ -24,25 +25,25 @@ function getLisCategorias() {
         var idioma = getCookie('lang');
         var idSession = getCookie('sessionId');
 
-        crearformoculto("formulariolistarcategorias", "");
+        crearformoculto("formgenericoCategoria", "");
 
-        insertacampo(document.formulariolistarcategorias, 'ID_SESSION', idSession);
-        insertacampo(document.formulariolistarcategorias,'controlador', 'categoria');
-        insertacampo(document.formulariolistarcategorias,'action', 'buscar');
+        insertacampo(document.formgenericoCategoria,'ID_SESSION', idSession);
+        insertacampo(document.formgenericoCategoria,'controlador', 'categoria');
+        insertacampo(document.formgenericoCategoria,'action', 'buscar');
 
         $.ajax({
             method: "POST",
             url: "http://193.147.87.202/ET3_IU/noRest.php",
-            data: $("#formulariolistarcategorias").serialize(),  
+            data: $("#formgenericoCategoria").serialize(),  
         }).done(function( response ) {       
             if (response.ok == true) {
-                $("#datosCategorias").html("");
-                for (var i = 0; i < response.resource.length; i++){
-                    var tr = construyeFila(response.resource[i]);
-                    $("#datosCategorias").append(tr);
-                }
+                $("#datosCategoria").html("");
+            for (var i = 0; i < response.resource.length; i++){
+                var tr = construyeFila(response.resource[i]);
+                $("#datosCategoria").append(tr);
+            }
                 
-                setLang(idioma);
+            setLang(idioma);
             } else { 
                 $("#mensajeError").removeClass();
                 $("#mensajeError").addClass(response.code);         

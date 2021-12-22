@@ -42,6 +42,7 @@ arrayES={
 	'SI' : 'Sí',
 	'NO' : 'No',
 
+	'id_grupo':'Id de grupo',
 	'nombre_grupo':'Nombre de Grupo',
 	'descripcion_grupo':'Descripcion de Grupo',
 
@@ -161,15 +162,16 @@ arrayES={
 	
 	//-exito
 	'GRUPO_INSERTAR_OK' : 'Grupo insertado correctamente',
+	'GRUPO_INSERTAR_OK' : 'Grupo insertado correctamente',
 	'GRUPO_MODIFICAR_OK' : 'Grupo modificado correctamente',
 	'GRUPO_BORRAR_OK' : 'Grupo borrado correctamente',
 
 	//************************************************************************************************
 	// Categoría
 	//************************************************************************************************
-	"id_categoría":'Id de categoría',
-	"nombre_categoría":'Nombre de categoría',
-	"descripcion_categoría":'Descripción de categoría',
+	"id_categoria":'Id de categoría',
+	"nombre_categoria":'Nombre de categoría',
+	"descripcion_categoria":'Descripción de categoría',
 	
 	//************************************************************************************************
 	// Espacio
@@ -178,6 +180,7 @@ arrayES={
 	"nombre_espacio":'Nombre de espacio',
 	"descripcion_espacio":'Descripción de espacio',
 
+	'ESPACIO_YA_EXISTE':'Este espacio ya existe',
 	//************************************************************************************************
 	// Actividad
 	//************************************************************************************************
@@ -282,6 +285,7 @@ arrayES={
 	'CATEGORIA_YA_EXISTE':'Esta categoría ya existe',
 	'CATEGORIA_MODIFICAR_OK':'Categoría modificada correctamente',
 	'CATEGORIA_BORRAR_EXISTE_EN_ACTIVIDAD':'La categoría que se quiere eliminar está asociada a una actividad',
+	'CATEGORIA_INSERTAR_OK':'Categoría añadida correctamente',
 	'CATEGORIA_BORRAR_NO_EXISTE':'La categoría a eliminar no existe',
 	'CATEGORIA_BORRAR_OK':'Categoría eliminada correctamente',
 	'ESPACIO_INSERTAR_OK':'Espacio insertado correctamente',

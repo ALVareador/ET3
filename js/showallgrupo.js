@@ -1,6 +1,6 @@
 function construyeFila(fila) {
 
-    let atributosFunciones = ["'" + fila.id_grupo + "'","'" + fila.nombre_grupo + "'", "'" + fila.descripcion_grupo + "'"];
+    let atributosFunciones = ["'" + fila.id_grupo + "'","'" + fila.nombre_grupo  + "'", "'" + fila.descripcion_grupo  + "'"];
 
     var celdaAccionesDetalle = '<div><a onclick="showDetalleGrupo(' + atributosFunciones + 
                                ')" alt="Detalle Grupo"/>Detalle Grupo</a></div>';
@@ -11,10 +11,11 @@ function construyeFila(fila) {
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
-    var filaTabla = '<tr> <td>' + fila.nombre_grupo + 
-                '</td> <td>' + fila.descripcion_grupo +  
-                '</td> <td>' + celdaAcciones +  
-                '</td> </tr>';
+    var filaTabla = '<tr> <td>' + fila.id_grupo + 
+                    '</td> <td>' + fila.nombre_grupo + 
+                    '</td> <td>' + fila.descripcion_grupo +  
+                    '</td> <td>' + celdaAcciones +  
+                    '</td> </tr>';
 
     return filaTabla;
 }
@@ -24,25 +25,25 @@ function getLisGrupos() {
         var idioma = getCookie('lang');
         var idSession = getCookie('sessionId');
 
-        crearformoculto("formulariolistargrupos", "");
+        crearformoculto("formgenericoGrupo", "");
 
-        insertacampo(document.formulariolistargrupos,'ID_SESSION', idSession);
-        insertacampo(document.formulariolistargrupos,'controlador', 'grupo');
-        insertacampo(document.formulariolistargrupos,'action', 'buscar');
+        insertacampo(document.formgenericoGrupo,'ID_SESSION', idSession);
+        insertacampo(document.formgenericoGrupo,'controlador', 'grupo');
+        insertacampo(document.formgenericoGrupo,'action', 'buscar');
 
         $.ajax({
             method: "POST",
             url: "http://193.147.87.202/ET3_IU/noRest.php",
-            data: $("#formulariolistargrupos").serialize(),  
+            data: $("#formgenericoGrupo").serialize(),  
         }).done(function( response ) {       
             if (response.ok == true) {
-                $("#datosGrupos").html("");
-                for (var i = 0; i < response.resource.length; i++){
-                    var tr = construyeFila(response.resource[i]);
-                    $("#datosGrupos").append(tr);
-                }
+                $("#datosGrupo").html("");
+            for (var i = 0; i < response.resource.length; i++){
+                var tr = construyeFila(response.resource[i]);
+                $("#datosGrupo").append(tr);
+            }
                 
-                setLang(idioma);
+            setLang(idioma);
             } else { 
                 $("#mensajeError").removeClass();
                 $("#mensajeError").addClass(response.code);         

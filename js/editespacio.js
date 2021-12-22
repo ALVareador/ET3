@@ -1,6 +1,3 @@
-//*
-// funcion addusuario, recibe los datos del formulario addusuario y los envia al back
-//*
 function addEspacio() {
 
 	var idSession = getCookie('sessionId');

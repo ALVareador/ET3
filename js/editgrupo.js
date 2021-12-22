@@ -1,21 +1,80 @@
-//*
-// funcion addusuario, recibe los datos del formulario addusuario y los envia al back
-//*
-function editgrupo() {
+function addGrupo() {
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericogrupo,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericogrupo, "edit", "grupo");
+	insertacampo(document.formgenericoGrupo,'controlador', 'grupo');
+    insertacampo(document.formgenericoGrupo,'action', 'insertar');
+    //insertacampo(document.formgenericoGrupo,'ID_SESSION', idSession); Solo para buscar
+	console.log(document.formgenericoGrupo);
+	var idioma = getCookie('lang');
 
-   	$("#txtidGrupo").attr("disabled", false);
+	$.ajax({
+		method: "POST",
+	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
+	  	data: $("#formgenericoGrupo").serialize(),  
+	}).done(function( response ) {
+		if (response.ok == true) {
+			respuestaOKAjax();
+		} else {
+			respuestaKOAjax('add');
+		}
+
+		actualizaMensajesRespuestAjax(response.code);	
+				
+		deleteActionController();
+	});		
+
+}
+
+function showAddGrupo(){
+
+	
+
+	// se resetea todo el formulario generico
+	resetearformulariogrupo();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoGrupo").attr('style', 'display: block');
+	$("#formgenericoGrupo").attr('action' , 'javascript:addGrupo();');
+	$("#formgenericoGrupo").attr('onsubmit' , 'comprobareditsubmit();');
+
+	//rellenamos los tipo text
+	/*$("#txtidresponsable").val("1");
+	$("#txtnumcuentaresponsable").val("1");
+	$("#txtcurriculumresponsable").val("1");*/
+
+	// rellenamos los onblur de los input que se validad
+	
+	/*
+	$("#idGrupo").attr('onblur', 'comprobarDNI();');
+	$("#nombre_grupo").attr('onblur', 'comprobarNumCuenta();');
+	$("#descripcion_grupo").attr('onblur', 'comprobarCurriculum();');
+	*/
+
+	// se rellena los select
+
+	// se deshabilita el id para que no pueda cambiarse
+	//$("#idGrupo").attr('disabled', true);	
+	//$("#txtnumcuentaresponsable").attr('disabled', false);	
+	//$("#txtcurriculumresponsable").attr('disabled', false);	
+}
+
+function editGrupo() {
+
+	var idSession = getCookie('sessionId');
+
+	//insertacampo(document.formgenericoGrupo,'ID_SESSION', idSession);
+	insertacampo(document.formgenericoGrupo,'controlador', 'grupo');
+    insertacampo(document.formgenericoGrupo,'action', 'editar');
+
+   	$("#id_grupo").attr("disabled", false);
 
 	var idioma = getCookie('lang');
 
 	$.ajax({
 		method: "POST",
 	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formgenericogrupo").serialize(),  
+	  	data: $("#formgenericoGrupo").serialize(),  
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
@@ -35,21 +94,22 @@ function editgrupo() {
 //*
 // funcion deleteusuario, recibe los datos del formulario formdeleteusuario y los envia al back para borrarlo
 //*
-function deletegrupo() {
+function deleteGrupo() {
 
 	var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericogrupo,'ID_SESSION', idSession);
-   	addActionControler(document.formgenericogrupo, "delete", "grupo");
+	//insertacampo(document.formgenericoGrupo,'ID_SESSION', idSession);
+	insertacampo(document.formgenericoGrupo,'controlador', 'grupo');
+    insertacampo(document.formgenericoGrupo,'action', 'borrar');
 
-   	$("#txtidGrupo").attr("disabled", false);
+   	$("#id_grupo").attr("disabled", false);
 
 	var idioma = getCookie('lang');
 
 	$.ajax({
 		method: "POST",
 	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
-	  	data: $("#formgenericogrupo").serialize(),  
+	  	data: $("#formgenericoGrupo").serialize(),  
 	}).done(function( response ) {
 		if (response.ok == true) {
 			respuestaOKAjax();
@@ -69,42 +129,33 @@ function deletegrupo() {
 //
 // Funcion para modificar un formulario generico para editar un usuario
 //
-function showEditarUsuario(id_grupo, nombre_grupo, descripcion_grupo){
+function showEditarGrupo(id_grupo, nombre_grupo, descripcion_grupo){
 
 	// se resetea todo el formulario generico
 	resetearformulariogrupo();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericogrupo").attr('style', 'display: block');
-	$("#formgenericogrupo").attr('action' , 'javascript:editgrupo();');
-	$("#formgenericogrupo").attr('onsubmit' , 'comprobareditsubmit();');
+	$("#divformgenericoGrupo").attr('style', 'display: block');
+	$("#formgenericoGrupo").attr('action' , 'javascript:editGrupo();');
+	$("#formgenericoGrupo").attr('onsubmit' , 'comprobareditsubmit();');
 
 	//rellenamos los tipo text
-	$("#txtidGrupo").val(id);
-	$("#txtnombre_grupo").val(nombre_grupo);
-	$("#txtdescripcion_grupo").val(descripcion_grupo);
+	$("#id_grupo").val(id_grupo);
+	$("#nombre_grupo").val(nombre_grupo);
+	$("#descripcion_grupo").val(descripcion_grupo);
 
 	// rellenamos los onblur de los input que se validad
-	$("#txtnombre_grupo").attr('onblur', 'comprobarNombre();');
-	$("#txtdescripcion_grupo").attr('onblur', 'comprobarDescripcion();');
+	$("#nombre_grupo").attr('onblur', 'comprobarNombreGrupo();');
+	$("#descripcion_grupo").attr('onblur', 'comprobarDescripcionGrupo();');
 
 	// se deshabilita el id para que no pueda cambiarse
-	$("#txtidGrupo").attr('disabled', true);	
+	$("#id_grupo").attr('disabled', true);	
 
 }
 
 function comprobareditsubmit(){
 
 	if(comprobarUser()) {
-		/*pass = document.getElementById("txtPassword").value;
-		longitud = document.getElementById("txtPassword").value.length;
-		if ((pass == null) || (longitud = 0)){
-			return true;
-	    } 
-	    else {
-			encriptar("txtPassword");
-			return true;
-		}*/
 		return true;
 	}
 	else {
@@ -112,58 +163,59 @@ function comprobareditsubmit(){
 	}
 }
 
-function showDetalleUsuario(id, nombre_grupo, descripcion_grupo){
+function showDetalleGrupo(id_grupo, nombre_grupo, descripcion_grupo){
 
-	$("#formdetallegrupo").remove();
+	$("#formgenericoGrupo").remove();
 	$("#botoncerrar").remove();
 
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divdetallegrupo','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divdetallegrupo').append(label);
-	$('#divdetallegrupo').attr('style', 'display: block');
-	$('#divdetallegrupo').attr('style', 'border: 1px solid black');
+	label = "<div id='botoncerrar'><a onclick = \"cerrar('divgenericoGrupo','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
+	$('#divgenericoGrupo').append(label);
+	$('#divgenericoGrupo').attr('style', 'display: block');
+	$('#divgenericoGrupo').attr('style', 'border: 1px solid black');
 
-	crearformoculto('formdetallegrupo','none');
-    $('#formdetallegrupo').attr('style', 'display: block');
+	crearformvisible('formgenericoGrupo','none');
+    $('#formgenericoGrupo').attr('style', 'display: block');
 
-    form = document.getElementById('formdetallegrupo');
+    form = document.getElementById('formgenericoGrupo');
 
 	label = "<label class='id_grupo'></label>";
-	$("#formdetallegrupo").append(label);
-	insertacampovisible(form,'id',id);
-	$("#id").attr('disabled', true);
-	$("#formdetallegrupo").append('<br>');
+	$("#formgenericoGrupo").append(label);
+	insertacampovisible(form,'blid_grupo',id_grupo);
+	$("#blid_grupo").attr('disabled', true);
+	$("#formgenericoGrupo").append('<br>');
 
-	label = "<label class='nombre_grupo'></label>";
-	$("#formdetallegrupo").append(label);
-	insertacampovisible(form,'txtnombre_grupo',dni_usuario);
-	$("#txtnombre_grupo").attr('disabled', true);
-	$("#formdetallegrupo").append('<br>');
+	label = "<label class='nombre_grupo' disabled='disabled'></label>";
+	$("#formgenericoGrupo").append(label);
+	insertacampovisible(form,'blnombre_grupo',nombre_grupo);
+	$("#blnombre_grupo").attr('disabled', true);
+	$("#formgenericoGrupo").append('<br>');
 
 	label = "<label class='descripcion_grupo'></label>";
-	$("#formdetallegrupo").append(label);
-	$("#txtgrupo").attr('disabled', true);
-	$("#formdetallegrupo").append('<br>');
+	$("#formgenericoGrupo").append(label);
+	insertacampovisible(form,'bldescripcion_grupo',descripcion_grupo);
+	$("#bldescripcion_grupo").attr('disabled', true);
+	$("#formgenericoGrupo").append('<br>');
 
-    $("#formdetallegrupo").append(label);
-	$("#divdetalleusuario").append(formdetallegrupo);
+	$("#divgenericoGrupo").append(formgenericoGrupo);
 
 	setLang('');
 	
 }
 
-function showEliminarUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario){
+function showEliminarGrupo(id_grupo, nombre_grupo, descripcion_grupo){
+	
+	$("#divformgenericoGrupo").attr('style', 'display: block');
+	$("#formgenericoGrupo").attr('action' , 'javascript:deleteGrupo();');
+	$("#formgenericoGrupo").attr('onsubmit' , '');
 
-	$("#divformgenericogrupo").attr('style', 'display: block');
-	$("#formgenericogrupo").attr('action' , 'javascript:deletegrupo();');
-	$("#formgenericogrupo").attr('onsubmit' , '');
+	$("#id_grupo").val(id_grupo);
+	$("#nombre_grupo").val(nombre_grupo);
+	$("#descripcion_grupo").val(descripcion_grupo);
 
-	$("#txtidGrupo").val(id);
-	$("#txtnombre_grupo").val(nombre_grupo);
-	$("#txtdescripcion_grupo").val(descripcion_grupo);
-
-	$("#txtidGrupo").attr('disabled', true);
-	$("#txtnombre_grupo").attr('disabled', true);
-	$("#txtdescripcion_grupo").attr('disabled', true);
+	$("#id_grupo").attr('disabled', true);
+	$("#nombre_grupo").attr('disabled', true);
+	$("#descripcion_grupo").attr('disabled', true);
+	
 }
 
 function resetearformulariogrupo(idformUsado){
@@ -171,19 +223,19 @@ function resetearformulariogrupo(idformUsado){
 	$("idformUsado").attr('action' , '');
 	$("idformUsado").attr('onsubmit' , '');
 
-	$("#txtidGrupo").attr('disabled', false);
-	$("#txtnombre_grupo").attr('disabled', false);
-	$("#txtdescripcion_grupo").attr('disabled', false);
+	$("#idGrupo").attr('disabled', false);
+	$("#nombre_grupo").attr('disabled', false);
+	$("#descripcion_grupo").attr('disabled', false);
 
-	$("#txtidGrupo").val('');
-	$("#txtnombre_grupo").val('');
-	$("#txtdescripcion_grupo").val('');
+	$("#idGrupo").val('');
+	$("#nombre_grupo").val('');
+	$("#descripcion_grupo").val('');
 
-	$("#txtidGrupo").attr('onblur', '');
-	$("#txtnombre_grupo").attr('onblur', '');
-	$("#txtdescripcion_grupo").attr('onblur', '');
+	$("#idGrupo").attr('onblur', '');
+	$("#nombre_grupo").attr('onblur', '');
+	$("#descripcion_grupo").attr('onblur', '');
 		
-	$("divformgenericogrupo").attr('style', 'display: none');
+	$("divformgenericoGrupo").attr('style', 'display: none');
 
 }
 			
