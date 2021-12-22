@@ -12,7 +12,7 @@ function addresponsable() {
 
 	$.ajax({
 		method: "POST",
-	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
+	  	url: urlPeticionesAjax,
 	  	data: $("#formaddresponsable").serialize(),  
 	}).done(function( response ) {
 		if (response.ok == true) {

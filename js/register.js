@@ -9,7 +9,7 @@ function registrarUsuario() {
 
 	$.ajax({
 		method: "POST",
-	  	url: "http://193.147.87.202/ET3_IU/noRest.php",
+	  	url: urlPeticionesAjax,
 	  	data: $("#formularioLogin").serialize(),  
 	}).done(function( response ) {
 		if (response.ok == true) {

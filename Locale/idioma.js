@@ -17,15 +17,15 @@ function setLang(lang =''){
     switch(lang) {
     	case 'ES' : 
     	   traduccion=arrayES;
-           /*document.getElementById('es').style.color = '#ff0000';
+           document.getElementById('es').style.color = '#ff0000';
            document.getElementById('en').style.color = '#00e600';
-           document.getElementById('ga').style.color = '#00e600';*/
+           document.getElementById('ga').style.color = '#00e600';
     	break;
     	case 'EN' :
     	   traduccion=arrayEN;
-           /*document.getElementById('en').style.color = '#ff0000';
+           document.getElementById('en').style.color = '#ff0000';
            document.getElementById('es').style.color = '#00e600';
-           document.getElementById('ga').style.color = '#00e600';*/
+           document.getElementById('ga').style.color = '#00e600';
     	break;
     	case 'GA' :
     	   traduccion=arrayGA;
@@ -35,9 +35,9 @@ function setLang(lang =''){
     	break;
     	default:
     	   traduccion=arrayES;
-           /*document.getElementById('es').style.color = '#ff0000';
+           document.getElementById('es').style.color = '#ff0000';
            document.getElementById('en').style.color = '#00e600';
-           document.getElementById('ga').style.color = '#00e600';*/
+           document.getElementById('ga').style.color = '#00e600';
     	break;
     }
 
