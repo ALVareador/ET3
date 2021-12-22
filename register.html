@@ -11,7 +11,7 @@ comprobarMail()
 <html>
 
 <head>
-
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<script type="text/javascript" src="js/funcionesComunes.js"></script>
 	<script type="text/javascript" src="js/funcionesFormularios.js"></script>
@@ -32,9 +32,8 @@ comprobarMail()
 	<link rel="stylesheet" href="./css/register.css">
 
 	<!--Oscar no sabe-->
-	<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
-
+	<link rel="stylesheet" type="text/css" href="css/tcal.css" />
+	<script type="text/javascript" src="js/tcal.js"></script> 
 	<!--No sabe-->
 </head>
 
@@ -42,7 +41,7 @@ comprobarMail()
 
 
 
-	<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:registrarUsuario();"
+	<form name="formularioLogin" id="formularioLogin" enctype="multipart/form-data" method="post" action="javascript:registrarUsuario();"
 		onsubmit="comprobarLogin();">
 
 		<div class="div_Input">
@@ -65,7 +64,7 @@ comprobarMail()
 
 		<div class="div_Input">
 			<p>Fecha de Nacimiento:</p>
-			<input type="text" name="fechaNacimiento_persona" id="fechaNacimiento_persona" onblur=""> <br>
+			<input type="text" name="date" id="fechaNacimiento_persona" class="tcal" onblur=""> <br>
 		</div>
 
 		<!--OscarInventa-->
@@ -88,7 +87,7 @@ comprobarMail()
 		<!--Foto persona-->
 		<div class="div_Input">
 			<p>Foto Persona:</p>
-			<input type="text" name="foto_persona" id="email_pfoto_personarsona" onblur=""> <br>
+			<input type="file" accept=".jpg,.png,.gif" name="foto_persona" id="email_pfoto_personarsona" onblur=""> <br>
 		</div>
 		
 		<div class="div_Input">
@@ -122,13 +121,18 @@ comprobarMail()
 		</div>
 	</div>
 </body>
-
+<!--[if true]-->
 <!--Script FechaNacimiento-->
 <!--Vinculamos a la fecha nacimiento y establecemos formato-->
-<!--https://github.com/Pikaday/Pikaday-->
+<!--https://github.com/Pikaday/Pikaday -->
 <script src="moment.js"></script>
 <script src="pikaday.js"></script>
+
 <script>
+	var eleman = document.getElementById(id);
+    eleman.setAttribute("disabled", false);
+    eleman.setAttribute("editable", true);
+
     var picker = new Pikaday({
     field: document.getElementById('fechaNacimiento_persona'),
     format: 'D/M/YYYY',
@@ -150,6 +154,6 @@ comprobarMail()
     }
 });
 </script>
-
+<!--[endif]-->
 
 </html>
