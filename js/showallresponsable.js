@@ -13,7 +13,7 @@ function construyeFila(fila) {
 
     var filaTabla = '<tr> <td>' + fila.dni_responsable + 
                 '</td> <td>' + fila.numCuenta_responsable + 
-                '</td> <td>' + fila.curriculum_responsable + 
+                '</td> <td> <a href=\'' + rutauploadimages + fila.curriculum_responsable + '\'>' + fila.curriculum_responsable + '</a>' + 
                 '</td> <td>' + fila.borrado_responsable +  
                 '</td> <td>' + celdaAcciones +  
                 '</td> </tr>';
