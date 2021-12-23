@@ -145,16 +145,29 @@ function includeUserDesconectar() {
 	$("#UserDesconectar").append(UserDesconectar);
 }
 
-/**Función para incluir el menú de idioma*/
+/**Función generadora el menú de idioma, llama a la función setLang cuando cambia el valor del ComboBox */
 function includeMenuIdioma() {
 
 	$("#menuIdioma").html("");
 
-	var menuIdioma = '<div class="menuIdioma">' + 
+/*Opcion Rodeiro*/
+
+/*
+    var menuIdioma = '<div class="menuIdioma">' + 
 					'<a onclick="setLang(\'ES\')" class="es" id="es">ES</a>' + 
 					'<a onclick="setLang(\'EN\')" class="en" id="en">EN</a>' +
 					'<a onclick="setLang(\'GA\')" class="ga" id="ga">GA</a>' +
 					'</div>';
+*/
+
+/*Opcion ComboBox refacherita */
+	var menuIdioma = '<div class="menuIdioma">'+
+            '<select name="comboIdioma" id="comboIdioma" onchange="setLang(comboIdioma.value)">'+
+            '<option value="GA">GA</option>'+
+            '<option value="ES">ES</option>'+ 
+            '<option value="EN">EN</option>'+
+            '</select>'+
+			'</div>';
 
 	$("#menuIdioma").append(menuIdioma);
 }
