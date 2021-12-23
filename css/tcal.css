@@ -8,7 +8,7 @@
 
 */
 
-/* input box in default state */ 
+/* input box in default state */
 .tcalInput {
 	background: url('../images/tcal/cal.gif') 100% 50% no-repeat;
 	padding-right: 20px;
@@ -19,6 +19,7 @@
 .tcalActive {
 	background-image: url('../images/tcal/no_cal.gif');
 }
+
 /* container of calendar's pop-up */
 #tcal {
 	position: absolute;
@@ -43,6 +44,7 @@
 	border: 0;
 	width: 100%;
 }
+
 #tcalControls td {
 	border-collapse: collapse;
 	border: 0;
@@ -52,6 +54,7 @@
 	background-repeat: no-repeat;
 	cursor: pointer;
 }
+
 #tcalControls th {
 	border-collapse: collapse;
 	border: 0;
@@ -63,10 +66,22 @@
 	font-weight: bold;
 	white-space: nowrap;
 }
-#tcalPrevYear { background-image: url('../images/tcal/prev_year.gif'); }
-#tcalPrevMonth { background-image: url('../images/tcal/prev_mon.gif'); }
-#tcalNextMonth { background-image: url('../images/tcal/next_mon.gif'); }
-#tcalNextYear { background-image: url('../images/tcal/next_year.gif'); }
+
+#tcalPrevYear {
+	background-image: url('../images/tcal/prev_year.gif');
+}
+
+#tcalPrevMonth {
+	background-image: url('../images/tcal/prev_mon.gif');
+}
+
+#tcalNextMonth {
+	background-image: url('../images/tcal/next_mon.gif');
+}
+
+#tcalNextYear {
+	background-image: url('../images/tcal/next_year.gif');
+}
 
 /* table containing week days header and calendar grid */
 #tcalGrid {
@@ -74,6 +89,7 @@
 	border: 1px solid silver;
 	width: 100%;
 }
+
 #tcalGrid th {
 	border: 1px solid silver;
 	border-collapse: collapse;
@@ -84,6 +100,7 @@
 	background-color: gray;
 	color: white;
 }
+
 #tcalGrid td {
 	border: 0;
 	border-collapse: collapse;
@@ -93,8 +110,20 @@
 	width: 14%;
 	font-size: 11px;
 	cursor: pointer;
-}		
-#tcalGrid td.tcalOtherMonth { color: silver; }
-#tcalGrid td.tcalWeekend { background-color: #ACD6F5; }
-#tcalGrid td.tcalToday { border: 1px solid red; }
-#tcalGrid td.tcalSelected { background-color: #FFB3BE; }		
+}
+
+#tcalGrid td.tcalOtherMonth {
+	color: silver;
+}
+
+#tcalGrid td.tcalWeekend {
+	background-color: #ACD6F5;
+}
+
+#tcalGrid td.tcalToday {
+	border: 1px solid red;
+}
+
+#tcalGrid td.tcalSelected {
+	background-color: #FFB3BE;
+}

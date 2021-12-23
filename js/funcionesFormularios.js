@@ -1,53 +1,53 @@
 /**Función para crear un formulario oculto*/
-function crearformoculto(name, action){
+function crearformoculto(name, action) {
 
-	if ( $("#" + name).length == 0) {
+    if ($("#" + name).length == 0) {
 
-		var formu = document.createElement('form');
-		document.body.appendChild(formu);
-	    formu.name = name;
-	    formu.action = action; 
-	    formu.id = name;  
-	    formu.style.display = "none";
+        var formu = document.createElement('form');
+        document.body.appendChild(formu);
+        formu.name = name;
+        formu.action = action;
+        formu.id = name;
+        formu.style.display = "none";
 
-	}
-	
+    }
+
 }
 
 /**Función para crear un formulario visible*/
-function crearformvisible(name, action){
+function crearformvisible(name, action) {
 
-	if ( $("#" + name).length == 0) {
+    if ($("#" + name).length == 0) {
 
-		var formu = document.createElement('form');
-		document.body.appendChild(formu);
-	    formu.name = name;
-	    formu.action = action; 
-	    formu.id = name;  
-	    //formu.style.display = "none";
+        var formu = document.createElement('form');
+        document.body.appendChild(formu);
+        formu.name = name;
+        formu.action = action;
+        formu.id = name;
+        //formu.style.display = "none";
 
-	}
-	
+    }
+
 }
 
 /**Función para insertar campos en el formulario a mayores*/
-function insertacampo(form, name, value){
-	
-	var formulario = form;
-	var input = document.createElement('input');
+function insertacampo(form, name, value) {
+
+    var formulario = form;
+    var input = document.createElement('input');
     //Al acabar habra que poner esto en hiden, pero para las pruebas se queda asi
-	input.type = 'hidden';
-	input.name = name;
+    input.type = 'hidden';
+    input.name = name;
     input.id = name;
-	input.value = value;
-	input.className = name;
-	formulario.appendChild(input);
+    input.value = value;
+    input.className = name;
+    formulario.appendChild(input);
 
 }
 
 /**Función para insertar campos en el formulario visible*/
-function insertacampovisible(form, name, value){
-    
+function insertacampovisible(form, name, value) {
+
     formulario = form;
     var input = document.createElement('input');
     input.name = name;
@@ -61,18 +61,18 @@ function insertacampovisible(form, name, value){
 /**Función para eliminar campos del formulario*/
 function eliminarcampo(name) {
 
-	$("." + name).remove();	
+    $("." + name).remove();
 
 }
 
 /**Función que resetear los valores del formulario*/
 function resetearFormulario(idFormulario, idElementoList) {
 
-	document.getElementById(idFormulario).reset();
+    document.getElementById(idFormulario).reset();
 
-	idElementoList.forEach( function (idElemento) {
-		document.getElementById(idElemento).style.borderColor = "#c8c8c8";
-	});	
+    idElementoList.forEach(function (idElemento) {
+        document.getElementById(idElemento).style.borderColor = "#c8c8c8";
+    });
 
 }
 
@@ -81,40 +81,40 @@ function addActionControler(form, action, controller) {
 
     var accion = "";
 
-    switch(action) {
-        case 'add' :
+    switch (action) {
+        case 'add':
             accion = 'insertar';
-        break; 
-        case 'delete' :
+            break;
+        case 'delete':
             accion = 'borrar';
-        break; 
-        case 'edit' :
+            break;
+        case 'edit':
             accion = 'editar';
-        break; 
-        case 'search' :
+            break;
+        case 'search':
             accion = 'buscar';
-        break;
-        case 'disconect' :
-        	accion = 'desconectar';
-        break;
-        case 'auth' :
-        	accion = 'estaAutenticado';
-        break;
-        case 'login' :
-        	accion = 'login';
-        break;
-        case 'registrar' :
-        	accion = 'registrar';
-        break;
-        case 'test' :
-        	accion = 'test';
-        break;
+            break;
+        case 'disconect':
+            accion = 'desconectar';
+            break;
+        case 'auth':
+            accion = 'estaAutenticado';
+            break;
+        case 'login':
+            accion = 'login';
+            break;
+        case 'registrar':
+            accion = 'registrar';
+            break;
+        case 'test':
+            accion = 'test';
+            break;
     }
 
     console.log("addActionControler -> " + action);
 
-    insertacampo(form,'action', accion); 
-    insertacampo(form,'controlador', controller);
+    insertacampo(form, 'action', accion);
+    insertacampo(form, 'controlador', controller);
 
 }
 
@@ -128,48 +128,48 @@ function deleteActionController() {
 
 function includeCabecera() {
 
-	includeMenuIdioma();
-	includeUserDesconectar();
+    includeMenuIdioma();
+    includeUserDesconectar();
 }
 
 /**Función para incluir el menú de idioma*/
 function includeUserDesconectar() {
 
-	$("#UserDesconectar").html("");
+    $("#UserDesconectar").html("");
 
-	var UserDesconectar = '<div class="UserDesconectar">'+
-							'<a onclick="desconectar();">Desconectar</a>'+
-                			'<label id="usuario"></label>'+
-                			'</div>';
+    var UserDesconectar = '<div class="UserDesconectar">' +
+        '<a onclick="desconectar();">Desconectar</a>' +
+        '<label id="usuario"></label>' +
+        '</div>';
 
-	$("#UserDesconectar").append(UserDesconectar);
+    $("#UserDesconectar").append(UserDesconectar);
 }
 
 /**Función generadora el menú de idioma, llama a la función setLang cuando cambia el valor del ComboBox */
 function includeMenuIdioma() {
 
-	$("#menuIdioma").html("");
+    $("#menuIdioma").html("");
 
-/*Opcion Rodeiro*/
+    /*Opcion Rodeiro*/
 
-/*
-    var menuIdioma = '<div class="menuIdioma">' + 
-					'<a onclick="setLang(\'ES\')" class="es" id="es">ES</a>' + 
-					'<a onclick="setLang(\'EN\')" class="en" id="en">EN</a>' +
-					'<a onclick="setLang(\'GA\')" class="ga" id="ga">GA</a>' +
-					'</div>';
-*/
+    /*
+        var menuIdioma = '<div class="menuIdioma">' + 
+                        '<a onclick="setLang(\'ES\')" class="es" id="es">ES</a>' + 
+                        '<a onclick="setLang(\'EN\')" class="en" id="en">EN</a>' +
+                        '<a onclick="setLang(\'GA\')" class="ga" id="ga">GA</a>' +
+                        '</div>';
+    */
 
-/*Opcion ComboBox refacherita */
-	var menuIdioma = '<div class="menuIdioma">'+
-            '<select name="comboIdioma" id="comboIdioma" onchange="setLang(comboIdioma.value)">'+
-            '<option id="es" value="ES" >ES</option>'+ 
-            '<option id="ga" value="GA" >GA</option>'+
-            '<option id="en" value="EN" >EN</option>'+
-            '</select>'+
-			'</div>';
+    /*Opcion ComboBox refacherita */
+    var menuIdioma = '<div class="menuIdioma">' +
+        '<select name="comboIdioma" id="comboIdioma" onchange="setLang(comboIdioma.value)">' +
+        '<option id="es" value="ES" >ES</option>' +
+        '<option id="ga" value="GA" >GA</option>' +
+        '<option id="en" value="EN" >EN</option>' +
+        '</select>' +
+        '</div>';
 
-	$("#menuIdioma").append(menuIdioma);
+    $("#menuIdioma").append(menuIdioma);
 }
 
 /**Función que aplica los cambios necesarios cuando la respuesta de las petición Ajax ha sido OK*/
@@ -185,8 +185,8 @@ function respuestaOKAjax() {
 /**Función que aplica los cambios necesarios cuando la respuesta de las petición Ajax ha sido KO*/
 function respuestaKOAjax(opcion) {
 
-    $("#cerrar").attr('onclick', "cerrar('modal', '" + opcion +"', '')");
-    $("#imagenAviso").attr('src', "images/icons/error.png");  
+    $("#cerrar").attr('onclick', "cerrar('modal', '" + opcion + "', '')");
+    $("#imagenAviso").attr('src', "images/icons/error.png");
     $("#mensajeError").attr('style', 'color: #ff0000; margin-top: 5%; margin-left: 17%');
 
 }
@@ -196,10 +196,10 @@ function actualizaMensajesRespuestAjax(codigo) {
     console.log("actualizaMensajesRespuestAjax call");
     console.log(codigo);
     $("#mensajeError").removeClass();
-    $("#mensajeError").addClass(codigo); 
+    $("#mensajeError").addClass(codigo);
     $("#mensajeError").append(codigo);
     $("#imagenAviso").attr('style', 'width: 16%; margin-top: 0');
-    $("#modal").attr('style', 'background-color: rgba(1, 1, 1, 0.5); z-index: 1030; display: block'); 
+    $("#modal").attr('style', 'background-color: rgba(1, 1, 1, 0.5); z-index: 1030; display: block');
 
 }
 
@@ -209,7 +209,7 @@ function addOptions(domElement, array) {
     //Recorremos el array.
     longitud = array.length;
 
-    for (var i=0; i < longitud; i++) {
+    for (var i = 0; i < longitud; i++) {
         var opcion = document.createElement("option");
         opcion.value = array[i]['id_grupo'];
         opcion.text = array[i]['nombre_grupo'];
@@ -218,13 +218,13 @@ function addOptions(domElement, array) {
 }
 
 //Función para eliminar todas las opciones a un <select>.
-function deleteoptionsSelect(domElement){
+function deleteoptionsSelect(domElement) {
 
     var selector = document.getElementById(domElement);
 
     longitud = selector.length;
 
-    for (var i=longitud; i >= 0; i--) {
+    for (var i = longitud; i >= 0; i--) {
         selector.remove(i);
     }
 
@@ -233,18 +233,18 @@ function deleteoptionsSelect(domElement){
 /**Función que deshabilita los campos de un formulario*/
 function deshabilitaCampos(idElementoList) {
 
-    idElementoList.forEach( function (idElemento) {
-        $("#"+ idElemento).attr("disabled", true); 
-    }); 
+    idElementoList.forEach(function (idElemento) {
+        $("#" + idElemento).attr("disabled", true);
+    });
 
 }
 
 /**Función que habilita los campos de un formulario*/
 function habilitaCampos(idElementoList) {
 
-    idElementoList.forEach( function (idElemento) {
-        $("#"+ idElemento).attr("disabled", false); 
-    }); 
+    idElementoList.forEach(function (idElemento) {
+        $("#" + idElemento).attr("disabled", false);
+    });
 
 }
 
@@ -262,5 +262,5 @@ function cambiarFormulario(tituloForm, action, onsubmit) {
     if (onsubmit != '') {
         $("#formularioGenerico").attr('onsubmit', onsubmit);
     }
-    
+
 }

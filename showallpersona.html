@@ -1,4 +1,5 @@
 <html>
+
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="css/modal.css" />
@@ -7,13 +8,13 @@
         <script type="text/javascript" src="js/funcionesComunes.js"></script>
         <script type="text/javascript" src="js/funcionesFormularios.js"></script>
         <script type="text/javascript" src="js/config.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <script type="text/javascript" src="Locale/idioma.js"></script>
         <script type="text/javascript" src="Locale/Lang_EN.js"></script>
         <script type="text/javascript" src="Locale/Lang_ES.js"></script>
         <script type="text/javascript" src="Locale/Lang_GA.js"></script>
-</head>      
+</head>
 
 <body onload="includeCabecera();validaAutenticado();getLisPersonas();setLang('')">
         <div id="menuIdioma"></div>
@@ -22,17 +23,22 @@
                 <a href='addpersona.html'>Insertar persona</a>
         </div>
         <div id="divtablaPersonas">
-                <table id="tablaPersonas" border= '1'>
-                        <thead >
-                                <th class="dni_persona"><div class="persona"></div>
+                <table id="tablaPersonas" border='1'>
+                        <thead>
+                                <th class="dni_persona">
+                                        <div class="persona"></div>
                                 </th>
-                                <th class="usuario"><div class="persona"></div>
+                                <th class="usuario">
+                                        <div class="persona"></div>
                                 </th>
-                                <th class="nombre_persona"><div class="persona"></div>
+                                <th class="nombre_persona">
+                                        <div class="persona"></div>
                                 </th>
-                                <th class="apellidos_persona"><div class="persona"></div>
+                                <th class="apellidos_persona">
+                                        <div class="persona"></div>
                                 </th>
-                                <th class="email_persona"><div class="persona"></div>
+                                <th class="email_persona">
+                                        <div class="persona"></div>
                                 </th>
                                 <th class="borrado_persona">
                                 </th>
@@ -47,60 +53,71 @@
 
         <div id="modal" style="display:none">
                 <div id="contenido-interno">
-                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
                         <div id="mensajeError"></div>
                         <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
                                 <span class="tooltiptext iconCerrar"></span>
                         </a>
                 </div>
         </div>
 
 
-        <a href="menu.html"><img src="./images/icons/volver.png" width="50px"  /></a>
+        <a href="menu.html"><img src="./images/icons/volver.png" width="50px" /></a>
 
         <div id='divformaddpersona'>
-                <form name='formaddpersona' id='formaddpersona' method="post" action="javascript:addpersona();" onsubmit="">
-                    <label class='usuario'></label>
-                    <input type='text' name='usuario' id='txtUsuario' onblur='return comprobarUser();'><br>
-                    <label class='dni_persona'></label>
-                    <input type='text' name='dni_persona' id='dni_persona' onblur='return comprobarDNIPersona()'><br>
-                    <label class='nombre_persona'></label>
-                    <input type='text' name='nombre_persona' id='nombre_persona' onblur='return comprobarNombre()'><br>
-                    <label class='apellidos_persona'></label>
-                    <input type='text' name='apellidos_persona' id='apellidos_persona' onblur='return comprobarApellido()'><br>
-                    <label class='email_persona'></label>
-                    <input type='text' name='email_persona' id='email_persona' onblur='return comprobarEmail()'><br>
-                    <label class='borrado_persona'></label>
-                    <select name='borrado_persona' id='borrado_persona' >
-                            <option value="0">Si</option>
-                            <option value="1">No</option>
-                    </select>
-                        <br>
-                        <button type='submit'><img src="./images/icons/addUser.png" width="50px"/></button><br>
-                </form>
-        </div>
-        <div id='divformeditpersona' style="display:none">
-                <form name='formeditpersona' id='formeditpersona' method="post" action="javascript:editpersona();" onsubmit="comprobareditsubmit();">
+                <form name='formaddpersona' id='formaddpersona' method="post" action="javascript:addpersona();"
+                        onsubmit="">
                         <label class='usuario'></label>
                         <input type='text' name='usuario' id='txtUsuario' onblur='return comprobarUser();'><br>
                         <label class='dni_persona'></label>
-                        <input type='text' name='dni_persona' id='dni_persona' onblur='return comprobarDNIPersona()'><br>
+                        <input type='text' name='dni_persona' id='dni_persona'
+                                onblur='return comprobarDNIPersona()'><br>
                         <label class='nombre_persona'></label>
-                        <input type='text' name='nombre_persona' id='nombre_persona' onblur='return comprobarNombrePersona()'><br>
+                        <input type='text' name='nombre_persona' id='nombre_persona'
+                                onblur='return comprobarNombre()'><br>
                         <label class='apellidos_persona'></label>
-                        <input type='text' name='apellidos_persona' id='apellidos_persona' onblur='return comprobarApellidos()'><br>
+                        <input type='text' name='apellidos_persona' id='apellidos_persona'
+                                onblur='return comprobarApellido()'><br>
+                        <label class='email_persona'></label>
+                        <input type='text' name='email_persona' id='email_persona' onblur='return comprobarEmail()'><br>
+                        <label class='borrado_persona'></label>
+                        <select name='borrado_persona' id='borrado_persona'>
+                                <option value="0">Si</option>
+                                <option value="1">No</option>
+                        </select>
+                        <br>
+                        <button type='submit'><img src="./images/icons/addUser.png" width="50px" /></button><br>
+                </form>
+        </div>
+        <div id='divformeditpersona' style="display:none">
+                <form name='formeditpersona' id='formeditpersona' method="post" action="javascript:editpersona();"
+                        onsubmit="comprobareditsubmit();">
+                        <label class='usuario'></label>
+                        <input type='text' name='usuario' id='txtUsuario' onblur='return comprobarUser();'><br>
+                        <label class='dni_persona'></label>
+                        <input type='text' name='dni_persona' id='dni_persona'
+                                onblur='return comprobarDNIPersona()'><br>
+                        <label class='nombre_persona'></label>
+                        <input type='text' name='nombre_persona' id='nombre_persona'
+                                onblur='return comprobarNombrePersona()'><br>
+                        <label class='apellidos_persona'></label>
+                        <input type='text' name='apellidos_persona' id='apellidos_persona'
+                                onblur='return comprobarApellidos()'><br>
                         <label class='email_persona'></label>
                         <input type='text' name='email_persona' id='email_persona' onblur='return comprobarEmail()'><br>
                         <label class='telefono_persona'></label>
-                        <input type='text' name='telefono_persona' id='telefono_persona' onblur='return comprobarTelefono()'><br>
+                        <input type='text' name='telefono_persona' id='telefono_persona'
+                                onblur='return comprobarTelefono()'><br>
                         <label class='direccion_persona'></label>
-                        <input type='text' name='direccion_persona' id='direccion_persona' onblur='return comprobarTelefono()'><br>
+                        <input type='text' name='direccion_persona' id='direccion_persona'
+                                onblur='return comprobarTelefono()'><br>
 
                         <label class='fechaNacimiento_persona'></label>
-                        <input type= name='fechaNacimiento_persona' id='fechaNacimiento_persona' onblur='return comprobarFecha()'><br>
+                        <input type=name='fechaNacimiento_persona' id='fechaNacimiento_persona'
+                                onblur='return comprobarFecha()'><br>
                         <label class='foto_persona'></label>
-                        <input type= name='foto_persona' id='foto_persona' onblur='return comprobarFecha()'><br>
+                        <input type=name='foto_persona' id='foto_persona' onblur='return comprobarFecha()'><br>
 
                         <label class='esCeliaco_persona'></label>
                         <select name='esCeliaco_persona' id='esCeliaco_persona'>
@@ -114,10 +131,11 @@
                         </select>
 
                         <br>
-                        <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
+                        <button type='submit'><img src="./images/icons/editUser.png" width="50px" /></button><br>
                 </form>
         </div>
 
 
 </body>
+
 </html>

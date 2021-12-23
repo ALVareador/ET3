@@ -66,54 +66,53 @@ function deleteinscripcion() {
 
 }
 
-function showEditarInscripcion(id, nombre_actividad, dni_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion, borrado_inscipcion){
+function showEditarInscripcion(id, nombre_actividad, dni_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion, borrado_inscipcion) {
 
-	// se resetea todo el formulario generico
-	resetearformularioinscripcion();
+    // se resetea todo el formulario generico
+    resetearformularioinscripcion();
 
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoinscripcion").attr('style', 'display: block');
-	$("#formgenericoinscripcion").attr('action' , 'javascript:editinscripcion();');
-	$("#formgenericoinscripcion").attr('onsubmit' , 'comprobareditsubmit();');
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericoinscripcion").attr('style', 'display: block');
+    $("#formgenericoinscripcion").attr('action', 'javascript:editinscripcion();');
+    $("#formgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
 
-	//rellenamos los tipo text
-	$("#txtidInscripcion").val(id);
+    //rellenamos los tipo text
+    $("#txtidInscripcion").val(id);
     $("#txtnombreactividad").val(nombre_actividad);
-	$("#txtdniusuario").val(dni_usuario);
-	$("#txtfechasolicitudinscripcion").val(fecha_solicitud_inscripcion);
+    $("#txtdniusuario").val(dni_usuario);
+    $("#txtfechasolicitudinscripcion").val(fecha_solicitud_inscripcion);
     $("#txtdocumentopago").val(documento_pago);
     $("#txtfechapagoinscripcion").val(fecha_pago_inscripcion);
     $("#txtfechaaceptacioninscripcion").val(fecha_aceptacion_inscripcion);
 
-	// rellenamos los onblur de los input que se validad
-	$("#txtdniUsuario").attr('onblur', 'comprobarDNI();');
+    // rellenamos los onblur de los input que se validad
+    $("#txtdniUsuario").attr('onblur', 'comprobarDNI();');
     // funciones para fechas y subir documentos -----------------------------------------------------
 
-	// se rellena los select
-	deleteoptionsSelect("nombre_actividad");
-	rellenaid_grupo(nombre_actividad, borrado_inscipcion);
+    // se rellena los select
+    deleteoptionsSelect("nombre_actividad");
+    rellenaid_grupo(nombre_actividad, borrado_inscipcion);
 
-	// se deshabilita el id para que no pueda cambiarse
-	$("#txtidInscripcion").attr('disabled', true);	
+    // se deshabilita el id para que no pueda cambiarse
+    $("#txtidInscripcion").attr('disabled', true);
 
 }
 
-function comprobareditsubmit(){
+function comprobareditsubmit() {
 
-	if(comprobarUser()) {
-		/*pass = document.getElementById("txtPassword").value;
-		longitud = document.getElementById("txtPassword").value.length;
-		if ((pass == null) || (longitud = 0)){
-			return true;
-	    } 
-	    else {
-			encriptar("txtPassword");
-			return true;
-		}*/
-		return true;
-	}
-	else {
-		return false;
-	}
+    if (comprobarUser()) {
+        /*pass = document.getElementById("txtPassword").value;
+        longitud = document.getElementById("txtPassword").value.length;
+        if ((pass == null) || (longitud = 0)){
+            return true;
+        } 
+        else {
+            encriptar("txtPassword");
+            return true;
+        }*/
+        return true;
+    }
+    else {
+        return false;
+    }
 }
-	

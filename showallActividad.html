@@ -3,18 +3,18 @@
 <head lang='es'>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        
+
         <script type="text/javascript" src="js/funcionesComunes.js"></script>
         <script type="text/javascript" src="js/funcionesFormularios.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <script type="text/javascript" src="Locale/idioma.js"></script>
         <script type="text/javascript" src="Locale/Lang_EN.js"></script>
         <script type="text/javascript" src="Locale/Lang_ES.js"></script>
         <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
-        
-</head>      
+
+</head>
 
 <body onload="includeCabecera();validaAutenticado();GetLisActividades();setLang('');">
         <div id="menuIdioma"></div>
@@ -26,7 +26,7 @@
 
         </div>
         <div id="divtablaActividades">
-                <table id="tablaActividades" border= '1'>
+                <table id="tablaActividades" border='1'>
                         <thead>
                                 <th class="id_actividad"></th>
                                 <th class="nombre_actividad"></th>
@@ -49,42 +49,43 @@
 
         <div id="modal" style="display:none">
                 <div id="contenido-interno">
-                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
                         <div id="mensajeError"></div>
                         <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
                                 <span class="tooltiptext iconCerrar"></span>
                         </a>
                 </div>
         </div>
 
 
-        <a href="menu.html"><img src="./images/icons/volver.png" width="50px"  /></a>
+        <a href="menu.html"><img src="./images/icons/volver.png" width="50px" /></a>
 
         <div id="divdetalleActividad">
         </div>
 
         <div id='divformgenericoActividad' style="display:none">
                 <div id="tituloForms"></div>
-                <a onclick = "cerrar('formgenericoActividad','','');"><img src = './images/icons/close.png' width="50px"></a>
+                <a onclick="cerrar('formgenericoActividad','','');"><img src='./images/icons/close.png'
+                                width="50px"></a>
                 <form name='formgenericoActividad' id='formgenericoActividad'>
 
                         <label class='id_actividad'></label>
                         <input type='text' name='id_actividad' id='id_actividad' onblur=''><br>
-                        <div style="display:none" id="errorFormatoId"></div> 
+                        <div style="display:none" id="errorFormatoId"></div>
 
 
                         <label class='nombre_actividad'></label>
                         <input type='text' name='nombre_actividad' id='nombre_actividad' onblur=''><br>
-                        <div style="display:none" id="errorFormatoPass"></div> 
+                        <div style="display:none" id="errorFormatoPass"></div>
 
                         <label class='descripcion_actividad'></label>
                         <input type='text' name='descripcion_actividad' id='descripcion_actividad' onblur=''><br>
-                        <div style="display:none" id="errorFormatoPass"></div> 
+                        <div style="display:none" id="errorFormatoPass"></div>
 
                         <label class='precio_actividad'></label>
                         <input type='text' name='precio_actividad' id='precio_actividad' onblur=''><br>
-                        <div style="display:none" id="errorFormatoPass"></div> 
+                        <div style="display:none" id="errorFormatoPass"></div>
 
                         <label class='numPlazas_actividad'></label>
                         <input type='text' name='numPlazas_actividad' id='numPlazas_actividad' onblur=''><br>
@@ -105,10 +106,11 @@
                         <label class='id_categoria'></label>
                         <input type='text' name='id_categoria' id='id_categoria' onblur=''><br>
                         <div style="display:none" id="errorFormatoPass"></div>
-                        
 
 
-                        <button id='submitbuttom' type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
+
+                        <button id='submitbuttom' type='submit'><img src="./images/icons/editUser.png"
+                                        width="50px" /></button><br>
                 </form>
         </div>
 
@@ -116,6 +118,5 @@
 </body>
 <script type="text/javascript" src="js/editActividad.js"></script>
 <script type="text/javascript" src="js/showallActividad.js"></script>
+
 </html>
-
-

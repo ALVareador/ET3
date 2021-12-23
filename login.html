@@ -1,7 +1,8 @@
 <html>
+
 <head lang='es'>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<script type="text/javascript" src="js/config.js"></script>
 	<script type="text/javascript" src="js/funcionesComunes.js"></script>
 	<script type="text/javascript" src="js/showallusuario.js"></script>
@@ -13,47 +14,50 @@
 	<script type="text/javascript" src="js/md5.js"></script>
 
 	<script type="text/javascript" src="Locale/idioma.js"></script>
-    <script type="text/javascript" src="Locale/Lang_EN.js"></script>
-    <script type="text/javascript" src="Locale/Lang_ES.js"></script>
-    <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+	<script type="text/javascript" src="Locale/Lang_EN.js"></script>
+	<script type="text/javascript" src="Locale/Lang_ES.js"></script>
+	<script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
 </head>
 
 <body onload="includeMenuIdioma();setLang('');">
 
-<div id="menuIdioma"></div>
+	<div id="menuIdioma"></div>
 
-<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:login();" onsubmit="comprobarLogin();">
-	<input type = "text" name= "usuario" id="txtUsuario" onblur="return comprobarUser();"> <br>
-	<div style="display:none" id="errorFormatoUser"></div> 
-	<input type = "password" name= "contrasena" id="txtPassword" onblur="return comprobarPass();">
-	<div style="display:none" id="errorFormatoPass"></div> 
-	<input type = "submit" value = "login">
-</form>
+	<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:login();"
+		onsubmit="comprobarLogin();">
+		<input type="text" name="usuario" id="txtUsuario" onblur="return comprobarUser();"> <br>
+		<div style="display:none" id="errorFormatoUser"></div>
+		<input type="password" name="contrasena" id="txtPassword" onblur="return comprobarPass();">
+		<div style="display:none" id="errorFormatoPass"></div>
+		<input type="submit" value="login">
+	</form>
 
 	<div id="quieresrecuperar">
-		<a onclick = 'javascript:recuperarcontrasena();'>Recuperar Contraseña</a>
+		<a onclick='javascript:recuperarcontrasena();'>Recuperar Contraseña</a>
 	</div>
 
 	<div id="divrecuperarcontrasena" style="display:none">
-		<form name="formulariorecuperar" id="formulariorecuperar" method="post" action="javascript:recuperar();" onsubmit="">
+		<form name="formulariorecuperar" id="formulariorecuperar" method="post" action="javascript:recuperar();"
+			onsubmit="">
 			<label class='correorecuperacion'></label>
-	        <input type='text' name='correorecuperacion' id='txtcorreorecuperacion' onblur=''><br>
-	        <label class='usuariorecuperacion'></label>
-	        <input type='text' name='usuariorecuperacion' id='txtusuariorecuperacion' onblur=''><br>
-	        <input type = "submit" value = "recuperar">
-	    </form>
+			<input type='text' name='correorecuperacion' id='txtcorreorecuperacion' onblur=''><br>
+			<label class='usuariorecuperacion'></label>
+			<input type='text' name='usuariorecuperacion' id='txtusuariorecuperacion' onblur=''><br>
+			<input type="submit" value="recuperar">
+		</form>
 	</div>
 
-		<div id="modal" style="display:none">
-                <div id="contenido-interno">
-                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
-                        <div id="mensajeError"></div>
-                        <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
-                                <span class="tooltiptext iconCerrar"></span>
-                        </a>
-                </div>
-        </div>
+	<div id="modal" style="display:none">
+		<div id="contenido-interno">
+			<div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
+			<div id="mensajeError"></div>
+			<a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+				<img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
+				<span class="tooltiptext iconCerrar"></span>
+			</a>
+		</div>
+	</div>
 </body>
+
 </html>

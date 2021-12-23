@@ -4,38 +4,38 @@
 
 // default settins - this structure can be moved in separate file in multilangual applications
 var A_TCALCONF = {
-	'cssprefix'  : 'tcal',
-	'months'     : ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-	'weekdays'   : ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
-	'longwdays'  : ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-	'yearscroll' : true, // show year scroller
-	'weekstart'  : 1, // first day of week: 0-Su or 1-Mo
-	'prevyear'   : 'Año Anterior',
-	'nextyear'   : 'Año Siguiente',
-	'prevmonth'  : 'Mes Anterior',
-	'nextmonth'  : 'Mes Siguiente',
-	'format'     : 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+	'cssprefix': 'tcal',
+	'months': ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+	'weekdays': ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+	'longwdays': ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+	'yearscroll': true, // show year scroller
+	'weekstart': 1, // first day of week: 0-Su or 1-Mo
+	'prevyear': 'Año Anterior',
+	'nextyear': 'Año Siguiente',
+	'prevmonth': 'Mes Anterior',
+	'nextmonth': 'Mes Siguiente',
+	'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
 };
 
 var A_TCALTOKENS = [
-	 // A full numeric representation of a year, 4 digits
-	{'t': 'Y', 'r': '19\\d{2}|20\\d{2}', 'p': function (d_date, n_value) { d_date.setFullYear(Number(n_value)); return d_date; }, 'g': function (d_date) { var n_year = d_date.getFullYear(); return n_year; }},
-	 // Numeric representation of a month, with leading zeros
-	{'t': 'm', 'r': '0?[1-9]|1[0-2]', 'p': function (d_date, n_value) { d_date.setMonth(Number(n_value) - 1); return d_date; }, 'g': function (d_date) { var n_month = d_date.getMonth() + 1; return (n_month < 10 ? '0' : '') + n_month }},
-	 // A full textual representation of a month, such as January or March
-	{'t': 'F', 'r': A_TCALCONF.months.join('|'), 'p': function (d_date, s_value) { for (var m = 0; m < 12; m++) if (A_TCALCONF.months[m] == s_value) { d_date.setMonth(m); return d_date; }}, 'g': function (d_date) { return A_TCALCONF.months[d_date.getMonth()]; }},
-	 // Day of the month, 2 digits with leading zeros
-	{'t': 'd', 'r': '0?[1-9]|[12][0-9]|3[01]', 'p': function (d_date, n_value) { d_date.setDate(Number(n_value)); if (d_date.getDate() != n_value) d_date.setDate(0); return d_date }, 'g': function (d_date) { var n_date = d_date.getDate(); return (n_date < 10 ? '0' : '') + n_date; }},
+	// A full numeric representation of a year, 4 digits
+	{ 't': 'Y', 'r': '19\\d{2}|20\\d{2}', 'p': function (d_date, n_value) { d_date.setFullYear(Number(n_value)); return d_date; }, 'g': function (d_date) { var n_year = d_date.getFullYear(); return n_year; } },
+	// Numeric representation of a month, with leading zeros
+	{ 't': 'm', 'r': '0?[1-9]|1[0-2]', 'p': function (d_date, n_value) { d_date.setMonth(Number(n_value) - 1); return d_date; }, 'g': function (d_date) { var n_month = d_date.getMonth() + 1; return (n_month < 10 ? '0' : '') + n_month } },
+	// A full textual representation of a month, such as January or March
+	{ 't': 'F', 'r': A_TCALCONF.months.join('|'), 'p': function (d_date, s_value) { for (var m = 0; m < 12; m++) if (A_TCALCONF.months[m] == s_value) { d_date.setMonth(m); return d_date; } }, 'g': function (d_date) { return A_TCALCONF.months[d_date.getMonth()]; } },
+	// Day of the month, 2 digits with leading zeros
+	{ 't': 'd', 'r': '0?[1-9]|[12][0-9]|3[01]', 'p': function (d_date, n_value) { d_date.setDate(Number(n_value)); if (d_date.getDate() != n_value) d_date.setDate(0); return d_date }, 'g': function (d_date) { var n_date = d_date.getDate(); return (n_date < 10 ? '0' : '') + n_date; } },
 	// Day of the month without leading zeros
-	{'t': 'j', 'r': '0?[1-9]|[12][0-9]|3[01]', 'p': function (d_date, n_value) { d_date.setDate(Number(n_value)); if (d_date.getDate() != n_value) d_date.setDate(0); return d_date }, 'g': function (d_date) { var n_date = d_date.getDate(); return n_date; }},
-	 // A full textual representation of the day of the week
-	{'t': 'l', 'r': A_TCALCONF.longwdays.join('|'), 'p': function (d_date, s_value) { return d_date }, 'g': function (d_date) { return A_TCALCONF.longwdays[d_date.getDay()]; }},
+	{ 't': 'j', 'r': '0?[1-9]|[12][0-9]|3[01]', 'p': function (d_date, n_value) { d_date.setDate(Number(n_value)); if (d_date.getDate() != n_value) d_date.setDate(0); return d_date }, 'g': function (d_date) { var n_date = d_date.getDate(); return n_date; } },
+	// A full textual representation of the day of the week
+	{ 't': 'l', 'r': A_TCALCONF.longwdays.join('|'), 'p': function (d_date, s_value) { return d_date }, 'g': function (d_date) { return A_TCALCONF.longwdays[d_date.getDay()]; } },
 	// English ordinal suffix for the day of the month, 2 characters
-	{'t': 'S', 'r': 'st|nd|rd|th', 'p': function (d_date, s_value) { return d_date }, 'g': function (d_date) { n_date = d_date.getDate(); if (n_date % 10 == 1 && n_date != 11) return 'st'; if (n_date % 10 == 2 && n_date != 12) return 'nd'; if (n_date % 10 == 3 && n_date != 13) return 'rd'; return 'th'; }}
-	
+	{ 't': 'S', 'r': 'st|nd|rd|th', 'p': function (d_date, s_value) { return d_date }, 'g': function (d_date) { n_date = d_date.getDate(); if (n_date % 10 == 1 && n_date != 11) return 'st'; if (n_date % 10 == 2 && n_date != 12) return 'nd'; if (n_date % 10 == 3 && n_date != 13) return 'rd'; return 'th'; } }
+
 ];
 
-function f_tcalGetHTML (d_date) {
+function f_tcalGetHTML(d_date) {
 
 	var e_input = f_tcalGetInputs(true);
 	if (!e_input) return;
@@ -54,7 +54,7 @@ function f_tcalGetHTML (d_date) {
 		d_selected = f_tcalParseDate(A_TCALCONF.selected, A_TCALCONF.format);
 	if (!d_selected)
 		d_selected = new Date(d_today);
-	
+
 	// show calendar for passed or selected date
 	d_date = d_date ? f_tcalResetTime(d_date) : new Date(d_selected);
 
@@ -73,18 +73,18 @@ function f_tcalGetHTML (d_date) {
 	// print weekdays titles
 	for (var i = 0; i < 7; i++)
 		s_html += '<th>' + A_TCALCONF.weekdays[(A_TCALCONF.weekstart + i) % 7] + '</th>';
-	s_html += '</tr>' ;
+	s_html += '</tr>';
 
 	// print calendar table
 	var n_date, n_month, d_current = new Date(d_firstDay);
 	while (d_current.getMonth() == d_date.getMonth() ||
 		d_current.getMonth() == d_firstDay.getMonth()) {
 
-		s_html +='<tr>';
+		s_html += '<tr>';
 		for (var n_wday = 0; n_wday < 7; n_wday++) {
 
 			a_class = [];
-			n_date  = d_current.getDate();
+			n_date = d_current.getDate();
 			n_month = d_current.getMonth();
 
 			if (d_current.getMonth() != d_date.getMonth())
@@ -99,14 +99,14 @@ function f_tcalGetHTML (d_date) {
 			s_html += '<td' + f_tcalRelDate(d_current) + (a_class.length ? ' class="' + a_class.join(' ') + '">' : '>') + n_date + '</td>';
 			d_current.setDate(++n_date);
 		}
-		s_html +='</tr>';
+		s_html += '</tr>';
 	}
-	s_html +='</tbody></table>';
+	s_html += '</tbody></table>';
 
 	return s_html;
 }
 
-function f_tcalRelDate (d_date, d_diff, s_units) {
+function f_tcalRelDate(d_date, d_diff, s_units) {
 
 	var s_units = (s_units == 'y' ? 'FullYear' : 'Month');
 	var d_result = new Date(d_date);
@@ -118,7 +118,7 @@ function f_tcalRelDate (d_date, d_diff, s_units) {
 	return ' onclick="f_tcalUpdate(' + d_result.valueOf() + (d_diff ? ',1' : '') + ')"';
 }
 
-function f_tcalResetTime (d_date) {
+function f_tcalResetTime(d_date) {
 	d_date.setMilliseconds(0);
 	d_date.setSeconds(0);
 	d_date.setMinutes(0);
@@ -127,8 +127,8 @@ function f_tcalResetTime (d_date) {
 }
 
 // closes calendar and returns all inputs to default state
-function f_tcalCancel () {
-	
+function f_tcalCancel() {
+
 	var s_pfx = A_TCALCONF.cssprefix;
 	var e_cal = document.getElementById(s_pfx);
 	if (e_cal)
@@ -138,11 +138,11 @@ function f_tcalCancel () {
 		f_tcalRemoveClass(a_inputs[n], s_pfx + 'Active');
 }
 
-function f_tcalUpdate (n_date, b_keepOpen) {
+function f_tcalUpdate(n_date, b_keepOpen) {
 
 	var e_input = f_tcalGetInputs(true);
 	if (!e_input) return;
-	
+
 	d_date = new Date(n_date);
 	var s_pfx = A_TCALCONF.cssprefix;
 
@@ -157,7 +157,7 @@ function f_tcalUpdate (n_date, b_keepOpen) {
 	}
 }
 
-function f_tcalOnClick () {
+function f_tcalOnClick() {
 
 	// see if already opened
 	var s_pfx = A_TCALCONF.cssprefix;
@@ -170,9 +170,9 @@ function f_tcalOnClick () {
 
 	// get position of input
 	f_tcalAddClass(this, s_activeClass);
-	
-	var n_left = f_getPosition (this, 'Left'),
-		n_top  = f_getPosition (this, 'Top') + this.offsetHeight;
+
+	var n_left = f_getPosition(this, 'Left'),
+		n_top = f_getPosition(this, 'Top') + this.offsetHeight;
 
 	var e_cal = document.getElementById(s_pfx);
 	if (!e_cal) {
@@ -187,7 +187,7 @@ function f_tcalOnClick () {
 	e_cal.style.visibility = 'visible';
 }
 
-function f_tcalParseDate (s_date, s_format) {
+function f_tcalParseDate(s_date, s_format) {
 
 	if (!s_date) return;
 
@@ -205,7 +205,7 @@ function f_tcalParseDate (s_date, s_format) {
 	}
 	var r_date = new RegExp(s_regexp + '$');
 	if (!s_date.match(r_date)) return;
-	
+
 	var s_val, d_date = f_tcalResetTime(new Date());
 	d_date.setDate(1);
 
@@ -216,12 +216,12 @@ function f_tcalParseDate (s_date, s_format) {
 		s_val = RegExp['$' + a_tokens[s_char]];
 		d_date = A_TCALTOKENS[n]['p'](d_date, s_val);
 	}
-	
+
 	return d_date;
 }
 
-function f_tcalGenerateDate (d_date, s_format) {
-	
+function f_tcalGenerateDate(d_date, s_format) {
+
 	var s_char, s_date = '';
 	for (var n = 0; n < s_format.length; n++) {
 		s_char = s_format.charAt(n);
@@ -230,7 +230,7 @@ function f_tcalGenerateDate (d_date, s_format) {
 	return s_date;
 }
 
-function f_tcalGetInputs (b_active) {
+function f_tcalGetInputs(b_active) {
 
 	var a_inputs = document.getElementsByTagName('input'),
 		e_input, s_rel, a_result = [];
@@ -252,7 +252,7 @@ function f_tcalGetInputs (b_active) {
 	return b_active ? null : a_result;
 }
 
-function f_tcalHasClass (e_elem, s_class) {
+function f_tcalHasClass(e_elem, s_class) {
 	var s_classes = e_elem.className;
 	if (!s_classes)
 		return false;
@@ -263,15 +263,15 @@ function f_tcalHasClass (e_elem, s_class) {
 	return false;
 }
 
-function f_tcalAddClass (e_elem, s_class) {
-	if (f_tcalHasClass (e_elem, s_class))
+function f_tcalAddClass(e_elem, s_class) {
+	if (f_tcalHasClass(e_elem, s_class))
 		return;
 
 	var s_classes = e_elem.className;
 	e_elem.className = (s_classes ? s_classes + ' ' : '') + s_class;
 }
 
-function f_tcalRemoveClass (e_elem, s_class) {
+function f_tcalRemoveClass(e_elem, s_class) {
 	var s_classes = e_elem.className;
 	if (!s_classes || s_classes.indexOf(s_class) == -1)
 		return false;
@@ -288,7 +288,7 @@ function f_tcalRemoveClass (e_elem, s_class) {
 	return true;
 }
 
-function f_getPosition (e_elemRef, s_coord) {
+function f_getPosition(e_elemRef, s_coord) {
 	var n_pos = 0, n_offset,
 		e_elem = e_elemRef;
 
@@ -308,8 +308,8 @@ function f_getPosition (e_elemRef, s_coord) {
 	return n_pos;
 }
 
-function f_tcalInit () {
-	
+function f_tcalInit() {
+
 	if (!document.getElementsByTagName)
 		return;
 
@@ -319,13 +319,13 @@ function f_tcalInit () {
 		e_input.onclick = f_tcalOnClick;
 		f_tcalAddClass(e_input, A_TCALCONF.cssprefix + 'Input');
 	}
-	
+
 	window.A_TCALTOKENS_IDX = {};
 	for (n = 0; n < A_TCALTOKENS.length; n++)
 		A_TCALTOKENS_IDX[A_TCALTOKENS[n]['t']] = A_TCALTOKENS[n];
 }
 
-function f_tcalAddOnload (f_func) {
+function f_tcalAddOnload(f_func) {
 	if (document.addEventListener) {
 		window.addEventListener('load', f_func, false);
 	}
@@ -338,7 +338,7 @@ function f_tcalAddOnload (f_func) {
 			window.onload = f_func;
 		}
 		else {
-			window.onload = function() {
+			window.onload = function () {
 				f_onLoad();
 				f_func();
 			}
@@ -346,4 +346,4 @@ function f_tcalAddOnload (f_func) {
 	}
 }
 
-f_tcalAddOnload (f_tcalInit);
+f_tcalAddOnload(f_tcalInit);

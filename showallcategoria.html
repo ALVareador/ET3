@@ -6,7 +6,7 @@
         <script type="text/javascript" src="js/editcategoria.js"></script>
         <script type="text/javascript" src="js/funcionesComunes.js"></script>
         <script type="text/javascript" src="js/funcionesFormularios.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <script type="text/javascript" src="Locale/idioma.js"></script>
         <script type="text/javascript" src="Locale/Lang_EN.js"></script>
@@ -14,7 +14,7 @@
         <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
 
-</head>      
+</head>
 
 <body onload="includeCabecera();validaAutenticado();getLisCategorias();setLang('');">
         <div id="menuIdioma"></div>
@@ -24,55 +24,60 @@
         </div>
 
         <div id="divtablaCategorias">
-                <table id="tablaCategorias" border= '1'>
-                        <thead >
-                                <th class="id_categoria"></div>
-                                </th>
-                                <th class="nombre_categoria"></div>
-                                </th>
-                                <th class="descripcion_categoria"></div>
-                                </th>
-                                <th class="ACCIONES"></th>
-                        </thead>
-                        <tbody id="datosCategoria">
+                <table id="tablaCategorias" border='1'>
+                        <thead>
+                                <th class="id_categoria">
+        </div>
+        </th>
+        <th class="nombre_categoria">
+                </div>
+        </th>
+        <th class="descripcion_categoria">
+                </div>
+        </th>
+        <th class="ACCIONES"></th>
+        </thead>
+        <tbody id="datosCategoria">
 
-                        </tbody>
-                        </tbody>
-                </table>
+        </tbody>
+        </tbody>
+        </table>
         </div>
 
         <div id="modal" style="display:none">
                 <div id="contenido-interno">
-                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
                         <div id="mensajeError"></div>
                         <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
                                 <span class="tooltiptext iconCerrar"></span>
                         </a>
                 </div>
         </div>
 
 
-        <a href="menu.html"><img src="./images/icons/volver.png" width="50px"  /></a>
+        <a href="menu.html"><img src="./images/icons/volver.png" width="50px" /></a>
 
         <div id='divformgenericoCategoria' style="display:none">
                 <div id="tituloForms"></div>
-                <a onclick = "cerrar('divformgenericoCategoria','','');"><img src = './images/icons/close.png' width="50px"></a>
+                <a onclick="cerrar('divformgenericoCategoria','','');"><img src='./images/icons/close.png'
+                                width="50px"></a>
                 <form name='formgenericoCategoria' id='formgenericoCategoria' method="post" action="" onsubmit="">
                         <label class='id_categoria'></label>
                         <input type='text' name='id_categoria' id='id_categoria' onblur=''><br>
                         <label class='nombre_categoria'></label>
                         <input type='text' name='nombre_categoria' id='nombre_categoria' onblur=''><br>
-                        <div style="display:none" id="errorFormatoUser"></div> 
+                        <div style="display:none" id="errorFormatoUser"></div>
                         <label class='descripcion_categoria'></label>
                         <input type='text' name='descripcion_categoria' id='descripcion_categoria' onblur=''><br>
-                        <div style="display:none" id="errorFormatoUser"></div> 
+                        <div style="display:none" id="errorFormatoUser"></div>
 
                         <br>
-                        <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
+                        <button type='submit'><img src="./images/icons/editUser.png" width="50px" /></button><br>
                 </form>
-        </div>        
+        </div>
 
 
 </body>
+
 </html>

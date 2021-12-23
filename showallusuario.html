@@ -7,15 +7,15 @@
         <script type="text/javascript" src="js/funcionesComunes.js"></script>
         <script type="text/javascript" src="js/funcionesFormularios.js"></script>
         <script type="text/javascript" src="js/config.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <script type="text/javascript" src="Locale/idioma.js"></script>
         <script type="text/javascript" src="Locale/Lang_EN.js"></script>
         <script type="text/javascript" src="Locale/Lang_ES.js"></script>
         <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
-        
-</head>      
+
+</head>
 
 <body onload="includeCabecera();validaAutenticado();getLisUsers();setLang('');">
         <div id="menuIdioma"></div>
@@ -24,11 +24,13 @@
                 <a href='addusuario.html'>Insertar usuario</a>
         </div>
         <div id="divtablaUsuarios">
-                <table id="tablaUsuarios" border= '1'>
-                        <thead >
-                                <th class="dni_usuario"><div class="usuario"></div>
+                <table id="tablaUsuarios" border='1'>
+                        <thead>
+                                <th class="dni_usuario">
+                                        <div class="usuario"></div>
                                 </th>
-                                <th class="usuario"><div class="usuario"></div>
+                                <th class="usuario">
+                                        <div class="usuario"></div>
                                 </th>
                                 <th class="id_grupo">
                                 </th>
@@ -45,47 +47,49 @@
 
         <div id="modal" style="display:none">
                 <div id="contenido-interno">
-                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
                         <div id="mensajeError"></div>
                         <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
                                 <span class="tooltiptext iconCerrar"></span>
                         </a>
                 </div>
         </div>
 
 
-        <a href="menu.html"><img src="./images/icons/volver.png" width="50px"  /></a>
+        <a href="menu.html"><img src="./images/icons/volver.png" width="50px" /></a>
 
         <div id="divdetalleusuario">
         </div>
 
         <div id='divformgenericousuario' style="display:none">
                 <div id="tituloForms"></div>
-                <a onclick = "cerrar('divformgenericousuario','','');"><img src = './images/icons/close.png' width="50px"></a>
+                <a onclick="cerrar('divformgenericousuario','','');"><img src='./images/icons/close.png'
+                                width="50px"></a>
                 <form name='formgenericousuario' id='formgenericousuario' method="post" action="" onsubmit="">
                         <label class='id_usuario'></label>
                         <input type='text' name='id' id='txtidUsuario' onblur=''><br>
                         <label class='usuario'></label>
                         <input type='text' name='usuario' id='txtUsuario' onblur=''><br>
-                        <div style="display:none" id="errorFormatoUser"></div> 
-                        <label id = 'labelcontrasena' class='contrasena'></label>
+                        <div style="display:none" id="errorFormatoUser"></div>
+                        <label id='labelcontrasena' class='contrasena'></label>
                         <input type='text' name='contrasena' id='txtPassword' onblur=''><br>
                         <label class='dni_usuario'></label>
                         <input type='text' name='dni_usuario' id='txtdniusuario' onblur=''><br>
                         <label class='id_grupo'></label>
-                        <select name='id_grupo' id='id_grupo' ></select><br>
+                        <select name='id_grupo' id='id_grupo'></select><br>
                         <label class='borrado_usuario'></label>
-                        <select name='borrado_usuario' id='borrado_usuario' >
+                        <select name='borrado_usuario' id='borrado_usuario'>
                                 <option value="0">Si</option>
                                 <option value="1">No</option>
                         </select>
 
                         <br>
-                        <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
+                        <button type='submit'><img src="./images/icons/editUser.png" width="50px" /></button><br>
                 </form>
-        </div>        
+        </div>
 
 
 </body>
+
 </html>
