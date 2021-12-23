@@ -132,7 +132,7 @@ function deleteresponsable() {
 }
 
 
-function showEditarResponsable(id, dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
+function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
 
 	// se resetea todo el formulario generico
 	resetearformularioresponsable();
@@ -143,26 +143,26 @@ function showEditarResponsable(id, dni_responsable, numCuenta_responsable, curri
 	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
 
 	//rellenamos los tipo text
+	$("#txtdniresponsable").val(dni_responsable);
 	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
 	$("#txtcurriculumresponsable").val(curriculum_responsable);
-	$("#txtdniresponsable").val(dni_responsable);
 
 	// rellenamos los onblur de los input que se validad
 	$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
 	$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
 
 	// se rellena los select
-	$("#txtborradoresponsble option[value='" + borrado_persona + "'").attr("selected", true);
+	$("#txtborradoresponsble option[value='" + borrado_responsable + "'").attr("selected", true);
 
 	// se deshabilita el id para que no pueda cambiarse
-	$("#txtidresponsable").attr('disabled', true);
 	$("#txtcurriculumresponsable").attr('disabled', true);
+	$("#txtdniresponsable").attr('disabled', false);
 
 }
 
 function comprobareditsubmit() {
 
-	if (comprobarUser()) {
+	if (comprobarResponsable()) {
 		/*pass = document.getElementById("txtPassword").value;
 		longitud = document.getElementById("txtPassword").value.length;
 		if ((pass == null) || (longitud = 0)){
@@ -310,18 +310,17 @@ function showDetalleResponsable(dni_responsable, numCuenta_responsable, curricul
 
 }
 
-function showEliminarResponsable(id, dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
+function showEliminarResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
 
 	resetearformularioresponsable();
 
 	$("#divformgenericoresponsable").attr('style', 'display: block');
 	$("#formgenericoresponsable").attr('action', 'javascript:deleteresponsable();');
 	$("#formgenericoresponsable").attr('onsubmit', '');
-
-	$("#txtidresponsable").val(id);
+	
+	$("#txtdniresponsable").val(dni_responsable);
 	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
 	$("#txtcurriculumresponsable").val(curriculum_responsable);
-	$("#txtdniresponsable").val(dni_responsable);
 
 	$("#labeltxtcurriculumresponsable").attr('style', 'display:none');
 	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
@@ -329,11 +328,10 @@ function showEliminarResponsable(id, dni_responsable, numCuenta_responsable, cur
 	$("#labeltxtcurriculumresponsable").attr('style', 'display:none');
 	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
 
-	$("#txtidresponsable").attr('disabled', true);
 	$("#txtdniresponsable").attr('disabled', true);
 	$("#txtnumcuentaresponsable").attr('disabled', true);
 	$("#txtcurriculumresponsable").attr('disabled', true);
-	$("#borrado_responsable").attr('disabled', true);
+	$("#txtborradoresponsable").attr('disabled', true);
 
 
 }
@@ -359,7 +357,7 @@ function showAddResponsable() {
 	$("#txtcurriculumresponsable").attr('disabled', true);
 
 	// rellenamos los onblur de los input que se validad
-	$("#txtdniresponsable").attr('onblur', 'comprobarDNI();');
+	$("#txtdniresponsable").attr('onblur', 'comprobarDNIResponsable();');
 	$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
 	$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
 	$("#subetxtcurriculumresponsable").attr('onblur', '');

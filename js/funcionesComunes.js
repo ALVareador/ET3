@@ -13,6 +13,21 @@ function comprobarUser() {
 
 }
 
+/**Función que valida el responsable*/
+function comprobarResponsable() {
+
+	document.getElementById("txtdniresponsable").style.borderWidth = "2px";
+
+	if (validaNoVacio("txtdniresponsable", "errorFormatoResponsable", "txtdniresponsable") && comprobarLetrasNumeros("txtdniresponsable", 15, 3, "errorFormatoResponsable", "txtdniresponsable")) {
+		validacionOK("txtdniresponsable", "errorFormatoResponsable");
+		return true;
+	} else {
+		validacionKO("txtdniresponsable", "errorFormatoResponsable");
+		return false;
+	}
+
+}
+
 /**Función que valida la contraseña*/
 function comprobarPass() {
 
@@ -38,6 +53,21 @@ function comprobarDNI() {
 		return true;
 	} else {
 		validacionKO("txtdnisuario", "errorFormatoUser");
+		return false;
+	}
+
+}
+
+/**Función que valida el dni*/
+function comprobarDNIResponsable() {
+
+	document.getElementById("txtdniresponsable").style.borderWidth = "2px";
+
+	if (validaNoVacio("txtdniresponsable", "errorFormatoUser", "dni_responsable") && validateDNI("txtdniresponsable", "errorFormatoUser", "dni_responsable")) {
+		validacionOK("txtdniresponsable", "errorFormatoUser");
+		return true;
+	} else {
+		validacionKO("txtdniresponsable", "errorFormatoUser");
 		return false;
 	}
 
@@ -308,7 +338,7 @@ function cerrar(idElemento, accion, operacion) {
 		metodoEjecutar();
 	}
 
-	eliminarAtributos();
+	//eliminarAtributos();
 
 	if (accion != 'add' && accion != 'edit' && accion != 'delete' && accion != 'detail') {
 		eliminarContenidoSelect();
