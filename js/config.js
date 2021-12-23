@@ -1,0 +1,1 @@
+var urlPeticionesAjax = "http://193.147.87.202/ET3_IU/noRest.php";
