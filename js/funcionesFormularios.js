@@ -163,9 +163,9 @@ function includeMenuIdioma() {
 /*Opcion ComboBox refacherita */
 	var menuIdioma = '<div class="menuIdioma">'+
             '<select name="comboIdioma" id="comboIdioma" onchange="setLang(comboIdioma.value)">'+
-            '<option value="GA">GA</option>'+
-            '<option value="ES">ES</option>'+ 
-            '<option value="EN">EN</option>'+
+            '<option id="es" value="ES" >ES</option>'+ 
+            '<option id="ga" value="GA" >GA</option>'+
+            '<option id="en" value="EN" >EN</option>'+
             '</select>'+
 			'</div>';
 

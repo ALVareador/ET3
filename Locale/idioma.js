@@ -17,27 +17,48 @@ function setLang(lang =''){
     switch(lang) {
     	case 'ES' : 
     	   traduccion=arrayES;
+           document.getElementById('es').selected = true;
+           document.getElementById('en').selected = false;
+           document.getElementById('ga').selected = false;
+/* En funcionamiento, la configuración del combo box y comentado el resaltado de colores de la configuración anterior */
+           /*
            document.getElementById('es').style.color = '#ff0000';
            document.getElementById('en').style.color = '#00e600';
            document.getElementById('ga').style.color = '#00e600';
+           */
     	break;
     	case 'EN' :
     	   traduccion=arrayEN;
+           document.getElementById('es').selected = false;
+           document.getElementById('en').selected = true;
+           document.getElementById('ga').selected = false;
+
+           /* 
            document.getElementById('en').style.color = '#ff0000';
            document.getElementById('es').style.color = '#00e600';
-           document.getElementById('ga').style.color = '#00e600';
+           document.getElementById('ga').style.color = '#00e600'; */
     	break;
     	case 'GA' :
     	   traduccion=arrayGA;
-           document.getElementById('ga').style.color = '#ff0000';
+
+           document.getElementById('es').selected = false;
+           document.getElementById('en').selected = false;
+           document.getElementById('ga').selected = true;
+
+           /* document.getElementById('ga').style.color = '#ff0000';
            document.getElementById('en').style.color = '#00e600';
-           document.getElementById('es').style.color = '#00e600';
+           document.getElementById('es').style.color = '#00e600'; */
     	break;
     	default:
     	   traduccion=arrayES;
-           document.getElementById('es').style.color = '#ff0000';
+
+           document.getElementById('es').selected = true;
+           document.getElementById('en').selected = false;
+           document.getElementById('ga').selected = false;
+
+          /*  document.getElementById('es').style.color = '#ff0000';
            document.getElementById('en').style.color = '#00e600';
-           document.getElementById('ga').style.color = '#00e600';
+           document.getElementById('ga').style.color = '#00e600'; */
     	break;
     }
 

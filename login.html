@@ -19,7 +19,10 @@
 
 </head>
 
-<body onload="includeCabecera();setLang('');";>
+<body onload="includeMenuIdioma();setLang('');">
+
+<div id="menuIdioma"></div>
+
 <form name="formularioLogin" id="formularioLogin" method="post" action="javascript:login();" onsubmit="comprobarLogin();">
 	<input type = "text" name= "usuario" id="txtUsuario" onblur="return comprobarUser();"> <br>
 	<div style="display:none" id="errorFormatoUser"></div> 
