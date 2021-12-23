@@ -66,9 +66,11 @@
 
         <div id='divformgenericoActividad' style="display:none">
                 <div id="tituloForms"></div>
-                <a onclick="cerrar('formgenericoActividad','','');"><img src='./images/icons/close.png'
-                                width="50px"></a>
+                <a onclick="cerrar('formgenericoActividad','','');"><img src='./images/icons/close.png' width="50px"></a>
                 <form name='formgenericoActividad' id='formgenericoActividad'>
+
+                        <h1 id="tituloAccion"></h1>
+                        <p id="subTituloAccion"></p>
 
                         <label class='id_actividad'></label>
                         <input type='text' name='id_actividad' id='id_actividad' onblur=''><br>
@@ -77,7 +79,7 @@
 
                         <label class='nombre_actividad'></label>
                         <input type='text' name='nombre_actividad' id='nombre_actividad' onblur=''><br>
-                        <div style="display:none" id="errorFormatoPass"></div>
+                        <div style="display:none" id="errorFormatonombre_actividad"></div>
 
                         <label class='descripcion_actividad'></label>
                         <input type='text' name='descripcion_actividad' id='descripcion_actividad' onblur=''><br>

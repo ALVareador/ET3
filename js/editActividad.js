@@ -181,12 +181,16 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
 
 	console.log(" showEditarActividad -> showEditarActividad trigered");
 	// se resetea todo el formulario generico
-	//resetearformularioresponsable();
+
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoActividad").attr('style', 'display: block');
 	$("#formgenericoActividad").attr('action', 'javascript:editActividad();');
 	$("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
+
+	//Se pone el titulo de la acción añadir
+	document.getElementById('tituloAccion').innerHTML = "Editar actividad";
+	document.getElementById('subTituloAccion').innerHTML = "Se estan editando los datos de la actividad: " + nombre_actividad;
 
 	//rellenamos los tipo text
 	$("#id_actividad").val(id_actividad);
@@ -232,16 +236,19 @@ function comprobareditsubmit() {
 
 function showDetalleActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
-	resetearformularioActividad()
+	
 	console.log(" showDetalleResponsable -> showDetalleResponsable trigered");
 
 	// se resetea todo el formulario generico
-	//resetearformularioresponsable();
+	resetearformularioActividad()
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoActividad").attr('style', 'display: disabled');
 	$("#formgenericoActividad").attr('action', 'javascript:editActividad();');
 	$("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
+
+	//Se pone el titulo de la acción añadir
+	document.getElementById('tituloAccion').innerHTML = "Detalles de la actividad: " + nombre_actividad;
 
 	//rellenamos los tipo text
 	$("#id_actividad").val(id_actividad);
@@ -282,6 +289,10 @@ function showEliminarActividad(id_actividad, nombre_actividad, descripcion_activ
 	$("#formgenericoActividad").attr('action', 'javascript:deleteActividad();');
 	$("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
 
+	//Se pone el titulo de la acción añadir
+	document.getElementById('tituloAccion').innerHTML = "Eliminar actividad";
+	document.getElementById('subTituloAccion').innerHTML = "Se estan mostrando los datos de la actividad: " + nombre_actividad;
+
 	//rellenamos los tipo text
 	$("#id_actividad").val(id_actividad);
 	$("#nombre_actividad").val(nombre_actividad);
@@ -308,7 +319,7 @@ function showEliminarActividad(id_actividad, nombre_actividad, descripcion_activ
 
 }
 
-function showAddActividad() {
+function showAddActividad(){
 
 	// se resetea todo el formulario generico
 	resetearformularioActividad();
@@ -317,6 +328,11 @@ function showAddActividad() {
 	$("#divformgenericoActividad").attr('style', 'display: block');
 	$("#formgenericoActividad").attr('action', 'javascript:addActividad();');
 	$("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
+
+	//Se pone el titulo de la acción añadir
+	document.getElementById('tituloAccion').innerHTML = "Añadir actividad";
+	document.getElementById('subTituloAccion').innerHTML = "Rellena los siguientes campos para añadir una nueva actividad";
+	
 
 	// rellenamos los onblur de los input que se validad
 	$("#id_actividad").attr('onblur', 'comprobarIdActividad(\"id_actividad\");');
@@ -332,6 +348,10 @@ function showBuscarActividad() {
 	$("#divformgenericoActividad").attr('style', 'display: block');
 	$("#formgenericoActividad").attr('action', 'javascript:buscarActividad();');
 	$("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
+
+	//Se pone el titulo de la acción buscar
+	document.getElementById('tituloAccion').innerHTML = "Buscar Actividad";
+	document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
 
 	// rellenamos los onblur de los input que se validad
 	$("#id_actividad").attr('onblur', 'comprobarIdActividad(\"id_actividad\");');
@@ -370,10 +390,16 @@ function resetearformularioActividad() {
 	//limpiar los mensajes de error	
 	resetValidacion("id_actividad", "", "errorFormatoId");
 
+	//limpiar titulo y subtitulos
+	document.getElementById('tituloAccion').innerHTML = null;
+	document.getElementById('subTituloAccion').innerHTML = null;
+
 
 	$("divformgenericoActividad").attr('style', 'display: none');
 
 }
+
+//Funciones de comprobación para los onblur
 
 function comprobarIdActividad(campoId) {
 	var linea = document.getElementById('id_actividad');
@@ -405,5 +431,90 @@ function comprobarIdActividad(campoId) {
 	}
 
 	validacionOK('id_actividad', 'errorFormatoId');
+	return true;
+}
+
+function resetearformularioActividad() {
+
+	$("formgenericoActividad").attr('action', '');
+	$("formgenericoActividad").attr('onsubmit', '');
+
+	//limpiar los valores de todos los campos
+	$("#id_actividad").val(null);
+	$("#nombre_actividad").val(null);
+	$("#descripcion_actividad").val(null);
+	$("#precio_actividad").val(null);
+	$("#numPlazas_actividad").val(null);
+	$("#color_actividad").val(null);
+	$("#color_nombre_actividad").val(null);
+	$("#id_espacio").val(null);
+	$("#id_categoria").val(null);
+	//poner todo habilitado
+
+	//habilito todos los imputs
+	$("#id_actividad").attr('disabled', false);
+	$("#nombre_actividad").attr('disabled', false);
+	$("#descripcion_actividad").attr('disabled', false);
+	$("#precio_actividad").attr('disabled', false);
+	$("#numPlazas_actividad").attr('disabled', false);
+	$("#color_actividad").attr('disabled', false);
+	$("#color_nombre_actividad").attr('disabled', false);
+	$("#id_espacio").attr('disabled', false);
+	$("#id_categoria").attr('disabled', false);
+	document.getElementById('submitbuttom').style.visibility = 'visible';
+
+	//limpiar los mensajes de error	
+	resetValidacion("id_actividad", "", "errorFormatoId");
+
+	//limpiar titulo y subtitulos
+	document.getElementById('tituloAccion').innerHTML = null;
+	document.getElementById('subTituloAccion').innerHTML = null;
+
+
+	$("divformgenericoActividad").attr('style', 'display: none');
+
+}
+
+function comprobarNombreActividad(campoId) {
+	idcampo= "nombre_actividad"
+	idError="errorFormatonombre_actividad"
+	var linea = document.getElementById(idcampo);
+	var data = linea.value;
+	var patron = /^[a-zA-Záéíóú\s]+$/;
+
+
+
+
+	//Si es vacio 
+	if (data.length == 0) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo nombre no puede estar vacio");
+		return false;
+	}
+
+	//Si menor que 3 caracteres
+	if (data.length < 4) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo nombre debe de tener mas  de 3 caracteres");
+		return false;
+	}
+
+	//si mas de 45 caracteres
+	if (data.length > 45) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo nombre no puede  tener mas de 11 caracteres");
+		return false;
+	}
+
+	//Si contiene espacios o letras
+	if (!patron.test(data)) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo nombre no puede contener numeros,signos de puntuacion o simbolos");
+		return false;
+	}
+
+
+
+	validacionOK(idcampo, idError);
 	return true;
 }
