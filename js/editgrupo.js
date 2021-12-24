@@ -223,15 +223,15 @@ function resetearformulariogrupo(idformUsado) {
 	$("idformUsado").attr('action', '');
 	$("idformUsado").attr('onsubmit', '');
 
-	$("#idGrupo").attr('disabled', false);
+	$("#id_grupo").attr('disabled', false);
 	$("#nombre_grupo").attr('disabled', false);
 	$("#descripcion_grupo").attr('disabled', false);
 
-	$("#idGrupo").val('');
+	$("#id_grupo").val('');
 	$("#nombre_grupo").val('');
 	$("#descripcion_grupo").val('');
 
-	$("#idGrupo").attr('onblur', '');
+	$("#id_grupo").attr('onblur', '');
 	$("#nombre_grupo").attr('onblur', '');
 	$("#descripcion_grupo").attr('onblur', '');
 

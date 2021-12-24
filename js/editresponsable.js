@@ -63,7 +63,7 @@ function editresponsable() {
 
 	var idioma = getCookie('lang');
 
-	var formdata = $("#formgenericopersona").serialize();
+	var formdata = $("#formgenericoresponsable").serialize();
 	var file = $("#subetxtcurriculumresponsable")[0].files[0];
 	var datos = new FormData();
 	datos.append("upload", file);
