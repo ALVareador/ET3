@@ -192,68 +192,6 @@ function detalleresponsable() {
 
 function showDetalleResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
 
-	// se resetea todo el formulario generico
-	resetearformularioresponsable();
-
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divfformdetalleresponsable").attr('style', 'display: block');
-	$("#formdetalleresponsable").attr('action', 'javascript:detalleresponsable();');
-	$("#formdetalleresponsable").attr('onsubmit', '');
-
-	// rellenamos los value de los input 
-
-	$("#txtdniresponsable").val(dni_responsable);
-	$("#txtcurriculumresponsable").val(curriculum_responsable);
-	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
-
-	$("#labeltxtcurriculumresponsable").attr('style', 'display:none');
-	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
-
-	// se deshabilitan todos los atributos para que no puedan cambiarse
-	$("#txtdniresponsable").attr('disabled', true);
-	$("#txtcurriculumresponsable").attr('disabled', true);
-	$("#txtnumcuentaresponsable").attr('disabled', true);
-	$("#txtborradoresponsble").attr('disabled', true);
-
-	// se rellena los select
-	$("#txtborradoresponsble option[value='" + borrado_responsable + "'").attr("selected", true);
-
-	//cambiar icono submit
-	$("#iconoAcciones").attr('src', "./images/icons/volver.png");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	//divdetalleresponsable = document.createElement('div');
 	//divdetalleresponsable.id = 'divdetalleresponsable';
 	//document.body.appendChild(divdetalleresponsable);
@@ -270,12 +208,6 @@ function showDetalleResponsable(dni_responsable, numCuenta_responsable, curricul
 	$('#formdetalleresponsable').attr('style', 'display: block');
 
 	form = document.getElementById('formdetalleresponsable');
-
-	label = "<label class='id_responsable'></label>";
-	$("#formdetalleresponsable").append(label);
-	insertacampovisible(form, 'id', id);
-	$("#id").attr('disabled', true);
-	$("#formdetalleresponsable").append('<br>');
 
 	label = "<label class='dni_responsable' disabled='disabled'></label>";
 	$("#formdetalleresponsable").append(label);
@@ -365,8 +297,7 @@ function showAddResponsable() {
 	// se rellena los select
 
 	// se deshabilita el id para que no pueda cambiarse
-	$("#txtidresponsable").attr('disabled', true);
-	//$("#txtnumcuentaresponsable").attr('disabled', false);	
+	$("#txtdniresponsable").attr('disabled', false);	
 	//$("#txtcurriculumresponsable").attr('disabled', false);
 
 	//cambiar icono submit
