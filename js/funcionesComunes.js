@@ -341,7 +341,7 @@ function cerrar(idElemento, accion, operacion) {
 	//eliminarAtributos();
 
 	if (accion != 'add' && accion != 'edit' && accion != 'delete' && accion != 'detail') {
-		eliminarContenidoSelect();
+		//eliminarContenidoSelect();
 	} else {
 		let campos = ["txtNombre", "txtEmail", "txtUsuario", "txtPassword", "admin", "activo"];
 		habilitaCampos(campos);
@@ -582,5 +582,9 @@ function resetValidacion(idElemento, colorOriginal, idError) {
 	document.getElementById(idElemento).style.borderColor = colorOriginal + "";
 
 	showError(idError, -20, '', "");
+}
+
+function asProbadoAReiniciarlo(){
+	location.reload();
 }
 

@@ -42,6 +42,8 @@ function addResponsable() {
 
 		//eleminia del formulario los campos action y controlador
 		deleteActionController();
+
+		asProbadoAReiniciarlo();
 	});
 
 };
@@ -89,6 +91,8 @@ function editresponsable() {
 		setLang(idioma);
 
 		deleteActionController();
+
+		asProbadoAReiniciarlo();
 	});
 
 }
@@ -127,37 +131,42 @@ function deleteresponsable() {
 		setLang(idioma);
 
 		deleteActionController();
+
+		asProbadoAReiniciarlo();
 	});
 
 }
 
 
 function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
-
-	// se resetea todo el formulario generico
-	resetearformularioresponsable();
-
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoresponsable").attr('style', 'display: block');
-	$("#formgenericoresponsable").attr('action', 'javascript:editresponsable();');
-	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
-
-	//rellenamos los tipo text
-	$("#txtdniresponsable").val(dni_responsable);
-	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
-	$("#txtcurriculumresponsable").val(curriculum_responsable);
-
-	// rellenamos los onblur de los input que se validad
-	$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
-	$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
-
-	// se rellena los select
-	$("#txtborradoresponsble option[value='" + borrado_responsable + "'").attr("selected", true);
-
-	// se deshabilita el id para que no pueda cambiarse
-	$("#txtcurriculumresponsable").attr('disabled', true);
-	$("#txtdniresponsable").attr('disabled', false);
-
+	
+		// se resetea todo el formulario generico
+		resetearformularioresponsable();
+	
+		// se pone visible el formulario y se rellena el action y el onsubmit
+		$("#divformgenericoresponsable").attr('style', 'display: block');
+		$("#formgenericoresponsable").attr('action', 'javascript:editresponsable();');
+		$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
+	
+		//rellenamos los tipo text
+		$("#txtdniresponsable").val(dni_responsable);
+		$("#txtnumcuentaresponsable").val(numCuenta_responsable);
+		$("#txtcurriculumresponsable").val(curriculum_responsable);
+	
+		// rellenamos los onblur de los input que se validad
+		$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
+		$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
+	
+		// se rellena los select
+		$("#txtborradoresponsble option[value='" + borrado_responsable + "'").attr("selected", true);
+	
+		// se habilita el id para que no pueda cambiarse
+	
+		$("#txtdniresponsable").attr('disabled', false);
+		$("#txtnumcuentaresponsable").attr('disabled', false);
+		$("#txtcurriculumresponsable").attr('disabled', false);
+		$("#txtborradoresponsable").attr('disabled', false);
+	
 }
 
 function comprobareditsubmit() {
@@ -238,6 +247,11 @@ function showDetalleResponsable(dni_responsable, numCuenta_responsable, curricul
 
 	$("#divdetalleresponsable").append(formdetalleresponsable);
 
+	$("#txtdniresponsable").attr('disabled', true);
+	$("#txtnumcuentaresponsable").attr('disabled', true);
+	$("#txtcurriculumresponsable").attr('disabled', true);
+	$("#txtborradoresponsable").attr('disabled', true);
+
 	setLang('');
 
 }
@@ -249,7 +263,7 @@ function showEliminarResponsable(dni_responsable, numCuenta_responsable, curricu
 	$("#divformgenericoresponsable").attr('style', 'display: block');
 	$("#formgenericoresponsable").attr('action', 'javascript:deleteresponsable();');
 	$("#formgenericoresponsable").attr('onsubmit', '');
-	
+
 	$("#txtdniresponsable").val(dni_responsable);
 	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
 	$("#txtcurriculumresponsable").val(curriculum_responsable);
@@ -297,7 +311,7 @@ function showAddResponsable() {
 	// se rellena los select
 
 	// se deshabilita el id para que no pueda cambiarse
-	$("#txtdniresponsable").attr('disabled', false);	
+	$("#txtdniresponsable").attr('disabled', false);
 	//$("#txtcurriculumresponsable").attr('disabled', false);
 
 	//cambiar icono submit
