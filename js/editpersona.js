@@ -63,6 +63,13 @@ function showAddPersona() {
     // eliminar input no necesario
 	$("#labelfotopersona").attr('style', 'display:none');
 	$("#foto_persona").attr('style', 'display:none');
+
+
+	$("#fechaNacimiento_persona").attr('disabled', false);
+	$("#direccion_persona").attr('disabled', false);
+	$("#telefono_persona").attr('disabled', false);
+	$("#esCeliaco_persona").attr('disabled', false);
+	$("#borrado_persona").attr('disabled', false);
 	$("#foto_persona").attr('disabled', true);
 
 	// rellenamos los onblur de los input que se validad
