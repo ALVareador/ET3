@@ -16,7 +16,7 @@
 
 </head>
 
-<body onload="includeCabecera();validaAutenticado();GetLisActividades();setLang('');">
+<body onload="includeCabecera();validaAutenticado();GetArrayEspacios();GetArrayCategorias();GetLisActividades();setLang('');rellenaId_espacio();rellenaid_categoria();">
         <div id="menuIdioma"></div>
         <div id="UserDesconectar"></div>
         <div id="Funciones">
@@ -66,7 +66,8 @@
 
         <div id='divformgenericoActividad' style="display:none">
                 <div id="tituloForms"></div>
-                <a onclick="cerrar('formgenericoActividad','','');"><img src='./images/icons/close.png' width="50px"></a>
+                <a onclick="cerrar('formgenericoActividad','','');"><img src='./images/icons/close.png'
+                                width="50px"></a>
                 <form name='formgenericoActividad' id='formgenericoActividad'>
 
                         <h1 id="tituloAccion"></h1>
@@ -102,12 +103,12 @@
                         <div style="display:none" id="errorFormatoPass"></div>
 
                         <label class='id_espacio'></label>
-                        <input type='text' name='id_espacio' id='id_espacio' onblur=''><br>
-                        <div style="display:none" id="errorFormatoPass"></div>
+                        <select name="id_espacio" id="id_espacio" onchange="setLang(comboIdioma.value)">
+                        </select><br>
 
                         <label class='id_categoria'></label>
-                        <input type='text' name='id_categoria' id='id_categoria' onblur=''><br>
-                        <div style="display:none" id="errorFormatoPass"></div>
+                        <select name="id_categoria" id="id_categoria" onchange="setLang(comboIdioma.value)">
+                        </select><br>
 
 
 
@@ -116,6 +117,7 @@
                 </form>
         </div>
 
+        <h1>RECORDAD CAMBIAR LO DE LOS IDIOMAS DE LOS TITULOS Y SUBTITULOS</h1>
 
 </body>
 <script type="text/javascript" src="js/editActividad.js"></script>

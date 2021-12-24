@@ -12,7 +12,7 @@ function addActividad() {
 
 	$.ajax({
 		method: "POST",
-		url: urlPeticionesAjax,
+		url: "http://193.147.87.202/ET3_IU/noRest.php",
 		data: $("#formgenericoActividad").serialize(),
 
 	}).done(function (response) {
@@ -167,16 +167,6 @@ function deleteActividad() {
 function showEditarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
 	resetearformularioActividad()
-	//deshabilito todos los imputs
-	$("#id_actividad").attr('disabled', false);
-	$("#nombre_actividad").attr('disabled', false);
-	$("#descripcion_actividad").attr('disabled', false);
-	$("#precio_actividad").attr('disabled', false);
-	$("#numPlazas_actividad").attr('disabled', false);
-	$("#color_actividad").attr('disabled', false);
-	$("#color_nombre_actividad").attr('disabled', false);
-	$("#id_espacio").attr('disabled', false);
-	$("#id_categoria").attr('disabled', false);
 
 
 	console.log(" showEditarActividad -> showEditarActividad trigered");
@@ -217,21 +207,8 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
 
 function comprobareditsubmit() {
 
-	if (comprobarUser()) {
-		/*pass = document.getElementById("txtPassword").value;
-		longitud = document.getElementById("txtPassword").value.length;
-		if ((pass == null) || (longitud = 0)){
-			return true;
-		} 
-		else {
-			encriptar("txtPassword");
-			return true;
-		}*/
-		return true;
-	}
-	else {
-		return false;
-	}
+	return true;
+
 }
 
 function showDetalleActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
@@ -399,6 +376,75 @@ function resetearformularioActividad() {
 
 }
 
+function rellenaId_espacio(id_actividad) { 
+
+    var idSession = getCookie('sessionId');
+
+	addActionControler(document.formgenericoActividad, 'search', 'espacio')
+
+    var idioma = getCookie('lang');
+
+    $.ajax({
+        method: "POST",
+          url: "http://193.147.87.202/ET3_IU/noRest.php",
+          data: $("#formgenericoActividad").serialize(),
+    }).done(function( response ) {
+        if (response.ok == true) {
+            // Rellenamos el selector.
+            addOptions('id_espacio',response.resource,'id_espacio','nombre_espacio');
+
+            //Pone como selected el argumento pasado como parámetro
+            $("#id_espacio option[value='" + id_espacio + "']").attr("selected", true);
+
+        } else {
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+            setLang(idioma);
+            document.getElementById("modal").style.display = "block";
+        }
+
+        deleteActionController();
+    });
+}
+
+
+function rellenaid_categoria(id_actividad) { 
+
+    var idSession = getCookie('sessionId');
+
+	addActionControler(document.formgenericoActividad, 'search', 'categoria')
+
+    var idioma = getCookie('lang');
+
+    $.ajax({
+        method: "POST",
+          url: "http://193.147.87.202/ET3_IU/noRest.php",
+          data: $("#formgenericoActividad").serialize(),
+    }).done(function( response ) {
+        if (response.ok == true) {
+            // Rellenamos el selector.
+            addOptions('id_categoria',response.resource,'id_categoria','nombre_categoria');
+
+            //Pone como selected el argumento pasado como parámetro
+            $("#id_categoria option[value='" + id_categoria + "']").attr("selected", true);
+
+        } else {
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+            setLang(idioma);
+            document.getElementById("modal").style.display = "block";
+        }
+
+        deleteActionController();
+    });
+}
+
+
+
+
+
 //Funciones de comprobación para los onblur
 
 function comprobarIdActividad(campoId) {
@@ -518,3 +564,7 @@ function comprobarNombreActividad(campoId) {
 	validacionOK(idcampo, idError);
 	return true;
 }
+
+
+
+

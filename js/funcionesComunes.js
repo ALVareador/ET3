@@ -383,7 +383,7 @@ function rellenaid_grupo(id, activo) {
 		data: $("#formularioobtenergrupo").serialize(),
 	}).done(function (response) {
 		if (response.ok == true) {
-			addOptions('id_grupo', response.resource);
+			addOptionsEspacios('id_grupo', response.resource);
 			$("#id_grupo option[value='" + id + "'").attr("selected", true);
 			$("#borrado_usuario option[value='" + activo + "'").attr("selected", true);
 		} else {
@@ -568,10 +568,10 @@ function comprobarDescrEspacio() {
 
 //Añade al div que se indique a traves de la ID, el mensaje especificado con el tamaño de letra y color especificado
 //IMPORTANTE:El tamaño debe pasar como numero y NO como string
-function showError(idError, tamañoLetra, colorTexto, mensaje) {
+function showError(idError, tamanhoLetra, colorTexto, mensaje) {
 	var divError = document.getElementById(idError);
-	divError.style.height = tamañoLetra + 20 + "px";
-	divError.style.fontSize = tamañoLetra + "px";
+	divError.style.height = tamanhoLetra + 20 + "px";
+	divError.style.fontSize = tamanhoLetra + "px";
 	divError.style.color = colorTexto + "";
 	divError.innerHTML = mensaje + "";
 }

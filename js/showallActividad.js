@@ -11,6 +11,17 @@ function construyeFila(fila) {
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
+
+    for (var j = 0; j <ArrayEspacios.length; j++) {
+        if(ArrayEspacios[j]['id_espacio'] == fila.id_espacio)
+        fila.id_espacio = ArrayEspacios[j]['nombre_espacio'];
+    }
+
+    for (var j = 0; j <ArrayCategorias.length; j++) {
+        if(ArrayCategorias[j]['id_categoria'] == fila.id_categoria)
+        fila.id_categoria = ArrayCategorias[j]['nombre_categoria'];
+    }
+
     var filaTabla = '<tr> <td>' + fila.id_actividad +
         '</td> <td>' + fila.nombre_actividad +
         '</td> <td>' + fila.descripcion_actividad +
@@ -26,18 +37,81 @@ function construyeFila(fila) {
     return filaTabla;
 }
 
-function GetLisActividades() {
+ArrayEspacios = null;
 
-    console.log("GetLisActividades -> GetLisActividades trigered");
+function GetArrayEspacios() { 
+
+    var idSession = getCookie('sessionId');
+
+	addActionControler(document.formgenericoActividad, 'search', 'espacio')
+
+    var idioma = getCookie('lang');
+
+    $.ajax({
+        method: "POST",
+          url: "http://193.147.87.202/ET3_IU/noRest.php",
+          data: $("#formgenericoActividad").serialize(),
+    }).done(function( response ) {
+        if (response.ok == true) {
+
+            ArrayEspacios = response.resource;
+            
+            return response.resource;
+
+        } else {
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+            setLang(idioma);
+            document.getElementById("modal").style.display = "block";
+        }
+
+        deleteActionController();
+    });
+}
+
+var ArrayCategorias;
+
+function GetArrayCategorias() { 
+
+    var idSession = getCookie('sessionId');
+
+	addActionControler(document.formgenericoActividad, 'search', 'categoria')
+
+    var idioma = getCookie('lang');
+
+    $.ajax({
+        method: "POST",
+          url: "http://193.147.87.202/ET3_IU/noRest.php",
+          data: $("#formgenericoActividad").serialize(),
+    }).done(function( response ) {
+        if (response.ok == true) {
+
+            ArrayCategorias = response.resource;
+            
+            return response.resource;
+
+        } else {
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+            setLang(idioma);
+            document.getElementById("modal").style.display = "block";
+        }
+
+        deleteActionController();
+    });
+}
+
+function GetLisActividades() {
 
     var idioma = getCookie('lang');
     var idSession = getCookie('sessionId');
-    console.log("GetLisActividades -> formulario oculto  construyendose");
+
     addActionControler(document.formgenericoActividad, 'search', 'actividad')
     insertacampo(document.formgenericoActividad, 'ID_SESSION', idSession);
 
-    console.log("GetLisActividades ->formulario oculto  construido");
-    console.log(document.formgenericoActividad);
+
 
     $.ajax({
         method: "POST",
@@ -47,15 +121,18 @@ function GetLisActividades() {
         if (response.ok == true) {
             $("#datosActividad").html("");
             nodos = document.getElementById("formgenericoActividad").childNodes;
+            
             for (var i = 0; i < nodos.length; i++) {
                 var item = nodos[i];
                 if (item.id != undefined) {
-                    //  alert(item.id);
                 }
             }
-            //alert(nodos);
-            for (var i = 0; i < response.resource.length; i++) {
-                var tr = construyeFila(response.resource[i]);
+            
+            var arrayActividades = response.resource;
+            for (var i = 0; i <arrayActividades.length; i++) {
+
+                var linea = arrayActividades[i];
+                var tr = construyeFila(linea);
                 $("#datosActividad").append(tr);
             }
 
@@ -74,3 +151,4 @@ function GetLisActividades() {
 
     });
 }
+

@@ -111,8 +111,6 @@ function addActionControler(form, action, controller) {
             break;
     }
 
-    console.log("addActionControler -> " + action);
-
     insertacampo(form, 'action', accion);
     insertacampo(form, 'controlador', controller);
 
@@ -204,18 +202,21 @@ function actualizaMensajesRespuestAjax(codigo) {
 }
 
 //Función para agregar opciones a un <select>.
-function addOptions(domElement, array) {
+//campo Id se corresponde con el campo del array que contiene la id (debe ser un string)
+//campo nombre se corresponde con el campo del array que contiene el nombre (debe ser un string)
+function addOptions(domElement, array,campoId,CampoNombre) {
     var selector = document.getElementById(domElement);
     //Recorremos el array.
     longitud = array.length;
 
     for (var i = 0; i < longitud; i++) {
         var opcion = document.createElement("option");
-        opcion.value = array[i]['id_grupo'];
-        opcion.text = array[i]['nombre_grupo'];
+        opcion.value = array[i][campoId];
+        opcion.text = array[i][CampoNombre];
         selector.add(opcion);
     }
 }
+
 
 //Función para eliminar todas las opciones a un <select>.
 function deleteoptionsSelect(domElement) {
