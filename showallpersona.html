@@ -65,6 +65,7 @@
 
         <a href="menu.html"><img src="./images/icons/volver.png" width="50px" /></a>
 
+<<<<<<< Updated upstream
         <div id='divformaddpersona'>
                 <form name='formaddpersona' id='formaddpersona' method="post" action="javascript:addpersona();"
                         onsubmit="">
@@ -98,6 +99,14 @@
                         <label class='dni_persona'></label>
                         <input type='text' name='dni_persona' id='dni_persona'
                                 onblur='return comprobarDNIPersona()'><br>
+=======
+        <div id='divformgenericopersona' style="display:none">
+                <form name='formgenericoPersona' id='formgenericoPersona' method="post" action="javascript:editpersona();" onsubmit="comprobareditsubmit();">
+                        <label class='usuario'></label>
+                        <input type='text' name='usuario' id='txtUsuario' onblur='return comprobarUser();'><br>
+                        <label class='dni_persona'></label>
+                        <input type='text' name='dni_persona' id='dni_persona' onblur='return comprobarDNI()'><br>
+>>>>>>> Stashed changes
                         <label class='nombre_persona'></label>
                         <input type='text' name='nombre_persona' id='nombre_persona'
                                 onblur='return comprobarNombrePersona()'><br>
@@ -114,10 +123,16 @@
                                 onblur='return comprobarTelefono()'><br>
 
                         <label class='fechaNacimiento_persona'></label>
+<<<<<<< Updated upstream
                         <input type=name='fechaNacimiento_persona' id='fechaNacimiento_persona'
                                 onblur='return comprobarFecha()'><br>
                         <label class='foto_persona'></label>
                         <input type=name='foto_persona' id='foto_persona' onblur='return comprobarFecha()'><br>
+=======
+                        <input type= text name='fechaNacimiento_persona' id='fechaNacimiento_persona' onblur='return comprobarFecha()'><br>
+                        <label class='foto_persona'></label>
+                        <input type= text name='foto_persona' id='foto_persona' onblur='return comprobarFecha()'><br>
+>>>>>>> Stashed changes
 
                         <label class='esCeliaco_persona'></label>
                         <select name='esCeliaco_persona' id='esCeliaco_persona'>
