@@ -20,11 +20,11 @@ arrayES = {
 	'Inicio': 'Inicio',
 	'bienvenida': 'Bienvenido a la arquitectura de IU 2021/2022',
 	'listUsers': 'Bienvenido a la tabla de muestra de usuarios',
-	'addForm': 'Bienvenidos al formulario de inserción',
-	'searchForm': 'Bienvenidos al formulario de búsqueda',
-	'editForm': 'Bienvenidos al formulario de edición',
-	'deleteForm': 'Bienvenidos al formulario de borrado',
-	'detailForm': 'Bienvenidos al formulario de detalle',
+	'addForm': 'Bienvenido al formulario de inserción',
+	'searchForm': 'Bienvenido al formulario de búsqueda',
+	'editForm': 'Bienvenido al formulario de edición',
+	'deleteForm': 'Bienvenido al formulario de borrado',
+	'detailForm': 'Bienvenido al formulario de detalle',
 	'GestUsu': 'Gestión de Usuarios',
 	'saludoLOGIN': 'Iniciar Sesión',
 	'saludoREGISTRO': 'Registro',
@@ -32,7 +32,7 @@ arrayES = {
 	'datosPersonales': 'Datos personales',
 	'datosUsuario': 'Datos usuario',
 	//- atributos
-	'id_usuario': 'Id de Usuario',
+	'id_usuario': 'ID de Usuario',
 	'usuario': 'Nombre de Usuario',
 	'contrasena': 'Contraseña de Usuario',
 	'dni_usuario': 'DNI de Usuario',
@@ -42,7 +42,6 @@ arrayES = {
 	'SI': 'Sí',
 	'NO': 'No',
 
-	'id_grupo': 'Id de grupo',
 	'nombre_grupo': 'Nombre de Grupo',
 	'descripcion_grupo': 'Descripcion de Grupo',
 
@@ -82,7 +81,7 @@ arrayES = {
 	'iconRefresh': 'Refrescar Tabla',
 	'iconOrdenar': 'Ordenar',
 	'iconOk': 'OK',
-	'iconLogin': 'Login',
+	'iconLogin': 'Acceso',
 
 	//************************************************************************************************
 	// login registro
@@ -91,7 +90,7 @@ arrayES = {
 	//- errores
 	'LOGIN_USUARIO_INCORRECTO': 'No existe el usuario',
 	'LOGIN_CONTRASENA_INCORRECTO': 'La contraseña no es correcta',
-	'LOGIN_USU_CORRECTO': 'Usuario logueado correctamente',
+	'LOGIN_USU_CORRECTO': 'El Usuario accedió correctamente',
 	'session_stored_ok': 'Sesión guardada en BD',
 	'session_stored_fail': 'No existe la sesión en BD',
 	'user_in_session': 'Usuario con sesión activa',

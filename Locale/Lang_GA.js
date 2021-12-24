@@ -20,11 +20,11 @@ arrayGA = {
 	'Inicio': 'Inicio',
 	'bienvenida': 'Benvido á arquitectura de IU 2021/2022',
 	'listUsers': 'Benvido á táboa de mostra de usuarios',
-	' addForm': 'Benvidos ao formulario de inserción',
-	' searchForm': 'Benvidos ao formulario de procura',
-	' editForm': 'Benvidos ao formulario de edición',
-	' deleteForm': 'Benvidos ao formulario de borrado',
-	' detailForm': 'Benvidos ao formulario de detalle',
+	' addForm': 'Benvido ao formulario de inserción',
+	' searchForm': 'Benvido ao formulario de procura',
+	' editForm': 'Benvido ao formulario de edición',
+	' deleteForm': 'Benvido ao formulario de borrado',
+	' detailForm': 'Benvido ao formulario de detalle',
 	'GestUsu': 'Xestión de Usuarios',
 	'saludoLOGIN': 'Iniciar Sesión',
 	'saludoREGISTRO': 'Rexistro',
@@ -32,15 +32,15 @@ arrayGA = {
 	'datosPersonales': 'Datos persoais',
 	'datosUsuario': 'Datos usuario',
 	//- atributos	
+	'id_usuario':'ID do Usuario',
 	'usuario': 'Nome de Usuario',
-	'contrasena': 'Contraseña de Usuario',
+	'contrasena': 'Contrasinal de Usuario',
 	'dni_usuario': 'DNI de Usuario',
 	'id_grupo': 'Grupo',
 	'borrado_usuario': 'Activo',
 	'ACCIONES': 'Accions',
-	'SI': 'Sí',
+	'SI': 'Si',
 	'NO': 'Non',
-
 
 	'nombre_grupo': 'Nome de Grupo',
 	'descripcion_grupo': 'Descripcion do Grupo',
@@ -50,10 +50,10 @@ arrayGA = {
 	'numCuenta_responsable': 'Número de Conta',
 	'borrado_responsable': 'Activo',
 
-	'fecha_solicitud_inscripcion': 'Fecha Solicitud',
-	'documento_pago': 'Documento Pago',
-	'fecha_pago_inscripcion': 'Fecha Pago',
-	'fecha_aceptacion_inscripcion': 'Fecha Aceptacion',
+	'fecha_solicitud_inscripcion': 'Data de Solicitude',
+	'documento_pago': 'Documento de Pago',
+	'fecha_pago_inscripcion': 'Data de Pagamento',
+	'fecha_aceptacion_inscripcion': 'Data de Aceptación',
 	'borrado_inscripcion': 'Activo',
 
 	'nombre_actividad': 'Nome actividade',
@@ -81,7 +81,7 @@ arrayGA = {
 	'iconRefresh': 'Refrescar Tabla',
 	'iconOrdenar': 'Ordenar',
 	'iconOk': 'OK',
-	'iconLogin': 'Login',
+	'iconLogin': 'Acceso',
 
 	//************************************************************************************************
 	// login registro
@@ -90,7 +90,7 @@ arrayGA = {
 	//- errores
 	'LOGIN_USUARIO_INCORRECTO': 'Non existe o usuario',
 	'LOGIN_CONTRASENA_INCORRECTO': 'O contrasinal non é correcto',
-	'LOGIN_USU_CORRECTO': 'Usuario logueado correctamente',
+	'LOGIN_USU_CORRECTO': 'O Usuario accedeu correctamente',
 	'session_stored_ok': 'Sesión gardada en BD',
 	'session_stored_fail': 'Non existe a sesión en BD',
 	'user_in_session': 'Usuario con sesión activa',
