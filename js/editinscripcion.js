@@ -1,4 +1,66 @@
 //*
+// funcion addinscripcion, recibe los datos del formulario addinscripcion y los envia al back
+//*
+function addinscripcion(){
+    var idSession = getCookie('sessionId');
+
+	//insertacampo(document.formgenericoinscripcion,'ID_SESSION', idSession);             --> No se donde era, pero hay un sitio donde lo añade era algo del getList o algo asi.
+	//addActionControler(document.formgenericoinscripcion, "insertar", "inscripcion");	  --> Nofunciona bien, no añade el actio hay que revisarlo, las dos lineas de abajo sustituyen a esta.
+	insertacampo(document.formgenericoinscripcion, "action", "insertar");
+	insertacampo(document.formgenericoinscripcion, "controlador", "inscripcion");
+
+	var idioma = getCookie('lang');
+
+	var formdata = $("#formgenericoinscripcion").serialize();
+    var file = $("#subetxtcurriculumresponsable")[0].files[0];
+    var datos = new FormData();
+    datos.append("upload", file);
+	datos.append("formulario", formdata);
+
+	$.ajax({
+		method: "POST",
+		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		data: datos,
+		contentType: false,
+		processData: false,
+
+	}).done(function (response) {
+		if (response.ok == true) {
+			respuestaOKAjax();
+		} else {
+			respuestaKOAjax('add');
+		}
+
+		actualizaMensajesRespuestAjax(response.code);
+
+		setLang(idioma);
+
+		resetearformularioinscripcion();
+
+		getLisInscripcion();
+
+		//eleminia del formulario los campos action y controlador
+		deleteActionController();
+
+		hasProbadoAReiniciarlo();
+	});
+}
+
+//*
+// funcion detalleinscripcion, recibe los datos del back y los muestra
+//*
+function detalleinscripcion(){
+
+	var idioma = getCookie('lang');
+
+	resetearformularioinscripcion();
+
+	getLisInscripcion()
+
+	setLang(idioma);
+}
+
+//*
 // funcion editinscripcion, recibe los datos del formulario editinscripcion y los envia al back
 //*
 function editinscripcion() {
@@ -11,6 +73,12 @@ function editinscripcion() {
     $("#txtidInscripcion").attr("disabled", false);
 
     var idioma = getCookie('lang');
+
+    var formdata = $("#formgenericoinscripcion").serialize();
+	var file = $("#subetxtcurriculuminscripcion")[0].files[0];
+	var datos = new FormData();
+	datos.append("upload", file);
+	datos.append("formulario", formdata);
 
     $.ajax({
         method: "POST",
@@ -25,9 +93,15 @@ function editinscripcion() {
 
         actualizaMensajesRespuestAjax(response.code);
 
-        setLang(idioma);
+		resetearformularioinscripcion();
 
-        deleteActionController();
+		getLisInscripcion()
+
+		setLang(idioma);
+
+		deleteActionController();
+
+		hasProbadoAReiniciarlo();
     });
 
 }
@@ -59,14 +133,26 @@ function deleteinscripcion() {
 
         actualizaMensajesRespuestAjax(response.code);
 
-        setLang(idioma);
+		resetearformularioinscripcion();
 
-        deleteActionController();
+		getLisInscripcion()
+
+		setLang(idioma);
+
+		deleteActionController();
+
+		hasProbadoAReiniciarlo();
     });
 
 }
 
-function showEditarInscripcion(id, nombre_actividad, dni_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion, borrado_inscipcion) {
+//SHOWS
+
+function showInsertarInscripcion(id, nombre_actividad, dni_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion){
+
+}
+
+function showEditarInscripcion(id, nombre_actividad, dni_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
@@ -98,6 +184,10 @@ function showEditarInscripcion(id, nombre_actividad, dni_usuario, fecha_solicitu
 
 }
 
+function showEliminarInscripcion(id, nombre_actividad, dni_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion){
+
+}
+
 function comprobareditsubmit() {
 
     if (comprobarUser()) {
@@ -115,4 +205,24 @@ function comprobareditsubmit() {
     else {
         return false;
     }
+}
+
+function resetearformularioinscripcion(idformUsado) {
+
+	$("idformUsado").attr('action', '');
+	$("idformUsado").attr('onsubmit', '');
+
+	$("#txtdniresponsable").attr('disabled', true);
+	$("#borrado_responsable").attr('disabled', true);
+
+	$("#txtdniresponsable").val('');
+	$("#txtnumcuentaresponsable").val('');
+	$("#txtcurriculumresponsable").val('');
+
+	$("#txtdniresponsable").attr('onblur', '');
+	$("#txtnumcuentaresponsable").attr('onblur', '');
+	$("#txtcurriculumresponsable").attr('onblur', '');
+
+	$("divformgenericoresponsable").attr('style', 'display: none');
+
 }
