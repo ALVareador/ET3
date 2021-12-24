@@ -38,7 +38,7 @@ function addPersona() {
 		//eleminia del formulario los campos action y controlador
 		deleteActionController();
 
-		asProbadoAReiniciarlo();
+		hasProbadoAReiniciarlo();
 	});
 
 }
@@ -120,7 +120,7 @@ function editPersona() {
 
 		deleteActionController();
 
-		asProbadoAReiniciarlo();
+		hasProbadoAReiniciarlo();
 	});
 
 }
@@ -158,7 +158,7 @@ function deletePersona() {
 
 		deleteActionController();
 
-		asProbadoAReiniciarlo();
+		hasProbadoAReiniciarlo();
 	});
 
 }

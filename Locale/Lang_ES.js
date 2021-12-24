@@ -169,14 +169,14 @@ arrayES = {
 	//************************************************************************************************
 	// Categoría
 	//************************************************************************************************
-	"id_categoria": 'Id de categoría',
+	"id_categoria": 'Categoría',
 	"nombre_categoria": 'Nombre de categoría',
 	"descripcion_categoria": 'Descripción de categoría',
 
 	//************************************************************************************************
 	// Espacio
 	//************************************************************************************************
-	"id_espacio": 'Id de espacio',
+	"id_espacio": 'Espacio',
 	"nombre_espacio": 'Nombre de espacio',
 	"descripcion_espacio": 'Descripción de espacio',
 
