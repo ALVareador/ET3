@@ -1,22 +1,14 @@
-/**
- * Alexandra Iglesias Cuña
- * 
- * Funciones para login.html
- * 
- * 22/06/2021
- */
-
 /**Función que valida los datos antes de hacer el envío y encripta la password*/
 function comprobarLogin() {
 
-	//if(comprobarUser() && comprobarPass()) {
+	if(comprobarUser() && comprobarPass()) {
 	encriptar("txtPassword");
 	generarSessionId();
 	return true;
-	//} else {
+	} else {
 	return false;
 
-	//}
+	}
 
 }
 

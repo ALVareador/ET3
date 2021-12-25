@@ -130,7 +130,7 @@ arrayES = {
 	'dni_persona': 'DNI de Persona',
 	'nombre_persona': 'Nombre de Persona',
 	'apellidos_persona': 'Apellidos de Persona',
-	'fechaNacimiento_persona': 'Fecha de Nacimiento de Persona',
+	'fechaNacimiento_persona': 'Fecha de Nacimiento',
 	'direccion_persona': 'Dirección de Persona',
 	'telefono_persona': 'Teléfono de Persona',
 	'email_persona': 'Correo electrónico de Persona',

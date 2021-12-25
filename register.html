@@ -36,31 +36,33 @@ comprobarMail()
 	<!--Recursos del calendario fin-->
 </head>
 
-<body>
-
+<body onload="includeMenuIdioma();setLang('');">
+	
+	<div id="menuIdioma"></div>
+	
 	<form name="formularioLogin" id="formularioLogin" enctype="multipart/form-data" method="post"
 		action="javascript:registrarUsuario();" onsubmit="comprobarLogin();">
 
 		<div class="div_Input">
-			<p>DNI:</p>
+			<label class='dni_usuario'></label>
 			<input type="text" name="dni_persona" id="dni_persona" onblur=""> <br>
 		</div>
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
-			<p>Nombre:</p>
+			<label class='nombre_persona'></label>
 			<input type="text" name="nombre_persona" id="nombre_persona" onblur=""> <br>
 		</div>
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
-			<p>Apellido:</p>
+			<label class='apellidos_persona'></label>
 			<input type="text" name="apellidos_persona" id="apellidos_persona" onblur=""> <br>
 		</div>
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
-			<p>Fecha de Nacimiento:</p>
+			<label class='fechaNacimiento_persona'></label>
 			<input type="text" name="date" id="fechaNacimiento_persona" class="tcal" readonly onblur=""> <br>
 		</div>
 		<div style="display:none" id=""></div>

@@ -318,7 +318,9 @@ function addCodeError(idElementoError, codigo) {
 
 	$("#" + idElementoError).removeClass();
 	$("#" + idElementoError).addClass(codigo);
-
+/*se llama a la funcion setLang() porque es está funcion la 
+que se recorrel el DOM buscando las claves que se recojen en
+los diccionarios y añade la traducción correspondiente*/
 	setLang(idioma);
 
 }
