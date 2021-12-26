@@ -139,34 +139,34 @@ function deleteresponsable() {
 
 
 function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
-	
-		// se resetea todo el formulario generico
-		resetearformularioresponsable();
-	
-		// se pone visible el formulario y se rellena el action y el onsubmit
-		$("#divformgenericoresponsable").attr('style', 'display: block');
-		$("#formgenericoresponsable").attr('action', 'javascript:editresponsable();');
-		$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
-	
-		//rellenamos los tipo text
-		$("#txtdniresponsable").val(dni_responsable);
-		$("#txtnumcuentaresponsable").val(numCuenta_responsable);
-		$("#txtcurriculumresponsable").val(curriculum_responsable);
-	
-		// rellenamos los onblur de los input que se validad
-		$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
-		$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
-	
-		// se rellena los select
-		$("#txtborradoresponsble option[value='" + borrado_responsable + "'").attr("selected", true);
-	
-		// se habilita el id para que no pueda cambiarse
-	
-		$("#txtdniresponsable").attr('disabled', false);
-		$("#txtnumcuentaresponsable").attr('disabled', false);
-		$("#txtcurriculumresponsable").attr('disabled', false);
-		$("#txtborradoresponsable").attr('disabled', false);
-	
+
+	// se resetea todo el formulario generico
+	resetearformularioresponsable();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoresponsable").attr('style', 'display: block');
+	$("#formgenericoresponsable").attr('action', 'javascript:editresponsable();');
+	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
+
+	//rellenamos los tipo text
+	$("#txtdniresponsable").val(dni_responsable);
+	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
+	$("#txtcurriculumresponsable").val(curriculum_responsable);
+
+	// rellenamos los onblur de los input que se validad
+	$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
+	$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
+
+	// se rellena los select
+	$("#txtborradoresponsble option[value='" + borrado_responsable + "'").attr("selected", true);
+
+	// se habilita el id para que no pueda cambiarse
+
+	$("#txtdniresponsable").attr('disabled', false);
+	$("#txtnumcuentaresponsable").attr('disabled', false);
+	$("#txtcurriculumresponsable").attr('disabled', false);
+	$("#txtborradoresponsable").attr('disabled', false);
+
 }
 
 function comprobareditsubmit() {
@@ -209,9 +209,16 @@ function showDetalleResponsable(dni_responsable, numCuenta_responsable, curricul
 	$("#txtdniresponsable").val(dni_responsable);
 	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
 	$("#txtcurriculumresponsable").val(curriculum_responsable);
+	$("#txtborradoresponsable").val(borrado_responsable);
+
+	var link = '</td> <td> <a href=\'' + 'documentos/' + curriculum_responsable + '\'>' + curriculum_responsable + '</a>' + '</td> </tr>';
+
+	document.getElementById('enlacetxtcurriculumresponsable').innerHTML = link;
 
 	$("#labelsubetxtcurriculumresponsable").attr('style', 'display:none');
 	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
+	$("#txtcurriculumresponsable").attr('style', 'display:none');
+	$("#enlacetxtcurriculumresponsable").attr('style', 'display:');
 
 	$("#txtdniresponsable").attr('disabled', true);
 	$("#txtnumcuentaresponsable").attr('disabled', true);
@@ -231,6 +238,7 @@ function showEliminarResponsable(dni_responsable, numCuenta_responsable, curricu
 	$("#txtdniresponsable").val(dni_responsable);
 	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
 	$("#txtcurriculumresponsable").val(curriculum_responsable);
+	$("#txtborradoresponsable").val(borrado_responsable);
 
 	$("#labelsubetxtcurriculumresponsable").attr('style', 'display:none');
 	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
@@ -298,6 +306,8 @@ function resetearformularioresponsable(idformUsado) {
 
 	$("divformgenericoresponsable").attr('style', 'display: none');
 
+	$("#txtcurriculumresponsable").attr('style', 'display:');
+	$("#enlacetxtcurriculumresponsable").attr('style', 'display:none');
 	$("#labelsubetxtcurriculumresponsable").attr('style', 'display:');
 	$("#subetxtcurriculumresponsable").attr('style', 'display:');
 	document.getElementById('submitbuttom').style.visibility = 'visible';
@@ -307,18 +317,4 @@ function resetearformularioresponsable(idformUsado) {
 	$("#txtcurriculumresponsable").attr('disabled', false);
 	$("#txtborradoresponsable").attr('disabled', false);
 
-}
-
-function showEnlace(){
-	var rutauploadimages = urlPeticionesAjax;
-    rutauploadimages = rutauploadimages.substring(29, 0);
-    rutauploadimages = rutauploadimages + 'documentos/';
-
-	var lnk;
-        console.log(lnk);
-        var url="VARIABLE1/VARIABLE2/VARIABLE3"
-        url=url.replace("VARIABLE1",urlPeticionesAjax);
-		url = url.substring(29, 0);
-        url=url.replace("VARIABLE2","doumentos");
-        url=url.replace("VARIABLE3","Tema5_NAT_Proxy_VPN.pdf");
 }

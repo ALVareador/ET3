@@ -47,6 +47,8 @@ arrayES = {
 
 	'dni_responsable': 'DNI de Responsable',
 	'curriculum_responsable': 'Curriculum de Responsable',
+	'enlace_curriculum_responsable': 'Curriculum de Responsable',
+	'sube_curriculum_responsable': 'Subir curriculum',
 	'numCuenta_responsable': 'Número de Cuenta',
 	'borrado_responsable': 'Activo',
 
