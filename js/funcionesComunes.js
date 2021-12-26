@@ -516,14 +516,10 @@ function comprobarNombreEspacio() {
 	document.getElementById("nombre_persona").style.borderWidth = "2px";
 	document.getElementById("nombre_espacio").style.borderWidth = "2px";
 
-	if (validaNoVacio("nombre_persona", "errorFormatoPass", "nombre_persona") && comprobarLetrasNumeros("nombre_persona", 45, 0, "errorFormatoPass", "nombre_persona")) {
-		validacionOK("nombre_persona", "errorFormatoPass");
-	}
 	if (validaNoVacio("nombre_espacio", "errorFormatoNombre", "nombre_espacio") && comprobarLetrasNumeros("nombre_espacio", 45, 3, "errorFormatoNombre", "nombre_espacio")) {
 		validacionOK("nombre_espacio", "errorFormatoNombre");
 		return true;
 	} else {
-		validacionKO("nombre_persona", "errorFormatoPass");
 		validacionKO("nombre_espacio", "errorFormatoNombre");
 		return false;
 	}
