@@ -43,7 +43,7 @@ function addResponsable() {
 		//eleminia del formulario los campos action y controlador
 		deleteActionController();
 
-		asProbadoAReiniciarlo();
+		hasProbadoAReiniciarlo();
 	});
 
 };
@@ -92,7 +92,7 @@ function editresponsable() {
 
 		deleteActionController();
 
-		asProbadoAReiniciarlo();
+		hasProbadoAReiniciarlo();
 	});
 
 }
@@ -126,13 +126,13 @@ function deleteresponsable() {
 
 		resetearformularioresponsable();
 
-		GetLisResponsables()
+		GetLisResponsables();
 
 		setLang(idioma);
 
 		deleteActionController();
 
-		asProbadoAReiniciarlo();
+		hasProbadoAReiniciarlo();
 	});
 
 }

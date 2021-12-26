@@ -27,7 +27,7 @@ function addActividad() {
 
 		actualizaMensajesRespuestAjax(response.code);
 
-		//eleminia del formulario los campos action y controlador
+		//elemina del formulario los campos action y controlador
 		deleteActionController();
 		eliminarcampo("ID_SESSION");
 	});
@@ -514,7 +514,7 @@ function comprobarNombreActividad() {
 	//Si menor que 3 caracteres
 	if (data.length < 4) {
 		validacionKO(idcampo, idError);
-		showError(idError, 20, 'red', "ERROR: El campo nombre debe de tener mas  de 3 caracteres");
+		showError(idError, 20, 'red', "ERROR: El campo nombre debe tener mas de 3 caracteres"); //"al menos 4 caracteres" quedaria mejor
 		return false;
 	}
 
