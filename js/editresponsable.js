@@ -201,58 +201,22 @@ function detalleresponsable() {
 
 function showDetalleResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
 
-	//divdetalleresponsable = document.createElement('div');
-	//divdetalleresponsable.id = 'divdetalleresponsable';
-	//document.body.appendChild(divdetalleresponsable);
+	$("#divformgenericoresponsable").attr('style', 'display: block');
+	$("#formgenericoresponsable").attr('action', 'javascript:detalleresponsable();');
 
-	$("#formdetalleresponsable").remove();
-	$("#botoncerrar").remove();
+	document.getElementById('submitbuttom').style.visibility = 'hidden';
 
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divdetalleresponsable','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divdetalleresponsable').append(label);
-	$('#divdetalleresponsable').attr('style', 'display: block');
-	$('#divdetalleresponsable').attr('style', 'border: 1px solid black');
+	$("#txtdniresponsable").val(dni_responsable);
+	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
+	$("#txtcurriculumresponsable").val(curriculum_responsable);
 
-	crearformvisible('formdetalleresponsable', 'none');
-	$('#formdetalleresponsable').attr('style', 'display: block');
-
-	form = document.getElementById('formdetalleresponsable');
-
-	label = "<label class='dni_responsable' disabled='disabled'></label>";
-	$("#formdetalleresponsable").append(label);
-	insertacampovisible(form, 'txtdniresponsable', dni_responsable);
-	$("#txtdniresponsable").attr('disabled', true);
-	$("#formdetalleresponsable").append('<br>');
-
-	label = "<label class='numCuenta_responsable'></label>";
-	$("#formdetalleresponsable").append(label);
-	insertacampovisible(form, 'txtnumcuentaresponsable', numCuenta_responsable);
-	$("#txtnumcuentaresponsable").attr('disabled', true);
-	$("#formdetalleresponsable").append('<br>');
-
-	label = "<label class='curriculum_responsable'></label>";
-	$("#formdetalleresponsable").append(label);
-	insertacampovisible(form, 'txtcurriculumresponsable', curriculum_responsable);
-	$("#txtcurriculumresponsable").attr('disabled', true);
-	$("#formdetalleresponsable").append('<br>');
-
-	label = "<label class='borrado_responsable'></label>" +
-		"<select name='borrado_responsable' id='borrado_responsable' >" +
-		"       <option value='0'>Si</option>" +
-		"       <option value='1'>No</option>" +
-		"</select><br>";
-	$("#formdetalleresponsable").append(label);
-
-	$("#borrado_responsable").attr('disabled', true);
-
-	$("#divdetalleresponsable").append(formdetalleresponsable);
+	$("#labelsubetxtcurriculumresponsable").attr('style', 'display:none');
+	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
 
 	$("#txtdniresponsable").attr('disabled', true);
 	$("#txtnumcuentaresponsable").attr('disabled', true);
 	$("#txtcurriculumresponsable").attr('disabled', true);
 	$("#txtborradoresponsable").attr('disabled', true);
-
-	setLang('');
 
 }
 
@@ -262,22 +226,19 @@ function showEliminarResponsable(dni_responsable, numCuenta_responsable, curricu
 
 	$("#divformgenericoresponsable").attr('style', 'display: block');
 	$("#formgenericoresponsable").attr('action', 'javascript:deleteresponsable();');
-	$("#formgenericoresponsable").attr('onsubmit', '');
+	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
 
 	$("#txtdniresponsable").val(dni_responsable);
 	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
 	$("#txtcurriculumresponsable").val(curriculum_responsable);
 
-	$("#labeltxtcurriculumresponsable").attr('style', 'display:none');
+	$("#labelsubetxtcurriculumresponsable").attr('style', 'display:none');
 	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
 
-	$("#labeltxtcurriculumresponsable").attr('style', 'display:none');
-	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
-
-	$("#txtdniresponsable").attr('disabled', true);
-	$("#txtnumcuentaresponsable").attr('disabled', true);
-	$("#txtcurriculumresponsable").attr('disabled', true);
-	$("#txtborradoresponsable").attr('disabled', true);
+	$("#txtdniresponsable").attr('disabled', false);
+	$("#txtnumcuentaresponsable").attr('disabled', false);
+	$("#txtcurriculumresponsable").attr('disabled', false);
+	$("#txtborradoresponsable").attr('disabled', false);
 
 
 }
@@ -337,4 +298,27 @@ function resetearformularioresponsable(idformUsado) {
 
 	$("divformgenericoresponsable").attr('style', 'display: none');
 
+	$("#labelsubetxtcurriculumresponsable").attr('style', 'display:');
+	$("#subetxtcurriculumresponsable").attr('style', 'display:');
+	document.getElementById('submitbuttom').style.visibility = 'visible';
+
+	$("#txtdniresponsable").attr('disabled', false);
+	$("#txtnumcuentaresponsable").attr('disabled', false);
+	$("#txtcurriculumresponsable").attr('disabled', false);
+	$("#txtborradoresponsable").attr('disabled', false);
+
+}
+
+function showEnlace(){
+	var rutauploadimages = urlPeticionesAjax;
+    rutauploadimages = rutauploadimages.substring(29, 0);
+    rutauploadimages = rutauploadimages + 'documentos/';
+
+	var lnk;
+        console.log(lnk);
+        var url="VARIABLE1/VARIABLE2/VARIABLE3"
+        url=url.replace("VARIABLE1",urlPeticionesAjax);
+		url = url.substring(29, 0);
+        url=url.replace("VARIABLE2","doumentos");
+        url=url.replace("VARIABLE3","Tema5_NAT_Proxy_VPN.pdf");
 }
