@@ -312,8 +312,12 @@ function showAddActividad(){
 	
 
 	// rellenamos los onblur de los input que se validad
-	$("#id_actividad").attr('onblur', 'comprobarIdActividad(\"id_actividad\");');
+	$("#id_actividad").attr('onblur', 'comprobarId(\'id_actividad\',\'errorFormatoId\');');
 	$("#nombre_actividad").attr('onblur', 'comprobarNombreActividad();');
+	$("#descripcion_actividad").attr('onblur', 'comprobarDescripcionActividad();');
+	$("#precio_actividad").attr('onblur', 'comprobarPrecio();');
+	$("#color_actividad").attr('onblur', 'comprobarColorActividad(\'color_actividad\',\'errorFormatoColorActividad\');');
+	$("#color_nombre_actividad").attr('onblur', 'comprobarColorActividad(\'color_nombre_actividad\',\'errorFormatoColorNombre\');');
 }
 
 function showBuscarActividad() {
@@ -376,6 +380,8 @@ function resetearformularioActividad() {
 
 }
 
+
+//Rellena los desplegables de espacio s
 function rellenaId_espacio(id_actividad) { 
 
     var idSession = getCookie('sessionId');
@@ -408,7 +414,7 @@ function rellenaId_espacio(id_actividad) {
     });
 }
 
-
+//Rellena los desplegables de categorias
 function rellenaid_categoria(id_actividad) { 
 
     var idSession = getCookie('sessionId');
@@ -439,45 +445,6 @@ function rellenaid_categoria(id_actividad) {
 
         deleteActionController();
     });
-}
-
-
-
-
-
-//Funciones de comprobación para los onblur
-
-function comprobarIdActividad(campoId) {
-	var linea = document.getElementById('id_actividad');
-	var data = linea.value;
-	var patron = /^[0-9]+$/;
-
-
-
-
-	//Si es vacio
-	if (data.length == 0) {
-		validacionKO('id_actividad', 'errorFormatoId');
-		showError('errorFormatoId', 20, 'red', "ERROR: El campo id no puede estar vacio");
-		return false;
-	}
-
-	//Si contiene espacios o letras
-	if (!patron.test(data)) {
-		validacionKO('id_actividad', 'errorFormatoId');
-		showError('errorFormatoId', 20, 'red', "ERROR: El campo id no puede contener espacios ni letras");
-		return false;
-	}
-
-	//si la ID son mas de 11 caracteres
-	if (data.length > 11) {
-		validacionKO('id_actividad', 'errorFormatoId');
-		showError('errorFormatoId', 20, 'red', "ERROR: La id no puede tener mas de 11 caracteres");
-		return false;
-	}
-
-	validacionOK('id_actividad', 'errorFormatoId');
-	return true;
 }
 
 function resetearformularioActividad() {
@@ -521,12 +488,18 @@ function resetearformularioActividad() {
 
 }
 
-function comprobarNombreActividad(campoId) {
+
+
+//Funciones de comprobación para los onblur
+
+
+
+function comprobarNombreActividad() {
 	idcampo= "nombre_actividad"
 	idError="errorFormatonombre_actividad"
 	var linea = document.getElementById(idcampo);
 	var data = linea.value;
-	var patron = /^[a-zA-Záéíóú\s]+$/;
+	var patron = /^[a-zA-ZáéíóúñÑ\s]+$/;
 
 
 
@@ -556,6 +529,170 @@ function comprobarNombreActividad(campoId) {
 	if (!patron.test(data)) {
 		validacionKO(idcampo, idError);
 		showError(idError, 20, 'red', "ERROR: El campo nombre no puede contener numeros,signos de puntuacion o simbolos");
+		return false;
+	}
+
+
+
+	validacionOK(idcampo, idError);
+	return true;
+}
+
+
+function comprobarDescripcionActividad() {
+	idcampo= "descripcion_actividad"
+	idError="errorFormatoDescripciónActividad"
+	var linea = document.getElementById(idcampo);
+	var data = linea.value;
+	var patron = /^[a-zA-ZáéíóúñÑ\s]+$/;
+
+
+
+
+	//Si es vacio 
+	if (data.length == 0) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo de descripción de actividad no puede estar vacio");
+		return false;
+	}
+
+	//Si menor que 20 caracteres
+	if (data.length < 19) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo de descripción de actividad debe de tener mas  de 20 caracteres");
+		return false;
+	}
+
+	//si mas de 45 caracteres
+	if (data.length > 201) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo de descripción de actividad no puede  tener mas de 200 caracteres");
+		//var string = document.getElementById(idcampo).value;
+		//$('#'+idcampo).val(string.slice(0,200));
+		return false;
+	}
+
+	//Si contiene espacios o letras
+	if (!patron.test(data)) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo nombre no puede contener numeros,signos de puntuacion o simbolos");
+		return false;
+	}
+
+
+
+	validacionOK(idcampo, idError);
+	return true;
+}
+
+function comprobarPrecio() {
+	idcampo= "precio_actividad"
+	idError="errorFormatoPrecioActividad"
+	var linea = document.getElementById(idcampo);
+	var data = linea.value;
+	var patron = /^[0-9\.]+$/;
+
+	//Si es vacio 
+	if (data.length == 0) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El precio no puede estar vacio");
+		return false;
+	}
+
+	var string = document.getElementById(idcampo).value;
+	var locPunto = string.indexOf("\.")
+	var locPuntoLejano = string.lastIndexOf("\.")
+
+	//Si hay dos puntos da error
+	if(locPunto != locPuntoLejano){
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El precio no puede contener mas de dos puntos");
+		return false;
+	}
+
+	//si el precio es superior a 9999 es decir hay mas de 4 numeros en la parte entera, da error
+	if(locPunto == -1 && string.length > 4 || locPunto > 5){
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El precio no puede ser superior a 9999");
+		return false;
+	}
+
+	if(locPunto != -1 && string.substring(locPunto).length == 1){
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR:Se debe añadir el valor decimal despues del punto");
+		return false;
+	}
+	
+
+	if(locPunto != -1 && string.substring(locPunto).length > 3){
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: la parte decimal no puede contener mas de 3 digitos");
+		return false;
+	}
+
+	if(locPunto > 5){
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El precio no puede ser superior a 9999.99");
+		return false;
+	}
+
+	//Lo dejo por si acaso pero en teoria es imposible que se ejecute esto
+	if (data.length > 7) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El Precio no puede ser superior a 9999.99");
+		return false;
+	}
+
+
+	//Si contiene espacios o letras
+	if (!patron.test(data)) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El precio no puede contener letras o simbolos de puntuacion distintos al punto");
+		return false;
+	}
+
+
+
+	validacionOK(idcampo, idError);
+	return true;
+}
+
+function comprobarColorActividad(idcampo,idError) {
+	var linea = document.getElementById(idcampo);
+	var data = linea.value;
+	var patron = /^[0-9A-F]+$/;
+
+
+
+
+	//Si es vacio 
+	if (data.length == 0) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo de color no puede estar vacio");
+		return false;
+	}
+
+	if (data.charAt(0) != '#') {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo color debe comenzar con #");
+		return false;
+	}
+
+	if (data.length > 7) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR:El campo  color no puede tener mas de 7 caracteres");
+		return false;
+	}
+
+	if(!patron.test(data.substring(1))){
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR:El campo  color debe contener 6 caracteres que deben estar entre el 0 y 9, y la A y F mayusculas");
+		return false;
+	}
+
+	if (data.length < 7) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR:El campo  color debe de ser de 7 caracteres");
 		return false;
 	}
 

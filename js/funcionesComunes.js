@@ -588,3 +588,36 @@ function hasProbadoAReiniciarlo(){
 	location.reload();
 }
 
+function comprobarId(idcampo,idError) {
+	var linea = document.getElementById(idcampo);
+	var data = linea.value;
+	var patron = /^[0-9]+$/;
+
+
+
+
+	//Si es vacio
+	if (data.length == 0) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo id no puede estar vacio");
+		return false;
+	}
+
+	//Si contiene espacios o letras
+	if (!patron.test(data)) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: El campo id no puede contener espacios ni letras");
+		return false;
+	}
+
+	//si la ID son mas de 11 caracteres
+	if (data.length > 11) {
+		validacionKO(idcampo, idError);
+		showError(idError, 20, 'red', "ERROR: La id no puede tener mas de 11 caracteres");
+		return false;
+	}
+
+	validacionOK(idcampo, idError);
+	return true;
+}
+
