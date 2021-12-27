@@ -168,7 +168,7 @@ function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculu
 	$("#txtborradoresponsable").attr('disabled', false);
 
 	//cambiar icono submit
-    $("#iconoAcciones").attr('src', "./images/icons/editUser.png");
+	$("#iconoAcciones").attr('src', "./images/icons/editUser.png");
 
 }
 
@@ -196,9 +196,9 @@ function detalleresponsable() {
 function showDetalleResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
 
 	// se resetea todo el formulario generico
-    resetearformularioinscripcion();
+	resetearformularioinscripcion();
 
-    // se pone visible el formulario y se rellena el action y el onsubmit
+	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoresponsable").attr('style', 'display: block');
 	$("#formgenericoresponsable").attr('action', 'javascript:detalleresponsable();');
 
@@ -223,34 +223,40 @@ function showDetalleResponsable(dni_responsable, numCuenta_responsable, curricul
 	$("#txtborradoresponsable").attr('disabled', true);
 
 	// visibilidad
-    document.getElementById('submitbuttom').style.visibility = 'hidden';
+	document.getElementById('submitbuttom').style.visibility = 'hidden';
 
-    //cambiar icono submit
-    $("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
+	//cambiar icono submit
+	$("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
 
 }
 
 function showEliminarResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
-
+	// se resetea todo el formulario generico
 	resetearformularioresponsable();
 
+	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoresponsable").attr('style', 'display: block');
 	$("#formgenericoresponsable").attr('action', 'javascript:deleteresponsable();');
 	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
 
+	//rellenamos los tipo text
 	$("#txtdniresponsable").val(dni_responsable);
 	$("#txtnumcuentaresponsable").val(numCuenta_responsable);
 	$("#txtcurriculumresponsable").val(curriculum_responsable);
 	$("#txtborradoresponsable").val(borrado_responsable);
 
-	$("#labelsubetxtcurriculumresponsable").attr('style', 'display:none');
-	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
-
+	// habilitar/deshabilitar campos
 	$("#txtdniresponsable").attr('disabled', false);
 	$("#txtnumcuentaresponsable").attr('disabled', false);
 	$("#txtcurriculumresponsable").attr('disabled', false);
 	$("#txtborradoresponsable").attr('disabled', false);
 
+	// visibilidad
+	$("#labelsubetxtcurriculumresponsable").attr('style', 'display:none');
+	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
+
+	//cambiar icono submit
+    $("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
 
 }
 
@@ -263,11 +269,6 @@ function showAddResponsable() {
 	$("#divformgenericoresponsable").attr('style', 'display: block');
 	$("#formgenericoresponsable").attr('action', 'javascript:addResponsable();');
 	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
-
-	//rellenamos los tipo text
-	/*$("#txtidresponsable").val("1");
-	$("#txtnumcuentaresponsable").val("1");
-	$("#txtcurriculumresponsable").val("1");*/
 
 	// eliminar input no necesario
 	$("#labeltxtcurriculumresponsable").attr('style', 'display:none');
@@ -284,7 +285,6 @@ function showAddResponsable() {
 
 	// se deshabilita el id para que no pueda cambiarse
 	$("#txtdniresponsable").attr('disabled', false);
-	//$("#txtcurriculumresponsable").attr('disabled', false);
 
 	//cambiar icono submit
 	$("#iconoAcciones").attr('src', "./images/icons/addUser.png");

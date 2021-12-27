@@ -156,8 +156,6 @@ function showAddInscripcion() {
     $("#formgenericoinscripcion").attr('action', 'javascript:addinscripcion();');
     $("#formgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
 
-    // eliminar input no necesario
-
     // rellenamos los onblur de los input que se validad
     $("#txtdniusuario").attr('onblur', 'comprobarDNI();');
     //-------------------$("#txtfechasolicitudinscripcion").attr('onblur', 'comprobarFecha();');
@@ -168,10 +166,10 @@ function showAddInscripcion() {
     // se rellena los select
     //-------------------rellenaid_actividad('0');
 
-    // subir archivos
-
-    // fechas
-
+    // eliminar input no necesario
+	$("#labeltxtdocumentopago").attr('style', 'display:none');
+	$("#txtdocumentopago").attr('style', 'display:none');
+	$("#txtdocumentopago").attr('disabled', true);
 
     //cambiar icono submit
     $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
@@ -184,8 +182,6 @@ function showAddInscripcion() {
     $("#txtdocumentopago").attr('disabled', false);
     $("#txtfechapagoinscripcion").attr('disabled', false);
     $("#txtfechaaceptacioninscripcion").attr('disabled', false);
-
-    // visibilidad
 
     //cambiar icono submit
     $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
@@ -211,12 +207,12 @@ function showDetalleInscripcion(id, id_actividad, id_usuario, fecha_solicitud_in
     $("#txtfechaaceptacioninscripcion").val(fecha_aceptacion_inscripcion);
 
     // subir archivos
-	var link = '</td> <td> <a href=\'' + 'documentos/' + documento_pago + '\'>' + documento_pago + '</a>' + '</td> </tr>';
+    var link = '</td> <td> <a href=\'' + 'documentos/' + documento_pago + '\'>' + documento_pago + '</a>' + '</td> </tr>';
     document.getElementById('enlacetxtdocumentopago').innerHTML = link;
     $("#labelsubetxtdocumentopago").attr('style', 'display:none');
-	$("#subetxtdocumentopago").attr('style', 'display:none');
-	$("#txtdocumentopago").attr('style', 'display:none');
-	$("#enlacetxtdocumentopago").attr('style', 'display:');
+    $("#subetxtdocumentopago").attr('style', 'display:none');
+    $("#txtdocumentopago").attr('style', 'display:none');
+    $("#enlacetxtdocumentopago").attr('style', 'display:');
 
     // habilitar/deshabilitar campos
     $("#txtidInscripcion").attr('disabled', true);
@@ -299,13 +295,6 @@ function showEliminarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_i
     $("#txtfechapagoinscripcion").val(fecha_pago_inscripcion);
     $("#txtfechaaceptacioninscripcion").val(fecha_aceptacion_inscripcion);
 
-    // subir archivos
-
-    // fechas
-
-    //cambiar icono submit
-    $("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
-
     // habilitar/deshabilitar campos
     $("#txtidInscripcion").attr('disabled', true);
     $("#txtnombreactividad").attr('disabled', true);
@@ -315,8 +304,8 @@ function showEliminarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_i
     $("#txtfechapagoinscripcion").attr('disabled', true);
     $("#txtfechaaceptacioninscripcion").attr('disabled', true);
 
-    // visibilidad
-
+    //cambiar icono submit
+    $("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
 }
 
 function comprobareditsubmit() {
@@ -335,12 +324,6 @@ function resetearformularioinscripcion(idformUsado) {
     $("idformUsado").attr('onsubmit', '');
 
     $("#txtidInscripcion").attr('disabled', true);
-    //$("#txtnombreactividad").attr('disabled', true);
-    //$("#txtdniusuario").attr('disabled', true);
-    //$("#txtfechasolicitudinscripcion").attr('disabled', true);
-    //$("#txtdocumentopago").attr('disabled', true);
-    //$("#txtfechapagoinscripcion").attr('disabled', true);
-    //$("#txtfechaaceptacioninscripcion").attr('disabled', true);
 
     $("#txtidInscripcion").val('');
     $("#txtnombreactividad").val('');
@@ -358,7 +341,12 @@ function resetearformularioinscripcion(idformUsado) {
     $("#txtfechapagoinscripcion").attr('onblur', '');
     $("#txtfechaaceptacioninscripcion").attr('onblur', '');
 
-	document.getElementById('submitbuttom').style.visibility = 'visible';
+    $("#txtdocumentopago").attr('style', 'display:');
+	$("#enlacetxtdocumentopago").attr('style', 'display:none');
+	$("#labelsubetxtdocumentopago").attr('style', 'display:');
+	$("#subetxtdocumentopago").attr('style', 'display:');
+
+    document.getElementById('submitbuttom').style.visibility = 'visible';
     $("divformgenericoinscripcion").attr('style', 'display: none');
 
 }
