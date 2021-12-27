@@ -26,10 +26,13 @@
 
 	<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:login();"
 		onsubmit="comprobarLogin();">
+
 		<input type="text" name="usuario" id="txtUsuario" onblur="return comprobarUser();"> <br>
 		<div style="display:none" id="errorFormatoUser"></div>
+
 		<input type="password" name="contrasena" id="txtPassword" onblur="return comprobarPass();">
 		<div style="display:none" id="errorFormatoPass"></div>
+
 		<input type="submit" value="login">
 	</form>
 
@@ -42,8 +45,10 @@
 			onsubmit="">
 			<label class='correorecuperacion'></label>
 			<input type='text' name='correorecuperacion' id='txtcorreorecuperacion' onblur=''><br>
+
 			<label class='usuariorecuperacion'></label>
 			<input type='text' name='usuariorecuperacion' id='txtusuariorecuperacion' onblur=''><br>
+			
 			<input type="submit" value="recuperar">
 		</form>
 	</div>

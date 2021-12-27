@@ -40,8 +40,8 @@ comprobarMail()
 	
 	<div id="menuIdioma"></div>
 	
-	<form name="formularioLogin" id="formularioLogin" enctype="multipart/form-data" method="post"
-		action="javascript:registrarUsuario();" onsubmit="comprobarLogin();">
+	<form name="formularioRegistro" id="formularioRegistro" enctype="multipart/form-data" method="post"
+		action="javascript:registrarUsuario();" onsubmit="registrarUsuario();">
 
 		<div class="div_Input">
 			<label class='dni_usuario'></label>
@@ -68,44 +68,49 @@ comprobarMail()
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
-			<p>Dirección:</p>
+			<label class='direccion_persona'></label>
 			<input type="text" name="direccion_persona" id="direccion_persona" onblur=""> <br>
 		</div>
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
-			<p>Teléfono:</p>
+			<label class='telefono_persona'></label>
 			<input type="text" name="telefono_persona" id="telefono_persona" onblur=""> <br>
 		</div>
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
-			<p>Mail:</p>
+			<label class='email_persona'></label>
 			<input type="text" name="email_persona" id="email_persona" onblur=""> <br>
 		</div>
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
-			<p>Foto Persona:</p>
-			<input type="file" accept=".jpg,.png,.gif" name="foto_persona" id="email_pfoto_personarsona" onblur=""> <br>
+			<label class='foto_persona'></label>
+			<input type="file" accept=".jpg,.png,.gif" name="foto_persona" id="foto_persona" onblur=""> <br>
 		</div>
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
-			<p>Usuario:</p>
+			<label class='usuario'></label>
 			<input type="text" name="usuario" id="usuario" onblur=""> <br>
 		</div>
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
-			<p>Contraseña:</p>
+			<label class='contrasena'></label>
 			<input type="text" name="contrasena" id="contrasena" onblur=""> <br>
 		</div>
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
-			<p>Es celiaco:</p>
-			<input type="checkbox" id="cbox1" value="first_checkbox"><br>
+			<label class='esCeliaco_persona'></label>
+			<select name="esCeliaco_persona" id="esCeliaco_persona" onchange="">
+				<option id="seleccionNula" value="" >null</option>
+				<option id="SI" value="1" >1</option>
+				<option id="NO" value="0" >0</option>
+			</select>
+			<br>
 		</div>
 		<div style="display:none" id=""></div>
 

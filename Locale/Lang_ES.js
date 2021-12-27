@@ -41,6 +41,7 @@ arrayES = {
 	'ACCIONES': 'Acciones',
 	'SI': 'Sí',
 	'NO': 'No',
+	'seleccionNula' : 'Seleccione una opción',
 
 	'nombre_grupo': 'Nombre de Grupo',
 	'descripcion_grupo': 'Descripcion de Grupo',
