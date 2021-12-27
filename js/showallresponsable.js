@@ -11,13 +11,13 @@ function construyeFila(fila) {
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
-    var rutauploadimages = urlPeticionesAjax;
-    rutauploadimages = rutauploadimages.substring(29, 0);
-    rutauploadimages = rutauploadimages + 'images/';
+    var rutauploadcurriculum = urlPeticionesAjax;
+    rutauploadcurriculum = rutauploadcurriculum.substring(29, 0);
+    rutauploadcurriculum = rutauploadcurriculum + 'curriculums/';
 
     var filaTabla = '<tr> <td>' + fila.dni_responsable +
         '</td> <td>' + fila.numCuenta_responsable +
-        '</td> <td> <a href=\'' + rutauploadimages + fila.curriculum_responsable + '\'>' + fila.curriculum_responsable + '</a>' +
+        '</td> <td> <a href=\'' + rutauploadcurriculum + fila.curriculum_responsable + '\'>' + fila.curriculum_responsable + '</a>' +
         '</td> <td>' + fila.borrado_responsable +
         '</td> <td>' + celdaAcciones +
         '</td> </tr>';

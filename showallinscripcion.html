@@ -19,7 +19,8 @@
     <div id="menuIdioma"></div>
     <div id="UserDesconectar"></div>
     <div id="Funciones">
-        <a class="ACCIONES">Insertar inscripcion</a>
+        <button onclick="showAddInscripcion()" alt="Insertar inscripcion"><img src="./images/icons/add.png"
+                width="50px" /></button>
     </div>
     <div id="divtablaInscripciones">
         <table id="tablaInscripciones" border='1'>
@@ -32,9 +33,11 @@
                     <div class="usuario"></div>
                 </th>
                 <th class="fecha_solicitud_inscripcion"></th>
-                <th class="documento_pago"></th>
+                <th class="documento_pago">
+                    <div class="documento_pago"></div>
+                </th>
                 <th class="fecha_pago_inscripcion"></th>
-                <th class="fecha_aceptacion_inscripcion"></th> 
+                <th class="fecha_aceptacion_inscripcion"></th>
                 <th class="ACCIONES"></th>
             </thead>
             <tbody id="datosInscripciones">
@@ -76,25 +79,28 @@
                 <label class='dni_usuario'></label>
                 <input type='text' name='dni_usuario' id='txtdniusuario' onblur=''><br>
                 <!--Fecha de la inscripcion-->
-
+                <label class='fecha_solicitud_inscripcion'></label>
+                <input type='date' name='fecha_solicitud_inscripcion' id='txtfechasolicitudinscripcion' onblur=''><br>
             </fieldset>
 
             <fieldset>
                 <legend class="datosPago">Datos del pago:</legend>
                 <!--Documento que acredita el Pago-->
-
+                <label class='documento_pago' id='labeltxtdocumentopago'></label>
+                <input type='text' name='documento_pago' id='txtdocumentopago' onblur=''>
+                <a href='' name='enlace_documento_pago' id="enlacetxtdocumentopago"></a><br>
+                <label class='sube_documento_pago' id='labelsubetxtdocumentopago'></label>
+                <input type='file' name='documento_pago' id='subetxtdocumentopago'><br>
                 <!--Fecha de realizacion del Pago-->
-
+                <label class='fecha_pago_inscripcion'></label>
+                <input type='date' name='fecha_pago_inscripcion' id='txtfechapagoinscripcion' onblur=''><br>
                 <!--Fecha aceptacion del Pago-->
-
-                <!--Borrado inscripcion-->
-                <select name='borrado_usuario' id='borrado_usuario'>
-                    <option value="0">Si</option>
-                    <option value="1">No</option>
-                </select><br>
+                <label class='fecha_aceptacion_inscripcion'></label>
+                <input type='date' name='fecha_aceptacion_inscripcion' id='txtfechaaceptacioninscripcion' onblur=''><br>
             </fieldset>
 
-            <button type='submit'><img src="./images/icons/editUser.png" width="50px" /></button><br>
+            <button id='submitbuttom' type='submit'><img id='iconoAcciones' src="./images/icons/editUser.png"
+                    width="50px" /></button><br>
         </form>
     </div>
 

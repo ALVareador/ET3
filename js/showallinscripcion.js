@@ -11,11 +11,15 @@ function construyeFila(fila) {
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
+    var rutauploaddocumentos = urlPeticionesAjax;
+    rutauploaddocumentos = rutauploaddocumentos.substring(29, 0);
+    rutauploaddocumentos = rutauploaddocumentos + 'documentos/';
+
     var filaTabla = '<tr> <td>' + fila.id_inscripcion +
         '</td> <td>' + fila.id_actividad +
         '</td> <td>' + fila.id_usuario +
         '</td> <td>' + fila.fecha_solicitud_inscripcion +
-        '</td> <td>' + fila.documento_pago +
+        '</td> <td> <a href=\'' + rutauploaddocumentos + fila.documento_pago + '\'>' + fila.documento_pago + '</a>' +
         '</td> <td>' + fila.fecha_pago_inscripcion +
         '</td> <td>' + fila.fecha_aceptacion_inscripcion +
         '</td> <td>' + celdaAcciones +
@@ -25,6 +29,7 @@ function construyeFila(fila) {
 }
 
 function getLisInscripcion() {
+    
     var idioma = getCookie('lang');
     var idSession = getCookie('sessionId');
 
@@ -33,7 +38,7 @@ function getLisInscripcion() {
     insertacampo(document.formulariolistarinscripciones, 'ID_SESSION', idSession);
     insertacampo(document.formulariolistarinscripciones, 'controlador', 'inscripcion');
     insertacampo(document.formulariolistarinscripciones, 'action', 'buscar');
-    console.log(document.formulariolistarinscripciones);
+    
     $.ajax({
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
