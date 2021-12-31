@@ -20,6 +20,8 @@ function setLang(lang = '') {
             document.getElementById('es').selected = true;
             document.getElementById('en').selected = false;
             document.getElementById('ga').selected = false;
+
+
             /* En funcionamiento, la configuración del combo box y comentado el resaltado de colores de la configuración anterior */
             /*
             document.getElementById('es').style.color = '#ff0000';
@@ -144,4 +146,76 @@ function cambiarLang(lang) {
     setCookie('lang', lang, 5);
     window.location.reload(true);
 
+}
+
+function setCalendarLang() {
+    var foo = getCookie('lang');
+    var toret;
+    switch (foo) {
+        case 'ES':
+            toret = {
+                'cssprefix': 'tcal',
+                'months': ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                'weekdays': ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+                'longwdays': ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                'yearscroll': true, // show year scroller
+                'weekstart': 1, // first day of week: 0-Su or 1-Mo
+                'prevyear': 'Año Anterior',
+                'nextyear': 'Año Siguiente',
+                'prevmonth': 'Mes Anterior',
+                'nextmonth': 'Mes Siguiente',
+                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+            };
+            return toret;
+            break;
+        case 'EN':
+            toret = {
+                'cssprefix': 'tcal',
+                'months': ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                'weekdays': ['S', 'M', 't', 'W', 'T', 'F', 's'],
+                'longwdays': ['Saturday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                'yearscroll': true, // show year scroller
+                'weekstart': 1, // first day of week: 0-Su or 1-Mo
+                'prevyear': 'Año Anterior',
+                'nextyear': 'Año Siguiente',
+                'prevmonth': 'Mes Anterior',
+                'nextmonth': 'Mes Siguiente',
+                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+            };
+            return toret;
+            break;
+        case 'GA':
+            toret = {
+                'cssprefix': 'tcal',
+                'months': ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                'weekdays': ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+                'longwdays': ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                'yearscroll': true, // show year scroller
+                'weekstart': 1, // first day of week: 0-Su or 1-Mo
+                'prevyear': 'Año Anterior',
+                'nextyear': 'Año Siguiente',
+                'prevmonth': 'Mes Anterior',
+                'nextmonth': 'Mes Siguiente',
+                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+            };
+            return toret;
+            break;
+
+        default:
+            toret = {
+                'cssprefix': 'tcal',
+                'months': ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                'weekdays': ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+                'longwdays': ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                'yearscroll': true, // show year scroller
+                'weekstart': 1, // first day of week: 0-Su or 1-Mo
+                'prevyear': 'Año Anterior',
+                'nextyear': 'Año Siguiente',
+                'prevmonth': 'Mes Anterior',
+                'nextmonth': 'Mes Siguiente',
+                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+            };
+            break;
+    }
+    return toret;
 }

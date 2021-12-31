@@ -1,2 +1,9 @@
 {
+    "editor.fontFamily": "Consolas, 'Courier New', Consolas",
+    "files.exclude": {
+        "**/.history": true
+    },
+    "search.exclude": {
+        "**/*.history/*": true
+    }
 }

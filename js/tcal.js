@@ -3,19 +3,7 @@
 // License: Public Domain... You're welcome.
 
 // default settins - this structure can be moved in separate file in multilangual applications
-var A_TCALCONF = {
-	'cssprefix': 'tcal',
-	'months': ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-	'weekdays': ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
-	'longwdays': ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
-	'yearscroll': true, // show year scroller
-	'weekstart': 1, // first day of week: 0-Su or 1-Mo
-	'prevyear': 'Año Anterior',
-	'nextyear': 'Año Siguiente',
-	'prevmonth': 'Mes Anterior',
-	'nextmonth': 'Mes Siguiente',
-	'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
-};
+var A_TCALCONF = setCalendarLang();
 
 var A_TCALTOKENS = [
 	// A full numeric representation of a year, 4 digits
@@ -34,6 +22,7 @@ var A_TCALTOKENS = [
 	{ 't': 'S', 'r': 'st|nd|rd|th', 'p': function (d_date, s_value) { return d_date }, 'g': function (d_date) { n_date = d_date.getDate(); if (n_date % 10 == 1 && n_date != 11) return 'st'; if (n_date % 10 == 2 && n_date != 12) return 'nd'; if (n_date % 10 == 3 && n_date != 13) return 'rd'; return 'th'; } }
 
 ];
+
 
 function f_tcalGetHTML(d_date) {
 
@@ -158,7 +147,7 @@ function f_tcalUpdate(n_date, b_keepOpen) {
 }
 
 function f_tcalOnClick() {
-
+	A_TCALCONF = setCalendarLang();
 	// see if already opened
 	var s_pfx = A_TCALCONF.cssprefix;
 	var s_activeClass = s_pfx + 'Active';

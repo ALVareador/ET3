@@ -48,11 +48,11 @@ function comprobarDNI() {
 
 	document.getElementById("txtdniusuario").style.borderWidth = "2px";
 
-	if (validaNoVacio("txtdniusuario", "errorFormatoUser", "dni") && validateDNI("txtdniusuario", "errorFormatoUser")) {
-		validacionOK("txtdniusuario", "errorFormatoUser");
+	if (validaNoVacio("txtdniusuario", "errorFormatoDNI", "dni") && validateDNI("txtdniusuario", "errorFormatoDNI")) {
+		validacionOK("txtdniusuario", "errorFormatoDNI");
 		return true;
 	} else {
-		validacionKO("txtdniusuario", "errorFormatoUser");
+		validacionKO("txtdniusuario", "errorFormatoDNI");
 		return false;
 	}
 
@@ -63,11 +63,11 @@ function comprobarDNIResponsable() {
 
 	document.getElementById("txtdniresponsable").style.borderWidth = "2px";
 
-	if (validaNoVacio("txtdniresponsable", "errorFormatoUser", "dni") && validateDNI("txtdniresponsable", "errorFormatoUser")) {
-		validacionOK("txtdniresponsable", "errorFormatoUser");
+	if (validaNoVacio("txtdniresponsable", "errorFormatoDNI", "dni") && validateDNI("txtdniresponsable", "errorFormatoDNI")) {
+		validacionOK("txtdniresponsable", "errorFormatoDNI");
 		return true;
 	} else {
-		validacionKO("txtdniresponsable", "errorFormatoUser");
+		validacionKO("txtdniresponsable", "errorFormatoDNI");
 		return false;
 	}
 
@@ -100,6 +100,12 @@ function validaNoVacio(idElemento, idElementoError, campo) {
 			case 'dni':
 				codigo = "error_dni_vacio"
 				break;
+			case 'apellidos_persona':
+				codigo = "error_apellidos_vacio"
+				break;
+			case 'nombre_persona':
+				codigo = "error_nombre_persona_vacio"
+				break
 		}
 		addCodeError(idElementoError, codigo);
 		return false;
@@ -222,7 +228,7 @@ function validacionKO(idElemento, idElementoError) {
 
 	document.getElementById(idElementoError).setAttribute('style', "");
 	document.getElementById(idElemento).style.borderColor = "#ff0000";
-	document.getElementById(idElementoError).style.color='#ff0000';
+	document.getElementById(idElementoError).style.color = '#ff0000';
 
 }
 
@@ -319,12 +325,12 @@ function desconecta() {
 function addCodeError(idElementoError, codigo) {
 
 	var idioma = getCookie('lang');
-console.log(idElementoError,codigo);
+	console.log(idElementoError, codigo);
 	$("#" + idElementoError).removeClass();
 	$("#" + idElementoError).addClass(codigo);
-/*se llama a la funcion setLang() porque es está funcion la 
-que se recorrel el DOM buscando las claves que se recojen en
-los diccionarios y añade la traducción correspondiente*/
+	/*se llama a la funcion setLang() porque es está funcion la 
+	que se recorrel el DOM buscando las claves que se recojen en
+	los diccionarios y añade la traducción correspondiente*/
 	setLang(idioma);
 
 }
@@ -435,16 +441,16 @@ function comprobarNombrePersona() {
 
 	document.getElementById("nombre_persona").style.borderWidth = "2px";
 
-	if (validaNoVacio("nombre_persona", "errorFormatoPass", "nombre_persona") && comprobarLetrasNumeros("nombre_persona", 45, 0, "errorFormatoPass", "nombre_persona")) {
-		validacionOK("nombre_persona", "errorFormatoPass");
+	if (validaNoVacio("nombre_persona", "errorFormatoNombrePersona", "nombre_persona") && comprobarSoloLetrasYEspacio("nombre_persona", "errorFormatoNombrePersona", "nombre_persona")) {
+		validacionOK("nombre_persona", "errorFormatoNombrePersona");
 		return true;
 	} else {
-		validacionKO("nombre_persona", "errorFormatoPass");
+		validacionKO("nombre_persona", "errorFormatoNombrePersona");
 		return false;
 	}
 }
 
-function sololetrasyespacio(idElemento, idElementoError, campo) {
+function comprobarSoloLetrasYEspacio(idElemento, idElementoError, campo) {
 	var valor = document.getElementById(idElemento).value;
 	var patron = /^[A-Z]+\s$/i;
 
@@ -456,6 +462,12 @@ function sololetrasyespacio(idElemento, idElementoError, campo) {
 			case 'passLogin':
 				codigo = "02115"
 				break;
+			case 'apellidos_persona':
+				codigo = "error_formato_apellidos_persona"
+				break;
+			case 'nombre_persona':
+				codigo = "error_formato_nombre_persona"
+				break;
 		}
 		addCodeError(idElementoError, codigo);
 		return false;
@@ -464,13 +476,14 @@ function sololetrasyespacio(idElemento, idElementoError, campo) {
 }
 
 function comprobarApellido() {
+
 	document.getElementById("apellidos_persona").style.borderWidth = "2px";
 
-	if (validaNoVacio("apellidos_persona", "errorFormatoApll", "apellidos_persona") && comprobarLetrasNumeros("apellidos_persona", 100, 0, "errorFormatoApll", "apellidos_persona")) {
-		validacionOK("apellidos_persona", "errorFormatoApll");
+	if (validaNoVacio("apellidos_persona", "errorFormatoApellidosPersona", "apellidos_persona") && comprobarSoloLetrasYEspacio("apellidos_persona", "errorFormatoApellidosPersona", "apellidos_persona")) {
+		validacionOK("apellidos_persona", "errorFormatoApellidosPersona");
 		return true;
 	} else {
-		validacionKO("apellidos_persona", "errorFormatoApll");
+		validacionKO("apellidos_persona", "errorFormatoApellidosPersona");
 		return false;
 	}
 }
@@ -478,11 +491,11 @@ function comprobarApellido() {
 function comprobarDireccion() {
 	document.getElementById("direccion_persona").style.borderWidth = "2px";
 
-	if (validaNoVacio("direccion_persona", "errorFormatoApll", "apelliddireccion_personaos_persona") && comprobarLetrasNumeros("direccion_persona", 200, 0, "errorFormatoApll", "direccion_persona")) {
-		validacionOK("direccion_persona", "errorFormatoApll");
+	if (validaNoVacio("direccion_persona", "errorFormatoApellidosPersona", "apelliddireccion_personaos_persona") && comprobarLetrasNumeros("direccion_persona", 200, 0, "errorFormatoApellidosPersona", "direccion_persona")) {
+		validacionOK("direccion_persona", "errorFormatoApellidosPersona");
 		return true;
 	} else {
-		validacionKO("direccion_persona", "errorFormatoApll");
+		validacionKO("direccion_persona", "errorFormatoApellidosPersona");
 		return false;
 	}
 }
@@ -587,11 +600,11 @@ function resetValidacion(idElemento, colorOriginal, idError) {
 	showError(idError, -20, '', "");
 }
 
-function hasProbadoAReiniciarlo(){
+function hasProbadoAReiniciarlo() {
 	location.reload();
 }
 
-function comprobarId(idcampo,idError) {
+function comprobarId(idcampo, idError) {
 	var linea = document.getElementById(idcampo);
 	var data = linea.value;
 	var patron = /^[0-9]+$/;

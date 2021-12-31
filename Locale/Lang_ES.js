@@ -112,6 +112,12 @@ arrayES = {
 	'error_dni_vacio':'El DNI no puede estár vacío.',
 	'error_formato_dni':'El DNI debe tener 8 números y una letra.(11111111T)',
 	'error_formato_dni_letra':'La letra introducida no se corresponde con el número',
+	'error_apellidos_vacio':'El campo apellidos no puede estár vacío',
+	'error_formato_apellidos_persona':'Introduzca los apellidos separados por espacios sin utilizar números ni símbolos',
+	'error_nombre_persona_vacio':'El nombre no puede estár vacío',
+	'error_formato_nombre_persona':'Introduzca el nombre sin utilizar números ni símbolos',
+	
+	
 	//fin errores formato
 
 	//************************************************************************************************

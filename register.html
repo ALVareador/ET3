@@ -45,21 +45,21 @@ comprobarMail()
 
 		<div class="div_Input">
 			<label class='dni_usuario'></label>
-			<input type="text" name="dni_persona" id="txtdniusuario" onblur="comprobarDNI()"> <br>
+			<input type="text" name="dni_persona" id="txtdniusuario" onblur="return comprobarDNI()"> <br>
 		</div>
-		<div style="display:none" id="errorFormatoUser"></div>
+		<div style="display:none" id="errorFormatoDNI"></div>
 
 		<div class="div_Input">
 			<label class='nombre_persona'></label>
-			<input type="text" name="nombre_persona" id="nombre_persona" onblur=""> <br>
+			<input type="text" name="nombre_persona" id="nombre_persona" onblur="return comprobarNombrePersona()"> <br>
 		</div>
-		<div style="display:none" id=""></div>
+		<div style="display:none" id="errorFormatoNombrePersona"></div>
 
 		<div class="div_Input">
 			<label class='apellidos_persona'></label>
-			<input type="text" name="apellidos_persona" id="apellidos_persona" onblur=""> <br>
+			<input type="text" name="apellidos_persona" id="apellidos_persona" onblur="return comprobarApellido()"> <br>
 		</div>
-		<div style="display:none" id=""></div>
+		<div style="display:none" id="errorFormatoApellidosPersona"></div>
 
 		<div class="div_Input">
 			<label class='fechaNacimiento_persona'></label>
