@@ -157,7 +157,37 @@ function validateDNI(dnivalue, idElementoError) {
 	}
 	return resultado;
 }
+function comprobarLongitud(idElemento, sizeMax, sizeMin, idElementoError, campo) {
 
+	var codigo = "";
+	var nombre = document.getElementById(idElemento).name;
+	var longitud = document.getElementById(idElemento).value.length;
+
+	if (longitud > sizeMax) {
+		switch (campo) {
+			case 'usuarioLogin':
+				codigo = "02111";
+				break;
+			case 'passLogin':
+				codigo = "02114"
+				break;
+		}
+		addCodeError(idElementoError, codigo);
+		return false;
+	} else if (longitud < sizeMin) {
+		switch (campo) {
+			case 'usuarioLogin':
+				codigo = "02110";
+				break;
+			case 'passLogin':
+				codigo = "02113"
+				break;
+		}
+		addCodeError(idElementoError, codigo);
+		return false;
+	}
+	return true;
+}
 
 function comprobarLetrasNumeros(idElemento, sizeMax, sizeMin, idElementoError, campo) {
 
@@ -454,16 +484,10 @@ function comprobarNombrePersona() {
 
 function comprobarSoloLetrasYEspacio(idElemento, idElementoError, campo) {
 	var valor = document.getElementById(idElemento).value;
-	var patron = /^[A-Z]+\s$/i;
+	var patron = /^[A-Za-záÁéÉíÍóÓúÚñÑüÜ\s]+$/;
 
 	if (!patron.test(valor)) {
 		switch (campo) {
-			case 'usuarioLogin':
-				codigo = "02112";
-				break;
-			case 'passLogin':
-				codigo = "02115"
-				break;
 			case 'apellidos_persona':
 				codigo = "error_formato_apellidos_persona"
 				break;
@@ -474,6 +498,7 @@ function comprobarSoloLetrasYEspacio(idElemento, idElementoError, campo) {
 		addCodeError(idElementoError, codigo);
 		return false;
 	}
+	return true;
 
 }
 
@@ -504,11 +529,11 @@ function comprobarFechaDeNacimiento() {
 	}
 
 }
-/**Comprueba que el valor de idElemento no sea una fecha de nacimiento de una persona de menos de 16 años*/
+/**Comprueba que el valor de idElemento no sea una fecha de nacimiento de una persona de menos de 18 años*/
 function comprobarMayorEdad(idElemento, idElementoError) {
 
 	fecha_nacimiento = document.getElementById(idElemento).value;
-	
+
 
 	var valores = fecha_nacimiento.split("/");
 	var anho_nacimiento = parseInt(valores[2]);
@@ -530,12 +555,12 @@ function comprobarMayorEdad(idElemento, idElementoError) {
 			return false;
 		} else {
 			if ((anho_actual - anho_nacimiento) < 18) {
-				console.log("<18", (anho_actual - anho_nacimiento));
+
 				codigo = "error_menor_edad"
 				addCodeError(idElementoError, codigo);
 				return false;
 			} else {
-				console.log(anho_actual - anho_nacimiento, mes_actual >= mes_nacimiento, dia_actual >= dia_nacimiento);
+
 				if (mes_actual > mes_nacimiento) {
 					return true;
 				}
@@ -556,7 +581,7 @@ function comprobarMayorEdad(idElemento, idElementoError) {
 function comprobarDireccion() {
 	document.getElementById("direccion_persona").style.borderWidth = "2px";
 
-	if (validaNoVacio("direccion_persona", "errorFormatoDireccion", "apelliddireccion_personaos_persona") && comprobarLetrasNumeros("direccion_persona", 200, 0, "errorFormatoDireccion", "direccion_persona")) {
+	if (validaNoVacio("direccion_persona", "errorFormatoDireccion", "direccion_persona") && comprobarLetrasNumeros("direccion_persona", 200, 0, "errorFormatoDireccion", "direccion_persona")) {
 		validacionOK("direccion_persona", "errorFormatoDireccion");
 		return true;
 	} else {
