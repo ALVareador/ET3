@@ -148,6 +148,8 @@ function cambiarLang(lang) {
 
 }
 
+
+/**Devuelve una configuración de TCAL acorde al idioma seleccionado.*/
 function setCalendarLang() {
     var foo = getCookie('lang');
     var toret;
@@ -166,7 +168,7 @@ function setCalendarLang() {
                 'nextmonth': 'Mes Siguiente',
                 'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
-            return toret;
+            
             break;
         case 'EN':
             toret = {
@@ -176,29 +178,29 @@ function setCalendarLang() {
                 'longwdays': ['Saturday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
                 'yearscroll': true, // show year scroller
                 'weekstart': 1, // first day of week: 0-Su or 1-Mo
-                'prevyear': 'Año Anterior',
-                'nextyear': 'Año Siguiente',
-                'prevmonth': 'Mes Anterior',
-                'nextmonth': 'Mes Siguiente',
+                'prevyear': 'Previous Year',
+                'nextyear': 'Next Year',
+                'prevmonth': 'Previous Month',
+                'nextmonth': 'Next Month',
                 'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
-            return toret;
+            
             break;
         case 'GA':
             toret = {
                 'cssprefix': 'tcal',
-                'months': ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-                'weekdays': ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
-                'longwdays': ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                'months': ['Xaneiro', 'Febreiro', 'Marzo', 'Abril', 'Maio', 'Xunio', 'Xullo', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Decembre'],
+                'weekdays': ['D', 'L', 'M', 'X', 'X', 'V', 'S'],
+                'longwdays': ['Domingo', 'Luns', 'Martes', 'Mércores', 'Xoves', 'Venres', 'Sábado'],
                 'yearscroll': true, // show year scroller
                 'weekstart': 1, // first day of week: 0-Su or 1-Mo
-                'prevyear': 'Año Anterior',
-                'nextyear': 'Año Siguiente',
+                'prevyear': 'Ano Anterior',
+                'nextyear': 'Ano Siguiente',
                 'prevmonth': 'Mes Anterior',
-                'nextmonth': 'Mes Siguiente',
+                'nextmonth': 'Mes Seguiente',
                 'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
-            return toret;
+            
             break;
 
         default:
@@ -215,6 +217,7 @@ function setCalendarLang() {
                 'nextmonth': 'Mes Siguiente',
                 'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
+            
             break;
     }
     return toret;

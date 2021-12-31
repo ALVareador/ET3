@@ -116,7 +116,9 @@ arrayES = {
 	'error_formato_apellidos_persona':'Introduzca los apellidos separados por espacios sin utilizar números ni símbolos',
 	'error_nombre_persona_vacio':'El nombre no puede estár vacío',
 	'error_formato_nombre_persona':'Introduzca el nombre sin utilizar números ni símbolos',
-	
+	'error_fecha_vacia':'La fecha no puede estár vacía',
+	'error_menor_edad':'Debe ser mayor de edad.',
+	'error_fecha_nacimiento_negativa':'Cuando hayas nacido vuelve a intentarlo',
 	
 	//fin errores formato
 

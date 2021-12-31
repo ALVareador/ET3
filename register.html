@@ -63,9 +63,9 @@ comprobarMail()
 
 		<div class="div_Input">
 			<label class='fechaNacimiento_persona'></label>
-			<input type="text" name="date" id="fechaNacimiento_persona" class="tcal" readonly onblur=""> <br>
+			<input type="text" name="date" id="fechaNacimiento_persona" class="tcal" readonly onblur="return comprobarFechaDeNacimiento()" onchange="return comprobarFechaDeNacimiento()" onclick="return comprobarFechaDeNacimiento()"> <br>
 		</div>
-		<div style="display:none" id=""></div>
+		<div style="display:none" id="errorFormatoFechaNacimiento"></div>
 
 		<div class="div_Input">
 			<label class='direccion_persona'></label>

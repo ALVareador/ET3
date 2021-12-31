@@ -105,7 +105,10 @@ function validaNoVacio(idElemento, idElementoError, campo) {
 				break;
 			case 'nombre_persona':
 				codigo = "error_nombre_persona_vacio"
-				break
+				break;
+			case 'fecha':
+				codigo = "error_fecha_vacia"
+				break;
 		}
 		addCodeError(idElementoError, codigo);
 		return false;
@@ -325,7 +328,6 @@ function desconecta() {
 function addCodeError(idElementoError, codigo) {
 
 	var idioma = getCookie('lang');
-	console.log(idElementoError, codigo);
 	$("#" + idElementoError).removeClass();
 	$("#" + idElementoError).addClass(codigo);
 	/*se llama a la funcion setLang() porque es está funcion la 
@@ -488,14 +490,77 @@ function comprobarApellido() {
 	}
 }
 
+/**Función que valida la fecha de nacimiento (no vacía y anterior a la fecha actual, porque al usar tcal garantizamos que es del formato dd/mm/aaaa)*/
+function comprobarFechaDeNacimiento() {
+
+	document.getElementById("fechaNacimiento_persona").style.borderWidth = "2px";
+
+	if (validaNoVacio("fechaNacimiento_persona", "errorFormatoFechaNacimiento", "fecha") && comprobarMayorEdad("fechaNacimiento_persona", "errorFormatoFechaNacimiento")) {
+		validacionOK("fechaNacimiento_persona", "errorFormatoFechaNacimiento");
+		return true;
+	} else {
+		validacionKO("fechaNacimiento_persona", "errorFormatoFechaNacimiento");
+		return false;
+	}
+
+}
+/**Comprueba que el valor de idElemento no sea una fecha de nacimiento de una persona de menos de 16 años*/
+function comprobarMayorEdad(idElemento, idElementoError) {
+
+	fecha_nacimiento = document.getElementById(idElemento).value;
+	
+
+	var valores = fecha_nacimiento.split("/");
+	var anho_nacimiento = parseInt(valores[2]);
+	var mes_nacimiento = parseInt(valores[1]);
+	var dia_nacimiento = parseInt(valores[0]);
+
+	var fecha_actual = new Date();
+	var dia_actual = fecha_actual.getDate();
+	var mes_actual = fecha_actual.getMonth() + 1;
+	var anho_actual = fecha_actual.getFullYear();
+
+	//hay formas más óptimas de hacerlo pero ya luego si dá tiempo, esta funciona
+	if (anho_actual - anho_nacimiento > 18) {
+		return true;
+	} else {
+		if (anho_actual < anho_nacimiento) {
+			codigo = "error_fecha_nacimiento_negativa"
+			addCodeError(idElementoError, codigo);
+			return false;
+		} else {
+			if ((anho_actual - anho_nacimiento) < 18) {
+				console.log("<18", (anho_actual - anho_nacimiento));
+				codigo = "error_menor_edad"
+				addCodeError(idElementoError, codigo);
+				return false;
+			} else {
+				console.log(anho_actual - anho_nacimiento, mes_actual >= mes_nacimiento, dia_actual >= dia_nacimiento);
+				if (mes_actual > mes_nacimiento) {
+					return true;
+				}
+				if (mes_actual === mes_nacimiento && dia_actual >= dia_nacimiento) {
+					return true;
+				}
+			}
+		}
+	}
+	codigo = "error_menor_edad"
+	addCodeError(idElementoError, codigo);
+	return false;
+}
+
+
+
+/**Comprueba que la direccion no esté vacía y admita solo numeros y letras (tal y como está ahora) */
 function comprobarDireccion() {
 	document.getElementById("direccion_persona").style.borderWidth = "2px";
 
-	if (validaNoVacio("direccion_persona", "errorFormatoApellidosPersona", "apelliddireccion_personaos_persona") && comprobarLetrasNumeros("direccion_persona", 200, 0, "errorFormatoApellidosPersona", "direccion_persona")) {
-		validacionOK("direccion_persona", "errorFormatoApellidosPersona");
+	if (validaNoVacio("direccion_persona", "errorFormatoDireccion", "apelliddireccion_personaos_persona") && comprobarLetrasNumeros("direccion_persona", 200, 0, "errorFormatoDireccion", "direccion_persona")) {
+		validacionOK("direccion_persona", "errorFormatoDireccion");
 		return true;
 	} else {
-		validacionKO("direccion_persona", "errorFormatoApellidosPersona");
+		validacionKO("direccion_persona", "errorFormatoDireccion");
 		return false;
 	}
 }
