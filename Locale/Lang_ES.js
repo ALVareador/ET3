@@ -112,14 +112,31 @@ arrayES = {
 	'error_dni_vacio':'El DNI no puede estár vacío.',
 	'error_formato_dni':'El DNI debe tener 8 números y una letra.(11111111T)',
 	'error_formato_dni_letra':'La letra introducida no se corresponde con el número',
+	
 	'error_apellidos_vacio':'El campo apellidos no puede estár vacío',
 	'error_formato_apellidos_persona':'Introduzca los apellidos separados por espacios sin utilizar números ni símbolos',
+	
 	'error_nombre_persona_vacio':'El nombre no puede estár vacío',
 	'error_formato_nombre_persona':'Introduzca el nombre sin utilizar números ni símbolos',
+	
 	'error_fecha_vacia':'La fecha no puede estár vacía',
 	'error_menor_edad':'Debe ser mayor de edad.',
 	'error_fecha_nacimiento_negativa':'Cuando hayas nacido vuelve a intentarlo',
 	
+	'error_formato_direccion_caracteres':'No admitidos caracteresque no sean alfanuméricos o º,ª,.,,',
+	'error_formato_direccion_corto':'La dirección debe tener más de 2 caracteres',
+	'error_formato_direccion_largo':'La direccion debe tener menos de 200 caracteres',
+	'error_direccion_vacia':'La direccion no puede estár vacía',
+	
+	'error_formato_telefono':'Introduce el telefono sin simbolos ni letras, ejemplo: 111222333',
+	'error_telefono_vacio':'El campo no puede estár vacío',
+	'error_telefono_largo':'El telefono no debe tener más de 9 dígitos',
+	'error_telefono_corto':'El telefono no debe tener menos de 9 dígitos',
+	
+	'error_email_vacio':'El campo no puede estár vacío.',
+	'error_email_corto':'El campo no puede ser menor de 3 caracteres',
+	'error_email_largo':'El campo no puede excede los 45 caracteres',
+	'error_formato_email':'Error de formato que debería especificarse pero ya si eso lo hago por la mañana que son las 00:26 del 1 de enero y tal',
 	//fin errores formato
 
 	//************************************************************************************************

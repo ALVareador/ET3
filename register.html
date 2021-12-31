@@ -75,15 +75,15 @@ comprobarMail()
 
 		<div class="div_Input">
 			<label class='telefono_persona'></label>
-			<input type="text" name="telefono_persona" id="telefono_persona" onblur=""> <br>
+			<input type="text" name="telefono_persona" id="telefono_persona" onblur="return comprobarTelefono()"> <br>
 		</div>
-		<div style="display:none" id=""></div>
+		<div style="display:none" id="errorFormatoTelefono"></div>
 
 		<div class="div_Input">
 			<label class='email_persona'></label>
-			<input type="text" name="email_persona" id="email_persona" onblur=""> <br>
+			<input type="text" name="email_persona" id="email_persona" onblur="return comprobarEmail()"> <br>
 		</div>
-		<div style="display:none" id=""></div>
+		<div style="display:none" id="errorFormatoEmail"></div>
 
 		<div class="div_Input">
 			<label class='foto_persona'></label>

@@ -109,6 +109,15 @@ function validaNoVacio(idElemento, idElementoError, campo) {
 			case 'fecha':
 				codigo = "error_fecha_vacia"
 				break;
+			case 'direccion_persona':
+				codigo = "error_direccion_vacia"
+				break;
+			case 'telefono_persona':
+				codigo = 'error_telefono_vacio'
+				break;
+			case 'email_persona':
+				codigo = 'error_email_vacio'
+				break;
 		}
 		addCodeError(idElementoError, codigo);
 		return false;
@@ -157,6 +166,7 @@ function validateDNI(dnivalue, idElementoError) {
 	}
 	return resultado;
 }
+/** Comprueba que la longuitud se encuentre entre sizeMax y  sizeMin*/
 function comprobarLongitud(idElemento, sizeMax, sizeMin, idElementoError, campo) {
 
 	var codigo = "";
@@ -171,6 +181,9 @@ function comprobarLongitud(idElemento, sizeMax, sizeMin, idElementoError, campo)
 			case 'passLogin':
 				codigo = "02114"
 				break;
+			case 'direccion_persona':
+				codigo = 'error_formato_direccion_largo'
+				break;
 		}
 		addCodeError(idElementoError, codigo);
 		return false;
@@ -181,6 +194,9 @@ function comprobarLongitud(idElemento, sizeMax, sizeMin, idElementoError, campo)
 				break;
 			case 'passLogin':
 				codigo = "02113"
+				break;
+			case 'direccion_persona':
+				codigo = 'error_formato_direccion_corto'
 				break;
 		}
 		addCodeError(idElementoError, codigo);
@@ -529,6 +545,47 @@ function comprobarFechaDeNacimiento() {
 	}
 
 }
+function comprobarTelefono() {
+
+	document.getElementById("telefono_persona").style.borderWidth = "2px";
+
+	if (validaNoVacio("telefono_persona", "errorFormatoTelefono", "telefono_persona") && comprobarFormatoTelefono("telefono_persona", "errorFormatoTelefono")) {
+		validacionOK("telefono_persona", "errorFormatoTelefono");
+		return true;
+	} else {
+		validacionKO("telefono_persona", "errorFormatoTelefono");
+		return false;
+	}
+
+}
+
+/** Comprueba que el dato telefono tenga 9 digitos numéricos */
+function comprobarFormatoTelefono(idElemento, idElementoError) {
+	codigo = '';
+	var valor = document.getElementById(idElemento).value;
+	var patron = /^\d+$/;
+	var longitud = document.getElementById(idElemento).value.length;
+
+	if (!patron.test(valor)) {
+		codigo = 'error_formato_telefono';
+		addCodeError(idElementoError, codigo);
+		return false;
+	}
+
+	if (longitud < 9) {
+		codigo = 'error_telefono_corto';
+		addCodeError(idElementoError, codigo);
+		return false;
+	}
+
+	if (longitud > 9) {
+		codigo = 'error_telefono_largo';
+		addCodeError(idElementoError, codigo);
+		return false;
+	}
+
+	return true;
+}
 /**Comprueba que el valor de idElemento no sea una fecha de nacimiento de una persona de menos de 18 años*/
 function comprobarMayorEdad(idElemento, idElementoError) {
 
@@ -581,7 +638,8 @@ function comprobarMayorEdad(idElemento, idElementoError) {
 function comprobarDireccion() {
 	document.getElementById("direccion_persona").style.borderWidth = "2px";
 
-	if (validaNoVacio("direccion_persona", "errorFormatoDireccion", "direccion_persona") && comprobarLetrasNumeros("direccion_persona", 200, 0, "errorFormatoDireccion", "direccion_persona")) {
+	if (validaNoVacio("direccion_persona", "errorFormatoDireccion", "direccion_persona") && comprobarLongitud("direccion_persona", 200, 3, "errorFormatoDireccion", "direccion_persona")
+		&& comprobarCaracteresDireccion("direccion_persona", "errorFormatoDireccion")) {
 		validacionOK("direccion_persona", "errorFormatoDireccion");
 		return true;
 	} else {
@@ -590,7 +648,56 @@ function comprobarDireccion() {
 	}
 }
 
+function comprobarCaracteresDireccion(idElemento, idElementoError) {
+	var valor = document.getElementById(idElemento).value;
+	var patron = /^[A-Za-záÁéÉíÍóÓúÚñÑüÜ,\.1-9ºª\s]+$/;
 
+	if (!patron.test(valor)) {
+		codigo = 'error_formato_direccion_caracteres';
+		addCodeError(idElementoError, codigo);
+		return false;
+	}
+	return true;
+
+}
+/**Comprueba que se inserta un email valido */
+function comprobarEmail() {
+	document.getElementById("email_persona").style.borderWidth = "2px";
+
+	if (validaNoVacio("email_persona", "errorFormatoEmail", "nombre_grupo") && comprobarEmailFormato("email_persona", "errorFormatoEmail")) {
+		validacionOK("email_persona", "errorFormatoEmail");
+		return true;
+	} else {
+		validacionKO("email_persona", "errorFormatoEmail");
+		return false;
+	}
+}
+function comprobarEmailFormato(idElemento, idElementoError){
+	codigo = '';
+	var valor = document.getElementById(idElemento).value;
+	var patron = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
+	var longitud = document.getElementById(idElemento).value.length;
+
+	if (!patron.test(valor)) {
+		codigo = 'error_formato_email';
+		addCodeError(idElementoError, codigo);
+		return false;
+	}
+
+	if (longitud < 3) {
+		codigo = 'error_email_corto';
+		addCodeError(idElementoError, codigo);
+		return false;
+	}
+
+	if (longitud > 45) {
+		codigo = 'error_email_largo';
+		addCodeError(idElementoError, codigo);
+		return false;
+	}
+
+	return true;
+}
 
 function comprobarNombreGrupo() {
 
