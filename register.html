@@ -45,9 +45,9 @@ comprobarMail()
 
 		<div class="div_Input">
 			<label class='dni_usuario'></label>
-			<input type="text" name="dni_persona" id="dni_persona" onblur=""> <br>
+			<input type="text" name="dni_persona" id="txtdniusuario" onblur="comprobarDNI()"> <br>
 		</div>
-		<div style="display:none" id=""></div>
+		<div style="display:none" id="errorFormatoUser"></div>
 
 		<div class="div_Input">
 			<label class='nombre_persona'></label>
@@ -92,6 +92,17 @@ comprobarMail()
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
+			<label class='esCeliaco_persona'></label>
+			<select name="esCeliaco_persona" id="esCeliaco_persona" onchange="">
+				<option id="seleccionNula" value="" class="seleccionNula" ></option>
+				<option id="SI" value="1" class="SI">1</option>
+				<option id="NO" value="0" class="NO">0</option>
+			</select>
+			<br>
+		</div>
+		<div style="display:none" id=""></div>
+
+		<div class="div_Input">
 			<label class='usuario'></label>
 			<input type="text" name="usuario" id="usuario" onblur=""> <br>
 		</div>
@@ -100,17 +111,6 @@ comprobarMail()
 		<div class="div_Input">
 			<label class='contrasena'></label>
 			<input type="text" name="contrasena" id="contrasena" onblur=""> <br>
-		</div>
-		<div style="display:none" id=""></div>
-
-		<div class="div_Input">
-			<label class='esCeliaco_persona'></label>
-			<select name="esCeliaco_persona" id="esCeliaco_persona" onchange="">
-				<option id="seleccionNula" value="" ></option>
-				<option id="SI" value="1" >SI</option>
-				<option id="NO" value="0" >NO</option>
-			</select>
-			<br>
 		</div>
 		<div style="display:none" id=""></div>
 

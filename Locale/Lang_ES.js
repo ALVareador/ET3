@@ -90,18 +90,29 @@ arrayES = {
 	// login registro
 	//************************************************************************************************
 
-	//- errores
-	'LOGIN_USUARIO_INCORRECTO': 'No existe el usuario',
-	'LOGIN_CONTRASENA_INCORRECTO': 'La contraseña no es correcta',
+	//exito
 	'LOGIN_USU_CORRECTO': 'El Usuario accedió correctamente',
 	'session_stored_ok': 'Sesión guardada en BD',
+	'session_disconnect_ok': 'Sesión eliminada de BD y usuario desconectado',
+	
+	//fin exito
+
+	//- errores accion
+	'LOGIN_USUARIO_INCORRECTO': 'No existe el usuario',
+	'LOGIN_CONTRASENA_INCORRECTO': 'La contraseña no es correcta',
 	'session_stored_fail': 'No existe la sesión en BD',
 	'user_in_session': 'Usuario con sesión activa',
-	'session_disconnect_ok': 'Sesión eliminada de BD y usuario desconectado',
 
 	'registro_usuario_ya_existe': 'No se puede registrar porque el usuario ya existe',
 	'registro_email_persona_ya_existe': 'No se puede registrar porque el email ya existe',
 	'fallo_conexion_registrar': 'Fallo de BD al realizar el registro',
+	//fin errores accion
+
+	//errores formato
+	'error_dni_vacio':'El DNI no puede estár vacío.',
+	'error_formato_dni':'El DNI debe tener 8 números y una letra.(11111111T)',
+	'error_formato_dni_letra':'La letra introducida no se corresponde con el número',
+	//fin errores formato
 
 	//************************************************************************************************
 	// usuario
@@ -118,6 +129,7 @@ arrayES = {
 	'ERROR_BORRAR_USUARIO': 'Error al borrar el usuario',
 	'ERROR_AUTENTICAR_USUARIO': 'Error de autenticación. No estás autenticado',
 	'USUARIO_BORRAR_NO_EXISTE': 'El usuario a borrar no existe',
+
 	//-exito
 	'USUARIO_INSERTAR_OK': 'Usuario insertado correctamente',
 	'usuario_modificado_ok': 'Usuario modificado correctamente',
@@ -154,7 +166,7 @@ arrayES = {
 	'PERSONA_MODIFICAR_OK': 'Persona modificada correctamente',
 	'PERSONA_BORRAR_OK': 'Persona borrada correctamente',
 
-	//errores
+	//errores Accion
 	'GRUPO_YA_EXISTE': 'El código de grupo ya existe',
 	'GRUPO_BORRAR_NO_EXISTE': 'El grupo a borrar no existe',
 	'GRUPO_BORRAR_EXISTE_EN_USUARIO': 'No se puede borrar, un usuario está en ese grupo',

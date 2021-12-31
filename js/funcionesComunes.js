@@ -18,7 +18,7 @@ function comprobarResponsable() {
 
 	document.getElementById("txtdniresponsable").style.borderWidth = "2px";
 
-	if (validaNoVacio("txtdniresponsable", "errorFormatoResponsable", "txtdniresponsable") && comprobarLetrasNumeros("txtdniresponsable", 15, 3, "errorFormatoResponsable", "txtdniresponsable")) {
+	if (validaNoVacio("txtdniresponsable", "errorFormatoResponsable", "dni") && comprobarLetrasNumeros("txtdniresponsable", 15, 3, "errorFormatoResponsable", "dni")) {
 		validacionOK("txtdniresponsable", "errorFormatoResponsable");
 		return true;
 	} else {
@@ -48,11 +48,11 @@ function comprobarDNI() {
 
 	document.getElementById("txtdniusuario").style.borderWidth = "2px";
 
-	if (validaNoVacio("txtdniUsuario", "errorFormatoUser", "dni_usuario") && validateDNI("txtdniUsuario", "errorFormatoUser", "dni_usuario")) {
+	if (validaNoVacio("txtdniusuario", "errorFormatoUser", "dni") && validateDNI("txtdniusuario", "errorFormatoUser")) {
 		validacionOK("txtdniusuario", "errorFormatoUser");
 		return true;
 	} else {
-		validacionKO("txtdnisuario", "errorFormatoUser");
+		validacionKO("txtdniusuario", "errorFormatoUser");
 		return false;
 	}
 
@@ -63,7 +63,7 @@ function comprobarDNIResponsable() {
 
 	document.getElementById("txtdniresponsable").style.borderWidth = "2px";
 
-	if (validaNoVacio("txtdniresponsable", "errorFormatoUser", "dni_responsable") && validateDNI("txtdniresponsable", "errorFormatoUser", "dni_responsable")) {
+	if (validaNoVacio("txtdniresponsable", "errorFormatoUser", "dni") && validateDNI("txtdniresponsable", "errorFormatoUser")) {
 		validacionOK("txtdniresponsable", "errorFormatoUser");
 		return true;
 	} else {
@@ -97,6 +97,9 @@ function validaNoVacio(idElemento, idElementoError, campo) {
 			case 'emailRegistro':
 				codigo = "02119"
 				break;
+			case 'dni':
+				codigo = "error_dni_vacio"
+				break;
 		}
 		addCodeError(idElementoError, codigo);
 		return false;
@@ -109,14 +112,14 @@ function validaNoVacio(idElemento, idElementoError, campo) {
 // Comprueba si es un DNI correcto (entre 5 y 8 letras seguidas de la letra que corresponda).
 // Acepta NIEs (Extranjeros con X, Y o Z al principio)
 
-function validateDNI(dnivalue, idElementoError, campo) {
+function validateDNI(dnivalue, idElementoError) {
 
 	var resultado = true;
 	var codigo = '';
 	var numero, let, letra;
 	var expresion_regular_dni = /^[XYZ]?\d{5,8}[A-Z]$/;
 
-	dni = document.getElementById(idElemento).value;
+	dni = document.getElementById(dnivalue).value;
 	dni = dni.toUpperCase();
 
 	if (expresion_regular_dni.test(dni) === true) {
@@ -131,7 +134,7 @@ function validateDNI(dnivalue, idElementoError, campo) {
 		if (letra != let) {
 			//alert('Dni erroneo, la letra del NIF no se corresponde');
 			resultado = false;
-			codigo = 'letraNIFError';
+			codigo = 'error_formato_dni_letra';
 			addCodeError(idElementoError, codigo);
 		} else {
 			//alert('Dni correcto');
@@ -140,7 +143,7 @@ function validateDNI(dnivalue, idElementoError, campo) {
 	} else {
 		//alert('Dni erroneo, formato no válido');
 		resultado = false;
-		codigo = 'formatoNIFError';
+		codigo = 'error_formato_dni';
 		addCodeError(idElementoError, codigo);
 	}
 	return resultado;
@@ -219,6 +222,7 @@ function validacionKO(idElemento, idElementoError) {
 
 	document.getElementById(idElementoError).setAttribute('style', "");
 	document.getElementById(idElemento).style.borderColor = "#ff0000";
+	document.getElementById(idElementoError).style.color='#ff0000';
 
 }
 
@@ -315,7 +319,7 @@ function desconecta() {
 function addCodeError(idElementoError, codigo) {
 
 	var idioma = getCookie('lang');
-
+console.log(idElementoError,codigo);
 	$("#" + idElementoError).removeClass();
 	$("#" + idElementoError).addClass(codigo);
 /*se llama a la funcion setLang() porque es está funcion la 
@@ -567,6 +571,7 @@ function comprobarDescrEspacio() {
 //Añade al div que se indique a traves de la ID, el mensaje especificado con el tamaño de letra y color especificado
 //IMPORTANTE:El tamaño debe pasar como numero y NO como string
 function showError(idError, tamanhoLetra, colorTexto, mensaje) {
+
 	var divError = document.getElementById(idError);
 	divError.style.height = tamanhoLetra + 20 + "px";
 	divError.style.fontSize = tamanhoLetra + "px";
