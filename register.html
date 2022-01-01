@@ -44,7 +44,7 @@ comprobarMail()
 	<div id="menuIdioma"></div>
 	
 	<form name="formularioRegistro" id="formularioRegistro" enctype="multipart/form-data" method="post"
-		action="javascript:registrarUsuario();" onsubmit="registrarUsuario();">
+		action="javascript:registrarUsuario();" onsubmit="">
 
 		<div class="div_Input">
 			<label class='dni_usuario'></label>
@@ -113,9 +113,9 @@ comprobarMail()
 
 		<div class="div_Input">
 			<label class='contrasena'></label>
-			<input type="password" id="txtPassword" onblur="return comprobarPassword()"> <br>
+			<input type="password" id="txtPassword" onblur="return comprobarPasswordModificacion()"> <br>
 			<label class='repetir_contrasena'></label>
-			<input type="password" id="txtPasswordRepetida" onblur="return comprobarPassword()"> <br>
+			<input type="password" id="txtPasswordRepetida" onblur="return comprobarPasswordModificacion()"> <br>
 		</div>
 		<div style="display:none" id="errorFormatoPassword"></div>
 

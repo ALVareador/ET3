@@ -12,7 +12,8 @@ function registrarUsuario() {
     var datos = new FormData();
     datos.append("upload", file);
     datos.append("formulario", formdata);
-
+	console.log(datos);
+/*
 	$.ajax({
 		method: "POST",
 		url: "http://193.147.87.202/ET3_IU/noRest.php",
@@ -31,5 +32,5 @@ function registrarUsuario() {
 
 		deleteActionController();
 	});
-
+*/
 }

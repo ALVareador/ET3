@@ -25,9 +25,8 @@ function comprobarResponsable() {
 	}
 
 }
-
-/**Función que valida la contraseña*/
-function comprobarPassword() {
+/** Comprueba el formato de la contraseña introduciendo 2 contraseñas iguales */
+function comprobarPasswordModificacion() {
 
 	document.getElementById("txtPassword").style.borderWidth = "2px";
 
@@ -35,6 +34,21 @@ function comprobarPassword() {
 		comprobarPasswordIguales("txtPassword", "txtPasswordRepetida", "errorFormatoPassword")) {
 		validacionOK("txtPassword", "errorFormatoPassword");
 		validacionOK("txtPasswordRepetida", "errorFormatoPassword");
+		return true;
+	} else {
+		validacionKO("txtPassword", "errorFormatoPassword");
+		return false;
+	}
+
+}
+
+/**Función que valida la contraseña*/
+function comprobarPassword() {
+
+	document.getElementById("txtPassword").style.borderWidth = "2px";
+
+	if (validaNoVacio("txtPassword", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("txtPassword", 16, 3, "errorFormatoPassword", "passLogin")) {
+		validacionOK("txtPassword", "errorFormatoPassword");
 		return true;
 	} else {
 		validacionKO("txtPassword", "errorFormatoPassword");
