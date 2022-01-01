@@ -104,15 +104,17 @@ comprobarMail()
 
 		<div class="div_Input">
 			<label class='usuario'></label>
-			<input type="text" name="usuario" id="usuario" onblur=""> <br>
+			<input type="text" name="usuario" id="txtUsuario" onblur="return comprobarUser()"> <br>
 		</div>
-		<div style="display:none" id=""></div>
+		<div style="display:none" id="errorFormatoUser"></div>
 
 		<div class="div_Input">
 			<label class='contrasena'></label>
-			<input type="text" name="contrasena" id="contrasena" onblur=""> <br>
+			<input type="password" id="txtPassword" onblur="return comprobarPassword()"> <br>
+			<label class='repetir_contrasena'></label>
+			<input type="password" id="txtPasswordRepetida" onblur="return comprobarPassword()"> <br>
 		</div>
-		<div style="display:none" id=""></div>
+		<div style="display:none" id="errorFormatoPassword"></div>
 
 		<input type="submit" value="Registrarse">
 	</form>

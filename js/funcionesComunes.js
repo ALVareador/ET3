@@ -3,16 +3,14 @@ function comprobarUser() {
 
 	document.getElementById("txtUsuario").style.borderWidth = "2px";
 
-	if (validaNoVacio("txtUsuario", "errorFormatoUser", "usuarioLogin") && comprobarLetrasNumeros("txtUsuario", 15, 3, "errorFormatoUser", "usuarioLogin")) {
+	if (validaNoVacio("txtUsuario", "errorFormatoUser", "usuarioLogin") && comprobarLetrasNumeros("txtUsuario", 45, 3, "errorFormatoUser", "usuarioLogin")) {
 		validacionOK("txtUsuario", "errorFormatoUser");
 		return true;
 	} else {
 		validacionKO("txtUsuario", "errorFormatoUser");
 		return false;
 	}
-
 }
-
 /**Función que valida el responsable*/
 function comprobarResponsable() {
 
@@ -29,18 +27,29 @@ function comprobarResponsable() {
 }
 
 /**Función que valida la contraseña*/
-function comprobarPass() {
+function comprobarPassword() {
 
 	document.getElementById("txtPassword").style.borderWidth = "2px";
 
-	if (validaNoVacio("txtPassword", "errorFormatoPass", "passLogin") && comprobarLetrasNumeros("txtPassword", 16, 3, "errorFormatoPass", "passLogin")) {
-		validacionOK("txtPassword", "errorFormatoPass");
+	if (validaNoVacio("txtPassword", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("txtPassword", 16, 3, "errorFormatoPassword", "passLogin") &&
+		comprobarPasswordIguales("txtPassword", "txtPasswordRepetida", "errorFormatoPassword")) {
+		validacionOK("txtPassword", "errorFormatoPassword");
+		validacionOK("txtPasswordRepetida", "errorFormatoPassword");
 		return true;
 	} else {
-		validacionKO("txtPassword", "errorFormatoPass");
+		validacionKO("txtPassword", "errorFormatoPassword");
 		return false;
 	}
 
+}
+/**Controla que las 2 contraseñas sean la misma. */
+function comprobarPasswordIguales(idPasswordA, idPasswordB, idElementoError) {
+	if (document.getElementById(idPasswordA).value !== document.getElementById(idPasswordB).value) {
+		addCodeError(idElementoError, 'error_password_disintas');
+		return false;
+	} else {
+		return true;
+	}
 }
 
 /**Función que valida el dni*/
@@ -365,11 +374,7 @@ function desconecta() {
 			}
 		});
 	}
-
 }
-
-
-
 /**Función para añadir los mensajes de error*/
 function addCodeError(idElementoError, codigo) {
 
@@ -380,7 +385,6 @@ function addCodeError(idElementoError, codigo) {
 	que se recorrel el DOM buscando las claves que se recojen en
 	los diccionarios y añade la traducción correspondiente*/
 	setLang(idioma);
-
 }
 
 /**Función que cierra la ventana modal*/
@@ -462,11 +466,11 @@ function comprobarNumCuenta() {
 
 	document.getElementById("txtnumcuentaresponsable").style.borderWidth = "2px";
 
-	if (validaNoVacio("txtnumcuentaresponsable", "errorFormatoPass", "numCuenta_responsable") && comprobarLetrasNumeros("txtnumcuentaresponsable", 24, 24, "errorFormatoPass", "numCuenta_responsable")) {
-		validacionOK("txtnumcuentaresponsable", "errorFormatoPass");
+	if (validaNoVacio("txtnumcuentaresponsable", "errorFormatoPassword", "numCuenta_responsable") && comprobarLetrasNumeros("txtnumcuentaresponsable", 24, 24, "errorFormatoPassword", "numCuenta_responsable")) {
+		validacionOK("txtnumcuentaresponsable", "errorFormatoPassword");
 		return true;
 	} else {
-		validacionKO("txtnumcuentaresponsable", "errorFormatoPass");
+		validacionKO("txtnumcuentaresponsable", "errorFormatoPassword");
 		return false;
 	}
 }
@@ -476,11 +480,11 @@ function comprobarCurriculum() {
 
 	document.getElementById("txtcurriculumresponsable").style.borderWidth = "2px";
 
-	if (validaNoVacio("txtcurriculumresponsable", "errorFormatoPass", "curriculum_responsable") && comprobarLetrasNumeros("txtcurriculumresponsable", 200, 0, "errorFormatoPass", "curriculum_responsable")) {
-		validacionOK("txtcurriculumresponsable", "errorFormatoPass");
+	if (validaNoVacio("txtcurriculumresponsable", "errorFormatoPassword", "curriculum_responsable") && comprobarLetrasNumeros("txtcurriculumresponsable", 200, 0, "errorFormatoPassword", "curriculum_responsable")) {
+		validacionOK("txtcurriculumresponsable", "errorFormatoPassword");
 		return true;
 	} else {
-		validacionKO("txtcurriculumresponsable", "errorFormatoPass");
+		validacionKO("txtcurriculumresponsable", "errorFormatoPassword");
 		return false;
 	}
 }
@@ -672,7 +676,7 @@ function comprobarEmail() {
 		return false;
 	}
 }
-function comprobarEmailFormato(idElemento, idElementoError){
+function comprobarEmailFormato(idElemento, idElementoError) {
 	codigo = '';
 	var valor = document.getElementById(idElemento).value;
 	var patron = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
@@ -833,4 +837,3 @@ function comprobarId(idcampo, idError) {
 	validacionOK(idcampo, idError);
 	return true;
 }
-

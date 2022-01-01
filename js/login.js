@@ -1,7 +1,7 @@
 /**Función que valida los datos antes de hacer el envío y encripta la password*/
 function comprobarLogin() {
 
-	if(comprobarUser() && comprobarPass()) {
+	if(comprobarUser() && comprobarPassword()) {
 	encriptar("txtPassword");
 	generarSessionId();
 	return true;

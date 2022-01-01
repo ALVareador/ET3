@@ -35,6 +35,7 @@ arrayES = {
 	'id_usuario': 'ID de Usuario',
 	'usuario': 'Nombre de Usuario',
 	'contrasena': 'Contraseña de Usuario',
+	'repetir_contrasena':'Repita Contraseña',
 	'dni_usuario': 'DNI de Usuario',
 	'id_grupo': 'Grupo',
 	'borrado_usuario': 'Activo',
@@ -137,6 +138,8 @@ arrayES = {
 	'error_email_corto':'El campo no puede ser menor de 3 caracteres',
 	'error_email_largo':'El campo no puede excede los 45 caracteres',
 	'error_formato_email':'Error de formato que debería especificarse pero ya si eso lo hago por la mañana que son las 00:26 del 1 de enero y tal',
+
+	'error_password_disintas':'Las contraseñas deben coincidir',
 	//fin errores formato
 
 	//************************************************************************************************
