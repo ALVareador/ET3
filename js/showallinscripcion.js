@@ -15,6 +15,11 @@ function construyeFila(fila) {
     rutauploaddocumentos = rutauploaddocumentos.substring(29, 0);
     rutauploaddocumentos = rutauploaddocumentos + 'documentos/';
 
+    for (var j = 0; j <ArrayActividades.length; j++) {
+        if(ArrayActividades[j]['id_actividad'] == fila.id_actividad)
+        fila.id_actividad = ArrayActividades[j]['nombre_actividad'];
+    }
+
     var filaTabla = '<tr> <td>' + fila.id_inscripcion +
         '</td> <td>' + fila.id_actividad +
         '</td> <td>' + fila.id_usuario +
@@ -60,6 +65,40 @@ function getLisInscripcion() {
             $("#imagenAviso").attr('src', "images/icons/error.png");
             setLang(idioma);
             $("#modal").attr('style', 'display: block');
+        }
+
+        deleteActionController();
+    });
+}
+
+ArrayActividades = null;
+
+function GetArrayActividades() { 
+
+    var idSession = getCookie('sessionId');
+
+	addActionControler(document.formgenericoinscripcion, 'search', 'actividad')
+
+    var idioma = getCookie('lang');
+
+    $.ajax({
+        method: "POST",
+          url: "http://193.147.87.202/ET3_IU/noRest.php",
+          data: $("#formgenericoinscripcion").serialize(),
+    }).done(function( response ) {
+        if (response.ok == true) {
+
+            ArrayActividades = response.resource;
+            console.log(response.resource);
+            
+            return response.resource;
+
+        } else {
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+            setLang(idioma);
+            document.getElementById("modal").style.display = "block";
         }
 
         deleteActionController();

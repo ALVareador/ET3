@@ -144,6 +144,51 @@ function deleteinscripcion() {
 
 }
 
+function buscarInscripcion() {
+
+	var idioma = getCookie('lang');
+	var idSession = getCookie('sessionId');
+	addActionControler(document.formgenericoinscripcion, 'search', 'inscripcion')
+	insertacampo(document.formgenericoinscripcion, 'ID_SESSION', idSession);
+
+	$.ajax({
+		method: "POST",
+		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		data: $("#formgenericoinscripcion").serialize(),
+	}).done(function (response) {
+		if (response.ok == true) {
+			$("#datosInscripcion").html("");
+			nodos = document.getElementById("formgenericoinscripcion").childNodes;
+			for (var i = 0; i < nodos.length; i++) {
+				var item = nodos[i];
+				if (item.id != undefined) {
+					//  alert(item.id);
+				}
+			}
+			//alert(nodos);
+			for (var i = 0; i < response.resource.length; i++) {
+				var tr = construyeFila(response.resource[i]);
+				$("#datosInscripcion").append(tr);
+			}
+
+			setLang(idioma);
+		} else {
+			$("#mensajeError").removeClass();
+			$("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+			$("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+			$("#imagenAviso").attr('src', "images/icons/error.png");
+			setLang(idioma);
+			$("#modal").attr('style', 'display: block');
+		}
+
+		deleteActionController();
+
+	});
+
+}
+
+
 //SHOWS
 
 function showAddInscripcion() {
@@ -163,9 +208,6 @@ function showAddInscripcion() {
     //-------------------$("#txtfechapagoinscripcion").attr('onblur', 'comprobarFecha();');
     //-------------------$("#txtfechaaceptacioninscripcion").attr('onblur', 'comprobarFecha();');
 
-    // se rellena los select
-    //-------------------rellenaid_actividad('0');
-
     // eliminar input no necesario
 	$("#labeltxtdocumentopago").attr('style', 'display:none');
 	$("#txtdocumentopago").attr('style', 'display:none');
@@ -175,6 +217,7 @@ function showAddInscripcion() {
     $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
 
     // habilitar/deshabilitar campos
+    $("#id_actividad").attr('disabled', false);
     $("#txtidInscripcion").attr('disabled', true);
     $("#txtnombreactividad").attr('disabled', false);
     $("#txtdniusuario").attr('disabled', false);
@@ -215,6 +258,7 @@ function showDetalleInscripcion(id, id_actividad, id_usuario, fecha_solicitud_in
     $("#enlacetxtdocumentopago").attr('style', 'display:');
 
     // habilitar/deshabilitar campos
+    $("#id_actividad").attr('disabled', true);
     $("#txtidInscripcion").attr('disabled', true);
     $("#txtnombreactividad").attr('disabled', true);
     $("#txtdniusuario").attr('disabled', true);
@@ -257,13 +301,8 @@ function showEditarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_ins
     //-------------------$("#txtfechapagoinscripcion").attr('onblur', 'comprobarFecha();');
     //-------------------$("#txtfechaaceptacioninscripcion").attr('onblur', 'comprobarFecha();');
 
-    // funciones para fechas y subir documentos -----------------------------------------------------
-
-    // se rellena los select
-    //-------------------deleteoptionsSelect("txtnombreactividad");
-    //-------------------rellenaid_actividad(id_actividad);
-
     // se deshabilita el id para que no pueda cambiarse
+    $("#id_actividad").attr('disabled', false);
     $("#txtidInscripcion").attr('disabled', true);
     $("#txtnombreactividad").attr('disabled', false);
     $("#txtdniusuario").attr('disabled', false);
@@ -295,7 +334,16 @@ function showEliminarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_i
     $("#txtfechapagoinscripcion").val(fecha_pago_inscripcion);
     $("#txtfechaaceptacioninscripcion").val(fecha_aceptacion_inscripcion);
 
+    // subir archivos
+    var link = '</td> <td> <a href=\'' + 'documentos/' + documento_pago + '\'>' + documento_pago + '</a>' + '</td> </tr>';
+    document.getElementById('enlacetxtdocumentopago').innerHTML = link;
+    $("#labelsubetxtdocumentopago").attr('style', 'display:none');
+    $("#subetxtdocumentopago").attr('style', 'display:none');
+    $("#txtdocumentopago").attr('style', 'display:none');
+    $("#enlacetxtdocumentopago").attr('style', 'display:');
+
     // habilitar/deshabilitar campos
+    $("#id_actividad").attr('disabled', true);
     $("#txtidInscripcion").attr('disabled', true);
     $("#txtnombreactividad").attr('disabled', true);
     $("#txtdniusuario").attr('disabled', true);
@@ -351,29 +399,31 @@ function resetearformularioinscripcion(idformUsado) {
 
 }
 
-function rellenaid_actividad(id) {
+//Rellena los desplegables de espacio s
+function rellenaId_actividad(id_inscripcion) { 
 
     var idSession = getCookie('sessionId');
 
-    crearformoculto("formularioobteneractividad", "");
-
-    insertacampo(document.formularioobteneractividad, 'ID_SESSION', idSession);
-    insertacampo(document.formularioobteneractividad, 'controlador', 'actividad');
-    insertacampo(document.formularioobteneractividad, 'action', 'buscar');
+	addActionControler(document.formgenericoinscripcion, 'search', 'actividad')
 
     var idioma = getCookie('lang');
 
     $.ajax({
         method: "POST",
-        url: urlPeticionesAjax,
-        data: $("#formularioobteneractividad").serialize(),
-    }).done(function (response) {
+          url: "http://193.147.87.202/ET3_IU/noRest.php",
+          data: $("#formgenericoinscripcion").serialize(),
+    }).done(function( response ) {
         if (response.ok == true) {
-            addOptions2('id_actividad', response.resource);
-            $("#id_actividad option[value='" + id + "'").attr("selected", true);
+            // Rellenamos el selector.
+            addOptions('id_actividad',response.resource,'id_actividad','nombre_actividad');
+
+            //Pone como selected el argumento pasado como parámetro
+            $("#id_actividad option[value='" + id_actividad + "']").attr("selected", true);
+
         } else {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
             setLang(idioma);
             document.getElementById("modal").style.display = "block";
         }
@@ -382,15 +432,41 @@ function rellenaid_actividad(id) {
     });
 }
 
-function addOptions2(domElement, array) {
-    var selector = document.getElementById(domElement);
-    //Recorremos el array.
-    longitud = array.length;
+function showBuscarInscripcion() {
 
-    for (var i = 0; i < longitud; i++) {
-        var opcion = document.createElement("option");
-        opcion.value = array[i]['id_actividad'];
-        opcion.text = array[i]['nombre_actividad'];
-        selector.add(opcion);
-    }
+	// se resetea todo el formulario generico
+	resetearformularioinscripcion();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoinscripcion").attr('style', 'display: block');
+	$("#divformgenericoinscripcion").attr('action', 'javascript:buscarActividad();');
+	$("#divformgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
+
+	// eliminar input no necesario
+	$("#labeltxtdocumentopago").attr('style', 'display:none');
+	$("#txtdocumentopago").attr('style', 'display:none');
+	$("#txtdocumentopago").attr('disabled', true);
+
+    //cambiar icono submit
+    $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
+
+    // habilitar/deshabilitar campos
+    $("#id_actividad").attr('disabled', false);
+    $("#txtidInscripcion").attr('disabled', true);
+    $("#txtnombreactividad").attr('disabled', false);
+    $("#txtdniusuario").attr('disabled', false);
+    $("#txtfechasolicitudinscripcion").attr('disabled', false);
+    $("#txtdocumentopago").attr('disabled', false);
+    $("#txtfechapagoinscripcion").attr('disabled', false);
+    $("#txtfechaaceptacioninscripcion").attr('disabled', false);
+
+    //cambiar icono submit
+    $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
+
+	// rellenamos los onblur de los input que se validad
+	$("#txtdniusuario").attr('onblur', 'comprobarDNI();');
+    //-------------------$("#txtfechasolicitudinscripcion").attr('onblur', 'comprobarFecha();');
+    //-------------------$("#txtdocumentopago").attr('onblur', 'comprobarDocumento();');
+    //-------------------$("#txtfechapagoinscripcion").attr('onblur', 'comprobarFecha();');
+    //-------------------$("#txtfechaaceptacioninscripcion").attr('onblur', 'comprobarFecha();');
 }
