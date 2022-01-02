@@ -1,6 +1,9 @@
 var traduccion;
 
-/**Si no se envía idioma el idioma por defecto es ES*/
+/**
+ * Si no se envía idioma el idioma por defecto es ES
+ * @param {*} lang 
+ */
 function setLang(lang = '') {
 
     if (lang == '') {
@@ -109,7 +112,12 @@ function setLang(lang = '') {
     }
 }
 
-/*Función para establecer el valor de la cookie*/
+/**
+ * Función para establecer el valor de la cookie
+ * @param {*} name 
+ * @param {*} value 
+ * @param {*} days 
+ */
 function setCookie(name, value, days) {
 
     var expires = "";
@@ -120,11 +128,15 @@ function setCookie(name, value, days) {
         expires = "; expires=" + date.toUTCString();
     }
 
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    document.cookie = name + "=" + (value || "") + expires + "; Secure; path=/";
 
 }
 
-/*Función para obtener el valor de la cookie*/
+/**
+ * Función para obtener el valor de la cookie
+ * @param {*} name 
+ * @returns 
+ */
 function getCookie(name) {
 
     var nameEQ = name + "=";
@@ -148,8 +160,11 @@ function cambiarLang(lang) {
 
 }
 
-
-/**Devuelve una configuración de TCAL acorde al idioma seleccionado.*/
+/**
+ * Devuelve una configuración de TCAL acorde al idioma seleccionado.
+ * 
+ * @returns 
+ */
 function setCalendarLang() {
     var foo = getCookie('lang');
     var toret;
@@ -168,7 +183,7 @@ function setCalendarLang() {
                 'nextmonth': 'Mes Siguiente',
                 'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
-            
+
             break;
         case 'EN':
             toret = {
@@ -184,7 +199,7 @@ function setCalendarLang() {
                 'nextmonth': 'Next Month',
                 'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
-            
+
             break;
         case 'GA':
             toret = {
@@ -200,7 +215,7 @@ function setCalendarLang() {
                 'nextmonth': 'Mes Seguiente',
                 'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
-            
+
             break;
 
         default:
@@ -217,7 +232,7 @@ function setCalendarLang() {
                 'nextmonth': 'Mes Siguiente',
                 'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
-            
+
             break;
     }
     return toret;
