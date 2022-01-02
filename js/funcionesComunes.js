@@ -99,7 +99,6 @@ function comprobarDNIResponsable() {
 /**Función que valida si un campo está vacío*/
 function validaNoVacio(idElemento, idElementoError, campo) {
 
-
 	var codigo = "";
 
 	var valor = document.getElementById(idElemento).value;
@@ -610,11 +609,10 @@ function comprobarMayorEdad(idElemento, idElementoError) {
 
 	fecha_nacimiento = document.getElementById(idElemento).value;
 
-
 	var valores = fecha_nacimiento.split("/");
-	var anho_nacimiento = parseInt(valores[2]);
+	var dia_nacimiento = parseInt(valores[2]);
 	var mes_nacimiento = parseInt(valores[1]);
-	var dia_nacimiento = parseInt(valores[0]);
+	var anho_nacimiento = parseInt(valores[0]);
 
 	var fecha_actual = new Date();
 	var dia_actual = fecha_actual.getDate();
