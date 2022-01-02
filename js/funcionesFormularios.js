@@ -1,4 +1,8 @@
-/**Función para crear un formulario oculto*/
+/**
+ * Función para crear un formulario oculto
+ * @param {*} name 
+ * @param {*} action 
+ */
 function crearformoculto(name, action) {
 
     if ($("#" + name).length == 0) {
@@ -24,7 +28,6 @@ function crearformvisible(name, action) {
         formu.name = name;
         formu.action = action;
         formu.id = name;
-        //formu.style.display = "none";
 
     }
 

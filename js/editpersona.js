@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 function addPersona() {
 
 	var idSession = getCookie('sessionId');
@@ -36,7 +39,9 @@ function addPersona() {
 	});
 
 }
-
+/**
+ * 
+ */
 function showAddPersona() {
 
 
@@ -75,7 +80,9 @@ function showAddPersona() {
 
     $("#iconoAcciones").attr('src', "./images/icons/addUser.png");	
 }
-
+/**
+ * 
+ */
 function editPersona() {
 
 	var idSession = getCookie('sessionId');
@@ -117,7 +124,9 @@ function editPersona() {
 	});
 
 }
-
+/**
+ * 
+ */
 function deletePersona() {
 
 	var idSession = getCookie('sessionId');
@@ -149,7 +158,19 @@ function deletePersona() {
 	});
 
 }
-
+/**
+ * 
+ * @param {*} dni_persona 
+ * @param {*} nombre_persona 
+ * @param {*} apellidos_persona 
+ * @param {*} fechaNacimiento_persona 
+ * @param {*} direccion_persona 
+ * @param {*} telefono_persona 
+ * @param {*} email_persona 
+ * @param {*} foto_persona 
+ * @param {*} esCeliaco_persona 
+ * @param {*} borrado_persona 
+ */
 function showEditarPersona(dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona) {
 
 	// se resetea todo el formulario generico
@@ -173,13 +194,13 @@ function showEditarPersona(dni_persona, nombre_persona, apellidos_persona, fecha
 	$("#borrado_persona").val(borrado_persona);
 
 	// rellenamos los onblur de los input que se validad
-	$("#nombre_persona").attr('onblur', 'comprobarDNI("dni_persona","errorFormatoDni");');
-    $("#apellidos_persona").attr('onblur', 'comprobarDescripcionPersona();');
-	$("#fechaNacimiento_persona").attr('onblur', 'comprobarDescripcionPersona();');
-    $("#direccion_persona").attr('onblur', 'comprobarDescripcionPersona();');
-    $("#telefono_persona").attr('onblur', 'comprobarDescripcionPersona();');
-	$("#email_persona").attr('onblur', 'comprobarDescripcionPersona();');
-    $("#foto_persona").attr('onblur', 'comprobarDescripcionPersona();');
+	$("#nombre_persona").attr('onblur', 'return comprobarNombrePersona;');
+    $("#apellidos_persona").attr('onblur', 'return comprobarApellido()');
+	$("#fechaNacimiento_persona").attr('onblur', 'return comprobarFechaDeNacimiento()');
+    $("#direccion_persona").attr('onblur', 'return comprobarDireccion()');
+    $("#telefono_persona").attr('onblur', 'return comprobarTelefono()');
+	$("#email_persona").attr('onblur', 'return comprobarEmail()');
+    $("#foto_persona").attr('onblur', '');
 
 	$("#esCeliaco_persona option[value='" + esCeliaco_persona + "'").attr("selected", true);
     $("#borrado_persona option[value='" + borrado_persona + "'").attr("selected", true);
@@ -187,7 +208,10 @@ function showEditarPersona(dni_persona, nombre_persona, apellidos_persona, fecha
 	$("#dni_persona").attr('disabled', true);
 
 }
-
+/**
+ * 
+ * @returns boolean
+ */
 function comprobareditsubmit() {
 
 	if (comprobarUser()) {
@@ -197,7 +221,9 @@ function comprobareditsubmit() {
 		return false;
 	}
 }
-
+/**
+ * 
+ */
 function detallepersona() {
 
 	var idioma = getCookie('lang');
@@ -205,7 +231,19 @@ function detallepersona() {
 	GetLisPersonas()
 	setLang(idioma);
 }
-
+/**
+ * 
+ * @param {*} dni_persona 
+ * @param {*} nombre_persona 
+ * @param {*} apellidos_persona 
+ * @param {*} fechaNacimiento_persona 
+ * @param {*} direccion_persona 
+ * @param {*} telefono_persona 
+ * @param {*} email_persona 
+ * @param {*} foto_persona 
+ * @param {*} esCeliaco_persona 
+ * @param {*} borrado_persona 
+ */
 function showDetallePersona(dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona) {
 
 	resetearformulariopersona();
@@ -241,7 +279,19 @@ function showDetallePersona(dni_persona, nombre_persona, apellidos_persona, fech
 	setLang('');
 
 }
-
+/**
+ * 
+ * @param {*} dni_persona 
+ * @param {*} nombre_persona 
+ * @param {*} apellidos_persona 
+ * @param {*} fechaNacimiento_persona 
+ * @param {*} direccion_persona 
+ * @param {*} telefono_persona 
+ * @param {*} email_persona 
+ * @param {*} foto_persona 
+ * @param {*} esCeliaco_persona 
+ * @param {*} borrado_persona 
+ */
 function showEliminarPersona(dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona) {
 
 	$("#divformgenericoPersona").attr('style', 'display: block');
@@ -275,7 +325,10 @@ function showEliminarPersona(dni_persona, nombre_persona, apellidos_persona, fec
 
 	$("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
 }
-
+/**
+ * 
+ * @param {*} idformUsado 
+ */
 function resetearformulariopersona(idformUsado) {
 
 	$("idformUsado").attr('action', '');
@@ -322,7 +375,9 @@ function resetearformulariopersona(idformUsado) {
     $("#esCeliaco_persona").attr('disabled', false);
     $("#borrado_persona").attr('disabled', false);
 }
-
+/**
+ * 
+ */
 function buscarPersona() {
 
 	var idioma = getCookie('lang');
@@ -367,7 +422,9 @@ function buscarPersona() {
 
 	});
 }
-
+/**
+ * 
+ */
 function showBuscarPersona() {
 
 	// se resetea todo el formulario generico
@@ -383,6 +440,6 @@ function showBuscarPersona() {
 	document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
 
 	// rellenamos los onblur de los input que se validad
-	$("#dni_persona").attr('onblur', '');
-	$("#nombre_persona").attr('onblur', 'comprobarNombrePersona();');
+	//$("#dni_persona").attr('onblur', '');
+	//$("#nombre_persona").attr('onblur', 'comprobarNombrePersona();');
 }

@@ -1,6 +1,7 @@
 <html>
 <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
         <script type="text/javascript" src="js/showallpersona.js"></script>
         <script type="text/javascript" src="js/editpersona.js"></script>
         <script type="text/javascript" src="js/funcionesComunes.js"></script>
@@ -16,7 +17,7 @@
 	<script type="text/javascript" src="js/tcal.js"></script>
 </head>      
 
-<body onload="includeCabecera();validaAutenticado();getLisPersonas();setLang('')">
+<body onload="includeCabecera();/*validaAutenticado();*/getLisPersonas();setLang('')">
         <div id="menuIdioma"></div>
         <div id="UserDesconectar"></div>
         <div id="Funciones">
@@ -71,7 +72,7 @@
                         <div style="display:none" id="errorFormatoDni"></div>
 
                         <label class='nombre_persona'></label>
-                        <input type='text' name='nombre_persona' id='nombre_persona' onblur=''><br>
+                        <input type='text' name='nombre_persona' id='nombre_persona' onblur='return comprobarNombrePersona()'><br>
                         <div style="display:none" id="errorFormatoNombre"></div>
 
                         <label class='apellidos_persona'></label>
@@ -96,18 +97,20 @@
 
                         <label class='foto_persona' id='labelfotopersona'></label>
                         <input type='text' name='foto_persona' id='foto_persona' onblur=''><br>
-                        <label class='sube_persona' id='labelfotopersona'>Sube una foto</label>
+                        <label class='sube_persona' id='labelfotopersona'></label>
                         <input type='file' name='subefotopersona' id='subefotopersona'><br>
                         
                         <label class='esCeliaco_persona'></label>
                         <select name='esCeliaco_persona' id='esCeliaco_persona'>
-                                <option value="0">Si</option>
-                                <option value="1">No</option>
+                                <option id="seleccionNula" value="" class="seleccionNula"></option>
+                                <option value="0"  class="SI"></option>
+                                <option value="1"  class="NO"></option>
                         </select>
                         <label class='borrado_persona'></label>
                         <select name='borrado_persona' id='borrado_persona'>
-                                <option value="0">Si</option>
-                                <option value="1">No</option>
+                                <option id="seleccionNula" value="" class="seleccionNula"></option>
+                                <option value="0" class="SI"></option>
+                                <option value="1" class="NO"></option>
                         </select>
 
                         <br>
