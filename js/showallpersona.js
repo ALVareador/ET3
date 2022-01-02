@@ -1,4 +1,3 @@
-
 /**
  * Función que construye cada línea que se va a rellenar en la tabla
  * @param {*} fila 
@@ -25,7 +24,9 @@ function construyeFila(fila) {
         '</td> <td>' + fila.nombre_persona +
         '</td> <td>' + fila.apellidos_persona +
         '</td> <td>' + fila.email_persona +
-        '</td> <td> <a href=\'' + rutauploadimages + fila.foto_persona + '\'>' + fila.foto_persona + '</a>' +
+        '</td> <td> <img src=\'' + rutauploadimages + fila.foto_persona + '\' ' + 'width=\'100\'' +
+        'height=\'100\'>' +
+        //'</td> <td> <a href=\'' + rutauploadimages + fila.foto_persona + '\'>' + fila.foto_persona + '</a>' +
         '</td> <td>' + fila.borrado_persona +
         '</td> <td>' + celdaAcciones +
         '</td> </tr>';
@@ -50,7 +51,7 @@ function getLisPersonas() {
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
         data: $("#formgenericoPersona").serialize(),
-    }).done(function (response) {
+    }).done(function(response) {
         if (response.ok == true) {
             $("#datosPersonas").html("");
             nodos = document.getElementById("formgenericoPersona").childNodes;
