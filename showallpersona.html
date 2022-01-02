@@ -1,123 +1,131 @@
 <html>
+
 <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <script type="text/javascript" src="js/showallpersona.js"></script>
-        <script type="text/javascript" src="js/editpersona.js"></script>
-        <script type="text/javascript" src="js/funcionesComunes.js"></script>
-        <script type="text/javascript" src="js/funcionesFormularios.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script type="text/javascript" src="js/showallpersona.js"></script>
+    <script type="text/javascript" src="js/editpersona.js"></script>
+    <script type="text/javascript" src="js/funcionesComunes.js"></script>
+    <script type="text/javascript" src="js/funcionesFormularios.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-        <script type="text/javascript" src="Locale/idioma.js"></script>
-        <script type="text/javascript" src="Locale/Lang_EN.js"></script>
-        <script type="text/javascript" src="Locale/Lang_ES.js"></script>
-        <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+    <script type="text/javascript" src="Locale/idioma.js"></script>
+    <script type="text/javascript" src="Locale/Lang_EN.js"></script>
+    <script type="text/javascript" src="Locale/Lang_ES.js"></script>
+    <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
-        <link rel="stylesheet" type="text/css" href="css/tcal.css" />
-	<script type="text/javascript" src="js/tcal.js"></script>
-</head>      
+    <link rel="stylesheet" type="text/css" href="css/tcal.css" />
+    <script type="text/javascript" src="js/tcal.js"></script>
+</head>
 
 <body onload="includeCabecera();/*validaAutenticado();*/getLisPersonas();setLang('')">
-        <div id="menuIdioma"></div>
-        <div id="UserDesconectar"></div>
-        <div id="Funciones">
-                <button onclick="showAddPersona()" alt="Insertar Persona">Insertar Persona</button>
-                <button onclick="showBuscarPersona()" alt="Buscar Persona">Buscar Persona</button>
+    <div id="menuIdioma"></div>
+    <div id="UserDesconectar"></div>
+    <div id="Funciones">
+        <button onclick="showAddPersona()" alt="Insertar Persona">Insertar Persona</button>
+        <button onclick="showBuscarPersona()" alt="Buscar Persona">Buscar Persona</button>
+    </div>
+    <div id="divtablaPersonas">
+        <table id="tablaPersonas" border='1'>
+            <thead>
+                <th class="dni_persona">
+    </div>
+    </th>
+    <th class="nombre_persona">
         </div>
-        <div id="divtablaPersonas">
-                <table id="tablaPersonas" border= '1'>
-                        <thead >
-                                <th class="dni_persona"></div>
-                                </th>
-                                <th class="nombre_persona"></div>
-                                </th>
-                                <th class="apellidos_persona"></div>
-                                </th>
-                                <th class="email_persona"></div>
-                                </th>
-                                <th class="foto_persona"></div>
-                                </th>
-                                <th class="borrado_persona"></div>
-                                </th>
-                                <th class="ACCIONES"></th>
-                        </thead>
-                        <tbody id="datosPersonas">
-
-                        </tbody>
-                        </tbody>
-                </table>
+    </th>
+    <th class="apellidos_persona">
         </div>
-
-        <div id="modal" style="display:none">
-                <div id="contenido-interno">
-                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
-                        <div id="mensajeError"></div>
-                        <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
-                                <span class="tooltiptext iconCerrar"></span>
-                        </a>
-                </div>
+    </th>
+    <th class="email_persona">
         </div>
+    </th>
+    <th class="foto_persona">
+        </div>
+    </th>
+    <th class="borrado_persona">
+        </div>
+    </th>
+    <th class="ACCIONES"></th>
+    </thead>
+    <tbody id="datosPersonas">
+
+    </tbody>
+    </tbody>
+    </table>
+    </div>
+
+    <div id="modal" style="display:none">
+        <div id="contenido-interno">
+            <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
+            <div id="mensajeError"></div>
+            <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
+                <span class="tooltiptext iconCerrar"></span>
+            </a>
+        </div>
+    </div>
 
 
-        <a href="menu.html"><img src="./images/icons/volver.png" width="50px"  /></a>
+    <a href="menu.html"><img src="./images/icons/volver.png" width="50px" /></a>
 
-        <div id='divformgenericoPersona' style="display:none">
-                <div id="tituloForms"></div>
-                <a onclick = "cerrar('divformgenericoPersona','','');"><img src = './images/icons/close.png' width="50px"></a>
-                <form name='formgenericoPersona' id='formgenericoPersona' method="post" action="" onsubmit="">
-                        
-                        <label class='dni_persona'></label>
-                        <input type='text' name='dni_persona' id='dni_persona' onblur='return comprobarDNI("dni_persona","errorFormatoDni")'><br>
-                        <div style="display:none" id="errorFormatoDni"></div>
+    <div id='divformgenericoPersona' style="display:none">
+        <div id="tituloForms"></div>
+        <a onclick="cerrar('divformgenericoPersona','','');"><img src='./images/icons/close.png' width="50px"></a>
+        <form name='formgenericoPersona' id='formgenericoPersona' method="post" action="" onsubmit="">
 
-                        <label class='nombre_persona'></label>
-                        <input type='text' name='nombre_persona' id='nombre_persona' onblur='return comprobarNombrePersona()'><br>
-                        <div style="display:none" id="errorFormatoNombre"></div>
+            <label class='dni_persona'></label>
+            <input type='text' name='dni_persona' id='dni_persona' onblur='return comprobarDNI("dni_persona","errorFormatoDni")'><br>
+            <div style="display:none" id="errorFormatoDni"></div>
 
-                        <label class='apellidos_persona'></label>
-                        <input type='text' name='apellidos_persona' id='apellidos_persona' onblur=''><br>
-                        <div style="display:none" id="errorFormatoApellidos"></div>
+            <label class='nombre_persona'></label>
+            <input type='text' name='nombre_persona' id='nombre_persona' onblur='return comprobarNombrePersona()'><br>
+            <div style="display:none" id="errorFormatoNombrePersona"></div>
 
-                        <label class='fechaNacimiento_persona'></label>
-                        <input type="text" name="date" id="fechaNacimiento_persona" class="tcal" onblur=""> <br>
-                        <div style="display:none" id="errorFormatoFecha"></div>
+            <label class='apellidos_persona'></label>
+            <input type='text' name='apellidos_persona' id='apellidos_persona' onblur='return comprobarApellido()'><br>
+            <div style="display:none" id="errorFormatoApellidosPersona"></div>
 
-                        <label class='direccion_persona'></label>
-                        <input type='text' name='direccion_persona' id='direccion_persona' onblur=''><br>
-                        <div style="display:none" id="errorFormatoDireccion"></div>
+            <label class='fechaNacimiento_persona'></label>
+            <input type="text" name="date" id="fechaNacimiento_persona" class="tcal" onblur="return comprobarFechaDeNacimiento()"> <br>
+            <div style="display:none" id="errorFormatoFechaNacimiento"></div>
 
-                        <label class='telefono_persona'></label>
-                        <input type='text' name='telefono_persona' id='telefono_persona' onblur=''><br>
-                        <div style="display:none" id="errorFormatoTelefono"></div>
+            <label class='direccion_persona'></label>
+            <input type='text' name='direccion_persona' id='direccion_persona' onblur=''><br>
+            <div style="display:none" id="errorFormatoDireccion"></div>
 
-                        <label class='email_persona'></label>
-                        <input type='text' name='email_persona' id='email_persona' onblur=''><br>
-                        <div style="display:none" id="errorFormatoEmail"></div>
+            <label class='telefono_persona'></label>
+            <input type='text' name='telefono_persona' id='telefono_persona' onblur=''><br>
+            <div style="display:none" id="errorFormatoTelefono"></div>
 
-                        <label class='foto_persona' id='labelfotopersona'></label>
-                        <input type='text' name='foto_persona' id='foto_persona' onblur=''><br>
-                        <label class='sube_persona' id='labelfotopersona'></label>
-                        <input type='file' name='subefotopersona' id='subefotopersona'><br>
-                        
-                        <label class='esCeliaco_persona'></label>
-                        <select name='esCeliaco_persona' id='esCeliaco_persona'>
+            <label class='email_persona'></label>
+            <input type='text' name='email_persona' id='email_persona' onblur=''><br>
+            <div style="display:none" id="errorFormatoEmail"></div>
+
+            <label class='foto_persona' id='labelfotopersona'></label>
+            <input type='text' name='foto_persona' id='foto_persona' onblur=''><br>
+            <label class='sube_persona' id='labelfotopersona'></label>
+            <input type='file' name='subefotopersona' id='subefotopersona'><br>
+
+            <label class='esCeliaco_persona'></label>
+            <select name='esCeliaco_persona' id='esCeliaco_persona'>
                                 <option id="seleccionNula" value="" class="seleccionNula"></option>
                                 <option value="0"  class="SI"></option>
                                 <option value="1"  class="NO"></option>
                         </select>
-                        <label class='borrado_persona'></label>
-                        <select name='borrado_persona' id='borrado_persona'>
+            <label class='borrado_persona'></label>
+            <select name='borrado_persona' id='borrado_persona'>
                                 <option id="seleccionNula" value="" class="seleccionNula"></option>
                                 <option value="0" class="SI"></option>
                                 <option value="1" class="NO"></option>
                         </select>
 
-                        <br>
-                        <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
-                </form>
-        </div>
+            <br>
+            <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
+        </form>
+    </div>
 
 
 </body>
+
 </html>

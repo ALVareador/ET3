@@ -59,7 +59,7 @@ function getLisPersonas() {
             for (var i = 0; i < nodos.length; i++) {
                 var item = nodos[i];
                 if (item.id != undefined) {
-                    //  alert(item.id);
+                    alert(item.id);
                 }
             }
             //console.log(response.resource);
