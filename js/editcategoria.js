@@ -164,43 +164,100 @@ function comprobareditsubmit() {
 	}
 }
 
+function buscarCategoria() {
+
+	console.log("GetLisCategorias -> GetLisCategorias triggered");
+
+	var idioma = getCookie('lang');
+	var idSession = getCookie('sessionId');
+	console.log("GetLisCategorias -> formulario oculto  construyendose");
+	addActionControler(document.formgenericoCategoria, 'search', 'categoria')
+	insertacampo(document.formgenericoCategoria, 'ID_SESSION', idSession);
+
+	console.log("GetLisCategorias ->formulario oculto  construido");
+	console.log(document.formgenericoCategoria);
+
+	$.ajax({
+		method: "POST",
+		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		data: $("#formgenericoCategoria").serialize(),
+	}).done(function (response) {
+		if (response.ok == true) {
+			$("#datosCategoria").html("");
+			nodos = document.getElementById("formgenericoCategoria").childNodes;
+			for (var i = 0; i < nodos.length; i++) {
+				var item = nodos[i];
+				if (item.id != undefined) {
+					//  alert(item.id);
+				}
+			}
+			//alert(nodos);
+			for (var i = 0; i < response.resource.length; i++) {
+				var tr = construyeFila(response.resource[i]);
+				$("#datosCategoria").append(tr);
+			}
+
+			setLang(idioma);
+		} else {
+			$("#mensajeError").removeClass();
+			$("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+			$("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+			$("#imagenAviso").attr('src', "images/icons/error.png");
+			setLang(idioma);
+			$("#modal").attr('style', 'display: block');
+		}
+
+		deleteActionController();
+
+	});
+}
+
+function showBuscarCategoria() {
+
+	// se resetea todo el formulario generico
+	resetearformulariocategoria();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoCategoria").attr('style', 'display: block');
+	$("#formgenericoCategoria").attr('action', 'javascript:buscarCategoria();');
+	$("#formgenericoCategoria").attr('onsubmit', 'comprobareditsubmit();');
+
+	//Se pone el titulo de la acción buscar
+	document.getElementById('tituloAccion').innerHTML = "Buscar Categoria";
+	document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
+
+	// rellenamos los onblur de los input que se validad
+	$("#id_categoria").attr('onblur', 'comprobarIdCategoria(\"id_categoria\");');
+	$("#nombre_categoria").attr('onblur', 'comprobarNombreCategoria();');
+}
+
+function detallecategoria() {
+
+	var idioma = getCookie('lang');
+	resetearformulariocategoria();
+	GetLisCategorias()
+	setLang(idioma);
+}
 function showDetalleCategoria(id_categoria, nombre_categoria, descripcion_categoria) {
 
-	$("#formgenericoCategoria").remove();
-	$("#botoncerrar").remove();
+	resetearformulariocategoria();
 
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divgenericoCategoria','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divgenericoCategoria').append(label);
-	$('#divgenericoCategoria').attr('style', 'display: block');
-	$('#divgenericoCategoria').attr('style', 'border: 1px solid black');
+	$("#divformgenericoCategoria").attr('style', 'display:');
+	$("#formgenericoCategoria").attr('action', 'javascript:detallecategoria();');
 
-	crearformvisible('formgenericoCategoria', 'none');
-	$('#formgenericoCategoria').attr('style', 'display: block');
+	$("#id_categoria").val(id_categoria);
+	$("#nombre_categoria").val(nombre_categoria);
+	$("#descripcion_categoria").val(descripcion_categoria);
 
-	form = document.getElementById('formgenericoCategoria');
+	$("#id_categoria").attr('disabled', true);
+	$("#nombre_categoria").attr('disabled', true);
+	$("#descripcion_categoria").attr('disabled', true);
 
-	label = "<label class='id_categoria'></label>";
-	$("#formgenericoCategoria").append(label);
-	insertacampovisible(form, 'blid_categoria', id_categoria);
-	$("#blid_categoria").attr('disabled', true);
-	$("#formgenericoCategoria").append('<br>');
-
-	label = "<label class='nombre_categoria' disabled='disabled'></label>";
-	$("#formgenericoCategoria").append(label);
-	insertacampovisible(form, 'blnombre_categoria', nombre_categoria);
-	$("#blnombre_categoria").attr('disabled', true);
-	$("#formgenericoCategoria").append('<br>');
-
-	label = "<label class='descripcion_categoria'></label>";
-	$("#formgenericoCategoria").append(label);
-	insertacampovisible(form, 'bldescripcion_categoria', descripcion_categoria);
-	$("#bldescripcion_categoria").attr('disabled', true);
-	$("#formgenericoCategoria").append('<br>');
-
-	$("#divgenericoCategoria").append(formgenericoCategoria);
-
+	document.getElementById('submitbuttom').style.visibility = 'hidden';
+	$("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
+	
 	setLang('');
-
 }
 
 function showEliminarCategoria(id_categoria, nombre_categoria, descripcion_categoria) {

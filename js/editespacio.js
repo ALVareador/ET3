@@ -163,43 +163,100 @@ function comprobareditsubmit() {
 	}
 }
 
+function buscarEspacio() {
+
+	console.log("GetLisEspacios -> GetLisEspacios triggered");
+
+	var idioma = getCookie('lang');
+	var idSession = getCookie('sessionId');
+	console.log("GetLisEspacios -> formulario oculto  construyendose");
+	addActionControler(document.formgenericoEspacio, 'search', 'espacio')
+	insertacampo(document.formgenericoEspacio, 'ID_SESSION', idSession);
+
+	console.log("GetLisEspacios ->formulario oculto  construido");
+	console.log(document.formgenericoEspacio);
+
+	$.ajax({
+		method: "POST",
+		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		data: $("#formgenericoEspacio").serialize(),
+	}).done(function (response) {
+		if (response.ok == true) {
+			$("#datosEspacio").html("");
+			nodos = document.getElementById("formgenericoEspacio").childNodes;
+			for (var i = 0; i < nodos.length; i++) {
+				var item = nodos[i];
+				if (item.id != undefined) {
+					//  alert(item.id);
+				}
+			}
+			//alert(nodos);
+			for (var i = 0; i < response.resource.length; i++) {
+				var tr = construyeFila(response.resource[i]);
+				$("#datosEspacio").append(tr);
+			}
+
+			setLang(idioma);
+		} else {
+			$("#mensajeError").removeClass();
+			$("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+			$("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+			$("#imagenAviso").attr('src', "images/icons/error.png");
+			setLang(idioma);
+			$("#modal").attr('style', 'display: block');
+		}
+
+		deleteActionController();
+
+	});
+}
+
+function showBuscarEspacio() {
+
+	// se resetea todo el formulario generico
+	resetearformularioespacio();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoEspacio").attr('style', 'display: block');
+	$("#formgenericoEspacio").attr('action', 'javascript:buscarEspacio();');
+	$("#formgenericoEspacio").attr('onsubmit', 'comprobareditsubmit();');
+
+	//Se pone el titulo de la acción buscar
+	document.getElementById('tituloAccion').innerHTML = "Buscar Espacio";
+	document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
+
+	// rellenamos los onblur de los input que se validad
+	$("#id_espacio").attr('onblur', 'comprobarIdEspacio(\"id_espacio\");');
+	$("#nombre_espacio").attr('onblur', 'comprobarNombreEspacio();');
+}
+
+function detalleespacio() {
+
+	var idioma = getCookie('lang');
+	resetearformularioespacio();
+	GetLisEspacios()
+	setLang(idioma);
+}
 function showDetalleEspacio(id_espacio, nombre_espacio, descripcion_espacio) {
 
-	$("#formgenericoEspacio").remove();
-	$("#botoncerrar").remove();
+	resetearformularioespacio();
 
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divgenericoEspacio','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divgenericoEspacio').append(label);
-	$('#divgenericoEspacio').attr('style', 'display: block');
-	$('#divgenericoEspacio').attr('style', 'border: 1px solid black');
+	$("#divformgenericoEspacio").attr('style', 'display:');
+	$("#formgenericoEspacio").attr('action', 'javascript:detalleespacio();');
 
-	crearformvisible('formgenericoEspacio', 'none');
-	$('#formgenericoEspacio').attr('style', 'display: block');
+	$("#id_espacio").val(id_espacio);
+	$("#nombre_espacio").val(nombre_espacio);
+	$("#descripcion_espacio").val(descripcion_espacio);
 
-	form = document.getElementById('formgenericoEspacio');
+	$("#id_espacio").attr('disabled', true);
+	$("#nombre_espacio").attr('disabled', true);
+	$("#descripcion_espacio").attr('disabled', true);
 
-	label = "<label class='id_espacio'></label>";
-	$("#formgenericoEspacio").append(label);
-	insertacampovisible(form, 'blid_espacio', id_espacio);
-	$("#blid_espacio").attr('disabled', true);
-	$("#formgenericoEspacio").append('<br>');
-
-	label = "<label class='nombre_espacio' disabled='disabled'></label>";
-	$("#formgenericoEspacio").append(label);
-	insertacampovisible(form, 'blnombre_espacio', nombre_espacio);
-	$("#blnombre_espacio").attr('disabled', true);
-	$("#formgenericoEspacio").append('<br>');
-
-	label = "<label class='descripcion_espacio'></label>";
-	$("#formgenericoEspacio").append(label);
-	insertacampovisible(form, 'bldescripcion_espacio', descripcion_espacio);
-	$("#bldescripcion_espacio").attr('disabled', true);
-	$("#formgenericoEspacio").append('<br>');
-
-	$("#divgenericoEspacio").append(formgenericoEspacio);
-
+	document.getElementById('submitbuttom').style.visibility = 'hidden';
+	$("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
+	
 	setLang('');
-
 }
 
 function showEliminarEspacio(id_espacio, nombre_espacio, descripcion_espacio) {

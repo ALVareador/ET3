@@ -280,6 +280,7 @@ function showBuscarGrupo() {
 	$("#id_grupo").attr('onblur', 'comprobarIdGrupo(\"id_grupo\");');
 	$("#nombre_grupo").attr('onblur', 'comprobarNombreGrupo();');
 }
+
 function resetearformulariogrupo(idformUsado) {
 
 	$("idformUsado").attr('action', '');
