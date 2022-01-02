@@ -20,8 +20,11 @@ function addGrupo() {
 		}
 
 		actualizaMensajesRespuestAjax(response.code);
-
+		setLang(idioma);
+		resetearformulariogrupo();
+		GetLisGrupos();
 		deleteActionController();
+		hasProbadoAReiniciarlo();
 	});
 
 }
@@ -45,11 +48,11 @@ function showAddGrupo() {
 
 	// rellenamos los onblur de los input que se validad
 
-	/*
-	$("#idGrupo").attr('onblur', 'comprobarDNI();');
-	$("#nombre_grupo").attr('onblur', 'comprobarNumCuenta();');
-	$("#descripcion_grupo").attr('onblur', 'comprobarCurriculum();');
-	*/
+	
+	$("#id_grupo").attr('onblur', 'comprobarId(\'id_grupo\',\'errorFormatoId\');');
+	$("#nombre_grupo").attr('onblur', 'comprobarNombreGrupo();');
+	$("#descripcion_grupo").attr('onblur', 'comprobarDescripcionGrupo();');
+	
 
 	// se rellena los select
 
@@ -83,10 +86,11 @@ function editGrupo() {
 		}
 
 		actualizaMensajesRespuestAjax(response.code);
-
+		resetearformulariogrupo();
+		GetLisGrupos();
 		setLang(idioma);
-
 		deleteActionController();
+		hasProbadoAReiniciarlo();
 	});
 
 }
@@ -118,10 +122,11 @@ function deleteGrupo() {
 		}
 
 		actualizaMensajesRespuestAjax(response.code);
-
+		resetearformulariogrupo();
+		GetLisGrupos();
 		setLang(idioma);
-
 		deleteActionController();
+		hasProbadoAReiniciarlo();
 	});
 
 }
@@ -163,47 +168,37 @@ function comprobareditsubmit() {
 	}
 }
 
+function detallegrupo() {
+
+	var idioma = getCookie('lang');
+	resetearformulariogrupo();
+	GetLisGrupos()
+	setLang(idioma);
+}
 function showDetalleGrupo(id_grupo, nombre_grupo, descripcion_grupo) {
 
-	$("#formgenericoGrupo").remove();
-	$("#botoncerrar").remove();
+	resetearformulariogrupo();
 
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divgenericoGrupo','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divgenericoGrupo').append(label);
-	$('#divgenericoGrupo').attr('style', 'display: block');
-	$('#divgenericoGrupo').attr('style', 'border: 1px solid black');
+	$("#divformgenericoGrupo").attr('style', 'display:');
+	$("#formgenericoGrupo").attr('action', 'javascript:detallegrupo();');
 
-	crearformvisible('formgenericoGrupo', 'none');
-	$('#formgenericoGrupo').attr('style', 'display: block');
+	$("#id_grupo").val(id_grupo);
+	$("#nombre_grupo").val(nombre_grupo);
+	$("#descripcion_grupo").val(descripcion_grupo);
 
-	form = document.getElementById('formgenericoGrupo');
+	$("#id_grupo").attr('disabled', true);
+	$("#nombre_grupo").attr('disabled', true);
+	$("#descripcion_grupo").attr('disabled', true);
 
-	label = "<label class='id_grupo'></label>";
-	$("#formgenericoGrupo").append(label);
-	insertacampovisible(form, 'blid_grupo', id_grupo);
-	$("#blid_grupo").attr('disabled', true);
-	$("#formgenericoGrupo").append('<br>');
-
-	label = "<label class='nombre_grupo' disabled='disabled'></label>";
-	$("#formgenericoGrupo").append(label);
-	insertacampovisible(form, 'blnombre_grupo', nombre_grupo);
-	$("#blnombre_grupo").attr('disabled', true);
-	$("#formgenericoGrupo").append('<br>');
-
-	label = "<label class='descripcion_grupo'></label>";
-	$("#formgenericoGrupo").append(label);
-	insertacampovisible(form, 'bldescripcion_grupo', descripcion_grupo);
-	$("#bldescripcion_grupo").attr('disabled', true);
-	$("#formgenericoGrupo").append('<br>');
-
-	$("#divgenericoGrupo").append(formgenericoGrupo);
-
+	document.getElementById('submitbuttom').style.visibility = 'hidden';
+	$("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
+	
 	setLang('');
-
 }
 
 function showEliminarGrupo(id_grupo, nombre_grupo, descripcion_grupo) {
 
+	resetearformulariogrupo();
 	$("#divformgenericoGrupo").attr('style', 'display: block');
 	$("#formgenericoGrupo").attr('action', 'javascript:deleteGrupo();');
 	$("#formgenericoGrupo").attr('onsubmit', '');
@@ -218,6 +213,73 @@ function showEliminarGrupo(id_grupo, nombre_grupo, descripcion_grupo) {
 
 }
 
+function buscarGrupo() {
+
+	console.log("GetLisGrupos -> GetLisGrupos triggered");
+
+	var idioma = getCookie('lang');
+	var idSession = getCookie('sessionId');
+	console.log("GetLisGrupos -> formulario oculto  construyendose");
+	addActionControler(document.formgenericoGrupo, 'search', 'grupo')
+	insertacampo(document.formgenericoGrupo, 'ID_SESSION', idSession);
+
+	console.log("GetLisGrupos ->formulario oculto  construido");
+	console.log(document.formgenericoGrupo);
+
+	$.ajax({
+		method: "POST",
+		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		data: $("#formgenericoGrupo").serialize(),
+	}).done(function (response) {
+		if (response.ok == true) {
+			$("#datosGrupo").html("");
+			nodos = document.getElementById("formgenericoGrupo").childNodes;
+			for (var i = 0; i < nodos.length; i++) {
+				var item = nodos[i];
+				if (item.id != undefined) {
+					//  alert(item.id);
+				}
+			}
+			//alert(nodos);
+			for (var i = 0; i < response.resource.length; i++) {
+				var tr = construyeFila(response.resource[i]);
+				$("#datosGrupo").append(tr);
+			}
+
+			setLang(idioma);
+		} else {
+			$("#mensajeError").removeClass();
+			$("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+			$("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+			$("#imagenAviso").attr('src', "images/icons/error.png");
+			setLang(idioma);
+			$("#modal").attr('style', 'display: block');
+		}
+
+		deleteActionController();
+
+	});
+}
+
+function showBuscarGrupo() {
+
+	// se resetea todo el formulario generico
+	resetearformulariogrupo();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoGrupo").attr('style', 'display: block');
+	$("#formgenericoGrupo").attr('action', 'javascript:buscarGrupo();');
+	$("#formgenericoGrupo").attr('onsubmit', 'comprobareditsubmit();');
+
+	//Se pone el titulo de la acción buscar
+	document.getElementById('tituloAccion').innerHTML = "Buscar Grupo";
+	document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
+
+	// rellenamos los onblur de los input que se validad
+	$("#id_grupo").attr('onblur', 'comprobarIdGrupo(\"id_grupo\");');
+	$("#nombre_grupo").attr('onblur', 'comprobarNombreGrupo();');
+}
 function resetearformulariogrupo(idformUsado) {
 
 	$("idformUsado").attr('action', '');
@@ -238,3 +300,4 @@ function resetearformulariogrupo(idformUsado) {
 	$("divformgenericoGrupo").attr('style', 'display: none');
 
 }
+

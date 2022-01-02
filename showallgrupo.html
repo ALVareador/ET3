@@ -21,6 +21,7 @@
         <div id="UserDesconectar"></div>
         <div id="Funciones">
                 <button onclick="showAddGrupo()" alt="Insertar Grupo">Insertar Grupo</button>
+                <button onclick="showBuscarGrupo()" alt="Buscar Grupo">Buscar Grupo</button>
         </div>
 
         <div id="divtablaGrupos">
@@ -62,14 +63,22 @@
                         <label class='id_grupo'></label>
                         <input type='text' name='id_grupo' id='id_grupo' onblur=''><br>
                         <label class='nombre_grupo'></label>
+<<<<<<< Updated upstream
                         <input type='text' name='nombre_grupo' id='nombre_grupo' onblur=''><br>
                         <div style="display:none" id=""></div> 
                         <label class='descripcion_grupo'></label>
                         <input type='text' name='descripcion_grupo' id='descripcion_grupo' onblur=''><br>
                         <div style="display:none" id=""></div> 
+=======
+                        <input type='text' name='nombre_grupo' id='nombre_grupo' onblur='return comprobarNombreGrupo()'><br>
+                        <div style="display:none" id="errorFormatoUser"></div> 
+                        <label class='descripcion_grupo'></label>
+                        <input type='text' name='descripcion_grupo' id='descripcion_grupo' onblur='return comprobarDescripcionGrupo()'><br>
+                        <div style="display:none" id="errorFormatoUser"></div> 
+>>>>>>> Stashed changes
 
                         <br>
-                        <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
+                        <button type='submit' id= 'submitbuttom'><img src="./images/icons/editUser.png" width="50px" /></button><br>
                 </form>
         </div>        
 
