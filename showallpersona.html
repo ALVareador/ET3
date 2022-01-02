@@ -11,6 +11,9 @@
         <script type="text/javascript" src="Locale/Lang_EN.js"></script>
         <script type="text/javascript" src="Locale/Lang_ES.js"></script>
         <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="css/tcal.css" />
+	<script type="text/javascript" src="js/tcal.js"></script>
 </head>      
 
 <body onload="includeCabecera();validaAutenticado();getLisPersonas();setLang('')">
@@ -18,6 +21,7 @@
         <div id="UserDesconectar"></div>
         <div id="Funciones">
                 <button onclick="showAddPersona()" alt="Insertar Persona">Insertar Persona</button>
+                <button onclick="showBuscarPersona()" alt="Buscar Persona">Buscar Persona</button>
         </div>
         <div id="divtablaPersonas">
                 <table id="tablaPersonas" border= '1'>
@@ -64,25 +68,32 @@
                         
                         <label class='dni_persona'></label>
                         <input type='text' name='dni_persona' id='dni_persona' onblur=''><br>
-                        
+                        <div style="display:none" id="errorFormatoDni"></div>
+
                         <label class='nombre_persona'></label>
                         <input type='text' name='nombre_persona' id='nombre_persona' onblur=''><br>
-                        
+                        <div style="display:none" id="errorFormatoNombre"></div>
+
                         <label class='apellidos_persona'></label>
                         <input type='text' name='apellidos_persona' id='apellidos_persona' onblur=''><br>
-                        
-                        <label class='email_persona'></label>
-                        <input type='text' name='email_persona' id='email_persona' onblur=''><br>
-                        
+                        <div style="display:none" id="errorFormatoApellidos"></div>
+
                         <label class='fechaNacimiento_persona'></label>
-                        <input type='date' name= 'fechaNacimiento_persona'id='fechaNacimiento_persona' onblur=''><br>
+                        <input type="text" name="date" id="fechaNacimiento_persona" class="tcal" onblur=""> <br>
+                        <div style="display:none" id="errorFormatoFecha"></div>
 
                         <label class='direccion_persona'></label>
                         <input type='text' name='direccion_persona' id='direccion_persona' onblur=''><br>
-                        
+                        <div style="display:none" id="errorFormatoDireccion"></div>
+
                         <label class='telefono_persona'></label>
                         <input type='text' name='telefono_persona' id='telefono_persona' onblur=''><br>
-                        
+                        <div style="display:none" id="errorFormatoTelefono"></div>
+
+                        <label class='email_persona'></label>
+                        <input type='text' name='email_persona' id='email_persona' onblur=''><br>
+                        <div style="display:none" id="errorFormatoEmail"></div>
+
                         <label class='foto_persona' id='labelfotopersona'></label>
                         <input type='text' name='foto_persona' id='foto_persona' onblur=''><br>
                         <label class='sube_persona' id='labelfotopersona'>Sube una foto</label>

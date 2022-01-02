@@ -461,7 +461,8 @@ function rellenaid_grupo(id, activo) {
 		data: $("#formularioobtenergrupo").serialize(),
 	}).done(function (response) {
 		if (response.ok == true) {
-			addOptionsEspacios('id_grupo', response.resource);
+			addOptions('id_grupo', response.resource, "id_grupo", "nombre_grupo");
+			console.log(response.resource)
 			$("#id_grupo option[value='" + id + "'").attr("selected", true);
 			$("#borrado_usuario option[value='" + activo + "'").attr("selected", true);
 		} else {

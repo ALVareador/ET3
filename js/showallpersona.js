@@ -1,7 +1,7 @@
 /**Función que construye cada línea que se va a rellenar en la tabla*/
 function construyeFila(fila) {
 console.log(fila);
-    let atributosFunciones = ["'" + fila.dni_persona + "'", "'" + fila.nombre_persona + "'", "'" + fila.apellidos_persona + "'","'" + fila.email_persona + "'", "'" + fila.foto_persona + "'","'" + fila.borrado_persona + "'"];
+    let atributosFunciones = ["'" + fila.dni_persona + "'", "'" + fila.nombre_persona + "'", "'" + fila.apellidos_persona + "'", "'" + fila.fechaNacimiento_persona + "'", "'" + fila.direccion_persona + "'", "'" + fila.telefono_persona + "'","'" + fila.email_persona + "'", "'" + fila.foto_persona + "'", "'" + fila.esCeliaco_persona + "'","'" + fila.borrado_persona + "'"];
 
     var celdaAccionesDetalle = '<div><a onclick="showDetallePersona(' + atributosFunciones + 
                                ')" alt="Detalle Persona"/>Detalle Persona</a></div>';
@@ -17,9 +17,9 @@ console.log(fila);
     rutauploadimages = rutauploadimages + 'images/';
 
     var filaTabla = '<tr> <td>' + fila.dni_persona + 
-                '</td> <td>' + encodeURI(fila.nombre_persona) + 
-                '</td> <td>' + encodeURI(fila.apellidos_persona) +
-                '</td> <td>' + encodeURI(fila.email_persona) +
+                '</td> <td>' + fila.nombre_persona + 
+                '</td> <td>' + fila.apellidos_persona +
+                '</td> <td>' + fila.email_persona +
                 '</td> <td> <a href=\'' + rutauploadimages + fila.foto_persona + '\'>' + fila.foto_persona + '</a>' + 
                 '</td> <td>' + fila.borrado_persona +
                 '</td> <td>' + celdaAcciones +  
@@ -45,7 +45,6 @@ function getLisPersonas() {
             data: $("#formgenericoPersona").serialize(),  
         }).done(function( response ) {       
             if (response.ok == true) {
-                
                 $("#datosPersonas").html("");
                 nodos = document.getElementById("formgenericoPersona").childNodes;
                 for (var i = 0; i < nodos.length; i++) {
