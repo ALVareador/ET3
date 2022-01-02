@@ -157,9 +157,6 @@ function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculu
 	$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
 	$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
 
-	// se rellena los select
-	$("#txtborradoresponsble option[value='" + borrado_responsable + "'").attr("selected", true);
-
 	// se habilita el id para que no pueda cambiarse
 
 	$("#txtdniresponsable").attr('disabled', false);
@@ -196,7 +193,7 @@ function detalleresponsable() {
 function showDetalleResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
 
 	// se resetea todo el formulario generico
-	resetearformularioinscripcion();
+	resetearformularioresponsable();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoresponsable").attr('style', 'display: block');
@@ -246,10 +243,10 @@ function showEliminarResponsable(dni_responsable, numCuenta_responsable, curricu
 	$("#txtborradoresponsable").val(borrado_responsable);
 
 	// habilitar/deshabilitar campos
-	$("#txtdniresponsable").attr('disabled', false);
-	$("#txtnumcuentaresponsable").attr('disabled', false);
-	$("#txtcurriculumresponsable").attr('disabled', false);
-	$("#txtborradoresponsable").attr('disabled', false);
+	$("#txtdniresponsable").attr('disabled', true);
+	$("#txtnumcuentaresponsable").attr('disabled', true);
+	$("#txtcurriculumresponsable").attr('disabled', true);
+	$("#txtborradoresponsable").attr('disabled', true);
 
 	// visibilidad
 	$("#labelsubetxtcurriculumresponsable").attr('style', 'display:none');
