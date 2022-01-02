@@ -81,6 +81,18 @@ function comprobarDNI() {
 
 }
 
+function comprobarDNI(id_Dni, id_elemento_error) {
+
+	document.getElementById(id_Dni).style.borderWidth = "2px";
+
+	if (validaNoVacio(id_Dni, id_elemento_error, "dni") && validateDNI(id_Dni, id_elemento_error)) {
+		validacionOK(id_Dni, id_elemento_error);
+		return true;
+	} else {
+		validacionKO(id_Dni, id_elemento_error);
+		return false;
+	}
+}
 /**Función que valida el dni*/
 function comprobarDNIResponsable() {
 

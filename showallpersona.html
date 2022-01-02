@@ -67,7 +67,7 @@
                 <form name='formgenericoPersona' id='formgenericoPersona' method="post" action="" onsubmit="">
                         
                         <label class='dni_persona'></label>
-                        <input type='text' name='dni_persona' id='dni_persona' onblur=''><br>
+                        <input type='text' name='dni_persona' id='dni_persona' onblur='return comprobarDNI("dni_persona","errorFormatoDni")'><br>
                         <div style="display:none" id="errorFormatoDni"></div>
 
                         <label class='nombre_persona'></label>

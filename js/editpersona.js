@@ -65,9 +65,9 @@ function showAddPersona() {
 
 	// rellenamos los onblur de los input que se validad
 
-	/*
-	$("#dni_persona").attr('onblur', 'comprobarDNI();');
-	$("#nombre_persona").attr('onblur', 'comprobarNumCuenta();');
+	
+	$("#dni_persona").attr('onblur', 'comprobarDNI("dni_persona","errorFormatoDni");');
+	/*$("#nombre_persona").attr('onblur', 'comprobarNumCuenta();');
 	$("#apellidos_persona").attr('onblur', 'comprobarCurriculum();');
 	*/
 
@@ -173,7 +173,7 @@ function showEditarPersona(dni_persona, nombre_persona, apellidos_persona, fecha
 	$("#borrado_persona").val(borrado_persona);
 
 	// rellenamos los onblur de los input que se validad
-	$("#nombre_persona").attr('onblur', 'comprobarNombrePersona();');
+	$("#nombre_persona").attr('onblur', 'comprobarDNI("dni_persona","errorFormatoDni");');
     $("#apellidos_persona").attr('onblur', 'comprobarDescripcionPersona();');
 	$("#fechaNacimiento_persona").attr('onblur', 'comprobarDescripcionPersona();');
     $("#direccion_persona").attr('onblur', 'comprobarDescripcionPersona();');
