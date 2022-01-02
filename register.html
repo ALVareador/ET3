@@ -11,7 +11,7 @@ comprobarMail()
 <html>
 
 <head>
-	
+
 	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<script type="text/javascript" src="js/funcionesComunes.js"></script>
@@ -29,7 +29,7 @@ comprobarMail()
 	<script type="text/javascript" src="Locale/Lang_ES.js"></script>
 	<script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
-	
+
 
 	<!--Recursos del calendario-->
 	<link rel="stylesheet" type="text/css" href="css/tcal.css" />
@@ -40,15 +40,16 @@ comprobarMail()
 <title>Registro</title>
 
 <body onload="includeMenuIdioma();setLang('');">
-	
+
 	<div id="menuIdioma"></div>
-	
+
 	<form name="formularioRegistro" id="formularioRegistro" enctype="multipart/form-data" method="post"
 		action="javascript:registrarUsuario();" onsubmit="">
 
 		<div class="div_Input">
 			<label class='dni_usuario'></label>
-			<input type="text" name="dni_persona" id="txtdniusuario" onblur="return comprobarDNI()"> <br>
+			<input type="text" name="dni_persona" id="txtdniusuario"
+				onblur="return comprobarDNI('txtdniusuario', 'errorFormatoDNI')"> <br>
 		</div>
 		<div style="display:none" id="errorFormatoDNI"></div>
 
@@ -66,13 +67,16 @@ comprobarMail()
 
 		<div class="div_Input">
 			<label class='fechaNacimiento_persona'></label>
-			<input type="text" name="date" id="fechaNacimiento_persona" class="tcal" readonly onblur="return comprobarFechaDeNacimiento()" onchange="return comprobarFechaDeNacimiento()" onclick="return comprobarFechaDeNacimiento()"> <br>
+			<input type="text" name="date" id="fechaNacimiento_persona" class="tcal" readonly
+				onblur="return comprobarFechaDeNacimiento()" onchange="return comprobarFechaDeNacimiento()"
+				onclick="return comprobarFechaDeNacimiento()"> <br>
 		</div>
 		<div style="display:none" id="errorFormatoFechaNacimiento"></div>
 
 		<div class="div_Input">
 			<label class='direccion_persona'></label>
-			<input type="text" name="direccion_persona" id="direccion_persona" onblur="return comprobarDireccion()"> <br>
+			<input type="text" name="direccion_persona" id="direccion_persona" onblur="return comprobarDireccion()">
+			<br>
 		</div>
 		<div style="display:none" id="errorFormatoDireccion"></div>
 
@@ -97,7 +101,7 @@ comprobarMail()
 		<div class="div_Input">
 			<label class='esCeliaco_persona'></label>
 			<select name="esCeliaco_persona" id="esCeliaco_persona" onchange="">
-				<option id="seleccionNula" value="" class="seleccionNula" ></option>
+				<option id="seleccionNula" value="" class="seleccionNula"></option>
 				<option id="SI" value="1" class="SI">1</option>
 				<option id="NO" value="0" class="NO">0</option>
 			</select>

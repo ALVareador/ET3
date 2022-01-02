@@ -27,7 +27,7 @@ arrayEN = {
 	'usuario': 'Username',
 	'contrasena': 'User Password',
 	'repetir_contrasena': 'Repeat Password',
-	'dni_usuario': 'User ID',
+	'dni_usuario': 'User DNI',
 	'id_grupo': 'Group',
 	'borrado_usuario': 'Active',
 	'ACCIONES': 'Actions',

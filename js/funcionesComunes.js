@@ -67,6 +67,7 @@ function comprobarPasswordIguales(idPasswordA, idPasswordB, idElementoError) {
 }
 
 /**Función que valida el dni*/
+/*
 function comprobarDNI() {
 
 	document.getElementById("txtdniusuario").style.borderWidth = "2px";
@@ -79,8 +80,16 @@ function comprobarDNI() {
 		return false;
 	}
 
-}
-
+}*/
+/**
+ * Función que valida el dni
+ * @param {*} id_Dni 
+ * id del elemento del DOM que guarda el dato
+ * @param {*} id_elemento_error 
+ * id del elemento del DOM que muestra el error
+ * @returns True o False
+ * 
+ */
 function comprobarDNI(id_Dni, id_elemento_error) {
 
 	document.getElementById(id_Dni).style.borderWidth = "2px";
