@@ -1,4 +1,5 @@
-function construyeFila(fila) {
+function construyeFila(fila,num) {
+    color = num%2;
 
     let atributosFunciones = ["'" + fila.id_actividad + "'", "'" + fila.nombre_actividad + "'", "'" + fila.descripcion_actividad + "'", "'" + fila.precio_actividad + "'", "'" + fila.numPlazas_actividad + "'", "'" + fila.color_actividad + "'", "'" + fila.color_nombre_actividad + "'", "'" + fila.id_espacio + "'", "'" + fila.id_categoria + "'"];
 
@@ -22,16 +23,16 @@ function construyeFila(fila) {
         fila.id_categoria = ArrayCategorias[j]['nombre_categoria'];
     }
 
-    var filaTabla = '<tr> <td>' + fila.id_actividad +
-        '</td> <td>' + fila.nombre_actividad +
-        '</td> <td>' + fila.descripcion_actividad +
-        '</td> <td>' + fila.precio_actividad +
-        '</td> <td>' + fila.numPlazas_actividad +
-        '</td> <td>' + fila.color_actividad +
-        '</td> <td>' + fila.color_nombre_actividad +
-        '</td> <td>' + fila.id_espacio +
-        '</td> <td>' + fila.id_categoria +
-        '</td> <td>' + celdaAcciones +
+    var filaTabla = '<tr class=\"colorLinea' + color +'\"> <td>' + fila.id_actividad +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.nombre_actividad +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.descripcion_actividad +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.precio_actividad +"€"+
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.numPlazas_actividad +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.color_actividad +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.color_nombre_actividad +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.id_espacio +
+        '</td> <td class=\"celdasDatos\">' + fila.id_categoria +
+        '</td> <td class=\"celdaAcciones\">' + celdaAcciones +
         '</td> </tr>';
 
     return filaTabla;
@@ -129,10 +130,11 @@ function GetLisActividades() {
             }
             
             var arrayActividades = response.resource;
+
             for (var i = 0; i <arrayActividades.length; i++) {
 
                 var linea = arrayActividades[i];
-                var tr = construyeFila(linea);
+                var tr = construyeFila(linea,i);
                 $("#datosActividad").append(tr);
             }
 

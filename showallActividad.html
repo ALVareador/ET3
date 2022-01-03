@@ -13,68 +13,52 @@
         <script type="text/javascript" src="Locale/Lang_ES.js"></script>
         <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
+        <link rel="stylesheet" href="/css/showallActividad.css">
+
 
 </head>
 
-<body onload="includeCabecera();validaAutenticado();GetArrayEspacios();GetArrayCategorias();GetLisActividades();setLang('');rellenaId_espacio();rellenaid_categoria();">
-        <div id="menuIdioma"></div>
-        <div id="UserDesconectar"></div>
-        <div id="Funciones">
+<body
+        onload="includeCabecera();validaAutenticado();GetArrayEspacios();GetArrayCategorias();GetLisActividades();setLang('');rellenaId_espacio();rellenaid_categoria();">
 
-                <button onclick="showAddActividad()" alt="Insertar Actividad">Insertar Actividad</button>
-                <button onclick="showBuscarActividad()" alt="Insertar Actividad">Buscar Actividad</button>
 
-        </div>
-        <div id="divtablaActividades">
-                <table id="tablaActividades" border='1'>
-                        <thead>
-                                <th class="id_actividad"></th>
-                                <th class="nombre_actividad"></th>
-                                <th class="descripcion_actividad"></th>
-                                <th class="precio_actividad"></th>
-                                <th class="numPlazas_actividad"></th>
-                                <th class="color_actividad"></th>
-                                <th class="color_nombre_actividad"></th>
-                                <th class="id_espacio"></th>
-                                <th class="id_categoria"></th>
-                                <th class="ACCIONES">
-                                </th>
-                        </thead>
-                        <tbody id="datosActividad">
 
-                        </tbody>
-                        </tbody>
-                </table>
-        </div>
 
-        <div id="modal" style="display:none">
-                <div id="contenido-interno">
-                        <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
-                        <div id="mensajeError"></div>
-                        <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
-                                <span class="tooltiptext iconCerrar"></span>
-                        </a>
+
+
+        <div id="navBar">
+                <div id="linkInicio">
+                        <a href="#"></a>
                 </div>
-        </div>
+                <div class="itemNavBar" id="linkEspacios">
+                        <a class="navBarLink" href="showallespacio.html">Espacios</a>
+                </div>
+                <div class="itemNavBar" id="linkCategorias">
+                        <a class="navBarLink" href="showallcategoria.html">Categorias</a>
+                </div>
+                <div class="itemNavBar" id="linkActividades">
+                        <a class="navBarLink" href="showallActividad.html">Actividades</a>
+                </div>
+                <div class="itemNavBar" id="linkInscripciones">
+                        <a class="navBarLink" href="showallinscripcion.html">Inscripciones</a>
+                </div>
 
+                <div class="itemNavBar" id="UserDesconectar"></div>
 
-        <a href="menu.html"><img src="./images/icons/volver.png" width="50px" /></a>
+                <div class="itemNavBar" id="menuIdioma"></div>
 
-        <div id="divdetalleActividad">
         </div>
 
         <div id='divformgenericoActividad' style="display:none">
                 <div id="tituloForms"></div>
-                <a onclick="cerrar('formgenericoActividad','','');"><img src='./images/icons/close.png'
-                                width="50px"></a>
+                <a onclick="location.reload();"><img src='./images/icons/close.png' width="50px"></a>
                 <form name='formgenericoActividad' id='formgenericoActividad'>
 
                         <h1 id="tituloAccion"></h1>
                         <p id="subTituloAccion"></p>
 
                         <label class='id_actividad'></label>
-                        <input type='text' name='id_actividad' id='id_actividad' onblur="return comprobarIdActividad()"><br>
+                        <input type='text' name='id_actividad' id='id_actividad'><br>
                         <div style="display:none" id="errorFormatoId"></div>
 
 
@@ -83,7 +67,7 @@
                         <div style="display:none" id="errorFormatonombre_actividad"></div>
 
                         <label class='descripcion_actividad'></label>
-                        <input type='text' name='descripcion_actividad' id='descripcion_actividad' onblur='' ><br>
+                        <input type='text' name='descripcion_actividad' id='descripcion_actividad' onblur=''><br>
                         <div style="display:none" id="errorFormatoDescripciónActividad"></div>
 
                         <label class='precio_actividad'></label>
@@ -103,7 +87,7 @@
                         <div style="display:none" id="errorFormatoColorNombre"></div>
 
                         <label class='id_espacio'></label>
-                        <select name="id_espacio" id="id_espacio" >
+                        <select name="id_espacio" id="id_espacio">
                         </select><br>
 
                         <label class='id_categoria'></label>
@@ -117,7 +101,61 @@
                 </form>
         </div>
 
-        <h1>RECORDAD CAMBIAR LO DE LOS IDIOMAS DE LOS TITULOS,UBTITULOS Y ERRORES</h1>
+
+
+
+        <div id="divtablaActividades">
+
+                <div id="Funciones">
+
+                        <button class="itemFunciones" onclick="showAddActividad()" alt="Insertar Actividad">Insertar
+                                Actividad</button>
+                        <button class="itemFunciones" onclick="showBuscarActividad()" alt="Insertar Actividad">Buscar
+                                Actividad</button>
+
+                </div>
+
+
+                <div id="divTabla">
+                        <table id="tablaActividades" border='1'>
+                                <thead>
+                                        <th class="id_actividad"></th>
+                                        <th class="nombre_actividad"></th>
+                                        <th class="descripcion_actividad"></th>
+                                        <th class="precio_actividad"></th>
+                                        <th class="numPlazas_actividad"></th>
+                                        <th class="color_actividad"></th>
+                                        <th class="color_nombre_actividad"></th>
+                                        <th class="id_espacio"></th>
+                                        <th class="id_categoria"></th>
+                                        <th class="ACCIONES">
+                                        </th>
+                                </thead>
+                                <tbody id="datosActividad">
+
+                                </tbody>
+                                </tbody>
+                        </table>
+                </div>
+        </div>
+
+        <div id="modal" style="display:none">
+                <div id="contenido-interno">
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
+                        <div id="mensajeError"></div>
+                        <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
+                                <span class="tooltiptext iconCerrar"></span>
+                        </a>
+                </div>
+        </div>
+
+        </div>
+
+
+<!--
+        <h1>RECORDAD CAMBIAR LO DE LOS IDIOMAS DE LOS TITULOS,SUBTITULOS Y ERRORES Y el onblur de plazas que me olvide</h1>
+        -->
 
 </body>
 <script type="text/javascript" src="js/editActividad.js"></script>
