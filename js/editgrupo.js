@@ -50,8 +50,8 @@ function showAddGrupo() {
 
 	
 	$("#id_grupo").attr('onblur', 'comprobarId(\'id_grupo\',\'errorFormatoId\');');
-	$("#nombre_grupo").attr('onblur', 'comprobarNombreGrupo();');
-	$("#descripcion_grupo").attr('onblur', 'comprobarDescripcionGrupo();');
+	$("#nombre_grupo").attr('onblur', 'comprobarNombre("nombre_grupo", "errorFormatoNombre");');
+	$("#descripcion_grupo").attr('onblur', 'comprobarDescripcion("descripcion_grupo", "errorFormatoDescr");');
 	
 
 	// se rellena los select
@@ -150,8 +150,8 @@ function showEditarGrupo(id_grupo, nombre_grupo, descripcion_grupo) {
 	$("#descripcion_grupo").val(descripcion_grupo);
 
 	// rellenamos los onblur de los input que se validad
-	$("#nombre_grupo").attr('onblur', 'comprobarNombreGrupo();');
-	$("#descripcion_grupo").attr('onblur', 'comprobarDescripcionGrupo();');
+	$("#nombre_grupo").attr('onblur', 'comprobarNombre("nombre_grupo", "errorFormatoNombre");');
+	$("#descripcion_grupo").attr('onblur', 'comprobarDescripcion("descripcion_grupo", "errorFormatoDescr");');
 
 	// se deshabilita el id para que no pueda cambiarse
 	$("#id_grupo").attr('disabled', true);

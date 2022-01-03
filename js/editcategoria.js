@@ -45,11 +45,9 @@ function showAddCategoria() {
 
 	// rellenamos los onblur de los input que se validad
 
-	/*
-	$("#idcategoria").attr('onblur', 'comprobarDNI();');
-	$("#nombre_categoria").attr('onblur', 'comprobarNumCuenta();');
-	$("#descripcion_categoria").attr('onblur', 'comprobarCurriculum();');
-	*/
+	$("#id_categoria").attr('onblur', 'comprobarId(\'id_categoria\',\'errorFormatoId\');');
+	$("#nombre_categoria").attr('onblur', 'comprobarNombre("nombre_categoria", "errorFormatoNombre");');
+	$("#descripcion_categoria").attr('onblur', 'comprobarDescripcion("descripcion_categoria", "errorFormatoDescr");');
 
 	// se rellena los select
 
@@ -144,9 +142,9 @@ function showEditarCategoria(id_categoria, nombre_categoria, descripcion_categor
 	$("#nombre_categoria").val(nombre_categoria);
 	$("#descripcion_categoria").val(descripcion_categoria);
 
-	// rellenamos los onblur de los input que se validad
-	$("#nombre_categoria").attr('onblur', 'comprobarNombreCategoria();');
-	$("#descripcion_categoria").attr('onblur', 'comprobarDescripcionCategoria();');
+	$("#id_categoria").attr('onblur', 'comprobarId(\'id_categoria\',\'errorFormatoId\');');
+	$("#nombre_categoria").attr('onblur', 'comprobarNombre("nombre_categoria", "errorFormatoNombre");');
+	$("#descripcion_categoria").attr('onblur', 'comprobarDescripcion("descripcion_categoria", "errorFormatoDescr");');
 
 	// se deshabilita el id para que no pueda cambiarse
 	$("#id_categoria").attr('disabled', true);

@@ -139,7 +139,7 @@ function includeUserDesconectar() {
     $("#UserDesconectar").html("");
 
     var UserDesconectar = '<div class="UserDesconectar">' +
-        '<a onclick="desconectar();">Desconectar</a>' +
+        '<a onclick="desconectar();">Desconectar: </a>' +
         '<label id="usuario"></label>' +
         '</div>';
 
@@ -162,8 +162,8 @@ function includeMenuIdioma() {
     */
 
     /*Opcion ComboBox refacherita */
-    var menuIdioma = '<div class="menuIdioma">' +
-        '<select name="comboIdioma" id="comboIdioma" onchange="setLang(comboIdioma.value)">' +
+    var menuIdioma = '<div class="divMenuIdioma">' +
+        '<select name="comboIdioma" class="menuIdioma" id="comboIdioma" onchange="setLang(comboIdioma.value)">' +
         '<option id="es" value="ES" >ES</option>' +
         '<option id="ga" value="GA" >GA</option>' +
         '<option id="en" value="EN" >EN</option>' +

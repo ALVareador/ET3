@@ -1,0 +1,156 @@
+/*NavBAr*/
+#navBar {
+
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 70px;
+    background-color: #137fe2;
+    justify-content: center;
+
+
+
+}
+
+.itemNavBar {
+
+    float: left;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+
+    display: flex;
+    align-self: center;
+
+
+}
+
+.navBarLink {
+
+    color: white;
+    text-decoration: none;
+
+}
+
+.menuIdioma{
+    text-decoration: none;
+    border: none;
+
+}
+
+
+/*Formulario*/
+h1 {
+    color: #137fe2;
+}
+
+
+#divformgenericoActividad {
+
+    color: #5e696d;
+    margin-left: 20%;
+
+}
+
+input {
+    margin-top: 20px;
+    border-style: solid;
+    border-radius: 3px;
+    border-color: lightgray;
+
+}
+
+#id_espacio,#id_categoria {
+    margin-top: 20px;
+    border-style: solid;
+    border-radius: 3px;
+    border-color: lightgray;
+
+}
+
+#submitbuttom {
+
+    margin-top: 20px;
+    border: none;
+}
+
+
+/*Funciones de insertar actividad y buscar*/
+#Funciones {
+
+    margin-top: 10%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 0.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.itemFunciones {
+
+    background-color: #137fe2;
+    color: White;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+
+
+}
+
+/*Tabla*/
+#divTabla {
+    margin-left: 7%;
+    margin-right: 7%;
+
+
+}
+
+table {
+    border-collapse: collapse;
+    border-color: white;
+    width: 100%;
+}
+
+th {
+
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+
+td {
+    border-bottom: 1px solid gray;
+    text-align: center;
+
+
+}
+
+
+.colorLinea0 {
+
+    background-color: white;
+    border-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.colorLinea1 {
+
+    background-color: rgb(243, 241, 241);
+    border-color: rgb(243, 241, 241);
+    border-bottom: 1px solid #ddd;
+}
+
+.celdaAcciones {
+    text-align: center;
+    width: 200px;
+
+}
+
+.celdasDatos {
+    text-align: center;
+    width: 200px;
+
+}
