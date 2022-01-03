@@ -34,6 +34,13 @@ function construyeFila(fila) {
     return filaTabla;
 }
 /**
+ * Como getLisPersonas pero obtiene la lista de todas las entidades de la base de datos.
+ */
+function getLisPersonasFull() {
+    resetearformulariopersona("formgenericoPersona");
+    getLisPersonas();
+}
+/**
  * 
  */
 function getLisPersonas() {
@@ -51,11 +58,11 @@ function getLisPersonas() {
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
         data: $("#formgenericoPersona").serialize(),
-    }).done(function(response) {
+    }).done(function (response) {
         if (response.ok == true) {
             $("#datosPersonas").html("");
             nodos = document.getElementById("formgenericoPersona").childNodes;
-            console.log(nodos);
+            //console.log(nodos);
             for (var i = 0; i < nodos.length; i++) {
                 var item = nodos[i];
                 if (item.id != undefined) {
