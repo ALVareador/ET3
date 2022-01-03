@@ -1,3 +1,9 @@
+body{
+    margin: 0;
+
+}
+
+
 /*NavBAr*/
 #navBar {
 
@@ -35,9 +41,7 @@
 }
 
 .menuIdioma{
-    text-decoration: none;
-    border: none;
-
+    margin-top: 0px;
 }
 
 
@@ -62,11 +66,19 @@ input {
 
 }
 
-#id_espacio,#id_categoria {
+
+select {
     margin-top: 20px;
     border-style: solid;
     border-radius: 3px;
     border-color: lightgray;
+
+}
+
+#descripcion_actividad{
+
+    width: 18%;
+    height: 10%;
 
 }
 
@@ -79,8 +91,6 @@ input {
 
 /*Funciones de insertar actividad y buscar*/
 #Funciones {
-
-    margin-top: 10%;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 0.5%;
@@ -103,6 +113,9 @@ input {
 
 /*Tabla*/
 #divTabla {
+
+    overflow-y:auto;
+    overflow-x:auto;
     margin-left: 7%;
     margin-right: 7%;
 
@@ -113,6 +126,7 @@ table {
     border-collapse: collapse;
     border-color: white;
     width: 100%;
+    max-height: 40px;
 }
 
 th {
@@ -124,8 +138,6 @@ th {
 td {
     border-bottom: 1px solid gray;
     text-align: center;
-
-
 }
 
 

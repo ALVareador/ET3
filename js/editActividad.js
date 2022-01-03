@@ -44,8 +44,6 @@ function buscarActividad() {
     addActionControler(document.formgenericoActividad, 'search', 'actividad')
     insertacampo(document.formgenericoActividad, 'ID_SESSION', idSession);
 
-    console.log("GetLisActividades ->formulario oculto  construido");
-    console.log(document.formgenericoActividad);
 
     $.ajax({
         method: "POST",
@@ -159,9 +157,10 @@ function deleteActividad() {
 function showEditarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
     resetearformularioActividad()
+    hideDivTablaActividades();
 
 
-    console.log(" showEditarActividad -> showEditarActividad trigered");
+    
     // se resetea todo el formulario generico
 
 
@@ -206,7 +205,7 @@ function comprobareditsubmit() {
 function showDetalleActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
 
-    console.log(" showDetalleResponsable -> showDetalleResponsable trigered");
+    hideDivTablaActividades();
 
     // se resetea todo el formulario generico
     resetearformularioActividad()
@@ -247,7 +246,7 @@ function showDetalleActividad(id_actividad, nombre_actividad, descripcion_activi
 
 function showEliminarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
-    console.log(" showDetalleResponsable -> showDetalleResponsable trigered");
+    hideDivTablaActividades();
 
     resetearformularioActividad()
         // se resetea todo el formulario generico
@@ -292,6 +291,7 @@ function showAddActividad() {
 
     // se resetea todo el formulario generico
     resetearformularioActividad();
+    hideDivTablaActividades();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoActividad").attr('style', 'display: block');
@@ -692,4 +692,13 @@ function comprobarColorActividad(idcampo, idError) {
 
     validacionOK(idcampo, idError);
     return true;
+}
+
+
+function hideDivTablaActividades() {
+	document.getElementById('divtablaActividades').style.display = 'none';
+}
+
+function showDivTablaActividades() {
+	document.getElementById('divtablaActividades').style.display = 'block';
 }
