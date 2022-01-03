@@ -26,7 +26,7 @@ function construyeFila(fila) {
         '</td> <td>' + fila.email_persona +
         '</td> <td> <img src=\'' + rutauploadimages + fila.foto_persona + '\' ' + 'width=\'100\'' +
         'height=\'100\'>' +
-        //'</td> <td> <a href=\'' + rutauploadimages + fila.foto_persona + '\'>' + fila.foto_persona + '</a>' +
+        '<a href=\'' + rutauploadimages + fila.foto_persona + '\'>' + fila.foto_persona + '</a>' +
         '</td> <td>' + fila.borrado_persona +
         '</td> <td>' + celdaAcciones +
         '</td> </tr>';
