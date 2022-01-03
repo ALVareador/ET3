@@ -202,7 +202,7 @@ function showAddInscripcion() {
     $("#formgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
 
     // rellenamos los onblur de los input que se validad
-    $("#txtdniusuario").attr('onblur', 'comprobarDNI();');
+    $("#dni_usuario").attr('onblur', 'comprobarDNI();');
     //-------------------$("#txtfechasolicitudinscripcion").attr('onblur', 'comprobarFecha();');
     //-------------------$("#txtdocumentopago").attr('onblur', 'comprobarDocumento();');
     //-------------------$("#txtfechapagoinscripcion").attr('onblur', 'comprobarFecha();');
@@ -219,8 +219,8 @@ function showAddInscripcion() {
     // habilitar/deshabilitar campos
     $("#id_actividad").attr('disabled', false);
     $("#txtidInscripcion").attr('disabled', true);
-    $("#txtnombreactividad").attr('disabled', false);
-    $("#txtdniusuario").attr('disabled', false);
+    $("#id_actividad").attr('disabled', false);
+    $("#dni_usuario").attr('disabled', false);
     $("#txtfechasolicitudinscripcion").attr('disabled', false);
     $("#txtdocumentopago").attr('disabled', false);
     $("#txtfechapagoinscripcion").attr('disabled', false);
@@ -231,7 +231,7 @@ function showAddInscripcion() {
 
 }
 
-function showDetalleInscripcion(id, id_actividad, id_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
+function showDetalleInscripcion(id, id_actividad, id, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
@@ -242,8 +242,8 @@ function showDetalleInscripcion(id, id_actividad, id_usuario, fecha_solicitud_in
 
     //rellenamos los tipo text
     $("#txtidInscripcion").val(id);
-    $("#txtnombreactividad").val(id_actividad);
-    $("#txtdniusuario").val(id_usuario);
+    $("#id_actividad").val(id_actividad);
+    $("#dni_usuario").val(id);
     $("#txtfechasolicitudinscripcion").val(fecha_solicitud_inscripcion);
     $("#txtdocumentopago").val(documento_pago);
     $("#txtfechapagoinscripcion").val(fecha_pago_inscripcion);
@@ -260,8 +260,8 @@ function showDetalleInscripcion(id, id_actividad, id_usuario, fecha_solicitud_in
     // habilitar/deshabilitar campos
     $("#id_actividad").attr('disabled', true);
     $("#txtidInscripcion").attr('disabled', true);
-    $("#txtnombreactividad").attr('disabled', true);
-    $("#txtdniusuario").attr('disabled', true);
+    $("#id_actividad").attr('disabled', true);
+    $("#dni_usuario").attr('disabled', true);
     $("#txtfechasolicitudinscripcion").attr('disabled', true);
     $("#txtdocumentopago").attr('disabled', true);
     $("#txtfechapagoinscripcion").attr('disabled', true);
@@ -275,7 +275,7 @@ function showDetalleInscripcion(id, id_actividad, id_usuario, fecha_solicitud_in
 
 }
 
-function showEditarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
+function showEditarInscripcion(id, id_actividad, id, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
@@ -287,15 +287,15 @@ function showEditarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_ins
 
     //rellenamos los tipo text
     $("#txtidInscripcion").val(id);
-    $("#txtnombreactividad").val(id_actividad);
-    $("#txtdniusuario").val(id_usuario);
+    $("#id_actividad").val(id_actividad);
+    $("#dni_usuario").val(id);
     $("#txtfechasolicitudinscripcion").val(fecha_solicitud_inscripcion);
     $("#txtdocumentopago").val(documento_pago);
     $("#txtfechapagoinscripcion").val(fecha_pago_inscripcion);
     $("#txtfechaaceptacioninscripcion").val(fecha_aceptacion_inscripcion);
 
     // rellenamos los onblur de los input que se validad
-    $("#txtdniusuario").attr('onblur', 'comprobarDNI();');
+    $("#dni_usuario").attr('onblur', 'comprobarDNI();');
     //-------------------$("#txtfechasolicitudinscripcion").attr('onblur', 'comprobarFecha();');
     //-------------------$("#txtdocumentopago").attr('onblur', 'comprobarDocumento();');
     //-------------------$("#txtfechapagoinscripcion").attr('onblur', 'comprobarFecha();');
@@ -304,8 +304,8 @@ function showEditarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_ins
     // se deshabilita el id para que no pueda cambiarse
     $("#id_actividad").attr('disabled', false);
     $("#txtidInscripcion").attr('disabled', true);
-    $("#txtnombreactividad").attr('disabled', false);
-    $("#txtdniusuario").attr('disabled', false);
+    $("#id_actividad").attr('disabled', false);
+    $("#dni_usuario").attr('disabled', false);
     $("#txtfechasolicitudinscripcion").attr('disabled', false);
     $("#txtdocumentopago").attr('disabled', false);
     $("#txtfechapagoinscripcion").attr('disabled', false);
@@ -316,7 +316,7 @@ function showEditarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_ins
 
 }
 
-function showEliminarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
+function showEliminarInscripcion(id, id_actividad, id, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
 
@@ -327,8 +327,8 @@ function showEliminarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_i
 
     //rellenamos los tipo text
     $("#txtidInscripcion").val(id);
-    $("#txtnombreactividad").val(id_actividad);
-    $("#txtdniusuario").val(id_usuario);
+    $("#id_actividad").val(id_actividad);
+    $("#dni_usuario").val(id);
     $("#txtfechasolicitudinscripcion").val(fecha_solicitud_inscripcion);
     $("#txtdocumentopago").val(documento_pago);
     $("#txtfechapagoinscripcion").val(fecha_pago_inscripcion);
@@ -345,8 +345,8 @@ function showEliminarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_i
     // habilitar/deshabilitar campos
     $("#id_actividad").attr('disabled', true);
     $("#txtidInscripcion").attr('disabled', true);
-    $("#txtnombreactividad").attr('disabled', true);
-    $("#txtdniusuario").attr('disabled', true);
+    $("#id_actividad").attr('disabled', true);
+    $("#dni_usuario").attr('disabled', true);
     $("#txtfechasolicitudinscripcion").attr('disabled', true);
     $("#txtdocumentopago").attr('disabled', true);
     $("#txtfechapagoinscripcion").attr('disabled', true);
@@ -358,12 +358,13 @@ function showEliminarInscripcion(id, id_actividad, id_usuario, fecha_solicitud_i
 
 function comprobareditsubmit() {
 
-    if (comprobarUser()) {
+    /*if (comprobarUser()) {
         return true;
     }
     else {
         return false;
-    }
+    }*/
+    return true;
 }
 
 function resetearformularioinscripcion(idformUsado) {
@@ -373,17 +374,17 @@ function resetearformularioinscripcion(idformUsado) {
 
     $("#txtidInscripcion").attr('disabled', true);
 
-    $("#txtidInscripcion").val('');
-    $("#txtnombreactividad").val('');
-    $("#txtdniusuario").val('');
+    $("#txtidInscripcion").val(null);
+    $("#id_actividad").val('');
+    $("#dni_usuario").val('');
     $("#txtfechasolicitudinscripcion").val('');
     $("#txtdocumentopago").val('');
     $("#txtfechapagoinscripcion").val('');
     $("#txtfechaaceptacioninscripcion").val('');
 
     $("#txtidInscripcion").attr('onblur', '');
-    $("#txtnombreactividad").attr('onblur', '');
-    $("#txtdniusuario").attr('onblur', '');
+    $("#id_actividad").attr('onblur', '');
+    $("#dni_usuario").attr('onblur', '');
     $("#txtfechasolicitudinscripcion").attr('onblur', '');
     $("#txtdocumentopago").attr('onblur', '');
     $("#txtfechapagoinscripcion").attr('onblur', '');
@@ -432,6 +433,38 @@ function rellenaId_actividad(id_inscripcion) {
     });
 }
 
+function rellenaId_usuario(id_inscripcion) { 
+
+    var idSession = getCookie('sessionId');
+
+	addActionControler(document.formgenericoinscripcion, 'search', 'usuario')
+
+    var idioma = getCookie('lang');
+
+    $.ajax({
+        method: "POST",
+          url: "http://193.147.87.202/ET3_IU/noRest.php",
+          data: $("#formgenericoinscripcion").serialize(),
+    }).done(function( response ) {
+        if (response.ok == true) {
+            // Rellenamos el selector.
+            addOptions('id',response.resource,'id','dni_usuario');
+
+            //Pone como selected el argumento pasado como parámetro
+            $("#id option[value='" + id + "']").attr("selected", true);
+
+        } else {
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+            setLang(idioma);
+            document.getElementById("modal").style.display = "block";
+        }
+
+        deleteActionController();
+    });
+}
+
 function showBuscarInscripcion() {
 
 	// se resetea todo el formulario generico
@@ -453,8 +486,8 @@ function showBuscarInscripcion() {
     // habilitar/deshabilitar campos
     $("#id_actividad").attr('disabled', false);
     $("#txtidInscripcion").attr('disabled', true);
-    $("#txtnombreactividad").attr('disabled', false);
-    $("#txtdniusuario").attr('disabled', false);
+    $("#id_actividad").attr('disabled', false);
+    $("#dni_usuario").attr('disabled', false);
     $("#txtfechasolicitudinscripcion").attr('disabled', false);
     $("#txtdocumentopago").attr('disabled', false);
     $("#txtfechapagoinscripcion").attr('disabled', false);
@@ -464,7 +497,7 @@ function showBuscarInscripcion() {
     $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
 
 	// rellenamos los onblur de los input que se validad
-	$("#txtdniusuario").attr('onblur', 'comprobarDNI();');
+	$("#dni_usuario").attr('onblur', 'comprobarDNI();');
     //-------------------$("#txtfechasolicitudinscripcion").attr('onblur', 'comprobarFecha();');
     //-------------------$("#txtdocumentopago").attr('onblur', 'comprobarDocumento();');
     //-------------------$("#txtfechapagoinscripcion").attr('onblur', 'comprobarFecha();');

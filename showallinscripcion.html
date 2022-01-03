@@ -16,7 +16,7 @@
 </head>
 
 <body
-    onload="includeCabecera();validaAutenticado();rellenaId_actividad();GetArrayActividades();getLisInscripcion();setLang('');">
+    onload="includeCabecera();validaAutenticado();rellenaId_actividad();rellenaId_usuario();GetArrayActividades();GetArrayDNI();getLisInscripcion();setLang('');">
     <div id="menuIdioma"></div>
     <div id="UserDesconectar"></div>
     <div id="Funciones">
@@ -79,7 +79,7 @@
                 <select name="id_actividad" id="id_actividad"></select><br>
                 <!--Usuario que se inscribe-->
                 <label class='dni_usuario'></label>
-                <input type='text' name='dni_usuario' id='txtdniusuario' onblur=''><br>
+                <input type='text' name='dni_usuario' id='dni_usuario' onblur=''><br>
                 <!--Fecha de la inscripcion-->
                 <label class='fecha_solicitud_inscripcion'></label>
                 <input type='date' name='fecha_solicitud_inscripcion' id='txtfechasolicitudinscripcion' onblur=''><br>
