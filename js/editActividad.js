@@ -158,18 +158,11 @@ function deleteActividad() {
 
 function showEditarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
-<<<<<<< HEAD
-	resetearformularioActividad()
-	
-
-	// se resetea todo el formulario generico
-=======
     resetearformularioActividad()
 
 
     console.log(" showEditarActividad -> showEditarActividad trigered");
     // se resetea todo el formulario generico
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
 
     // se pone visible el formulario y se rellena el action y el onsubmit
@@ -193,15 +186,6 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
     $("#id_espacio").val(id_espacio);
     $("#id_categoria").val(id_categoria);
 
-<<<<<<< HEAD
-	// rellenamos los onblur de los input que se validad
-	$("#id_actividad").attr('onblur', 'comprobarId(\'id_actividad\',\'errorFormatoId\');');
-	$("#nombre_actividad").attr('onblur', 'comprobarNombreActividad();');
-	$("#descripcion_actividad").attr('onblur', 'comprobarDescripcionActividad();');
-	$("#precio_actividad").attr('onblur', 'comprobarPrecio();');
-	$("#color_actividad").attr('onblur', 'comprobarColorActividad(\'color_actividad\',\'errorFormatoColorActividad\');');
-	$("#color_nombre_actividad").attr('onblur', 'comprobarColorActividad(\'color_nombre_actividad\',\'errorFormatoColorNombre\');');
-=======
     // rellenamos los onblur de los input que se validad
     //$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
     //$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
@@ -210,7 +194,6 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
 
     // se deshabilita el id para que no pueda cambiarse
     //$("#txtidresponsable").attr('disabled', true);	
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
 }
 
@@ -223,44 +206,6 @@ function comprobareditsubmit() {
 function showDetalleActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
 
-<<<<<<< HEAD
-	hideDivTablaActividades();
-
-	// se resetea todo el formulario generico
-	resetearformularioActividad()
-
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoActividad").attr('style', 'display: disabled');
-	$("#formgenericoActividad").attr('action', 'javascript:editActividad();');
-	$("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
-
-	//Se pone el titulo de la acción añadir
-	document.getElementById('tituloAccion').innerHTML = "Detalles de la actividad: " + nombre_actividad;
-
-	//rellenamos los tipo text
-	$("#id_actividad").val(id_actividad);
-	$("#nombre_actividad").val(nombre_actividad);
-	$("#descripcion_actividad").val(descripcion_actividad);
-	$("#precio_actividad").val(precio_actividad);
-	$("#numPlazas_actividad").val(numPlazas_actividad);
-	$("#color_actividad").val(color_actividad);
-	$("#color_nombre_actividad").val(color_nombre_actividad);
-	$("#id_espacio").val(id_espacio);
-	$("#id_categoria").val(id_categoria);
-	$("#submitbuttom").attr('style', '');
-	document.getElementById('submitbuttom').style.visibility = 'hidden';
-
-	//deshabilito todos los imputs
-	$("#id_actividad").attr('disabled', true);
-	$("#nombre_actividad").attr('disabled', true);
-	$("#descripcion_actividad").attr('disabled', true);
-	$("#precio_actividad").attr('disabled', true);
-	$("#numPlazas_actividad").attr('disabled', true);
-	$("#color_actividad").attr('disabled', true);
-	$("#color_nombre_actividad").attr('disabled', true);
-	$("#id_espacio").attr('disabled', true);
-	$("#id_categoria").attr('disabled', true);
-=======
     console.log(" showDetalleResponsable -> showDetalleResponsable trigered");
 
     // se resetea todo el formulario generico
@@ -297,51 +242,11 @@ function showDetalleActividad(id_actividad, nombre_actividad, descripcion_activi
     $("#color_nombre_actividad").attr('disabled', true);
     $("#id_espacio").attr('disabled', true);
     $("#id_categoria").attr('disabled', true);
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
 }
 
 function showEliminarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
-<<<<<<< HEAD
-	hideDivTablaActividades();
-
-	resetearformularioActividad()
-	// se resetea todo el formulario generico
-	//resetearformularioresponsable();
-
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoActividad").attr('style', 'display: disabled');
-	$("#formgenericoActividad").attr('action', 'javascript:deleteActividad();');
-	$("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
-
-	//Se pone el titulo de la acción añadir
-	document.getElementById('tituloAccion').innerHTML = "Eliminar actividad";
-	document.getElementById('subTituloAccion').innerHTML = "Se estan mostrando los datos de la actividad: " + nombre_actividad;
-
-	//rellenamos los tipo text
-	$("#id_actividad").val(id_actividad);
-	$("#nombre_actividad").val(nombre_actividad);
-	$("#descripcion_actividad").val(descripcion_actividad);
-	$("#precio_actividad").val(precio_actividad);
-	$("#numPlazas_actividad").val(numPlazas_actividad);
-	$("#color_actividad").val(color_actividad);
-	$("#color_nombre_actividad").val(color_nombre_actividad);
-	$("#id_espacio").val(id_espacio);
-	$("#id_categoria").val(id_categoria);
-
-
-	//deshabilito todos los imputs
-	$("#id_actividad").attr('disabled', true);
-	$("#nombre_actividad").attr('disabled', true);
-	$("#descripcion_actividad").attr('disabled', true);
-	$("#precio_actividad").attr('disabled', true);
-	$("#numPlazas_actividad").attr('disabled', true);
-	$("#color_actividad").attr('disabled', true);
-	$("#color_nombre_actividad").attr('disabled', true);
-	$("#id_espacio").attr('disabled', true);
-	$("#id_categoria").attr('disabled', true);
-=======
     console.log(" showDetalleResponsable -> showDetalleResponsable trigered");
 
     resetearformularioActividad()
@@ -379,18 +284,11 @@ function showEliminarActividad(id_actividad, nombre_actividad, descripcion_activ
     $("#color_nombre_actividad").attr('disabled', true);
     $("#id_espacio").attr('disabled', true);
     $("#id_categoria").attr('disabled', true);
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
 
 }
 
 function showAddActividad() {
-<<<<<<< HEAD
-
-	// se resetea todo el formulario generico
-	resetearformularioActividad();
-	hideDivTablaActividades();
-=======
 
     // se resetea todo el formulario generico
     resetearformularioActividad();
@@ -399,19 +297,11 @@ function showAddActividad() {
     $("#divformgenericoActividad").attr('style', 'display: block');
     $("#formgenericoActividad").attr('action', 'javascript:addActividad();');
     $("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
     //Se pone el titulo de la acción añadir
     document.getElementById('tituloAccion').innerHTML = "Añadir actividad";
     document.getElementById('subTituloAccion').innerHTML = "Rellena los siguientes campos para añadir una nueva actividad";
 
-<<<<<<< HEAD
-	//Se pone el titulo de la acción añadir
-	document.getElementById('tituloAccion').innerHTML = "Añadir actividad";
-	document.getElementById('subTituloAccion').innerHTML = "Rellena los siguientes campos para añadir una nueva actividad";
-
-=======
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
     // rellenamos los onblur de los input que se validad
     $("#id_actividad").attr('onblur', 'comprobarId(\'id_actividad\',\'errorFormatoId\');');
@@ -486,22 +376,12 @@ function resetearformularioActividad() {
 //Rellena los desplegables de espacio s
 function rellenaId_espacio(id_actividad) {
 
-	var idSession = getCookie('sessionId');
+    var idSession = getCookie('sessionId');
 
     addActionControler(document.formgenericoActividad, 'search', 'espacio')
 
-	var idioma = getCookie('lang');
+    var idioma = getCookie('lang');
 
-<<<<<<< HEAD
-	$.ajax({
-		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
-		data: $("#formgenericoActividad").serialize(),
-	}).done(function (response) {
-		if (response.ok == true) {
-			// Rellenamos el selector.
-			addOptions('id_espacio', response.resource, 'id_espacio', 'nombre_espacio');
-=======
     $.ajax({
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
@@ -510,20 +390,10 @@ function rellenaId_espacio(id_actividad) {
         if (response.ok == true) {
             // Rellenamos el selector.
             addOptions('id_espacio', response.resource, 'id_espacio', 'nombre_espacio');
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
-			//Pone como selected el argumento pasado como parámetro
-			$("#id_espacio option[value='" + id_espacio + "']").attr("selected", true);
+            //Pone como selected el argumento pasado como parámetro
+            $("#id_espacio option[value='" + id_espacio + "']").attr("selected", true);
 
-<<<<<<< HEAD
-		} else {
-			$("#mensajeError").removeClass();
-			$("#mensajeError").addClass(response.code);
-			$("#mensajeError").append(response.code);
-			setLang(idioma);
-			document.getElementById("modal").style.display = "block";
-		}
-=======
         } else {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
@@ -531,31 +401,20 @@ function rellenaId_espacio(id_actividad) {
             setLang(idioma);
             document.getElementById("modal").style.display = "block";
         }
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
-		deleteActionController();
-	});
+        deleteActionController();
+    });
 }
 
 //Rellena los desplegables de categorias
 function rellenaid_categoria(id_actividad) {
 
-	var idSession = getCookie('sessionId');
+    var idSession = getCookie('sessionId');
 
     addActionControler(document.formgenericoActividad, 'search', 'categoria')
 
-	var idioma = getCookie('lang');
+    var idioma = getCookie('lang');
 
-<<<<<<< HEAD
-	$.ajax({
-		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
-		data: $("#formgenericoActividad").serialize(),
-	}).done(function (response) {
-		if (response.ok == true) {
-			// Rellenamos el selector.
-			addOptions('id_categoria', response.resource, 'id_categoria', 'nombre_categoria');
-=======
     $.ajax({
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
@@ -564,20 +423,10 @@ function rellenaid_categoria(id_actividad) {
         if (response.ok == true) {
             // Rellenamos el selector.
             addOptions('id_categoria', response.resource, 'id_categoria', 'nombre_categoria');
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
-			//Pone como selected el argumento pasado como parámetro
-			$("#id_categoria option[value='" + id_categoria + "']").attr("selected", true);
+            //Pone como selected el argumento pasado como parámetro
+            $("#id_categoria option[value='" + id_categoria + "']").attr("selected", true);
 
-<<<<<<< HEAD
-		} else {
-			$("#mensajeError").removeClass();
-			$("#mensajeError").addClass(response.code);
-			$("#mensajeError").append(response.code);
-			setLang(idioma);
-			document.getElementById("modal").style.display = "block";
-		}
-=======
         } else {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
@@ -585,10 +434,9 @@ function rellenaid_categoria(id_actividad) {
             setLang(idioma);
             document.getElementById("modal").style.display = "block";
         }
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
-		deleteActionController();
-	});
+        deleteActionController();
+    });
 }
 
 function resetearformularioActividad() {
@@ -639,19 +487,11 @@ function resetearformularioActividad() {
 
 
 function comprobarNombreActividad() {
-<<<<<<< HEAD
-	idcampo = "nombre_actividad"
-	idError = "errorFormatonombre_actividad"
-	var linea = document.getElementById(idcampo);
-	var data = linea.value;
-	var patron = /^[a-zA-ZáéíóúñÑ\s]+$/;
-=======
     idcampo = "nombre_actividad"
     idError = "errorFormatonombre_actividad"
     var linea = document.getElementById(idcampo);
     var data = linea.value;
     var patron = /^[a-zA-ZáéíóúñÑ\s]+$/;
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
 
 
@@ -692,19 +532,11 @@ function comprobarNombreActividad() {
 
 
 function comprobarDescripcionActividad() {
-<<<<<<< HEAD
-	idcampo = "descripcion_actividad"
-	idError = "errorFormatoDescripciónActividad"
-	var linea = document.getElementById(idcampo);
-	var data = linea.value;
-	var patron = /^[a-zA-ZáéíóúñÑ\s]+$/;
-=======
     idcampo = "descripcion_actividad"
     idError = "errorFormatoDescripciónActividad"
     var linea = document.getElementById(idcampo);
     var data = linea.value;
     var patron = /^[a-zA-ZáéíóúñÑ\s]+$/;
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
 
 
@@ -746,87 +578,6 @@ function comprobarDescripcionActividad() {
 }
 
 function comprobarPrecio() {
-<<<<<<< HEAD
-	idcampo = "precio_actividad"
-	idError = "errorFormatoPrecioActividad"
-	var linea = document.getElementById(idcampo);
-	var data = linea.value;
-	var patron = /^[0-9\.]+$/;
-
-	//Si es vacio 
-	if (data.length == 0) {
-		validacionKO(idcampo, idError);
-		showError(idError, 20, 'red', "ERROR: El precio no puede estar vacio");
-		return false;
-	}
-
-	//Si contiene espacios o letras
-	if (!patron.test(data)) {
-		validacionKO(idcampo, idError);
-		showError(idError, 20, 'red', "ERROR: El precio no puede contener letras o simbolos de puntuacion distintos al punto");
-		return false;
-	}
-
-	var string = document.getElementById(idcampo).value;
-	var locPunto = string.indexOf("\.")
-	var locPuntoLejano = string.lastIndexOf("\.")
-
-	//Si hay dos puntos da error
-	if (locPunto != locPuntoLejano) {
-		validacionKO(idcampo, idError);
-		showError(idError, 20, 'red', "ERROR: El precio no puede contener mas de dos puntos");
-		return false;
-	}
-
-	//si el precio es superior a 9999 es decir hay mas de 4 numeros en la parte entera, da error
-	if (locPunto == -1 && string.length > 4 || locPunto > 5) {
-		validacionKO(idcampo, idError);
-		showError(idError, 20, 'red', "ERROR: El precio no puede ser superior a 9999");
-		return false;
-	}
-
-	if (locPunto != -1 && string.substring(locPunto).length == 1) {
-		validacionKO(idcampo, idError);
-		showError(idError, 20, 'red', "ERROR:Se debe añadir el valor decimal despues del punto");
-		return false;
-	}
-
-
-	if (locPunto != -1 && string.substring(locPunto).length > 3) {
-		validacionKO(idcampo, idError);
-		showError(idError, 20, 'red', "ERROR: la parte decimal no puede contener mas de 3 digitos");
-		return false;
-	}
-
-	if (locPunto > 5) {
-		validacionKO(idcampo, idError);
-		showError(idError, 20, 'red', "ERROR: El precio no puede ser superior a 9999.99");
-		return false;
-	}
-
-	//Lo dejo por si acaso pero en teoria es imposible que se ejecute esto
-	if (data.length > 7) {
-		validacionKO(idcampo, idError);
-		showError(idError, 20, 'red', "ERROR: El Precio no puede ser superior a 9999.99");
-		return false;
-	}
-
-
-
-
-
-
-	validacionOK(idcampo, idError);
-	return true;
-}
-
-function comprobarColorActividad(idcampo, idError) {
-	var linea = document.getElementById(idcampo);
-	var data = linea.value;
-	var patron = /^[0-9A-F]+$/;
-
-
-=======
     idcampo = "precio_actividad"
     idError = "errorFormatoPrecioActividad"
     var linea = document.getElementById(idcampo);
@@ -902,7 +653,6 @@ function comprobarColorActividad(idcampo, idError) {
     var linea = document.getElementById(idcampo);
     var data = linea.value;
     var patron = /^[0-9A-F]+$/;
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
 
 
@@ -914,19 +664,11 @@ function comprobarColorActividad(idcampo, idError) {
         return false;
     }
 
-<<<<<<< HEAD
-	if (!patron.test(data.substring(1))) {
-		validacionKO(idcampo, idError);
-		showError(idError, 20, 'red', "ERROR:El campo  color debe contener 6 caracteres que deben estar entre el 0 y 9, y la A y F mayusculas");
-		return false;
-	}
-=======
     if (data.charAt(0) != '#') {
         validacionKO(idcampo, idError);
         showError(idError, 20, 'red', "ERROR: El campo color debe comenzar con #");
         return false;
     }
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
     if (data.length > 7) {
         validacionKO(idcampo, idError);
@@ -940,27 +682,11 @@ function comprobarColorActividad(idcampo, idError) {
         return false;
     }
 
-<<<<<<< HEAD
-
-	validacionOK(idcampo, idError);
-	return true;
-}
-
-function hideDivTablaActividades() {
-	document.getElementById('divtablaActividades').style.display = 'none';
-}
-
-function showDivTablaActividades() {
-	document.getElementById('divtablaActividades').style.display = 'block';
-}
-
-=======
     if (data.length < 7) {
         validacionKO(idcampo, idError);
         showError(idError, 20, 'red', "ERROR:El campo  color debe de ser de 7 caracteres");
         return false;
     }
->>>>>>> 8bf243547cbc55bf9d3ec62beb8cbcab6ddc9f6a
 
 
 
