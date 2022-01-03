@@ -36,8 +36,6 @@ function addActividad() {
 
 function buscarActividad() {
 
-    console.log("GetLisActividades -> GetLisActividades trigered");
-
     var idioma = getCookie('lang');
     var idSession = getCookie('sessionId');
     console.log("GetLisActividades -> formulario oculto  construyendose");

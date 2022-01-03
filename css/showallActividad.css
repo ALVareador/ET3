@@ -93,7 +93,8 @@ select {
 #Funciones {
     margin-left: 10%;
     margin-right: 10%;
-    margin-top: 0.5%;
+    margin-top: 2%;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -118,6 +119,7 @@ select {
     overflow-x:auto;
     margin-left: 7%;
     margin-right: 7%;
+    height: 70%;
 
 
 }
@@ -133,6 +135,7 @@ th {
 
     border-bottom: 2px solid black;
     text-align: center;
+    
 }
 
 td {
