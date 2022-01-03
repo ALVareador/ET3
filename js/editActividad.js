@@ -688,8 +688,6 @@ function comprobarColorActividad(idcampo, idError) {
         return false;
     }
 
-
-
     validacionOK(idcampo, idError);
     return true;
 }
