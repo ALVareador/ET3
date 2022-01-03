@@ -1,6 +1,9 @@
 var traduccion;
 
-/**Si no se envía idioma el idioma por defecto es ES*/
+/**
+ * Si no se envía idioma el idioma por defecto es ES
+ * @param {*} lang 
+ */
 function setLang(lang = '') {
 
     if (lang == '') {
@@ -109,7 +112,12 @@ function setLang(lang = '') {
     }
 }
 
-/*Función para establecer el valor de la cookie*/
+/**
+ * Función para establecer el valor de la cookie
+ * @param {*} name 
+ * @param {*} value 
+ * @param {*} days 
+ */
 function setCookie(name, value, days) {
 
     var expires = "";
@@ -124,7 +132,11 @@ function setCookie(name, value, days) {
 
 }
 
-/*Función para obtener el valor de la cookie*/
+/**
+ * Función para obtener el valor de la cookie
+ * @param {*} name 
+ * @returns 
+ */
 function getCookie(name) {
 
     var nameEQ = name + "=";
@@ -148,8 +160,11 @@ function cambiarLang(lang) {
 
 }
 
-
-/**Devuelve una configuración de TCAL acorde al idioma seleccionado.*/
+/**
+ * Devuelve una configuración de TCAL acorde al idioma seleccionado.
+ * 
+ * @returns 
+ */
 function setCalendarLang() {
     var foo = getCookie('lang');
     var toret;
@@ -166,9 +181,9 @@ function setCalendarLang() {
                 'nextyear': 'Año Siguiente',
                 'prevmonth': 'Mes Anterior',
                 'nextmonth': 'Mes Siguiente',
-                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+                'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
-            
+
             break;
         case 'EN':
             toret = {
@@ -182,9 +197,9 @@ function setCalendarLang() {
                 'nextyear': 'Next Year',
                 'prevmonth': 'Previous Month',
                 'nextmonth': 'Next Month',
-                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+                'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
-            
+
             break;
         case 'GA':
             toret = {
@@ -198,9 +213,9 @@ function setCalendarLang() {
                 'nextyear': 'Ano Siguiente',
                 'prevmonth': 'Mes Anterior',
                 'nextmonth': 'Mes Seguiente',
-                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+                'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
-            
+
             break;
 
         default:
@@ -215,9 +230,9 @@ function setCalendarLang() {
                 'nextyear': 'Año Siguiente',
                 'prevmonth': 'Mes Anterior',
                 'nextmonth': 'Mes Siguiente',
-                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+                'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
-            
+
             break;
     }
     return toret;

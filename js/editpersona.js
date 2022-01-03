@@ -1,382 +1,450 @@
+/**
+ * 
+ */
 function addPersona() {
 
-	var idSession = getCookie('sessionId');
+    var idSession = getCookie('sessionId');
 
-	insertacampo(document.formgenericoPersona, 'controlador', 'persona');
-	insertacampo(document.formgenericoPersona, 'action', 'insertar');
-	
+    insertacampo(document.formgenericoPersona, 'controlador', 'persona');
+    insertacampo(document.formgenericoPersona, 'action', 'insertar');
+
     console.log(document.formgenericoPersona);
-	var idioma = getCookie('lang');
+    var idioma = getCookie('lang');
 
     var formdata = $("#formgenericoPersona").serialize();
-	var file = $("#subefotopersona")[0].files[0];
-	var datos = new FormData();
-	datos.append("upload", file);
-	datos.append("formulario", formdata);
+    var file = $("#subefotopersona")[0].files[0];
+    var datos = new FormData();
+    datos.append("upload", file);
+    datos.append("formulario", formdata);
 
-	$.ajax({
-		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
-		data: datos,
-		contentType: false,
-		processData: false,
-	}).done(function (response) {
-		if (response.ok == true) {
-			respuestaOKAjax();
-		} else {
-			respuestaKOAjax('add');
-		}
+    $.ajax({
+        method: "POST",
+        url: "http://193.147.87.202/ET3_IU/noRest.php",
+        data: datos,
+        contentType: false,
+        processData: false,
+    }).done(function(response) {
+        if (response.ok == true) {
+            respuestaOKAjax();
+        } else {
+            respuestaKOAjax('add');
+        }
 
-		actualizaMensajesRespuestAjax(response.code);
-
-		setLang(idioma);
-
-		resetearformulariopersona();
-
-		GetLisPersonas();
-
-		//eleminia del formulario los campos action y controlador
-		deleteActionController();
-
-		hasProbadoAReiniciarlo();
-	});
+        actualizaMensajesRespuestAjax(response.code);
+        setLang(idioma);
+        resetearformulariopersona();
+        GetLisPersonas();
+        deleteActionController();
+        hasProbadoAReiniciarlo();
+    });
 
 }
-
+/**
+ * 
+ */
 function showAddPersona() {
 
 
 
-	// se resetea todo el formulario generico
-	resetearformulariopersona();
+    // se resetea todo el formulario generico
+    resetearformulariopersona();
 
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoPersona").attr('style', 'display: block');
-	$("#formgenericoPersona").attr('action', 'javascript:addPersona();');
-	$("#formgenericoPersona").attr('onsubmit', 'comprobareditsubmit();');
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericoPersona").attr('style', 'display: block');
+    $("#formgenericoPersona").attr('action', 'javascript:addPersona();');
+    $("#formgenericoPersona").attr('onsubmit', 'comprobareditsubmit();');
 
-	//rellenamos los tipo text
-	/*$("#txtidresponsable").val("1");
-	$("#txtnumcuentaresponsable").val("1");
-	$("#txtcurriculumresponsable").val("1");*/
+    //rellenamos los tipo text
+    /*$("#txtidpersona").val("1");
+    $("#txtnumcuentapersona").val("1");
+    $("#txtcurriculumpersona").val("1");*/
 
     // eliminar input no necesario
-	$("#labelfotopersona").attr('style', 'display:none');
-	$("#foto_persona").attr('style', 'display:none');
+    $("#labelfotopersona").attr('style', 'display:none');
+    $("#foto_persona").attr('style', 'display:none');
+
+    //ONBLUR
+
+    $("#dni_persona").attr('disabled', false);
+    $("#direccion_persona").attr('disabled', false);
+
+    // rellenamos los onblur de los input que se validad
 
 
-	$("#fechaNacimiento_persona").attr('disabled', false);
-	$("#direccion_persona").attr('disabled', false);
-	$("#telefono_persona").attr('disabled', false);
-	$("#esCeliaco_persona").attr('disabled', false);
-	$("#borrado_persona").attr('disabled', false);
-	$("#foto_persona").attr('disabled', true);
+    $("#dni_persona").attr('onblur', 'comprobarDNI("dni_persona","errorFormatoDni");');
+    $("#nombre_persona").attr('onblur', 'return comprobarNombrePersona()');
+    $("#apellidos_persona").attr('onblur', 'return  comprobarApellido()');
+    $("#fechaNacimiento_persona").attr('onblur', 'return comprobarFechaDeNacimiento()');
 
-	// rellenamos los onblur de los input que se validad
 
-	/*
-	$("#dni_persona").attr('onblur', 'comprobarDNI();');
-	$("#nombre_persona").attr('onblur', 'comprobarNumCuenta();');
-	$("#apellidos_persona").attr('onblur', 'comprobarCurriculum();');
-	*/
 
-	// se rellena los select
 
-    $("#iconoAcciones").attr('src', "./images/icons/addUser.png");	
+    // se rellena los select
+
+    $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
 }
-
+/**
+ * 
+ */
 function editPersona() {
 
-	var idSession = getCookie('sessionId');
+    var idSession = getCookie('sessionId');
 
-	//insertacampo(document.formgenericoPersona,'ID_SESSION', idSession);
-	insertacampo(document.formgenericoPersona, 'controlador', 'persona');
-	insertacampo(document.formgenericoPersona, 'action', 'editar');
+    //insertacampo(document.formgenericoPersona,'ID_SESSION', idSession);
+    insertacampo(document.formgenericopersona, 'ID_SESSION', idSession);
+    addActionControler(document.formgenericopersona, "edit", "persona");
 
-	$("#dni_persona").attr("disabled", false);
-    $("#foto_persona").attr("disabled", false);
+    $("#dni_persona").attr("disabled", false);
+    $("#txtfoto_persona").attr("disabled", false);
 
-	var idioma = getCookie('lang');
+    var idioma = getCookie('lang');
 
     var formdata = $("#formgenericoPersona").serialize();
-	var file = $("#subefotopersona")[0].files[0];
-	var datos = new FormData();
-	datos.append("upload", file);
-	datos.append("formulario", formdata);
+    var file = $("#subefotopersona")[0].files[0];
+    var datos = new FormData();
+    datos.append("upload", file);
+    datos.append("formulario", formdata);
 
-	$.ajax({
-		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
-		data: datos,
-		contentType: false,
-		processData: false,
-	}).done(function (response) {
-		if (response.ok == true) {
-			respuestaOKAjax();
-		} else {
-			respuestaKOAjax('edit');
-		}
+    $.ajax({
+        method: "POST",
+        url: "http://193.147.87.202/ET3_IU/noRest.php",
+        data: datos,
+        contentType: false,
+        processData: false,
+    }).done(function(response) {
+        if (response.ok == true) {
+            respuestaOKAjax();
+        } else {
+            respuestaKOAjax('edit');
+        }
 
-		actualizaMensajesRespuestAjax(response.code);
-
-		resetearformulariopersona();
-
-		GetLisPersonas()
-
-		setLang(idioma);
-
-		deleteActionController();
-
-		hasProbadoAReiniciarlo();
-	});
+        actualizaMensajesRespuestAjax(response.code);
+        resetearformulariopersona();
+        GetLisPersonas()
+        setLang(idioma);
+        deleteActionController();
+        hasProbadoAReiniciarlo();
+    });
 
 }
-
+/**
+ * 
+ */
 function deletePersona() {
 
-	var idSession = getCookie('sessionId');
+    var idSession = getCookie('sessionId');
 
-	//insertacampo(document.formgenericoPersona,'ID_SESSION', idSession);
-	insertacampo(document.formgenericoPersona, 'controlador', 'persona');
-	insertacampo(document.formgenericoPersona, 'action', 'borrar');
+    insertacampo(document.formgenericopersona, 'ID_SESSION', idSession);
+    addActionControler(document.formgenericopersona, "delete", "persona");
 
-	$("#dni_persona").attr("disabled", false);
+    $("#dni_persona").attr("disabled", false);
 
-	var idioma = getCookie('lang');
+    var idioma = getCookie('lang');
 
-	$.ajax({
-		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
-		data: $("#formgenericoPersona").serialize(),
-	}).done(function (response) {
-		if (response.ok == true) {
-			respuestaOKAjax();
-		} else {
-			respuestaKOAjax('borrar');
-		}
+    $.ajax({
+        method: "POST",
+        url: "http://193.147.87.202/ET3_IU/noRest.php",
+        data: $("#formgenericoPersona").serialize(),
+    }).done(function(response) {
+        if (response.ok == true) {
+            respuestaOKAjax();
+        } else {
+            respuestaKOAjax('borrar');
+        }
 
-		actualizaMensajesRespuestAjax(response.code);
-
-		resetearformulariopersona();
-
-		GetLisPersonas()
-
-		setLang(idioma);
-
-		deleteActionController();
-
-		hasProbadoAReiniciarlo();
-	});
+        actualizaMensajesRespuestAjax(response.code);
+        resetearformulariopersona();
+        GetLisPersonas()
+        setLang(idioma);
+        deleteActionController();
+        hasProbadoAReiniciarlo();
+    });
 
 }
+/**
+ * 
+ * @param {*} dni_persona 
+ * @param {*} nombre_persona 
+ * @param {*} apellidos_persona 
+ * @param {*} fechaNacimiento_persona 
+ * @param {*} direccion_persona 
+ * @param {*} telefono_persona 
+ * @param {*} email_persona 
+ * @param {*} foto_persona 
+ * @param {*} esCeliaco_persona 
+ * @param {*} borrado_persona 
+ */
+function showEditarPersona(dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona) {
 
-function showEditarPersona(dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, foto_persona, esCeliaco_persona, borrado_persona) {
+    // se resetea todo el formulario generico
+    resetearformulariopersona();
 
-	// se resetea todo el formulario generico
-	resetearformulariopersona();
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericoPersona").attr('style', 'display: block');
+    $("#formgenericoPersona").attr('action', 'javascript:editPersona();');
+    $("#formgenericoPersona").attr('onsubmit', 'comprobareditsubmit();');
 
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoPersona").attr('style', 'display: block');
-	$("#formgenericoPersona").attr('action', 'javascript:editPersona();');
-	$("#formgenericoPersona").attr('onsubmit', 'comprobareditsubmit();');
-
-	//rellenamos los tipo text
-	$("#dni_persona").val(dni_persona);
-	$("#nombre_persona").val(nombre_persona);
+    //rellenamos los tipo text
+    $("#dni_persona").val(dni_persona);
+    $("#nombre_persona").val(nombre_persona);
     $("#apellidos_persona").val(apellidos_persona);
-	$("#fechaNacimiento_persona").val(fechaNacimiento_persona);
-    $("#direccion_persona").val(direccion_persona);
-    $("#telefono_persona").val(telefono_persona);
-    $("#foto_persona").val(foto_persona);
-    $("#esCeliaco_persona").val(esCeliaco_persona);
-    $("#borrado_persona").val(borrado_persona);
-
-	// rellenamos los onblur de los input que se validad
-	$("#nombre_persona").attr('onblur', 'comprobarNombrePersona();');
-	$("#apellidos_persona").attr('onblur', 'comprobarDescripcionPersona();');
-    $("#apellidos_persona").attr('onblur', 'comprobarDescripcionPersona();');
-	$("#fechaNacimiento_persona").attr('onblur', 'comprobarDescripcionPersona();');
-    $("#direccion_persona").attr('onblur', 'comprobarDescripcionPersona();');
-    $("#telefono_persona").attr('onblur', 'comprobarDescripcionPersona();');
-    $("#foto_persona").attr('onblur', 'comprobarDescripcionPersona();');
-    $("#esCeliaco_persona").attr('onblur', 'comprobarDescripcionPersona();');
-    $("#borrado_persona").attr('onblur', 'comprobarDescripcionPersona();');
-
-    $("#borrado_persona option[value='" + borrado_persona + "'").attr("selected", true);
-	// se deshabilita el id para que no pueda cambiarse
-	$("#dni_persona").attr('disabled', true);
-
-}
-
-function comprobareditsubmit() {
-
-	if (comprobarUser()) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-function detallepersona() {
-
-	var idioma = getCookie('lang');
-
-	resetearformulariopersona();
-
-	GetLisPersonas()
-
-	setLang(idioma);
-}
-
-function showDetallePersona(dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, foto_persona, esCeliaco_persona, borrado_persona) {
-
-	$("#formgenericoPersona").remove();
-	$("#botoncerrar").remove();
-
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divgenericoPersona','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divgenericoPersona').append(label);
-	$('#divgenericoPersona').attr('style', 'display: block');
-	$('#divgenericoPersona').attr('style', 'border: 1px solid black');
-
-	crearformvisible('formgenericoPersona', 'none');
-	$('#formgenericoPersona').attr('style', 'display: block');
-
-	form = document.getElementById('formgenericoPersona');
-
-	label = "<label class='dni_persona'></label>";
-	$("#formgenericoPersona").append(label);
-	insertacampovisible(form, 'bldni_persona', dni_persona);
-	$("#bldni_persona").attr('disabled', true);
-	$("#formgenericoPersona").append('<br>');
-
-	label = "<label class='nombre_persona'></label>";
-	$("#formgenericoPersona").append(label);
-	insertacampovisible(form, 'blnombre_persona', nombre_persona);
-	$("#blnombre_persona").attr('disabled', true);
-	$("#formgenericoPersona").append('<br>');
-
-	label = "<label class='apellidos_persona'></label>";
-	$("#formgenericoPersona").append(label);
-	insertacampovisible(form, 'blapellidos_persona', apellidos_persona);
-	$("#blapellidos_persona").attr('disabled', true);
-	$("#formgenericoPersona").append('<br>');
-
-    label = "<label class='fechaNacimiento_persona'></label>";
-	$("#formgenericoPersona").append(label);
-	insertacampovisible(form, 'blfechaNacimiento_persona', fechaNacimiento_persona);
-	$("#blfechaNacimiento_persona").attr('disabled', true);
-	$("#formgenericoPersona").append('<br>');
-
-    label = "<label class='direccion_persona'></label>";
-	$("#formgenericoPersona").append(label);
-	insertacampovisible(form, 'bldireccion_persona', direccion_persona);
-	$("#bldireccion_persona").attr('disabled', true);
-	$("#formgenericoPersona").append('<br>');
-
-    label = "<label class='telefono_persona'></label>";
-	$("#formgenericoPersona").append(label);
-	insertacampovisible(form, 'bltelefono_persona', telefono_persona);
-	$("#bltelefono_persona").attr('disabled', true);
-	$("#formgenericoPersona").append('<br>');
-
-    label = "<label class='email_persona'></label>";
-	$("#formgenericoPersona").append(label);
-	insertacampovisible(form, 'blemail_persona', email_persona);
-	$("#blemail_persona").attr('disabled', true);
-	$("#formgenericoPersona").append('<br>');
-
-    label = "<label class='foto_persona'></label>";
-	$("#formgenericoPersona").append(label);
-	insertacampovisible(form, 'blfoto_persona', foto_persona);
-	$("#blfoto_persona").attr('disabled', true);
-	$("#formgenericoPersona").append('<br>');
-
-
-    label = "<label class='esCeliaco_persona'></label>"+
-            "<select name='esCeliaco_persona' id='esCeliaco_persona' >"+
-            "       <option value='0'>Si</option>"+
-            "       <option value='1'>No</option>"+
-            "</select><br>";
-    $("#formgenericoPersona").append(label);
-
-    label = "<label class='borrado_persona'></label>"+
-            "<select name='borrado_persona' id='borrado_persona' >"+
-            "       <option value='0'>Si</option>"+
-            "       <option value='1'>No</option>"+
-            "</select><br>";
-    $("#formgenericoPersona").append(label);
-
-	$("#divgenericoPersona").append(formgenericoPersona);
-
-	setLang('');
-
-}
-
-function showEliminarPersona(dni_persona, nombre_persona, apellidos_persona) {
-
-	$("#divformgenericoPersona").attr('style', 'display: block');
-	$("#formgenericoPersona").attr('action', 'javascript:deletePersona();');
-	$("#formgenericoPersona").attr('onsubmit', '');
-
-	$("#dni_persona").val(dni_persona);
-	$("#nombre_persona").val(nombre_persona);
-	$("#apellidos_persona").val(apellidos_persona);
     $("#fechaNacimiento_persona").val(fechaNacimiento_persona);
     $("#direccion_persona").val(direccion_persona);
     $("#telefono_persona").val(telefono_persona);
+    $("#email_persona").val(email_persona);
     $("#foto_persona").val(foto_persona);
     $("#esCeliaco_persona").val(esCeliaco_persona);
     $("#borrado_persona").val(borrado_persona);
 
-	$("#dni_persona").attr('disabled', true);
-	$("#nombre_persona").attr('disabled', true);
-	$("#apellidos_persona").attr('disabled', true);
-    $("#fechaNacimiento_persona").attr('disabled', true);
-    $("#direccion_persona").attr('disabled', true);
-    $("#telefono_persona").attr('disabled', true);
-    $("#foto_persona").attr('disabled', true);
-    $("#esCeliaco_persona").attr('disabled', true);
-    $("#borrado_persona").attr('disabled', true);
+    // rellenamos los onblur de los input que se validad
+    $("#nombre_persona").attr('onblur', 'return comprobarNombrePersona;');
+    $("#apellidos_persona").attr('onblur', 'return comprobarApellido()');
+    $("#fechaNacimiento_persona").attr('onblur', 'return comprobarFechaDeNacimiento()');
+    $("#direccion_persona").attr('onblur', 'return comprobarDireccion()');
+    $("#telefono_persona").attr('onblur', 'return comprobarTelefono()');
+    $("#email_persona").attr('onblur', 'return comprobarEmail()');
+    $("#foto_persona").attr('onblur', '');
+
+    $("#esCeliaco_persona option[value='" + esCeliaco_persona + "'").attr("selected", true);
+    $("#borrado_persona option[value='" + borrado_persona + "'").attr("selected", true);
+    // se deshabilita el id para que no pueda cambiarse
+    $("#dni_persona").attr('disabled', true);
 
 }
+/**
+ * 
+ * @returns boolean
+ */
+function comprobareditsubmit() {
 
-function resetearformulariopersona(idformUsado) {
+    if (comprobarUser()) {
+        return true;
+    } else {
+        return false;
+    }
+}
+/**
+ * 
+ */
+function detallepersona() {
 
-	$("idformUsado").attr('action', '');
-	$("idformUsado").attr('onsubmit', '');
+    var idioma = getCookie('lang');
+    resetearformulariopersona();
+    GetLisPersonas()
+    setLang(idioma);
+}
+/**
+ * 
+ * @param {*} dni_persona 
+ * @param {*} nombre_persona 
+ * @param {*} apellidos_persona 
+ * @param {*} fechaNacimiento_persona 
+ * @param {*} direccion_persona 
+ * @param {*} telefono_persona 
+ * @param {*} email_persona 
+ * @param {*} foto_persona 
+ * @param {*} esCeliaco_persona 
+ * @param {*} borrado_persona 
+ */
+function showDetallePersona(dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona) {
 
-	$("#dni_persona").attr('disabled', false);
-	$("#nombre_persona").attr('disabled', false);
-	$("#apellidos_persona").attr('disabled', false);
+    resetearformulariopersona();
+
+    $("#divformgenericoPersona").attr('style', 'display:');
+    $("#formgenericoPersona").attr('action', 'javascript:detallepersona();');
+
+    $("#dni_persona").val(dni_persona);
+    $("#nombre_persona").val(nombre_persona);
+    $("#apellidos_persona").val(apellidos_persona);
+    $("#fechaNacimiento_persona").val(fechaNacimiento_persona);
+    $("#direccion_persona").val(direccion_persona);
+    $("#telefono_persona").val(telefono_persona);
+    $("#email_persona").val(email_persona);
+    $("#foto_persona").val(foto_persona);
+    $("#ewCeliaco_persona").val(esCeliaco_persona);
+    $("#borrado_persona").val(borrado_persona);
+
+    var link = '</td> <td> <a href=\'' + 'images/' + foto_persona + '\'>' + foto_persona + '</a>' + '</td> </tr>';
+
+    $("#labelsubefotopersona").attr('style', 'display:none');
+    $("#subefotopersona").attr('style', 'display:none');
+    $("#foto_persona").attr('style', 'display:none');
+
+    $("#dni_persona").attr('disabled', true);
+    $("#nombre_persona").attr('disabled', true);
+    $("#apellidos_persona").attr('disabled', true);
     $("#fechaNacimiento_persona").attr('disabled', true);
     $("#direccion_persona").attr('disabled', true);
     $("#telefono_persona").attr('disabled', true);
+    $("#email_persona").attr('disabled', true);
     $("#foto_persona").attr('disabled', true);
     $("#esCeliaco_persona").attr('disabled', true);
     $("#borrado_persona").attr('disabled', true);
 
-	$("#dni_persona").val('');
-	$("#nombre_persona").val('');
-	$("#apellidos_persona").val('');
+    setLang('');
+
+}
+/**
+ * 
+ * @param {*} dni_persona 
+ * @param {*} nombre_persona 
+ * @param {*} apellidos_persona 
+ * @param {*} fechaNacimiento_persona 
+ * @param {*} direccion_persona 
+ * @param {*} telefono_persona 
+ * @param {*} email_persona 
+ * @param {*} foto_persona 
+ * @param {*} esCeliaco_persona 
+ * @param {*} borrado_persona 
+ */
+function showEliminarPersona(dni_persona, nombre_persona, apellidos_persona, fechaNacimiento_persona, direccion_persona, telefono_persona, email_persona, foto_persona, esCeliaco_persona, borrado_persona) {
+
+    $("#divformgenericoPersona").attr('style', 'display: block');
+    $("#formgenericoPersona").attr('action', 'javascript:deletePersona();');
+    $("#formgenericoPersona").attr('onsubmit', '');
+
+    $("#dni_persona").val(dni_persona);
+    $("#nombre_persona").val(nombre_persona);
+    $("#apellidos_persona").val(apellidos_persona);
+    $("#fechaNacimiento_persona").val(fechaNacimiento_persona);
+    $("#direccion_persona").val(direccion_persona);
+    $("#telefono_persona").val(telefono_persona);
+    $("#email_persona").val(email_persona);
+    $("#foto_persona").val(foto_persona);
+    $("#esCeliaco_persona").val(esCeliaco_persona);
+    $("#borrado_persona").val(borrado_persona);
+
+    $("#dni_persona").attr('disabled', true);
+    $("#nombre_persona").attr('disabled', true);
+    $("#apellidos_persona").attr('disabled', true);
+    $("#fechaNacimiento_persona").attr('disabled', true);
+    $("#direccion_persona").attr('disabled', true);
+    $("#telefono_persona").attr('disabled', true);
+    $("#email_persona").attr('disabled', true);
+    $("#foto_persona").attr('disabled', true);
+    $("#esCeliaco_persona").attr('disabled', true);
+    $("#borrado_persona").attr('disabled', true);
+
+    $("#labelsubefotopersona").attr('style', 'display:none');
+    $("#subefotopersona").attr('style', 'display:none');
+
+    $("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
+}
+/**
+ * 
+ * @param {*} idformUsado 
+ */
+function resetearformulariopersona(idformUsado) {
+
+    $("idformUsado").attr('action', '');
+    $("idformUsado").attr('onsubmit', '');
+
+    $("#dni_persona").val('');
+    $("#nombre_persona").val('');
+    $("#apellidos_persona").val('');
     $("#fechaNacimiento_persona").val('');
     $("#direccion_persona").val('');
     $("#telefono_persona").val('');
+    $("#email_persona").val('');
     $("#foto_persona").val('');
     $("#esCeliaco_persona").val('');
     $("#borrado_persona").val('');
 
 
-	$("#dni_persona").attr('onblur', '');
-	$("#nombre_persona").attr('onblur', '');
-	$("#apellidos_persona").attr('onblur', '');
+    $("#dni_persona").attr('onblur', '');
+    $("#nombre_persona").attr('onblur', '');
+    $("#apellidos_persona").attr('onblur', '');
     $("#fechaNacimiento_persona").attr('onblur', '');
     $("#direccion_persona").attr('onblur', '');
     $("#telefono_persona").attr('onblur', '');
+    $("#email_persona").attr('onblur', '');
     $("#foto_persona").attr('onblur', '');
     $("#esCeliaco_persona").attr('onblur', '');
     $("#borrado_persona").attr('onblur', '');
 
-	$("divformgenericoPersona").attr('style', 'display: none');
+    $("divformgenericoPersona").attr('style', 'display: none');
 
+    $("#foto_persona").attr('style', 'display:');
+    $("#labelsubefotopersona").attr('style', 'display:');
+    $("#subefotopersona").attr('style', 'display:');
+
+    $("#dni_persona").attr('disabled', false);
+    $("#nombre_persona").attr('disabled', false);
+    $("#apellidos_persona").attr('disabled', false);
+    $("#fechaNacimiento_persona").attr('disabled', false);
+    $("#email_persona").attr('disabled', false);
+    $("#direccion_persona").attr('disabled', false);
+    $("#telefono_persona").attr('disabled', false);
+    $("#email_persona").attr('disabled', false);
+    $("#foto_persona").attr('disabled', false);
+    $("#esCeliaco_persona").attr('disabled', false);
+    $("#borrado_persona").attr('disabled', false);
+}
+/**
+ * 
+ */
+function buscarPersona() {
+
+    var idioma = getCookie('lang');
+    var idSession = getCookie('sessionId');
+    addActionControler(document.formgenericoPersona, 'search', 'persona')
+    insertacampo(document.formgenericoPersona, 'ID_SESSION', idSession);
+
+    console.log(document.formgenericoPersona);
+
+    $.ajax({
+        method: "POST",
+        url: "http://193.147.87.202/ET3_IU/noRest.php",
+        data: $("#formgenericoPersona").serialize(),
+    }).done(function(response) {
+        if (response.ok == true) {
+            $("#datosPersonas").html("");
+            nodos = document.getElementById("formgenericoPersona").childNodes;
+            for (var i = 0; i < nodos.length; i++) {
+                var item = nodos[i];
+                if (item.id != undefined) {
+                    //  alert(item.id);
+                }
+            }
+            //alert(nodos);
+            for (var i = 0; i < response.resource.length; i++) {
+                var tr = construyeFila(response.resource[i]);
+                $("#datosPersonas").append(tr);
+            }
+
+            setLang(idioma);
+        } else {
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);
+            $("#mensajeError").append(response.code);
+            $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+            $("#imagenAviso").attr('src', "images/icons/error.png");
+            setLang(idioma);
+            $("#modal").attr('style', 'display: block');
+        }
+
+        deleteActionController();
+
+    });
+}
+/**
+ * 
+ */
+function showBuscarPersona() {
+
+    // se resetea todo el formulario generico
+    resetearformulariopersona();
+
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericoPersona").attr('style', 'display: block');
+    $("#formgenericoPersona").attr('action', 'javascript:buscarPersona();');
+    $("#formgenericoPersona").attr('onsubmit', 'comprobareditsubmit();');
+
+    //Se pone el titulo de la acción buscar
+    document.getElementById('tituloAccion').innerHTML = "Buscar Persona";
+    document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
+
+    // rellenamos los onblur de los input que se validad
+    //$("#dni_persona").attr('onblur', '');
+    //$("#nombre_persona").attr('onblur', 'comprobarNombrePersona();');
 }

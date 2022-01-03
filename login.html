@@ -3,6 +3,7 @@
 <head lang='es'>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script type="text/javascript" src="js/traducctorMasivo.js"></script>
 	<script type="text/javascript" src="js/config.js"></script>
 	<script type="text/javascript" src="js/funcionesComunes.js"></script>
 	<script type="text/javascript" src="js/showallusuario.js"></script>
@@ -27,9 +28,11 @@
 	<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:login();"
 		onsubmit="comprobarLogin();">
 
+		<label class="usuario"></label>
 		<input type="text" name="usuario" id="txtUsuario" onblur="return comprobarUser();"> <br>
 		<div style="display:none" id="errorFormatoUser"></div>
 
+		<label class="contrasena"></label>
 		<input type="password" name="contrasena" id="txtPassword" onblur="return comprobarPassword();">
 		<div style="display:none" id="errorFormatoPassword"></div>
 

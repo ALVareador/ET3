@@ -13,9 +13,10 @@ function construyeFila(fila) {
         var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
         
         for (var j = 0; j <ArrayGrupos.length; j++) {
-            if(ArrayGrupos[j]['id_espacio'] == fila.id_espacio)
-            fila.id_espacio = ArrayGrupos[j]['nombre_grupo'];
+            if(ArrayGrupos[j]['id_grupo'] == fila.id_grupo)
+            fila.id_grupo = ArrayGrupos[j]['nombre_grupo'];
         }
+        
         var filaTabla = '<tr> <td>' + fila.dni_usuario +  
                     '</td> <td>' + fila.usuario + 
                     '</td> <td>' + fila.id_grupo +
@@ -28,7 +29,7 @@ function construyeFila(fila) {
     
 ArrayGrupos = null;
 
-function GetArrayGrupos() { 
+function getArrayGrupos() { 
 
     var idSession = getCookie('sessionId');
 
@@ -44,7 +45,7 @@ function GetArrayGrupos() {
         if (response.ok == true) {
 
             ArrayGrupos = response.resource;
-            
+            console.log(console.resource);
             return response.resource;
 
         } else {

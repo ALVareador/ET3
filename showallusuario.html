@@ -16,11 +16,12 @@
 
 </head>      
 
-<body onload="includeCabecera();validaAutenticado();getLisUsuarios();setLang(''); GetArrayGrupos();rellenaid_grupo();">
+<body onload="includeCabecera();validaAutenticado();getArrayGrupos();getLisUsuarios();setLang('');rellenaid_grupo();">
         <div id="menuIdioma"></div>
         <div id="UserDesconectar"></div>
         <div id="Funciones">
                 <button onclick="showAddUsuario()" alt="Insertar Usuario">Insertar Usuario</button>
+                <button onclick="showBuscarUsuario()" alt="Buscar Usuario">Buscar Usuario</button>
         </div>
 
         <div id="divtablaUsuarios">
@@ -61,21 +62,30 @@
                 <div id="tituloForms"></div>
                 <a onclick = "cerrar('divformgenericoUsuario','','');"><img src = './images/icons/close.png' width="50px"></a>
                 <form name='formgenericoUsuario' id='formgenericoUsuario' method="post" action="" onsubmit="">
+                        
                         <label class='id_usuario'></label>
                         <input type='text' name='id_usuario' id='id_usuario' onblur=''><br>
+                       
                         <label class='dni_usuario'></label>
                         <input type='text' name='dni_usuario' id='dni_usuario' onblur=''><br>
+                       
                         <label class='usuario'></label>
                         <input type='text' name='usuario' id='usuario' onblur=''><br>
-                        <label id = 'contrasena'></label>
+                       
+                        <label class ='contrasena'></label>
                         <input type='text' name='contrasena' id='contrasena' onblur=''><br>
                         <div style="display:none" id=""></div> 
+                       
                         <label class='id_grupo'></label>
-                        <input type='text' name='id_grupo' id='id_grupo' onblur=''><br>
-                        <div style="display:none" id=""></div> 
+                        <select name='id_grupo' id='id_grupo'><br>
+                        </select> 
+                       
                         <label class='borrado_usuario'></label>
-                        <input type='text' name='borrado_usuario' id='borrado_usuario' onblur=''><br>
-                        <div style="display:none" id=""></div> 
+                        <select name='borrado_usuario' id='borrado_usuario'>
+                                <option value="0">Si</option>
+                                <option value="1">No</option>
+                        </select>
+                        
                         <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
                 </form>
         </div>        

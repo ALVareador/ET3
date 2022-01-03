@@ -15,12 +15,14 @@
     <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 </head>
 
-<body onload="includeCabecera();validaAutenticado();getLisInscripcion();setLang('');">
+<body
+    onload="includeCabecera();validaAutenticado();rellenaId_actividad();;GetArrayActividades();GetArrayDNI();getLisInscripcion();setLang('');">
     <div id="menuIdioma"></div>
     <div id="UserDesconectar"></div>
     <div id="Funciones">
         <button onclick="showAddInscripcion()" alt="Insertar inscripcion"><img src="./images/icons/add.png"
                 width="50px" /></button>
+        <button onclick="showBuscarInscripcion()" alt="Buscar Inscripcion">Buscar Inscripcion</button>
     </div>
     <div id="divtablaInscripciones">
         <table id="tablaInscripciones" border='1'>
@@ -74,10 +76,10 @@
                 <input type='text' name='id' id='txtidInscripcion' onblur=''><br>
                 <!--Nombre de la Actividad a la que se va a inscribir-->
                 <label class='nombre_actividad'></label>
-                <select name='nombre_actividad' id='nombre_actividad'></select><br>
+                <select name="id_actividad" id="id_actividad"></select><br>
                 <!--Usuario que se inscribe-->
                 <label class='dni_usuario'></label>
-                <input type='text' name='dni_usuario' id='txtdniusuario' onblur=''><br>
+                <input type='text' name='dni_usuario' id='dni_usuario' onblur=''><br>
                 <!--Fecha de la inscripcion-->
                 <label class='fecha_solicitud_inscripcion'></label>
                 <input type='date' name='fecha_solicitud_inscripcion' id='txtfechasolicitudinscripcion' onblur=''><br>

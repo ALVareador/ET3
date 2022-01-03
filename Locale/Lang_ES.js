@@ -1,3 +1,4 @@
+
 arrayES = {
 
 	// generales base de datos
