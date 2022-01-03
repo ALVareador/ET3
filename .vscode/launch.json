@@ -1,0 +1,26 @@
+{
+    "configurations": [
+        {
+            "name": "Abrir ET3 Folder Firefox",
+            "request": "launch",
+            "type": "firefox",
+            "reAttach": true,
+            "url": "http://localhost:80/ET3/",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Abrir ET3 Folder Edge",
+            "request": "launch",
+            "type": "pwa-msedge",
+            "url": "http://localhost:80/ET3/",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Abrir ET3 Folder Chrome",
+            "request": "launch",
+            "type": "pwa-chrome",
+            "url": "http://localhost:80/ET3/",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
