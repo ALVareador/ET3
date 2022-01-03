@@ -146,54 +146,52 @@ function deleteinscripcion() {
 
 function buscarInscripcion() {
 
-    console.log("GetLisCategorias -> GetLisCategorias triggered");
+	console.log("GetLisInscripcions -> GetLisInscripcions triggered");
 
 	var idioma = getCookie('lang');
 	var idSession = getCookie('sessionId');
-	console.log("GetLisCategorias -> formulario oculto  construyendose");
+	console.log("GetLisInscripcions -> formulario oculto  construyendose");
 	addActionControler(document.formgenericoinscripcion, 'search', 'inscripcion')
 	insertacampo(document.formgenericoinscripcion, 'ID_SESSION', idSession);
 
-	console.log("GetLisCategorias ->formulario oculto  construido");
+	console.log("GetLisInscripcions ->formulario oculto  construido");
 	console.log(document.formgenericoinscripcion);
 
-    $.ajax({
-        method: "POST",
-        url: "http://193.147.87.202/ET3_IU/noRest.php",
-        data: $("#formgenericoinscripcion").serialize(),
-    }).done(function (response) {
-        if (response.ok == true) {
-            $("#datosInscripcion").html("");
-            nodos = document.getElementById("formgenericoinscripcion").childNodes;
-            for (var i = 0; i < nodos.length; i++) {
-                var item = nodos[i];
-                if (item.id != undefined) {
-                    //  alert(item.id);
-                }
-            }
-            //alert(nodos);
-            for (var i = 0; i < response.resource.length; i++) {
-                var tr = construyeFila(response.resource[i]);
-                $("#datosInscripcion").append(tr);
-            }
+	$.ajax({
+		method: "POST",
+		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		data: $("#formgenericoinscripcion").serialize(),
+	}).done(function (response) {
+		if (response.ok == true) {
+			$("#datosInscripciones").html("");
+			nodos = document.getElementById("formgenericoinscripcion").childNodes;
+			for (var i = 0; i < nodos.length; i++) {
+				var item = nodos[i];
+				if (item.id != undefined) {
+					//  alert(item.id);
+				}
+			}
+			//alert(nodos);
+			for (var i = 0; i < response.resource.length; i++) {
+				var tr = construyeFila(response.resource[i]);
+				$("#datosInscripciones").append(tr);
+			}
 
-            setLang(idioma);
-        } else {
-            $("#mensajeError").removeClass();
-            $("#mensajeError").addClass(response.code);
-            $("#mensajeError").append(response.code);
-            $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
-            $("#imagenAviso").attr('src', "images/icons/error.png");
-            setLang(idioma);
-            $("#modal").attr('style', 'display: block');
-        }
+			setLang(idioma);
+		} else {
+			$("#mensajeError").removeClass();
+			$("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+			$("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+			$("#imagenAviso").attr('src', "images/icons/error.png");
+			setLang(idioma);
+			$("#modal").attr('style', 'display: block');
+		}
 
-        deleteActionController();
+		deleteActionController();
 
-    });
-
+	});
 }
-
 
 //SHOWS
 
@@ -457,9 +455,9 @@ function showBuscarInscripcion() {
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
-    $("#divformgenericoinscripcion").attr('action', 'javascript:buscarActividad();');
+    $("#divformgenericoinscripcion").attr('action', 'javascript:buscarInscripcion();');
     $("#divformgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
-
+/*
     // eliminar input no necesario
     $("#labeltxtdocumentopago").attr('style', 'display:none');
     $("#txtdocumentopago").attr('style', 'display:none');
@@ -478,13 +476,29 @@ function showBuscarInscripcion() {
     $("#txtfechapagoinscripcion").attr('disabled', false);
     $("#txtfechaaceptacioninscripcion").attr('disabled', false);
 
-    //cambiar icono submit
-    $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
-
     // rellenamos los onblur de los input que se validad
     $("#dni_usuario").attr('onblur', 'comprobarDNI();');
     //-------------------$("#txtfechasolicitudinscripcion").attr('onblur', 'comprobarFecha();');
     //-------------------$("#txtdocumentopago").attr('onblur', 'comprobarDocumento();');
     //-------------------$("#txtfechapagoinscripcion").attr('onblur', 'comprobarFecha();');
     //-------------------$("#txtfechaaceptacioninscripcion").attr('onblur', 'comprobarFecha();');
-}
+*/}
+
+/*function showBuscarInscripcion() {
+
+	// se resetea todo el formulario generico
+	resetearformularioinscripcion();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoInscripcion").attr('style', 'display: ');
+	$("#formgenericoInscripcion").attr('action', 'javascript:buscarInscripcion();');
+	$("#formgenericoInscripcion").attr('onsubmit', 'comprobareditsubmit();');
+
+	//Se pone el titulo de la acción buscar
+	//document.getElementById('tituloAccion').innerHTML = "Buscar Inscripcion";
+	//document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
+
+	// rellenamos los onblur de los input que se validad
+	//$("#id_inscripcion").attr('onblur', 'comprobarIdInscripcion(\"id_inscripcion\");');
+	//$("#nombre_inscripcion").attr('onblur', 'comprobarNombreInscripcion();');
+}*/
