@@ -875,3 +875,81 @@ function comprobarId(idcampo, idError) {
     validacionOK(idcampo, idError);
     return true;
 }
+
+function comprobarNombre(idcampo,idError) {
+    var linea = document.getElementById(idcampo);
+    var data = linea.value;
+    var patron = /^[a-zA-ZáéíóúñÑ\s]+$/;
+
+    //Si es vacio 
+    if (data.length == 0) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: El campo nombre no puede estar vacio");
+        return false;
+    }
+
+    //Si menor que 3 caracteres
+    if (data.length < 4) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: El campo nombre debe tener mas de 3 caracteres"); //"al menos 4 caracteres" quedaria mejor
+        return false;
+    }
+
+    //si mas de 45 caracteres
+    if (data.length > 45) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: El campo nombre no puede  tener mas de 11 caracteres");
+        return false;
+    }
+
+    //Si contiene espacios o letras
+    if (!patron.test(data)) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: El campo nombre no puede contener numeros,signos de puntuacion o simbolos");
+        return false;
+    }
+
+    validacionOK(idcampo, idError);
+    return true;
+}
+
+
+function comprobarDescripcion(idcampo,idError) {
+
+    var linea = document.getElementById(idcampo);
+    var data = linea.value;
+    var patron = /^[a-zA-ZáéíóúñÑ\s]+$/;
+
+    //Si es vacio 
+    if (data.length == 0) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: La descripción no puede estar vacia");
+        return false;
+    }
+
+    //Si menor que 20 caracteres
+    if (data.length < 19) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: La descripción debe de tener mas  de 20 caracteres");
+        return false;
+    }
+
+    //si mas de 45 caracteres
+    if (data.length > 201) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: La descripción no puede  tener mas de 200 caracteres");
+        return false;
+    }
+
+    //Si contiene espacios o letras
+    if (!patron.test(data)) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: La descripción no puede contener numeros,signos de puntuacion o simbolos");
+        return false;
+    }
+
+
+
+    validacionOK(idcampo, idError);
+    return true;
+}
