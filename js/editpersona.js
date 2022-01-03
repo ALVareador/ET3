@@ -91,8 +91,8 @@ function editPersona() {
     var idSession = getCookie('sessionId');
 
     //insertacampo(document.formgenericoPersona,'ID_SESSION', idSession);
-    insertacampo(document.formgenericopersona, 'ID_SESSION', idSession);
-    addActionControler(document.formgenericopersona, "edit", "persona");
+    insertacampo(document.formgenericoPersona, 'ID_SESSION', idSession);
+    addActionControler(document.formgenericoPersona, "edit", "persona");
 
     $("#dni_persona").attr("disabled", false);
     $("#txtfoto_persona").attr("disabled", false);
@@ -134,8 +134,8 @@ function deletePersona() {
 
     var idSession = getCookie('sessionId');
 
-    insertacampo(document.formgenericopersona, 'ID_SESSION', idSession);
-    addActionControler(document.formgenericopersona, "delete", "persona");
+    insertacampo(document.formgenericoPersona, 'ID_SESSION', idSession);
+    addActionControler(document.formgenericoPersona, "delete", "persona");
 
     $("#dni_persona").attr("disabled", false);
 
