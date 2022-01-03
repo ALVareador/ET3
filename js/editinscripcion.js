@@ -146,45 +146,51 @@ function deleteinscripcion() {
 
 function buscarInscripcion() {
 
+    console.log("GetLisCategorias -> GetLisCategorias triggered");
+
 	var idioma = getCookie('lang');
 	var idSession = getCookie('sessionId');
+	console.log("GetLisCategorias -> formulario oculto  construyendose");
 	addActionControler(document.formgenericoinscripcion, 'search', 'inscripcion')
 	insertacampo(document.formgenericoinscripcion, 'ID_SESSION', idSession);
 
-	$.ajax({
-		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
-		data: $("#formgenericoinscripcion").serialize(),
-	}).done(function (response) {
-		if (response.ok == true) {
-			$("#datosInscripcion").html("");
-			nodos = document.getElementById("formgenericoinscripcion").childNodes;
-			for (var i = 0; i < nodos.length; i++) {
-				var item = nodos[i];
-				if (item.id != undefined) {
-					//  alert(item.id);
-				}
-			}
-			//alert(nodos);
-			for (var i = 0; i < response.resource.length; i++) {
-				var tr = construyeFila(response.resource[i]);
-				$("#datosInscripcion").append(tr);
-			}
+	console.log("GetLisCategorias ->formulario oculto  construido");
+	console.log(document.formgenericoinscripcion);
 
-			setLang(idioma);
-		} else {
-			$("#mensajeError").removeClass();
-			$("#mensajeError").addClass(response.code);
-			$("#mensajeError").append(response.code);
-			$("#cerrar").attr('onclick', "cerrar('modal', '', '')");
-			$("#imagenAviso").attr('src', "images/icons/error.png");
-			setLang(idioma);
-			$("#modal").attr('style', 'display: block');
-		}
+    $.ajax({
+        method: "POST",
+        url: "http://193.147.87.202/ET3_IU/noRest.php",
+        data: $("#formgenericoinscripcion").serialize(),
+    }).done(function (response) {
+        if (response.ok == true) {
+            $("#datosInscripcion").html("");
+            nodos = document.getElementById("formgenericoinscripcion").childNodes;
+            for (var i = 0; i < nodos.length; i++) {
+                var item = nodos[i];
+                if (item.id != undefined) {
+                    //  alert(item.id);
+                }
+            }
+            //alert(nodos);
+            for (var i = 0; i < response.resource.length; i++) {
+                var tr = construyeFila(response.resource[i]);
+                $("#datosInscripcion").append(tr);
+            }
 
-		deleteActionController();
+            setLang(idioma);
+        } else {
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);
+            $("#mensajeError").append(response.code);
+            $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+            $("#imagenAviso").attr('src', "images/icons/error.png");
+            setLang(idioma);
+            $("#modal").attr('style', 'display: block');
+        }
 
-	});
+        deleteActionController();
+
+    });
 
 }
 
@@ -209,9 +215,9 @@ function showAddInscripcion() {
     //-------------------$("#txtfechaaceptacioninscripcion").attr('onblur', 'comprobarFecha();');
 
     // eliminar input no necesario
-	$("#labeltxtdocumentopago").attr('style', 'display:none');
-	$("#txtdocumentopago").attr('style', 'display:none');
-	$("#txtdocumentopago").attr('disabled', true);
+    $("#labeltxtdocumentopago").attr('style', 'display:none');
+    $("#txtdocumentopago").attr('style', 'display:none');
+    $("#txtdocumentopago").attr('disabled', true);
 
     //cambiar icono submit
     $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
@@ -243,7 +249,11 @@ function showDetalleInscripcion(id, id_actividad, id, fecha_solicitud_inscripcio
     //rellenamos los tipo text
     $("#txtidInscripcion").val(id);
     $("#id_actividad").val(id_actividad);
-    $("#dni_usuario").val(id);
+    for (var j = 0; j < ArrayDNI.length; j++) {
+        if (ArrayDNI[j]['id'] == id) {
+            $("#dni_usuario").val(ArrayDNI[j]['dni_usuario']);
+        }
+    }
     $("#txtfechasolicitudinscripcion").val(fecha_solicitud_inscripcion);
     $("#txtdocumentopago").val(documento_pago);
     $("#txtfechapagoinscripcion").val(fecha_pago_inscripcion);
@@ -288,7 +298,11 @@ function showEditarInscripcion(id, id_actividad, id, fecha_solicitud_inscripcion
     //rellenamos los tipo text
     $("#txtidInscripcion").val(id);
     $("#id_actividad").val(id_actividad);
-    $("#dni_usuario").val(id);
+    for (var j = 0; j < ArrayDNI.length; j++) {
+        if (ArrayDNI[j]['id'] == id) {
+            $("#dni_usuario").val(ArrayDNI[j]['dni_usuario']);
+        }
+    }
     $("#txtfechasolicitudinscripcion").val(fecha_solicitud_inscripcion);
     $("#txtdocumentopago").val(documento_pago);
     $("#txtfechapagoinscripcion").val(fecha_pago_inscripcion);
@@ -310,7 +324,6 @@ function showEditarInscripcion(id, id_actividad, id, fecha_solicitud_inscripcion
     $("#txtdocumentopago").attr('disabled', false);
     $("#txtfechapagoinscripcion").attr('disabled', false);
     $("#txtfechaaceptacioninscripcion").attr('disabled', false);
-
     //cambiar icono submit
     $("#iconoAcciones").attr('src', "./images/icons/editUser.png");
 
@@ -328,7 +341,11 @@ function showEliminarInscripcion(id, id_actividad, id, fecha_solicitud_inscripci
     //rellenamos los tipo text
     $("#txtidInscripcion").val(id);
     $("#id_actividad").val(id_actividad);
-    $("#dni_usuario").val(id);
+    for (var j = 0; j < ArrayDNI.length; j++) {
+        if (ArrayDNI[j]['id'] == id) {
+            $("#dni_usuario").val(ArrayDNI[j]['dni_usuario']);
+        }
+    }
     $("#txtfechasolicitudinscripcion").val(fecha_solicitud_inscripcion);
     $("#txtdocumentopago").val(documento_pago);
     $("#txtfechapagoinscripcion").val(fecha_pago_inscripcion);
@@ -391,9 +408,9 @@ function resetearformularioinscripcion(idformUsado) {
     $("#txtfechaaceptacioninscripcion").attr('onblur', '');
 
     $("#txtdocumentopago").attr('style', 'display:');
-	$("#enlacetxtdocumentopago").attr('style', 'display:none');
-	$("#labelsubetxtdocumentopago").attr('style', 'display:');
-	$("#subetxtdocumentopago").attr('style', 'display:');
+    $("#enlacetxtdocumentopago").attr('style', 'display:none');
+    $("#labelsubetxtdocumentopago").attr('style', 'display:');
+    $("#subetxtdocumentopago").attr('style', 'display:');
 
     document.getElementById('submitbuttom').style.visibility = 'visible';
     $("divformgenericoinscripcion").attr('style', 'display: none');
@@ -401,22 +418,22 @@ function resetearformularioinscripcion(idformUsado) {
 }
 
 //Rellena los desplegables de espacio s
-function rellenaId_actividad(id_inscripcion) { 
+function rellenaId_actividad(id_inscripcion) {
 
     var idSession = getCookie('sessionId');
 
-	addActionControler(document.formgenericoinscripcion, 'search', 'actividad')
+    addActionControler(document.formgenericoinscripcion, 'search', 'actividad')
 
     var idioma = getCookie('lang');
 
     $.ajax({
         method: "POST",
-          url: "http://193.147.87.202/ET3_IU/noRest.php",
-          data: $("#formgenericoinscripcion").serialize(),
-    }).done(function( response ) {
+        url: "http://193.147.87.202/ET3_IU/noRest.php",
+        data: $("#formgenericoinscripcion").serialize(),
+    }).done(function (response) {
         if (response.ok == true) {
             // Rellenamos el selector.
-            addOptions('id_actividad',response.resource,'id_actividad','nombre_actividad');
+            addOptions('id_actividad', response.resource, 'id_actividad', 'nombre_actividad');
 
             //Pone como selected el argumento pasado como parámetro
             $("#id_actividad option[value='" + id_actividad + "']").attr("selected", true);
@@ -424,39 +441,7 @@ function rellenaId_actividad(id_inscripcion) {
         } else {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
-			$("#mensajeError").append(response.code);
-            setLang(idioma);
-            document.getElementById("modal").style.display = "block";
-        }
-
-        deleteActionController();
-    });
-}
-
-function rellenaId_usuario(id_inscripcion) { 
-
-    var idSession = getCookie('sessionId');
-
-	addActionControler(document.formgenericoinscripcion, 'search', 'usuario')
-
-    var idioma = getCookie('lang');
-
-    $.ajax({
-        method: "POST",
-          url: "http://193.147.87.202/ET3_IU/noRest.php",
-          data: $("#formgenericoinscripcion").serialize(),
-    }).done(function( response ) {
-        if (response.ok == true) {
-            // Rellenamos el selector.
-            addOptions('id',response.resource,'id','dni_usuario');
-
-            //Pone como selected el argumento pasado como parámetro
-            $("#id option[value='" + id + "']").attr("selected", true);
-
-        } else {
-            $("#mensajeError").removeClass();
-            $("#mensajeError").addClass(response.code);
-			$("#mensajeError").append(response.code);
+            $("#mensajeError").append(response.code);
             setLang(idioma);
             document.getElementById("modal").style.display = "block";
         }
@@ -467,18 +452,18 @@ function rellenaId_usuario(id_inscripcion) {
 
 function showBuscarInscripcion() {
 
-	// se resetea todo el formulario generico
-	resetearformularioinscripcion();
+    // se resetea todo el formulario generico
+    resetearformularioinscripcion();
 
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoinscripcion").attr('style', 'display: block');
-	$("#divformgenericoinscripcion").attr('action', 'javascript:buscarActividad();');
-	$("#divformgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericoinscripcion").attr('style', 'display: block');
+    $("#divformgenericoinscripcion").attr('action', 'javascript:buscarActividad();');
+    $("#divformgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
 
-	// eliminar input no necesario
-	$("#labeltxtdocumentopago").attr('style', 'display:none');
-	$("#txtdocumentopago").attr('style', 'display:none');
-	$("#txtdocumentopago").attr('disabled', true);
+    // eliminar input no necesario
+    $("#labeltxtdocumentopago").attr('style', 'display:none');
+    $("#txtdocumentopago").attr('style', 'display:none');
+    $("#txtdocumentopago").attr('disabled', true);
 
     //cambiar icono submit
     $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
@@ -496,8 +481,8 @@ function showBuscarInscripcion() {
     //cambiar icono submit
     $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
 
-	// rellenamos los onblur de los input que se validad
-	$("#dni_usuario").attr('onblur', 'comprobarDNI();');
+    // rellenamos los onblur de los input que se validad
+    $("#dni_usuario").attr('onblur', 'comprobarDNI();');
     //-------------------$("#txtfechasolicitudinscripcion").attr('onblur', 'comprobarFecha();');
     //-------------------$("#txtdocumentopago").attr('onblur', 'comprobarDocumento();');
     //-------------------$("#txtfechapagoinscripcion").attr('onblur', 'comprobarFecha();');
