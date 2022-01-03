@@ -164,56 +164,25 @@ function comprobareditsubmit() {
 	}
 }
 
+function detalleusuario() {
+
+    var idioma = getCookie('lang');
+    resetearformulariopersona();
+    GetLisPersonas()
+    setLang(idioma);
+}
+
 function showDetalleUsuario(id_usuario, dni_usuario, usuario, id_grupo, borrado_usuario) {
 
-	$("#formgenericoUsuario").remove();
-	$("#botoncerrar").remove();
-
-	label = "<div id='botoncerrar'><a onclick = \"cerrar('divgenericoUsuario','','');\"><img src = './images/icons/close.png' width='50px'></a></div>";
-	$('#divgenericoUsuario').append(label);
-	$('#divgenericoUsuario').attr('style', 'display: block');
-	$('#divgenericoUsuario').attr('style', 'border: 1px solid black');
-
-	crearformvisible('formgenericoUsuario', 'none');
-	$('#formgenericoUsuario').attr('style', 'display: block');
-
-	form = document.getElementById('formgenericoUsuario');
-
-	label = "<label class='id_usuario'></label>";
-	$("#formgenericoUsuario").append(label);
-	insertacampovisible(form, 'blid_usuario', id_usuario);
-	$("#blid_usuario").attr('disabled', true);
-	$("#formgenericoUsuario").append('<br>');
-
-	label = "<label class='dni_usuario'></label>";
-	$("#formgenericoUsuario").append(label);
-	insertacampovisible(form, 'bldni_usuario', dni_usuario);
-	$("#bldni_usuario").attr('disabled', true);
-	$("#formgenericoUsuario").append('<br>');
-
-	label = "<label class='usuario'></label>";
-	$("#formgenericoUsuario").append(label);
-	insertacampovisible(form, 'blusuario', usuario);
-	$("#blusuario").attr('disabled', true);
-	$("#formgenericoUsuario").append('<br>');
-
-	label = "<label class='id_grupo'></label>"+
-			"<select name='id_grupo' id='id_grupo' ></select><br>"+
-            "<label class='borrado_usuario'></label>"+
-            "<select name='borrado_usuario' id='borrado_usuario' >"+
-            "       <option value='0'>Si</option>"+
-            "       <option value='1'>No</option>"+
-            "</select><br>";
-
-	$("#formgenericoUsuario").append(label);
-
+	$("#divformgenericoUsuario").attr('style', 'display:');
+    $("#formgenericoUusario").attr('action', 'javascript:detalleusuario();');
+	
+	$("#dni_usuario").val(dni_usuario);
+	$("#usuario").val(usuario);
+	$("#contrasena").val(contrasena);
+	
 	deleteoptionsSelect("id_grupo");
 	rellenaid_grupo(id_grupo, borrado_usuario);
-	
-	$("#id_grupo").attr('disabled', true);
-	$("#borrado_usuario").attr('disabled', true);
-
-	$("#divgenericoUsuario").append(formgenericoUsuario);
 
 	setLang('');
 
