@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="tick.svg"
+   inkscape:export-filename="G:\Mi unidad\IU ET1\iconos\cerrados\tick.png"
+   inkscape:export-xdpi="768"
+   inkscape:export-ydpi="768"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="32"
+     inkscape:cx="7.140625"
+     inkscape:cy="9.234375"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="1144"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-global="false"
+     inkscape:snap-bbox-edge-midpoints="true" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="Capa 3"
+     style="display:none">
+    <rect
+       style="display:inline;fill:#999999;fill-opacity:1;stroke:none;stroke-width:0.400001;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect4134-1"
+       width="15.225705"
+       height="13.164052"
+       x="0.42245519"
+       y="1.51561" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Capa 2"
+     style="display:inline">
+    <rect
+       style="fill:#b3b3b3;stroke:#000000;stroke-width:0.4;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect4134"
+       width="15.599999"
+       height="12.6"
+       x="0.2"
+       y="1.8704144" />
+  </g>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline">
+    <path
+       id="rect5177"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 12.469853,2.7170751 6.3331348,9.855747 3.6436816,7.5256689 1.7354785,9.7268408 l 2.6972656,2.3378912 -0.00586,0.0078 2.0488281,1.761719 1.9082031,-2.199219 -0.00977,-0.0078 6.1464837,-7.1484381 z" />
+    <path
+       id="rect5177-5"
+       style="display:inline;fill:#ececec;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 12.344871,2.2024031 6.208152,9.3410749 3.5186989,7.0109969 1.6104958,9.2121688 l 2.6972656,2.3378902 -0.00586,0.0078 2.0488281,1.761719 1.9082032,-2.199219 -0.00977,-0.0078 6.1464843,-7.1484371 z" />
+  </g>
+</svg>

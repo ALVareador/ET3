@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="responsable.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="23.422912"
+     inkscape:cx="2.1773552"
+     inkscape:cy="7.6634365"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-global="true" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path31"
+       cx="8.2108727"
+       cy="3.8548648"
+       rx="3.5769229"
+       ry="3.4335425" />
+    <path
+       id="path55"
+       style="fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 8.2108721,7.7061003 A 5.1917474,13.894805 0 0 0 3.4926585,15.819848 H 12.929086 A 5.1917474,13.894805 0 0 0 8.2108721,7.7061003 Z" />
+    <rect
+       style="fill:#999999;stroke:#000000;stroke-width:0.574921;paint-order:stroke fill markers"
+       id="rect907"
+       width="0.61359882"
+       height="0.61359882"
+       x="14.371975"
+       y="-5.3733406"
+       transform="matrix(0.415839,0.90943825,-0.415839,0.90943825,0,0)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 8.2108723,9.2997627 v 0 l 0.8754717,4.1207553 -0.9207547,1.49434 -0.9207548,-1.49434 z"
+       id="path1044"
+       sodipodi:nodetypes="cccccc" />
+  </g>
+</svg>

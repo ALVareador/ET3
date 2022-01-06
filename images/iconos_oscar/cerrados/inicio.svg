@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="inicio.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="23.422912"
+     inkscape:cx="10.438497"
+     inkscape:cy="6.8949582"
+     inkscape:window-width="1152"
+     inkscape:window-height="811"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect1808"
+       style="fill:#999999;stroke:#000000;stroke-width:0.3;paint-order:stroke fill markers"
+       d="M 7.9989241,0.46240324 0.60863132,7.0393399 H 3.3727627 V 15.450787 H 12.625086 V 7.0393399 h 2.761818 z" />
+    <rect
+       style="fill:#999999;stroke:#000000;stroke-width:0.3;paint-order:stroke fill markers"
+       id="rect1936"
+       width="1.7876186"
+       height="1.7878492"
+       x="4.9065709"
+       y="8.2622614" />
+    <rect
+       style="fill:#999999;stroke:#000000;stroke-width:0.3;paint-order:stroke fill markers"
+       id="rect1936-0"
+       width="1.7876186"
+       height="1.7878492"
+       x="9.3029957"
+       y="8.2622614" />
+    <rect
+       style="fill:#999999;stroke:#000000;stroke-width:0.3;paint-order:stroke fill markers"
+       id="rect2064"
+       width="1.8948755"
+       height="3.0393436"
+       x="7.0190935"
+       y="12.412284" />
+  </g>
+</svg>

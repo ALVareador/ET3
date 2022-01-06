@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="login.svg"
+   inkscape:export-filename="G:\Mi unidad\IU ET1\iconos\cerrados\login.png"
+   inkscape:export-xdpi="768"
+   inkscape:export-ydpi="768"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#c3c3c3"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="16"
+     inkscape:cx="1.8125"
+     inkscape:cy="6.21875"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="1144"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-bbox="true"
+     inkscape:bbox-paths="false"
+     inkscape:object-nodes="false"
+     inkscape:snap-others="false"
+     inkscape:snap-nodes="true"
+     inkscape:bbox-nodes="false"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-object-midpoints="false"
+     inkscape:snap-midpoints="false"
+     inkscape:snap-smooth-nodes="false"
+     inkscape:snap-intersection-paths="false"
+     inkscape:object-paths="false" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Capa 2" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#b3b3b3;stroke:#000000;stroke-width:0.5;paint-order:stroke fill markers"
+       id="rect889"
+       width="15.5"
+       height="15.5"
+       x="0.25"
+       y="0.25" />
+    <path
+       id="rect32"
+       style="fill:none;stroke:#000000;stroke-width:0.399999;paint-order:stroke fill markers"
+       d="M 8.1851491,1.7986549 V 2.0994702 H 13.783901 V 14.359855 H 8.1851491 v 0.303736 H 13.935658 V 1.7986549 Z" />
+    <path
+       id="path1762"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.0999997;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       inkscape:transform-center-x="-0.69913479"
+       inkscape:transform-center-y="0.0020479406"
+       d="m 5.721837,5.9126189 0.00327,1.9103107 H 1.9677868 V 8.6393017 H 5.7267335 L 5.729998,10.549612 7.8306339,9.387098 9.9312696,8.2245846 7.8273695,7.0686017 Z" />
+  </g>
+</svg>

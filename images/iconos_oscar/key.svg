@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="key.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="32"
+     inkscape:cx="11.265625"
+     inkscape:cy="7.359375"
+     inkscape:window-width="1362"
+     inkscape:window-height="825"
+     inkscape:window-x="6"
+     inkscape:window-y="36"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
+     inkscape:snap-bbox="true"
+     inkscape:snap-intersection-paths="true"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:bbox-nodes="false"
+     inkscape:bbox-paths="false"
+     inkscape:snap-global="true" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path3560" />
+    </marker>
+    <linearGradient
+       id="linearGradient3536"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3534" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Capa 2">
+    <path
+       id="rect2094"
+       style="fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#050505;stroke-width:0.399999;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       d="m 10.475146,4.3977955 c -0.08288,0.082982 -0.08156,0.220342 0.0046,0.3066486 l 0.55879,0.5594908 0.247884,0.2481953 1.627351,1.6293939 c 0.0862,0.086306 0.223387,0.087629 0.306265,0.00465 l 0.67865,-0.6795017 c 0.08287,-0.082981 0.08021,-0.2189914 -0.006,-0.3052999 L 12.420839,4.6876236 a 0.56669912,0.54485841 45.914969 0 1 -0.01543,-0.7866279 0.56669912,0.54485841 45.914969 0 1 0.785642,0.015448 l 1.471899,1.4737465 c 0.0862,0.086306 0.222035,0.088982 0.304919,0.00599 l 0.678648,-0.6795008 c 0.08288,-0.082982 0.08021,-0.2189924 -0.006,-0.3053008 L 14.028583,2.7974144 c -0.0047,-0.00575 -0.01,-0.01003 -0.0154,-0.015424 L 13.765294,2.5337947 c -0.0054,-0.00539 -0.0096,-0.010679 -0.0154,-0.015424 l -0.54339,-0.5440668 c -0.0862,-0.086307 -0.222035,-0.088981 -0.304917,-0.00599 z" />
+  </g>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#b3b3b3;stroke:#050505;stroke-width:0.4;stroke-miterlimit:4.8;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect1864"
+       width="10.371572"
+       height="1.3171806"
+       x="-2.4224703"
+       y="9.8067331"
+       ry="0.1540837"
+       transform="matrix(0.70666312,-0.70755016,0.70666312,0.70755016,0,0)"
+       rx="0.1540837" />
+    <ellipse
+       style="fill:none;stroke:#050505;stroke-width:1;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="path2409"
+       cx="-5.1865501"
+       cy="10.450007"
+       rx="3.0630217"
+       ry="3.1857395"
+       transform="matrix(0.70666312,-0.70755016,0.70666312,0.70755016,0,0)" />
+    <rect
+       style="fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.4;stroke-linejoin:miter;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect4848"
+       width="3.8585813"
+       height="1.0107251"
+       x="4.0905209"
+       y="10.51946"
+       ry="0.065946765"
+       transform="matrix(0.70666312,-0.70755016,0.70666312,0.70755016,0,0)"
+       rx="0.065946765" />
+  </g>
+</svg>

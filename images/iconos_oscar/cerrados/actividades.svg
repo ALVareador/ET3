@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="actividades.svg"
+   inkscape:export-filename="G:\Mi unidad\IU ET1\iconos\cerrados\actividades.png"
+   inkscape:export-xdpi="768"
+   inkscape:export-ydpi="768"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="22.627417"
+     inkscape:cx="2.0771262"
+     inkscape:cy="5.8115338"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-global="false" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="path843"
+       style="fill:#999999;stroke:#000000;stroke-width:0.3;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke fill markers"
+       d="M 8.0013655,0.15000008 A 7.849894,7.8498942 0 0 0 0.15039062,7.9990256 7.849894,7.8498942 0 0 0 8.0013655,15.85 7.849894,7.8498942 0 0 0 15.850391,7.9990256 7.849894,7.8498942 0 0 0 8.0013655,0.15000008 Z m 0,2.40188762 A 5.4478964,5.4478966 0 0 1 13.448503,7.9990256 5.4478964,5.4478966 0 0 1 8.0013655,13.448112 5.4478964,5.4478966 0 0 1 2.5522781,7.9990256 5.4478964,5.4478966 0 0 1 8.0013655,2.5518877 Z" />
+    <path
+       id="rect5177-5-8"
+       style="display:inline;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 13.215055,1.1710523 6.4447969,9.0514553 3.4776925,6.4792746 1.3724919,8.9091554 4.3482155,11.48996 l -0.00647,0.0086 2.2603432,1.944768 2.1052009,-2.427726 -0.01078,-0.0086 6.7810314,-7.8911825 z"
+       inkscape:export-filename="G:\Mi unidad\IU ET1\iconos\cerrados\actividades.png"
+       inkscape:export-xdpi="836.21765"
+       inkscape:export-ydpi="836.21765" />
+    <path
+       id="rect5177-5"
+       style="display:inline;fill:#b3b3b3;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 13.070711,0.75320266 6.3004538,8.6336056 3.3333494,6.0614249 1.2281488,8.4913058 l 2.9757236,2.5808052 -0.00647,0.0086 2.2603432,1.944768 2.1052006,-2.427726 -0.010778,-0.0086 L 15.3332,2.6979698 Z" />
+  </g>
+</svg>

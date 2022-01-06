@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   viewBox="0 0 16 16"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="opciones.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="23.422912"
+     inkscape:cx="-0.91790465"
+     inkscape:cy="5.784934"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="1144"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-global="true" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect3337"
+       style="fill:#ccaaff;stroke-width:0.399998;paint-order:stroke fill markers;stroke:#000000;stroke-opacity:1"
+       d="M 9.5879474,0.14600453 C 9.354083,0.06232922 9.0928675,0.18017009 9.0091997,0.41401192 L 7.6999757,4.073294 5.8822648,0.6425975 C 5.7659146,0.42316517 5.4911417,0.33893802 5.2717132,0.45529575 L 3.260562,1.5270074 C 3.0411146,1.6433765 2.9593804,1.9112246 3.0756931,2.1306431 L 4.6662525,5.1296046 1.4695602,3.9858876 C 1.2356958,3.902216 0.98138847,4.0224933 0.8977169,4.2563652 L 0.13194519,6.3966994 c -0.08368655,0.2338607 0.0367936,0.488176 0.27047024,0.5718467 L 3.8476633,8.2011921 0.53845024,9.7664176 C 0.31393442,9.8726204 0.21981048,10.135656 0.32602373,10.360188 l 0.97549497,2.062398 c 0.106213,0.224531 0.3692497,0.31864 0.593773,0.212441 l 3.299842,-1.560793 -1.230174,3.438343 c -0.083687,0.233861 0.043514,0.490648 0.2773784,0.574316 l 2.1403342,0.765772 c 0.2338644,0.08368 0.4881755,-0.03661 0.5718471,-0.270478 l 1.3116868,-3.666176 1.8221448,3.440071 c 0.11635,0.219432 0.391127,0.303648 0.610552,0.187301 l 2.008685,-1.064807 c 0.219447,-0.116365 0.303621,-0.391134 0.187346,-0.610538 l -1.590579,-2.998974 3.196694,1.143717 c 0.233864,0.08368 0.488176,-0.03661 0.571846,-0.270478 l 0.765773,-2.1403335 c 0.08369,-0.2338607 -0.03641,-0.4881697 -0.270471,-0.5718473 l -3.445256,-1.2326444 3.30921,-1.565228 c 0.224516,-0.1061983 0.318639,-0.3692383 0.212426,-0.59377 L 14.669093,3.5760819 C 14.56288,3.351551 14.299844,3.2574421 14.075324,3.3636441 L 10.766111,4.9288702 11.998756,1.4836233 C 12.082442,1.2497627 11.961962,0.99544107 11.728285,0.91177733 Z M 8.7486224,5.8659159 A 2.2668383,2.2668336 19.686263 0 1 10.118755,8.7626472 2.2668383,2.2668336 19.686263 0 1 7.2195495,10.139679 2.2668383,2.2668336 19.686263 0 1 5.8518952,7.2360451 2.2668383,2.2668336 19.686263 0 1 8.7486224,5.8659159 Z" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Capa 2" />
+</svg>
