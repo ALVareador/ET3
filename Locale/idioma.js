@@ -181,7 +181,7 @@ function setCalendarLang() {
                 'nextyear': 'Año Siguiente',
                 'prevmonth': 'Mes Anterior',
                 'nextmonth': 'Mes Siguiente',
-                'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
 
             break;
@@ -197,7 +197,7 @@ function setCalendarLang() {
                 'nextyear': 'Next Year',
                 'prevmonth': 'Previous Month',
                 'nextmonth': 'Next Month',
-                'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
 
             break;
@@ -213,7 +213,7 @@ function setCalendarLang() {
                 'nextyear': 'Ano Siguiente',
                 'prevmonth': 'Mes Anterior',
                 'nextmonth': 'Mes Seguiente',
-                'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
 
             break;
@@ -230,7 +230,7 @@ function setCalendarLang() {
                 'nextyear': 'Año Siguiente',
                 'prevmonth': 'Mes Anterior',
                 'nextmonth': 'Mes Siguiente',
-                'format': 'Y/m/d' // 'd-m-Y', Y-m-d', 'l, F jS Y'
+                'format': 'd/m/Y' // 'd-m-Y', Y-m-d', 'l, F jS Y'
             };
 
             break;
