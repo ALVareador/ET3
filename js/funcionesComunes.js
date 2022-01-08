@@ -11,20 +11,7 @@ function comprobarUser() {
         return false;
     }
 }
-/**Función que valida el responsable*/
-function comprobarResponsable() {
 
-    document.getElementById("txtdniresponsable").style.borderWidth = "2px";
-
-    if (validaNoVacio("txtdniresponsable", "errorFormatoResponsable", "dni") && comprobarLetrasNumeros("txtdniresponsable", 15, 3, "errorFormatoResponsable", "dni")) {
-        validacionOK("txtdniresponsable", "errorFormatoResponsable");
-        return true;
-    } else {
-        validacionKO("txtdniresponsable", "errorFormatoResponsable");
-        return false;
-    }
-
-}
 /** Comprueba el formato de la contraseña introduciendo 2 contraseñas iguales */
 function comprobarPasswordModificacion() {
 
@@ -94,15 +81,15 @@ function comprobarPasswordDistintas(idPasswordA, idPasswordB, idElementoError) {
 /*
 function comprobarDNI() {
 
-	document.getElementById("txtdniusuario").style.borderWidth = "2px";
+    document.getElementById("txtdniusuario").style.borderWidth = "2px";
 
-	if (validaNoVacio("txtdniusuario", "errorFormatoDNI", "dni") && validateDNI("txtdniusuario", "errorFormatoDNI")) {
-		validacionOK("txtdniusuario", "errorFormatoDNI");
-		return true;
-	} else {
-		validacionKO("txtdniusuario", "errorFormatoDNI");
-		return false;
-	}
+    if (validaNoVacio("txtdniusuario", "errorFormatoDNI", "dni") && validateDNI("txtdniusuario", "errorFormatoDNI")) {
+        validacionOK("txtdniusuario", "errorFormatoDNI");
+        return true;
+    } else {
+        validacionKO("txtdniusuario", "errorFormatoDNI");
+        return false;
+    }
 
 }*/
 /**
@@ -125,20 +112,6 @@ function comprobarDNI(id_Dni, id_elemento_error) {
         validacionKO(id_Dni, id_elemento_error);
         return false;
     }
-}
-/**Función que valida el dni*/
-function comprobarDNIResponsable() {
-
-    document.getElementById("txtdniresponsable").style.borderWidth = "2px";
-
-    if (validaNoVacio("txtdniresponsable", "errorFormatoDNI", "dni") && validateDNI("txtdniresponsable", "errorFormatoDNI")) {
-        validacionOK("txtdniresponsable", "errorFormatoDNI");
-        return true;
-    } else {
-        validacionKO("txtdniresponsable", "errorFormatoDNI");
-        return false;
-    }
-
 }
 
 /**Función que valida si un campo está vacío*/
@@ -184,6 +157,9 @@ function validaNoVacio(idElemento, idElementoError, campo) {
                 break;
             case 'email_persona':
                 codigo = 'error_email_vacio'
+                break;
+            case 'numCuenta_responsable':
+                codigo = 'error_cuenta_vacia'
                 break;
         }
         addCodeError(idElementoError, codigo);
@@ -290,6 +266,9 @@ function comprobarLetrasNumeros(idElemento, sizeMax, sizeMin, idElementoError, c
             case 'passLogin':
                 codigo = "02114"
                 break;
+                case 'numCuenta_responsable':
+                codigo = "error_cuenta_largo"
+                break;
         }
         addCodeError(idElementoError, codigo);
         return false;
@@ -300,6 +279,9 @@ function comprobarLetrasNumeros(idElemento, sizeMax, sizeMin, idElementoError, c
                 break;
             case 'passLogin':
                 codigo = "02113"
+                break;
+                case 'numCuenta_responsable':
+                codigo = "error_cuenta_corto"
                 break;
         }
         addCodeError(idElementoError, codigo);
@@ -377,7 +359,7 @@ function estaAutenticado() {
             method: "POST",
             url: "http://193.147.87.202/ET3_IU/noRest.php",
             data: $("#formularioAutenticacion").serialize(),
-        }).done(function(response) {
+        }).done(function (response) {
             if (response.ok == true) {
                 document.getElementById("usuario").innerHTML = response.resource[0].LOGIN_USUARIO;
             } else {
@@ -428,7 +410,7 @@ function desconecta() {
             method: "POST",
             url: "http://193.147.87.202/ET3_IU/noRest.php",
             data: $("#formularioDesconectar").serialize(),
-        }).done(function(response) {
+        }).done(function (response) {
             if (response.ok == true) {
                 window.location.href = 'login.html';
             }
@@ -505,7 +487,7 @@ function rellenaid_grupo(id, activo) {
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
         data: $("#formularioobtenergrupo").serialize(),
-    }).done(function(response) {
+    }).done(function (response) {
         if (response.ok == true) {
             addOptions('id_grupo', response.resource, "id_grupo", "nombre_grupo");
             console.log(response.resource)
@@ -523,15 +505,21 @@ function rellenaid_grupo(id, activo) {
 }
 
 /**Función que valida la el numero de cuenta*/
-function comprobarNumCuenta() {
+function comprobarNumCuenta(id, id_error) {
 
-    document.getElementById("txtnumcuentaresponsable").style.borderWidth = "2px";
+    document.getElementById(id).style.borderWidth = "2px";
 
-    if (validaNoVacio("txtnumcuentaresponsable", "errorFormatoPassword", "numCuenta_responsable") && comprobarLetrasNumeros("txtnumcuentaresponsable", 24, 24, "errorFormatoPassword", "numCuenta_responsable")) {
-        validacionOK("txtnumcuentaresponsable", "errorFormatoPassword");
+    if (validaNoVacio(id, id_error, id) && comprobarLetrasNumeros(id, 24, 24, id_error, id)) {
+        var patron = /[A-Z]{2}[0-9]{22}/;
+        if(!patron.test(document.getElementById(id).value)){
+            validacionKO(id, id_error);
+            addCodeError(id_error, 'error_cuenta_formato');
+        return false;
+        }
+        validacionOK(id, id_error);
         return true;
     } else {
-        validacionKO("txtnumcuentaresponsable", "errorFormatoPassword");
+        validacionKO(id, id_error);
         return false;
     }
 }
@@ -900,7 +888,7 @@ function comprobarId(idcampo, idError) {
     return true;
 }
 
-function comprobarNombre(idcampo,idError) {
+function comprobarNombre(idcampo, idError) {
     var linea = document.getElementById(idcampo);
     var data = linea.value;
     var patron = /^[a-zA-ZáéíóúñÑ\s]+$/;
@@ -938,7 +926,7 @@ function comprobarNombre(idcampo,idError) {
 }
 
 
-function comprobarDescripcion(idcampo,idError) {
+function comprobarDescripcion(idcampo, idError) {
 
     var linea = document.getElementById(idcampo);
     var data = linea.value;

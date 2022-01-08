@@ -128,6 +128,11 @@ arrayES = {
 	'error_fecha_vacia':'La fecha no puede estár vacía',
 	'error_menor_edad':'Debe ser mayor de edad.',
 	'error_fecha_nacimiento_negativa':'Cuando hayas nacido vuelve a intentarlo',
+
+	'error_cuenta_vacia': 'El número de cuenta no puede estár vacía',
+	'error_cuenta_corto': 'El número de cuenta no puede tener menos de 24 caracteres',
+	'error_cuenta_largo': 'El número de cuenta no puede tener más de 24 caracteres',
+	'error_cuenta_formato': 'El formato del numero de cuenta debe ser 2 letras seguido de 22 números',
 	
 	'error_formato_direccion_caracteres':'No admitidos caracteresque no sean alfanuméricos o º,ª,.,,',
 	'error_formato_direccion_corto':'La dirección debe tener más de 2 caracteres',
