@@ -2,7 +2,7 @@
 function comprobarLogin() {
 
 	if(comprobarUser() && comprobarPassword()) {
-	encriptar("txtPassword");
+	encriptar("contrasena");
 	generarSessionId();
 	return true;
 	} else {
@@ -29,7 +29,7 @@ function login() {
 		} else {
 			$("#mensajeError").removeClass();
 			$("#mensajeError").addClass(response.code);
-			let idElementoList = ["txtUsuario", "txtPassword"];
+			let idElementoList = ["txtUsuario", "contrasena"];
 			resetearFormulario("formularioLogin", idElementoList);
 			setLang(idioma);
 			document.getElementById("modal").style.display = "block";

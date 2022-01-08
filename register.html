@@ -32,7 +32,7 @@
 	<div id="menuIdioma"></div>
 
 	<form name="formularioRegistro" id="formularioRegistro" enctype="multipart/form-data" method="post"
-		action="javascript:registrarUsuario();" onsubmit="">
+		action="javascript:registrarUsuario();" onsubmit="comprobarRegistro();">
 
 		<div class="div_Input">
 			<label class='dni_usuario'></label>
@@ -55,7 +55,7 @@
 
 		<div class="div_Input">
 			<label class='fechaNacimiento_persona'></label>
-			<input type="text" name="date" id="fechaNacimiento_persona" class="tcal" readonly
+			<input type="text" name="fechaNacimiento_persona" id="fechaNacimiento_persona" class="tcal" readonly
 				onblur="return comprobarFechaDeNacimiento()" onchange="return comprobarFechaDeNacimiento()"
 				onclick="return comprobarFechaDeNacimiento()"> <br>
 		</div>
@@ -98,6 +98,17 @@
 		<div style="display:none" id=""></div>
 
 		<div class="div_Input">
+			<label class='borrado_persona'></label>
+			<select name="borrado_persona" id="borrado_persona" onchange="">
+				<option value="" class="seleccionNula"></option>
+				<option value="1" class="SI">1</option>
+				<option value="0" class="NO">0</option>
+			</select>
+			<br>
+		</div>
+		<div style="display:none" id=""></div>
+
+		<div class="div_Input">
 			<label class='usuario'></label>
 			<input type="text" name="usuario" id="txtUsuario" onblur="return comprobarUser()"> <br>
 		</div>
@@ -105,9 +116,9 @@
 
 		<div class="div_Input">
 			<label class='contrasena'></label>
-			<input type="password" id="txtPassword" onblur="return comprobarPasswordModificacion()"> <br>
+			<input type="password" name= "contrasena" id="contrasena" onblur=""> <br>
 			<label class='repetir_contrasena'></label>
-			<input type="password" id="txtPasswordRepetida" onblur="return comprobarPasswordModificacion()"> <br>
+			<input type="password" id="contrasenaRepetida" onblur=""> <br>
 		</div>
 		<div style="display:none" id="errorFormatoPassword"></div>
 

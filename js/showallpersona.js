@@ -73,3 +73,15 @@ $("#modal").attr('style', 'display: block');
 deleteActionController();
 });
 }
+
+function comprobarPersona() {
+
+    if(comprobarDNI("dni_persona","errorFormatoDni") && comprobarPass()) {
+        encriptar("contrasena");
+        generarSessionId();
+        return true;
+    } else {
+        return false;
+    }
+
+}

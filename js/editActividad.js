@@ -157,8 +157,6 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
     resetearformularioActividad()
     hideDivTablaActividades();
 
-
-    
     // se resetea todo el formulario generico
 
 

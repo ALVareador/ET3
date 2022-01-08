@@ -28,15 +28,15 @@ function comprobarResponsable() {
 /** Comprueba el formato de la contraseña introduciendo 2 contraseñas iguales */
 function comprobarPasswordModificacion() {
 
-    document.getElementById("txtPassword").style.borderWidth = "2px";
+    document.getElementById("contrasena").style.borderWidth = "2px";
 
-    if (validaNoVacio("txtPassword", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("txtPassword", 16, 3, "errorFormatoPassword", "passLogin") &&
-        comprobarPasswordIguales("txtPassword", "txtPasswordRepetida", "errorFormatoPassword")) {
-        validacionOK("txtPassword", "errorFormatoPassword");
-        validacionOK("txtPasswordRepetida", "errorFormatoPassword");
+    if (validaNoVacio("contrasena", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("contrasena", 16, 3, "errorFormatoPassword", "passLogin")/* &&
+        /*comprobarPasswordIguales("contrasena", "contrasenaRepetida", "errorFormatoPassword")*/) {
+        validacionOK("contrasena", "errorFormatoPassword");
+        validacionOK("contrasena", "errorFormatoPassword");
         return true;
     } else {
-        validacionKO("txtPassword", "errorFormatoPassword");
+        validacionKO("contrasena", "errorFormatoPassword");
         return false;
     }
 
@@ -45,13 +45,13 @@ function comprobarPasswordModificacion() {
 /**Función que valida la contraseña*/
 function comprobarPassword() {
 
-    document.getElementById("txtPassword").style.borderWidth = "2px";
+    document.getElementById("contrasena").style.borderWidth = "2px";
 
-    if (validaNoVacio("txtPassword", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("txtPassword", 16, 3, "errorFormatoPassword", "passLogin")) {
-        validacionOK("txtPassword", "errorFormatoPassword");
+    if (validaNoVacio("contrasena", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("contrasena", 16, 3, "errorFormatoPassword", "passLogin")) {
+        validacionOK("contrasena", "errorFormatoPassword");
         return true;
     } else {
-        validacionKO("txtPassword", "errorFormatoPassword");
+        validacionKO("contrasena", "errorFormatoPassword");
         return false;
     }
 
@@ -59,7 +59,7 @@ function comprobarPassword() {
 /**Controla que las 2 contraseñas sean la misma. */
 function comprobarPasswordIguales(idPasswordA, idPasswordB, idElementoError) {
     if (document.getElementById(idPasswordA).value !== document.getElementById(idPasswordB).value) {
-        addCodeError(idElementoError, 'error_password_disintas');
+        addCodeError(idElementoError, 'error_password_distintas');
         return false;
     } else {
         return true;
@@ -443,7 +443,7 @@ function cerrar(idElemento, accion, operacion) {
     if (accion != 'add' && accion != 'edit' && accion != 'delete' && accion != 'detail') {
         //eliminarContenidoSelect();
     } else {
-        let campos = ["txtNombre", "txtEmail", "txtUsuario", "txtPassword", "admin", "activo"];
+        let campos = ["txtNombre", "txtEmail", "txtUsuario", "contrasena", "admin", "activo"];
         habilitaCampos(campos);
         resetearFormulario("formularioGenerico", campos);
     }
@@ -577,7 +577,7 @@ function comprobarFechaDeNacimiento() {
 
     document.getElementById("fechaNacimiento_persona").style.borderWidth = "2px";
 
-    if (validaNoVacio("fechaNacimiento_persona", "errorFormatoFechaNacimiento", "fecha") && comprobarMayorEdad("fechaNacimiento_persona", "errorFormatoFechaNacimiento")) {
+    if (validaNoVacio("fechaNacimiento_persona", "errorFormatoFechaNacimiento", "fecha")) {
         validacionOK("fechaNacimiento_persona", "errorFormatoFechaNacimiento");
         return true;
     } else {

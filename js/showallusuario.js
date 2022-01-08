@@ -25,6 +25,7 @@ function construyeFila(fila) {
                     '</td> </tr>';
     
         return filaTabla;
+        console.log(resource.response);
     }
     
 ArrayGrupos = null;

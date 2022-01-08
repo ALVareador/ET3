@@ -1,3 +1,14 @@
+function comprobarRegistro() {
+
+    if(comprobarDNI('txtdniusuario', 'errorFormatoDNI') && comprobarNombrePersona() && comprobarApellido() && comprobarFechaDeNacimiento() && comprobarDireccion() && comprobarTelefono() && comprobarEmail() && comprobarUser() && comprobarPasswordModificacion()) {
+        encriptar("contrasena");
+        generarSessionId();
+        return true;
+    } else {
+        return false;
+    }
+
+}
 function registrarUsuario() {
 
 	var idSession = getCookie('sessionId');
@@ -12,7 +23,8 @@ function registrarUsuario() {
     var datos = new FormData();
     datos.append("upload", file);
     datos.append("formulario", formdata);
-	console.log(datos);
+	
+	console.log(document.getElementById("contrasena").value)
 
 	$.ajax({
 		method: "POST",
@@ -27,7 +39,7 @@ function registrarUsuario() {
 		} else {
 			respuestaKOAjax('add');
 		}
-
+		
 		actualizaMensajesRespuestAjax(response.code);
 
 		deleteActionController();

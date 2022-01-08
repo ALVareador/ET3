@@ -276,9 +276,10 @@ function showBuscarGrupo() {
 	document.getElementById('tituloAccion').innerHTML = "Buscar Grupo";
 	document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
 
-	// rellenamos los onblur de los input que se validad
+	/*// rellenamos los onblur de los input que se validad
 	$("#id_grupo").attr('onblur', 'comprobarIdGrupo(\"id_grupo\");');
 	$("#nombre_grupo").attr('onblur', 'comprobarNombreGrupo();');
+	*/
 }
 
 function resetearformulariogrupo(idformUsado) {

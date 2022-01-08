@@ -175,7 +175,7 @@ function detalleusuario() {
 function showDetalleUsuario(id_usuario, dni_usuario, usuario, id_grupo, borrado_usuario) {
 
 	$("#divformgenericoUsuario").attr('style', 'display:');
-    $("#formgenericoUusario").attr('action', 'javascript:detalleusuario();');
+    $("#formgenericoUsuario").attr('action', 'javascript:detalleusuario();');
 	
 	$("#dni_usuario").val(dni_usuario);
 	$("#usuario").val(usuario);
@@ -183,7 +183,7 @@ function showDetalleUsuario(id_usuario, dni_usuario, usuario, id_grupo, borrado_
 	
 	deleteoptionsSelect("id_grupo");
 	rellenaid_grupo(id_grupo, borrado_usuario);
-
+	
 	setLang('');
 
 }
