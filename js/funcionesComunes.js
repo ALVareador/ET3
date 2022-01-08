@@ -589,7 +589,7 @@ function comprobarFechaDeNacimiento() {
 
     document.getElementById("fechaNacimiento_persona").style.borderWidth = "2px";
 
-    if (validaNoVacio("fechaNacimiento_persona", "errorFormatoFechaNacimiento", "fecha")) {
+    if (validaNoVacio("fechaNacimiento_persona", "errorFormatoFechaNacimiento", "fecha") && comprobarMayorEdad("fechaNacimiento_persona", "errorFormatoFechaNacimiento")) {
         validacionOK("fechaNacimiento_persona", "errorFormatoFechaNacimiento");
         return true;
     } else {
@@ -646,9 +646,9 @@ function comprobarMayorEdad(idElemento, idElementoError) {
     fecha_nacimiento = document.getElementById(idElemento).value;
 
     var valores = fecha_nacimiento.split("/");
-    var dia_nacimiento = parseInt(valores[2]);
+    var dia_nacimiento = parseInt(valores[0]);
     var mes_nacimiento = parseInt(valores[1]);
-    var anho_nacimiento = parseInt(valores[0]);
+    var anho_nacimiento = parseInt(valores[2]);
 
     var fecha_actual = new Date();
     var dia_actual = fecha_actual.getDate();
