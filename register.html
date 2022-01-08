@@ -25,12 +25,12 @@
 	<!--Recursos del calendario fin-->
 </head>
 
-<title>Registro</title>
+<title class="saludoREGISTRO"></title>
 
 <body onload="includeMenuIdioma();setLang('');">
 
 	<div id="menuIdioma"></div>
-
+	<h1 class='saludoREGISTRO'></h1>
 	<form name="formularioRegistro" id="formularioRegistro" enctype="multipart/form-data" method="post"
 		action="javascript:registrarUsuario();" onsubmit="comprobarRegistro();">
 
@@ -116,7 +116,7 @@
 
 		<div class="div_Input">
 			<label class='contrasena'></label>
-			<input type="password" name= "contrasena" id="contrasena" onblur=""> <br>
+			<input type="password" name="contrasena" id="contrasena" onblur=""> <br>
 			<label class='repetir_contrasena'></label>
 			<input type="password" id="contrasenaRepetida" onblur=""> <br>
 		</div>

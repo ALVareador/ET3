@@ -19,7 +19,7 @@ arrayEN = {
 	'detailForm': 'Welcome to the detail form',
 	'GestUsu': 'User Management',
 	'saludoLOGIN': 'Log in',
-	'saludoREGISTRO': 'Record',
+	'saludoREGISTRO': 'Sign Up',
 	'datosRegistro': 'Enter the following data',
 	'datosPersonales': 'Personal information',
 	'datosUsuario': 'User data',
