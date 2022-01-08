@@ -304,6 +304,12 @@ function resetearformularioresponsable(idformUsado) {
 	$("#numCuenta_responsable").attr('onblur', '');
 	$("#txtcurriculumresponsable").attr('onblur', '');
 
+	$("#errorFormatoDni").attr('style', 'display: none');
+	$("#errorFormatoCuenta").attr('style', 'display: none');
+	$("#dni_responsable").attr('style', 'border-width: ; border-color: ');
+	$("#numCuenta_responsable").attr('style', 'border-width: ; border-color: ;');
+
+
 	$("divformgenericoresponsable").attr('style', 'display: none');
 
 	$("#txtcurriculumresponsable").attr('style', 'display:');
