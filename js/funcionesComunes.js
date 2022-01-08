@@ -30,8 +30,24 @@ function comprobarPasswordModificacion() {
 
     document.getElementById("contrasena").style.borderWidth = "2px";
 
-    if (validaNoVacio("contrasena", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("contrasena", 16, 3, "errorFormatoPassword", "passLogin")/* &&
-        /*comprobarPasswordIguales("contrasena", "contrasenaRepetida", "errorFormatoPassword")*/) {
+    if (validaNoVacio("contrasena", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("contrasena", 16, 3, "errorFormatoPassword", "passLogin") &&
+        comprobarPasswordIguales("contrasena", "contrasenaRepetida", "errorFormatoPassword")) {
+        validacionOK("contrasena", "errorFormatoPassword");
+        validacionOK("contrasena", "errorFormatoPassword");
+        return true;
+    } else {
+        validacionKO("contrasena", "errorFormatoPassword");
+        return false;
+    }
+
+}
+
+function comprobarCambiarPassword() {
+
+    document.getElementById("contrasena").style.borderWidth = "2px";
+
+    if (validaNoVacio("contrasena", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("contrasena", 16, 3, "errorFormatoPassword", "passLogin") &&
+        comprobarPasswordIguales("contrasenan1", "contrasenan2", "errorFormatoPassword") && !comprobarPasswordIguales("contrasena", "contrasenan1", "errorFormatoPassword")) {
         validacionOK("contrasena", "errorFormatoPassword");
         validacionOK("contrasena", "errorFormatoPassword");
         return true;
@@ -66,6 +82,14 @@ function comprobarPasswordIguales(idPasswordA, idPasswordB, idElementoError) {
     }
 }
 
+function comprobarPasswordDistintas(idPasswordA, idPasswordB, idElementoError) {
+    if (document.getElementById(idPasswordA).value == document.getElementById(idPasswordB).value) {
+        addCodeError(idElementoError, 'error_password_iguales');
+        return false;
+    } else {
+        return true;
+    }
+}
 /**Función que valida el dni*/
 /*
 function comprobarDNI() {

@@ -33,6 +33,10 @@ arrayES = {
 	'datosPersonales': 'Datos personales',
 	'datosUsuario': 'Datos usuario',
 	//- atributos
+
+	'contrasenarecuperada': 'La contraseña de este usuario es: ',
+	'correorecuperacion':'Correo asociado a la contraseña',
+	'usuariorecuperacion':'Usuario propietario de la contraseña a recuperar',
 	'id_usuario': 'ID de Usuario',
 	'usuario': 'Nombre de Usuario',
 	'contrasena': 'Contraseña de Usuario',
@@ -141,6 +145,7 @@ arrayES = {
 	'error_formato_email':'Error de formato que debería especificarse pero ya si eso lo hago por la mañana que son las 00:26 del 1 de enero y tal',
 
 	'error_password_disintas':'Las contraseñas deben coincidir',
+	'error_password_iguales' :'La nueva contraseña es igual a la antigua',
 	//fin errores formato
 
 	//************************************************************************************************

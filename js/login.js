@@ -40,3 +40,42 @@ function login() {
 	});
 
 }
+
+function recuperarcontrasena(){
+    $("#divrecuperarcontrasena").attr('style', 'display:block');
+}
+
+function recuperar(){
+
+	insertacampo(document.formulariorecuperar,'controlador', 'AUTH');
+	insertacampo(document.formulariorecuperar,'action', 'recuperar_contrasena');
+
+	var idioma = getCookie('lang');
+
+	$.ajax({
+	method: "POST",
+	url: urlPeticionesAjax,
+	data: $("#formulariorecuperar").serialize(), 
+	}).done(function( response ) {
+		if (response.ok == true) {
+			console.log(response.resource);
+			document.getElementById("contrasenarecuperada").innerHTML + response.resource;
+		} else {
+			$("#mensajeError").removeClass();
+	    	$("#mensajeError").addClass(response.code);
+	    	resetearformulariorecuperar();
+        	setLang(idioma);
+        	document.getElementById("modal").style.display = "block";
+		}
+
+	});
+	console.log(formulariorecuperar); 
+}
+
+function resetearformulariorecuperar(){
+
+	$("divrecuperarcontrasena").attr('style', 'display: none');
+	$("email_persona").val('');
+	$("usuario").val('');
+
+}
