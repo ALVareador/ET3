@@ -293,6 +293,7 @@ arrayES = {
 	'user_in_session': 'Usuario con sesión activa',
 	'session_disconnect_ok': 'Sesión eliminada de BD y usuario desconectado',
 
+	'id_inscripcion':'Id de inscripcion',
 	/////////////////////////////////////////////////////////////////////////////////
 	'USUARIO_BORRAR_OK': 'Usuario borrado correctamente',
 	'PERSONA_BORRAR_OK': 'Persona borrada correctamente',

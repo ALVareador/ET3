@@ -12,6 +12,7 @@ function addPersona() {
     var idioma = getCookie('lang');
 
     var formdata = $("#formgenericoPersona").serialize();
+    formdata = decodeURIComponent(formdata.replace(/%2F/g,"/"));
     var file = $("#subefotopersona")[0].files[0];
     var datos = new FormData();
     datos.append("upload", file);
@@ -100,6 +101,7 @@ function editPersona() {
     var idioma = getCookie('lang');
 
     var formdata = $("#formgenericoPersona").serialize();
+    formdata = decodeURIComponent(formdata.replace(/%2F/g,"/"));
     var file = $("#subefotopersona")[0].files[0];
     var datos = new FormData();
     datos.append("upload", file);

@@ -107,4 +107,6 @@ function getArrayGrupos() {
             });
     }
 
-    function cambiarcontraseña()
+    function cambiarcontraseña(){
+        
+    }

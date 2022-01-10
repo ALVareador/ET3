@@ -10,11 +10,11 @@ function addinscripcion() {
     var idioma = getCookie('lang');
 
     var formdata = $("#formgenericoinscripcion").serialize();
-    var file = $("#subetxtcurriculumresponsable")[0].files[0];
+    var file = $("#subetxtdocumentopago")[0].files[0];
     var datos = new FormData();
     datos.append("upload", file);
     datos.append("formulario", formdata);
-
+    console.log(datos);
     $.ajax({
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
@@ -222,7 +222,7 @@ function showAddInscripcion() {
 
     // habilitar/deshabilitar campos
     $("#id_actividad").attr('disabled', false);
-    $("#txtidInscripcion").attr('disabled', true);
+    $("#txtidInscripcion").attr('disabled', false);
     $("#id_actividad").attr('disabled', false);
     $("#dni_usuario").attr('disabled', false);
     $("#txtfechasolicitudinscripcion").attr('disabled', false);
@@ -235,7 +235,7 @@ function showAddInscripcion() {
 
 }
 
-function showDetalleInscripcion(id, id_actividad, id, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
+function showDetalleInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
@@ -245,7 +245,7 @@ function showDetalleInscripcion(id, id_actividad, id, fecha_solicitud_inscripcio
     $("#formgenericoinscripcion").attr('action', 'javascript:detalleinscripcion();');
 
     //rellenamos los tipo text
-    $("#txtidInscripcion").val(id);
+    $("#txtidInscripcion").val(id_inscripcion);
     $("#id_actividad").val(id_actividad);
     for (var j = 0; j < ArrayDNI.length; j++) {
         if (ArrayDNI[j]['id'] == id) {
