@@ -79,7 +79,7 @@ function editUsuario() {
 		} else {
 			respuestaKOAjax('edit');
 		}
-
+		console.log(response.resource);
 		actualizaMensajesRespuestAjax(response.code);
 
 		setLang(idioma);
@@ -87,6 +87,37 @@ function editUsuario() {
 		deleteActionController();
 	});
 
+}
+
+//
+// Funcion para modificar un formulario generico para editar un usuario
+//
+function showEditarUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario) {
+
+	// se resetea todo el formulario generico
+	resetearformulariousuario();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoUsuario").attr('style', 'display: block');
+	$("#formgenericoUsuario").attr('action', 'javascript:editUsuario();');
+	$("#formgenericoUsuario").attr('onsubmit', 'comprobareditsubmit();');
+
+	//rellenamos los tipo text
+	$("#dni_usuario").val(dni_usuario);
+	$("#labelusuario").val(usuario);
+
+	$("#contrasena").attr('type', 'hidden');	
+	$("#contrasena").attr('disabled', true);
+	$("#labelcontrasena").attr('style', 'display:none');
+
+	// rellenamos los onblur de los input que se validad
+	$("#dni_usuario").attr('onblur', 'comprobarDni();');
+	$("#labelusuario").attr('onblur', 'comprobarUser();');
+
+	deleteoptionsSelect("id_grupo");
+	rellenaid_grupo(id_grupo, borrado_usuario);
+
+	$("#dni_usuario").attr('disabled', true);
 }
 
 //*
@@ -122,38 +153,6 @@ function deleteUsuario() {
 
 }
 
-//
-// Funcion para modificar un formulario generico para editar un usuario
-//
-function showEditarUsuario(id_usuario, dni_usuario, usuario, id_grupo, borrado_usuario) {
-
-	// se resetea todo el formulario generico
-	resetearformulariousuario();
-
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoUsuario").attr('style', 'display: block');
-	$("#formgenericoUsuario").attr('action', 'javascript:editUsuario();');
-	$("#formgenericoUsuario").attr('onsubmit', 'comprobareditsubmit();');
-
-	//rellenamos los tipo text
-	$("#id_usuario").val(id_usuario);
-	$("#dni_usuario").val(dni_usuario);
-	$("#usuario").val(usuario);
-
-	$("#contrasena").attr('type', 'hidden');	
-	$("#contrasena").attr('disabled', true);
-	$("#contrasena").attr('style', 'display:none');
-
-	// rellenamos los onblur de los input que se validad
-	$("#dni_usuario").attr('onblur', 'comprobarDni();');
-	$("#usuario").attr('onblur', 'comprobarUser();');
-
-	deleteoptionsSelect("id_grupo");
-	rellenaid_grupo(id_grupo, borrado_usuario);
-	// se deshabilita el id para que no pueda cambiarse
-	$("#id_usuario").attr('disabled', true);
-}
-
 function comprobareditsubmit() {
 
 	if (comprobarUser()) {
@@ -168,35 +167,43 @@ function detalleusuario() {
 
     var idioma = getCookie('lang');
     resetearformulariopersona();
-    GetLisPersonas()
+    GetLisUsuarios()
     setLang(idioma);
 }
 
-function showDetalleUsuario(id_usuario, dni_usuario, usuario, id_grupo, borrado_usuario) {
+function showDetalleUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario) {
 
 	$("#divformgenericoUsuario").attr('style', 'display:');
     $("#formgenericoUsuario").attr('action', 'javascript:detalleusuario();');
 	
 	$("#dni_usuario").val(dni_usuario);
-	$("#usuario").val(usuario);
-	$("#contrasena").val(contrasena);
+	$("#labelusuario").val(usuario);
 	
 	deleteoptionsSelect("id_grupo");
 	rellenaid_grupo(id_grupo, borrado_usuario);
 	
+	$("#dni_usuario").attr('disabled', true);
+	$("#labelusuario").attr('disabled', true);
+
+	$("#contrasena").attr('type', 'hidden');
+	$("#contrasena").attr('disabled', true);
+	$("#labelcontrasena").attr('style', 'display:none');
+
+	$("#id_grupo").attr('disabled', true);
+	$("#borrado_usuario").attr('disabled', true);
+
 	setLang('');
 
 }
 
-function showEliminarUsuario(id_usuario, dni_usuario, usuario,id_grupo, borrado_usuario) {
+function showEliminarUsuario(id, dni_usuario, usuario,id_grupo, borrado_usuario) {
 
 	$("#divformgenericoUsuario").attr('style', 'display: block');
 	$("#formgenericoUsuario").attr('action', 'javascript:deleteUsuario();');
 	$("#formgenericoUsuario").attr('onsubmit', '');
 
-	$("#id_usuario").val(id_usuario);
 	$("#dni_usuario").val(dni_usuario);
-	$("#usuario").val(usuario);
+	$("#labelusuario").val(usuario);
 
 	$("#contrasena").attr('type', 'hidden');	
 	$("#contrasena").attr('disabled', true);
@@ -205,15 +212,15 @@ function showEliminarUsuario(id_usuario, dni_usuario, usuario,id_grupo, borrado_
 	deleteoptionsSelect("id_grupo");
 	rellenaid_grupo(id_grupo, borrado_usuario);
 
-	$("#id_usuario").attr('disabled', true);
+	$("#id").attr('disabled', true);
 	$("#dni_usuario").attr('disabled', true);
-	$("#usuario").attr('disabled', true);
+	$("#labelusuario").attr('disabled', true);
 	$("#contrasena").attr('disabled', true);
 	$("#id_grupo").attr('disabled', true);
 	$("#borrado_usuario").attr('disabled', true);
 }
 
-function rellenaid_grupo(id_usuario) { 
+function rellenaid_grupo(id) { 
 
     var idSession = getCookie('sessionId');
 
@@ -250,25 +257,25 @@ function resetearformulariousuario(idformUsado) {
 	$("idformUsado").attr('action', '');
 	$("idformUsado").attr('onsubmit', '');
 
-	$("#id_usuario").attr('disabled', false);
+	$("#id").attr('disabled', false);
 	$("#dni_usuario").attr('disabled', false);
-	$("#usuario").attr('disabled', false);
+	$("#labelusuario").attr('disabled', false);
 	$("#contrasena").attr('disabled', false);
 	$("#id_grupo").attr('disabled', false);
 	$("#borrado_usuario").attr('disabled', false);
 
-	$("#id_usuario").val('');
+	$("#id").val('');
 	$("#dni_usuario").val('');
-	$("#usuario").val('');
+	$("#labelusuario").val('');
 	$("#contrasena").val('');
 	$("#id_grupo").val('');
 
 	$("#contrasena").attr('type', 'password');
 	$("#contrasena").attr('style', 'display:block');
 
-	$("#id_usuario").attr('onblur', '');
+	$("#id").attr('onblur', '');
 	$("#dni_usuario").attr('onblur', '');
-	$("#usuario").attr('onblur', '');
+	$("#labelusuario").attr('onblur', '');
 	$("#contrasena").attr('onblur', '');
 
 	$("divformgenericoUsuario").attr('style', 'display: none');

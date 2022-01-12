@@ -1,7 +1,7 @@
 /**Función que construye cada línea que se va a rellenar en la tabla*/
 function construyeFila(fila) {
     console.log(fila);
-        let atributosFunciones = ["'" + fila.id_usuario + "'","'" + fila.dni_usuario + "'", "'" + fila.usuario + "'", "'" + fila.id_grupo + "'","'" + fila.borrado_usuario + "'"];
+        let atributosFunciones = ["'" + fila.id + "'","'" + fila.dni_usuario + "'", "'" + fila.usuario + "'", "'" + fila.id_grupo + "'","'" + fila.borrado_usuario + "'"];
     
         var celdaAccionesDetalle = '<div><a onclick="showDetalleUsuario(' + atributosFunciones + 
                                    ')" alt="Detalle Usuario"/>Detalle Usuario</a></div>';
