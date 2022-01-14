@@ -73,32 +73,40 @@
                 <legend class="datosInscripcion">Datos de la inscripcion:</legend>
                 <!-- Id Inscripcion-->
                 <label class='id_inscripcion'></label>
-                <input type='text' name='id_inscripcion' id='txtidInscripcion' onblur=''><br>
+                <input type='text' name='id_inscripcion' id='id_inscripcion' onblur=''><br>
+                <div style="display:none" id="errorFormatoId"></div>
                 <!--Nombre de la Actividad a la que se va a inscribir-->
                 <label class='nombre_actividad'></label>
                 <select name="id_actividad" id="id_actividad"></select><br>
+                <div style="display:none" id="errorFormatoActividad"></div>
                 <!--Usuario que se inscribe-->
-                <label class='id_usuario'></label>
-                <input type='text' name='id_usuario' id='id_usuario' onblur=''><br>
+                <label class='dni_usuario'></label>
+                <input type='text' name='id_usuario' id='id_usuario' style='display: none;' onblur=''>
+                <input type='text' name='dni_usuario' id='dni_usuario' onblur=''><br>
+                <div style="display:none" id="errorFormatoDni"></div>
                 <!--Fecha de la inscripcion-->
                 <label class='fecha_solicitud_inscripcion'></label>
-                <input type='date' name='fecha_solicitud_inscripcion' id='txtfechasolicitudinscripcion' onblur=''><br>
+                <input type='date' name='fecha_solicitud_inscripcion' id='fecha_solicitud_inscripcion' onblur=''><br>
+                <div style="display:none" id="errorFormatoFechaInscripcion"></div>
             </fieldset>
 
             <fieldset>
                 <legend class="datosPago">Datos del pago:</legend>
                 <!--Documento que acredita el Pago-->
-                <label class='documento_pago' id='labeltxtdocumentopago'></label>
-                <input type='text' name='documento_pago' id='txtdocumentopago' onblur=''>
-                <a href='' name='enlace_documento_pago' id="enlacetxtdocumentopago"></a><br>
-                <label class='sube_documento_pago' id='labelsubetxtdocumentopago'></label>
-                <input type='file' name='documento_pago' id='subetxtdocumentopago'><br>
+                <label class='documento_pago' id='label_documento_pago'></label>
+                <input type='text' name='documento_pago' id='documento_pago' onblur=''>
+                <a href='' name='enlace_documento_pago' id="enlace_documento_pago"></a><br>
+                <label class='sube_documento_pago' id='label_sube_documento_pago'></label>
+                <input type='file' name='documento_pago' id='sube_documento_pago'><br>
+                <div style="display:none" id="errorFormatoDocumentoPago"></div>
                 <!--Fecha de realizacion del Pago-->
                 <label class='fecha_pago_inscripcion'></label>
-                <input type='date' name='fecha_pago_inscripcion' id='txtfechapagoinscripcion' onblur=''><br>
+                <input type='date' name='fecha_pago_inscripcion' id='fecha_pago_inscripcion' onblur=''><br>
+                <div style="display:none" id="errorFormatoFechaPago"></div>
                 <!--Fecha aceptacion del Pago-->
                 <label class='fecha_aceptacion_inscripcion'></label>
-                <input type='date' name='fecha_aceptacion_inscripcion' id='txtfechaaceptacioninscripcion' onblur=''><br>
+                <input type='date' name='fecha_aceptacion_inscripcion' id='fecha_aceptacion_inscripcion' onblur=''><br>
+                <div style="display:none" id="errorFormatoFechaAceptacion"></div>
             </fieldset>
 
             <button id='submitbuttom' type='submit'><img id='iconoAcciones' src="./images/icons/editUser.png"

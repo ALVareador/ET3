@@ -965,3 +965,15 @@ function comprobarDescripcion(idcampo, idError) {
     validacionOK(idcampo, idError);
     return true;
 }
+
+function comprobarFecha(fecha, errorFormato){
+
+    if (validaNoVacio(fecha, errorFormato, fecha)) {
+        validacionOK(fecha, errorFormato);
+        return true;
+    } else {
+        validacionKO(fecha, errorFormato);
+        return false;
+    }
+
+}
