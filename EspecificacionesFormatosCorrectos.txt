@@ -1,0 +1,67 @@
+Usuario
+
+dni_persona varchar(11). 8 numero y una letra correcta con respecto al número.
+nombre_persona varchar(45). solo letras (acentuada y mayúsculas incluidas) y espacios max 45 minimo 3
+apellidos_persona varchar(100). solo letras (acentuada y mayúsculas incluidas) y espacios max 100 minimo 3
+fechaNacimiento_persona date. formato dd/mm/aaaa, con fecha válida, no superior a la actual max 10 mínimo 10
+direccion_persona varchar(200) solo letras (acentuada y mayúsculas incluidas) numeros y espacios max 200 minimo 3
+email_persona varchar(45) formato email max 45 min 11
+telefono_persona varchar(9) solo numeros, max 9 min 9, telefono válido España
+foto_persona varchar(100). solo letras, números y punto separando extensión, max 100 mínimo 5, solo jpg y png.
+
+usuario varchar(45). solo letras (mayúsculas y minúsculas) y números max 45 mínimo 3
+contrasena varchar(45). solo letras (mayúsculas y minúsculas) y números max 45 mínimo 3 
+
+
+Persona
+
+dni_persona varchar(11). 8 numero y una letra correcta con respecto al número.
+nombre_persona varchar(45). solo letras (acentuada y mayúsculas incluidas) y espacios max 45 minimo 3
+apellidos_persona varchar(100). solo letras (acentuada y mayúsculas incluidas) y espacios max 100 minimo 3
+fechaNacimiento_persona date. formato dd/mm/aaaa, con fecha válida, no superior a la actual max 10 mínimo 10
+direccion_persona varchar(200) solo letras (acentuada y mayúsculas incluidas) numeros y espacios max 200 minimo 3
+email_persona varchar(45) formato email max 45 min 11
+telefono_persona varchar(9) solo numeros, max 9 min 9, telefono válido España
+foto_persona varchar(100). solo letras, números y punto separando extensión, max 100 mínimo 5, solo jpg y png.(con upload  maximo 20 MB)
+esCeliaco_persona(1) solo valores 1 o 0
+borrado_persona(1) solo valores 1 o 0
+
+Espacio
+
+id_espacio int(11): solo numeros max 11 minimo 1
+nombre_espacio varchar(45): solo letras (acentuada y mayúsculas incluidas) y espacios max 45 minimo 3
+descripcion_espacio varchar(200): solo letras (acentuada y mayúsculas incluidas) y espacios max 200 minimo 20
+
+Categoria
+
+id_categoria int(11): solo numeros max 11 minimo 1
+nombre_categoria varchar(45): solo letras (acentuada y mayúsculas incluidas) y espacios max 45 minimo 3
+descripcion_categoria varchar(200): solo letras (acentuada y mayúsculas incluidas) y espacios max 200 minimo 20
+
+Responsable
+
+dni_responsable int(11): 8 numeros y una letra correcta con respecto al número
+curriculum_responsable varchar(200): solo letras, números y punto separando extensión, max 200 mínimo 5, solo pdf.
+numCuenta_responsable varchar(24) letras mayusculas y numeros (formato IBAN) max 24 minimo 24
+
+Actividad
+
+id_actividad (11): solo números max 11 mínimo 1
+nombre_actividad (45): solo letras (acentuada y mayúsculas incluidas) y espacios max 45 mínimo 3
+descripcion_actividad (200): solo letras (acentuada y mayúsculas incluidas) y espacios max 200 mínimo 20
+precio_actividad (6):  solo números, como máximo 4 enteros y máximo dos decimales
+numPlazas_actividad (11): numero entre 1 y 40
+color_actividad (7): un # seguido de 6 valores hexadecimales
+color_nombre_actividad (7): un # seguido de 6 valores hexadecimales
+id_espacio: (Ya definido en espacio)
+id_categoria: (Ya definido en categoria)
+
+Inscripción
+
+id_inscripcion (11): solo números max 11 mínimo 1
+id_actividad: (ya definido en actividad)
+id_usuario: (Ya definido en id usuario)
+fecha_solicitud_inscripcion (date): formato dd/mm/aaaa, con fecha válida, no superior a la actual max 10 mínimo 10
+documento_pago (100): solo letras, números y punto separando extensión, max 100 mínimo 5, solo pdf.(con upload  maximo 20 MB)
+fecha_pago_inscripcion (date): formato dd/mm/aaaa, con fecha válida, no superior a la actual y superior a la fecha de solicitud de inscripcion max 10 mínimo 10
+fecha_aceptacion_inscripcion (date):  formato dd/mm/aaaa, con fecha válida, no superior a la actual y superior a la fecha de pago de inscripcion max 10 mínimo 10
