@@ -899,7 +899,7 @@ function comprobarFoto(idElemento, idElementoError) {
 function comprobarEmailFormato(idElemento, idElementoError) {
     codigo = '';
     var valor = document.getElementById(idElemento).value;
-    var patron =/^([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,4})+$/;
+    var patron = /^([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,4})+$/;
     var longitud = document.getElementById(idElemento).value.length;
 
     if (!patron.test(valor)) {
@@ -925,21 +925,38 @@ function comprobarEmailFormato(idElemento, idElementoError) {
 
 //Añade al div que se indique a traves de la ID, el mensaje especificado con el tamaño de letra y color especificado
 //IMPORTANTE:El tamaño debe pasar como numero y NO como string
-function showError(idError, tamanhoLetra, colorTexto, mensaje) {
+function showError(idError, tamanhoLetra, colorTexto, idMensajeErrormensaje) {
 
     var divError = document.getElementById(idError);
     divError.style.height = tamanhoLetra + 20 + "px";
     divError.style.fontSize = tamanhoLetra + "px";
     divError.style.color = colorTexto + "";
-    divError.innerHTML = mensaje + "";
+
+    //Limpia todas las clases
+    var lclases = divError.classList;
+    var len = lclases.length;
+    console.log(divError.classList)
+    while (len > -1) {
+
+        divError.classList.remove(lclases[len])
+
+        len--
+    }
+
+
+    divError.classList.add(idMensajeErrormensaje,idMensajeErrormensaje);
+    var idioma = getCookie('lang');
+    setLang(idioma);
+
 }
+
 
 
 function resetValidacion(idElemento, colorOriginal, idError) {
 
     document.getElementById(idElemento).style.borderColor = colorOriginal + "";
 
-    showError(idError, -20, '', "");
+    showError(idError, -20, '', "none");
 }
 
 function hasProbadoAReiniciarlo() {
@@ -957,7 +974,7 @@ function comprobarId(idcampo, idError) {
     //Si es vacio
     if (data.length == 0) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "ERROR: El campo id no puede estar vacio");
+        showError(idError, 20, 'red', 'error_id_vacia'); //ERROR: El campo id no puede estar vacio
         return false;
     }
 
