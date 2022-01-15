@@ -174,9 +174,9 @@ function includeMenuIdioma() {
 
     //version 3 Mas refachera que nunca
     var menuIdioma = "<div class=\'divMenuIdioma\'>" +
-        "<img id=\'es\' src=\'/images/BanderasMenuIdioma/BanderaEspaña.png\' alt=\'\' onclick=\'setLang(\"ES\")\'>" +
-        "<img id=\'ga' src=\'/images/BanderasMenuIdioma/BanderaGallega.png\' alt=\'\' onclick=\'setLang(\"GA\")\'>" +
-        "<img id=\'en\' src=\'/images/BanderasMenuIdioma/BanderaInglesa.png\' alt=\'\' onclick=\'setLang(\"EN\")\'>" +
+        "<img id=\'es\' src=\'images/BanderasMenuIdioma/BanderaEspaña.png\' alt=\'\' onclick=\'setLang(\"ES\")\'>" +
+        "<img id=\'ga' src=\'images/BanderasMenuIdioma/BanderaGallega.png\' alt=\'\' onclick=\'setLang(\"GA\")\'>" +
+        "<img id=\'en\' src=\'images/BanderasMenuIdioma/BanderaInglesa.png\' alt=\'\' onclick=\'setLang(\"EN\")\'>" +
         "</div>";
 
     $("#menuIdioma").append(menuIdioma);
