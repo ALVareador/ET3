@@ -64,15 +64,12 @@
                         <label class='id_grupo'></label>
                         <input type='text' name='id_grupo' id='id_grupo' onblur='return comprobarId("id_grupo","errorFormatoId")'><br>
                         <div style="display:none" id="errorFormatoId"></div>
-
                         <label class='nombre_grupo'></label>
-                        <input type='text' name='nombre_grupo' id='nombre_grupo' onblur='return comprobarNombre("nombre_grupo","errorFormatoNombre")'><br>
-                        <div style="display:none" id="errorFormatoNombre"></div> 
-
+                        <input type='text' name='nombre_grupo' id='nombre_grupo' onblur='return comprobarNombreParam("nombre_grupo")'><br>
+                        <div style="display:none" id="errorFormatoNombre"></div>
                         <label class='descripcion_grupo'></label>
-                        <input type='text' name='descripcion_grupo' id='descripcion_grupo' onblur='return comprobarDescripcion("descripcion_grupo", "errorFormatoDescr")'><br>
-                        <div style="display:none" id="errorFormatoDescr"></div> 
-
+                        <input type='text' name='descripcion_grupo' id='descripcion_grupo' onblur='return comprobarDescripcionParam("descripcion_grupo")'><br>
+                        <div style="display:none" id="errorFormatoDescr"></div>
                         <br>
                         <button type='submit'><img src="./images/icons/editUser.png" width="50px" /></button><br>
                 </form>

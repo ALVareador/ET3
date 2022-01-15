@@ -51,8 +51,8 @@ function showAddEspacio() {
 	$("#descripcion_espacio").attr('onblur', 'comprobarCurriculum();');
 	*/
 	$("#id_espacio").attr('onblur', 'comprobarId(\'id_espacio\',\'errorFormatoId\');');
-	$("#nombre_espacio").attr('onblur', 'comprobarNombre("nombre_espacio", "errorFormatoNombre");');
-	$("#descripcion_espacio").attr('onblur', 'comprobarDescripcion("descripcion_espacio", "errorFormatoDescr");');
+	$("#nombre_espacio").attr('onblur', 'comprobarNombreParam("nombre_espacio");');
+	$("#descripcion_espacio").attr('onblur', 'comprobarDescripcionParam("descripcion_espacio");');
 	// se rellena los select
 
 	// se deshabilita el id para que no pueda cambiarse
@@ -147,8 +147,9 @@ function showEditarEspacio(id_espacio, nombre_espacio, descripcion_espacio) {
 	$("#descripcion_espacio").val(descripcion_espacio);
 
 	// rellenamos los onblur de los input que se validad
-	$("#nombre_espacio").attr('onblur', 'comprobarNombre("nombre_espacio", "errorFormatoNombre");');
-	$("#descripcion_espacio").attr('onblur', 'comprobarDescripcion("descripcion_espacio", "errorFormatoDescr");');
+	$("#id_espacio").attr('onblur', 'comprobarId(\'id_espacio\',\'errorFormatoId\');');
+	$("#nombre_espacio").attr('onblur', 'comprobarNombreParam("nombre_espacio");');
+	$("#descripcion_espacio").attr('onblur', 'comprobarDescripcionParam("descripcion_espacio");');
 
 	// se deshabilita el id para que no pueda cambiarse
 	$("#id_espacio").attr('disabled', true);

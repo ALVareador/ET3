@@ -73,33 +73,33 @@
             <div style="display:none" id="errorFormatoDni"></div>
 
             <label class='nombre_persona'></label>
-            <input type='text' name='nombre_persona' id='nombre_persona' onblur='return comprobarNombre("nombre_persona","errorFormatoNombrePersona")'><br>
-            <div style="display:none" id="errorFormatoNombrePersona"></div>
+            <input type='text' name='nombre_persona' id='nombre_persona' onblur='return comprobarNombreParam("nombre_persona")'><br>
+            <div style="display:none" id="errorFormatoNombre"></div>
 
             <label class='apellidos_persona'></label>
-            <input type='text' name='apellidos_persona' id='apellidos_persona' onblur='return comprobarApellidos("apellidos_persona","errorFormatoApellidosPersona")'><br>
-            <div style="display:none" id="errorFormatoApellidosPersona"></div>
+            <input type='text' name='apellidos_persona' id='apellidos_persona' onblur='return comprobarApellidosParam("apellidos_persona")'><br>
+            <div style="display:none" id="errorFormatoApellidos"></div>
 
             <label class='fechaNacimiento_persona'></label>
             <input type="text" name="date" id="fechaNacimiento_persona" class="tcal" onblur='return comprobarFechaDeNacimiento("fechaNacimiento_persona","errorFormatoFechaNacimiento")'> <br>
             <div style="display:none" id="errorFormatoFechaNacimiento"></div>
 
             <label class='direccion_persona'></label>
-            <input type='text' name='direccion_persona' id='direccion_persona' onblur='return comprobarDireccion("direccion_persona","errorFormatoDireccion")'><br>
+            <input type='text' name='direccion_persona' id='direccion_persona' onblur='return comprobarDireccion()'><br>
             <div style="display:none" id="errorFormatoDireccion"></div>
 
             <label class='telefono_persona'></label>
-            <input type='text' name='telefono_persona' id='telefono_persona' onblur='return comprobarTelefono("telefono_persona","errorFormatoTelefono")'><br>
+            <input type='text' name='telefono_persona' id='telefono_persona' onblur='return comprobarTelefono()'><br>
             <div style="display:none" id="errorFormatoTelefono"></div>
 
             <label class='email_persona'></label>
-            <input type='text' name='email_persona' id='email_persona' onblur='return comprobarEmail("email_persona","errorFormatoEmail")'><br>
+            <input type='text' name='email_persona' id='email_persona' onblur='return comprobarEmail()'><br>
             <div style="display:none" id="errorFormatoEmail"></div>
 
             <label class='foto_persona' id='labelfotopersona'></label>
             <input type='text' name='foto_persona' id='foto_persona' onblur=''><br>
             <label class='sube_persona' id='labelfotopersona'></label>
-            <input type='file' name='subefotopersona' id='subefotopersona'><br>
+            <input type='file' accept= ".png, .jpg" name='subefotopersona' id='subefotopersona'><br>
 
             <label class='esCeliaco_persona'></label>
             <select name='esCeliaco_persona' id='esCeliaco_persona'>

@@ -46,8 +46,8 @@ function showAddCategoria() {
 	// rellenamos los onblur de los input que se validad
 
 	$("#id_categoria").attr('onblur', 'comprobarId(\'id_categoria\',\'errorFormatoId\');');
-	$("#nombre_categoria").attr('onblur', 'comprobarNombre("nombre_categoria", "errorFormatoNombre");');
-	$("#descripcion_categoria").attr('onblur', 'comprobarDescripcion("descripcion_categoria", "errorFormatoDescr");');
+	$("#nombre_categoria").attr('onblur', 'comprobarNombreParam("nombre_categoria");');
+	$("#descripcion_categoria").attr('onblur', 'comprobarDescripcionParam("descripcion_categoria");');
 
 	// se rellena los select
 
@@ -143,8 +143,8 @@ function showEditarCategoria(id_categoria, nombre_categoria, descripcion_categor
 	$("#descripcion_categoria").val(descripcion_categoria);
 
 	$("#id_categoria").attr('onblur', 'comprobarId(\'id_categoria\',\'errorFormatoId\');');
-	$("#nombre_categoria").attr('onblur', 'comprobarNombre("nombre_categoria", "errorFormatoNombre");');
-	$("#descripcion_categoria").attr('onblur', 'comprobarDescripcion("descripcion_categoria", "errorFormatoDescr");');
+	$("#nombre_categoria").attr('onblur', 'comprobarNombreParam("nombre_categoria");');
+	$("#descripcion_categoria").attr('onblur', 'comprobarDescripcionParam("descripcion_categoria");');
 
 	// se deshabilita el id para que no pueda cambiarse
 	$("#id_categoria").attr('disabled', true);
@@ -254,7 +254,7 @@ function showDetalleCategoria(id_categoria, nombre_categoria, descripcion_catego
 
 	document.getElementById('submitbuttom').style.visibility = 'hidden';
 	$("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
-	
+
 	setLang('');
 }
 

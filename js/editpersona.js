@@ -73,9 +73,13 @@ function showAddPersona() {
 
 
     $("#dni_persona").attr('onblur', 'comprobarDNI("dni_persona","errorFormatoDni");');
-    $("#nombre_persona").attr('onblur', 'return comprobarNombrePersona()');
-    $("#apellidos_persona").attr('onblur', 'return  comprobarApellido()');
+    $("#nombre_persona").attr('onblur', 'comprobarNombreParam("nombre_persona")');
+    $("#apellidos_persona").attr('onblur', 'comprobarApellidosParam("apellidos_persona")');
     $("#fechaNacimiento_persona").attr('onblur', 'return comprobarFechaDeNacimiento()');
+    $("#direccion_persona").attr('onblur', 'return comprobarDireccion()');
+    $("#telefono_persona").attr('onblur', 'return comprobarTelefono()');
+    $("#email_persona").attr('onblur', 'return comprobarEmail()');
+    $("#foto_persona").attr('onblur', 'return comprobarFoto()');
 
 
 

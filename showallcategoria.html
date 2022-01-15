@@ -65,13 +65,16 @@
                                 width="50px"></a>
                 <form name='formgenericoCategoria' id='formgenericoCategoria' method="post" action="" onsubmit="">
                         <label class='id_categoria'></label>
-                        <input type='text' name='id_categoria' id='id_categoria' onblur='return comprobarId("id_categoria","errorFormatoId")'><br>
+                        <input type='text' name='id_categoria' id='id_categoria'
+                                onblur='return comprobarId("id_categoria","errorFormatoId")'><br>
                         <div style="display:none" id="errorFormatoId"></div>
                         <label class='nombre_categoria'></label>
-                        <input type='text' name='nombre_categoria' id='nombre_categoria' onblur='return comprobarNombre("nombre_categoria","errorFormatoNombre")'><br>
+                        <input type='text' name='nombre_categoria' id='nombre_categoria'
+                                onblur='return comprobarNombreParam("nombre_categoria")'><br>
                         <div style="display:none" id="errorFormatoNombre"></div>
                         <label class='descripcion_categoria'></label>
-                        <input type='text' name='descripcion_categoria' id='descripcion_categoria' onblur='return comprobarDescripcion("descripcion_categoria","errorFormatoDescr")'><br>
+                        <input type='text' name='descripcion_categoria' id='descripcion_categoria'
+                                onblur='return comprobarDescripcionParam("descripcion_categoria")'><br>
                         <div style="display:none" id="errorFormatoDescr"></div>
 
                         <br>

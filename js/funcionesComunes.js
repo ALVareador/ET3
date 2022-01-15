@@ -161,6 +161,30 @@ function validaNoVacio(idElemento, idElementoError, campo) {
             case 'numCuenta_responsable':
                 codigo = 'error_cuenta_vacia'
                 break;
+            case 'nombre_espacio':
+                codigo = "error_nombre_persona_vacio"
+                break;
+            case 'nombre_categoria':
+                codigo = "error_nombre_persona_vacio"
+                break;
+            case 'nombre_grupo':
+                codigo = "error_nombre_persona_vacio"
+                break;
+            case 'nombre_actividad':
+                codigo = "error_nombre_persona_vacio"
+                break;
+            case 'descripcion_espacio':
+                codigo = "error_descripcion_vacio"
+                break;
+            case 'descripcion_categoria':
+                codigo = "error_descripcion_vacio"
+                break;
+            case 'descripcion_grupo':
+                codigo = "error_descripcion_vacio"
+                break;
+            case 'descripcion_actividad':
+                codigo = "error_descripcion_vacio"
+                break;
         }
         addCodeError(idElementoError, codigo);
         return false;
@@ -229,6 +253,39 @@ function comprobarLongitud(idElemento, sizeMax, sizeMin, idElementoError, campo)
             case 'direccion_persona':
                 codigo = 'error_formato_direccion_largo'
                 break;
+            case 'apellidos_persona':
+                codigo = 'error_formato_apellidos_largo'
+                break;
+            case 'nombre_persona':
+                codigo = 'error_formato_nombre_largo'
+                break;
+            case 'nombre_grupo':
+                codigo = 'error_formato_nombre_largo'
+                break;
+            case 'nombre_actividad':
+                codigo = 'error_formato_nombre_largo'
+                break;
+            case 'nombre_categoria':
+                codigo = 'error_formato_nombre_largo'
+                break;
+            case 'nombre_espacio':
+                codigo = 'error_formato_nombre_largo'
+                break;
+            case 'nombre_actividad':
+                codigo = 'error_formato_nombre_largo'
+                break;
+            case 'descripcion_categoria':
+                codigo = 'error_formato_descripcion_largo'
+                break;
+            case 'descripcion_espacio':
+                codigo = 'error_formato_descripcion_largo'
+                break;
+            case 'descripcion_grupo':
+                codigo = 'error_formato_descripcion_largo'
+                break;
+            case 'descripcion_actividad':
+                codigo = 'error_formato_descripcion_largo'
+                break;
         }
         addCodeError(idElementoError, codigo);
         return false;
@@ -242,6 +299,36 @@ function comprobarLongitud(idElemento, sizeMax, sizeMin, idElementoError, campo)
                 break;
             case 'direccion_persona':
                 codigo = 'error_formato_direccion_corto'
+                break;
+            case 'apellidos_persona':
+                codigo = 'error_formato_apellidos_corto'
+                break;
+            case 'nombre_persona':
+                codigo = 'error_formato_nombre_corto'
+                break;
+            case 'nombre_grupo':
+                codigo = 'error_formato_nombre_corto'
+                break;
+            case 'nombre_actividad':
+                codigo = 'error_formato_nombre_corto'
+                break;
+            case 'nombre_categoria':
+                codigo = 'error_formato_nombre_corto'
+                break;
+            case 'nombre_espacio':
+                codigo = 'error_formato_nombre_corto'
+                break;
+            case 'descripcion_categoria':
+                codigo = 'error_formato_descripcion_corto'
+                break;
+            case 'descripcion_espacio':
+                codigo = 'error_formato_descripcion_corto'
+                break;
+            case 'descripcion_grupo':
+                codigo = 'error_formato_descripcion_corto'
+                break;
+            case 'descripcion_actividad':
+                codigo = 'error_formato_descripcion_corto'
                 break;
         }
         addCodeError(idElementoError, codigo);
@@ -266,7 +353,7 @@ function comprobarLetrasNumeros(idElemento, sizeMax, sizeMin, idElementoError, c
             case 'passLogin':
                 codigo = "02114"
                 break;
-                case 'numCuenta_responsable':
+            case 'numCuenta_responsable':
                 codigo = "error_cuenta_largo"
                 break;
         }
@@ -280,7 +367,7 @@ function comprobarLetrasNumeros(idElemento, sizeMax, sizeMin, idElementoError, c
             case 'passLogin':
                 codigo = "02113"
                 break;
-                case 'numCuenta_responsable':
+            case 'numCuenta_responsable':
                 codigo = "error_cuenta_corto"
                 break;
         }
@@ -511,10 +598,10 @@ function comprobarNumCuenta(id, id_error) {
 
     if (validaNoVacio(id, id_error, id) && comprobarLetrasNumeros(id, 24, 24, id_error, id)) {
         var patron = /[A-Z]{2}[0-9]{22}/;
-        if(!patron.test(document.getElementById(id).value)){
+        if (!patron.test(document.getElementById(id).value)) {
             validacionKO(id, id_error);
             addCodeError(id_error, 'error_cuenta_formato');
-        return false;
+            return false;
         }
         validacionOK(id, id_error);
         return true;
@@ -542,7 +629,7 @@ function comprobarNombrePersona() {
 
     document.getElementById("nombre_persona").style.borderWidth = "2px";
 
-    if (validaNoVacio("nombre_persona", "errorFormatoNombrePersona", "nombre_persona") && comprobarSoloLetrasYEspacio("nombre_persona", "errorFormatoNombrePersona", "nombre_persona")) {
+    if (validaNoVacio("nombre_persona", "errorFormatoNombrePersona", "nombre_persona") && comprobarSoloLetrasYEspacio("nombre_persona", "errorFormatoNombrePersona", "nombre_persona") && comprobarLongitud(idElemento, sizeMax, sizeMin, idElementoError, campo)) {
         validacionOK("nombre_persona", "errorFormatoNombrePersona");
         return true;
     } else {
@@ -551,6 +638,47 @@ function comprobarNombrePersona() {
     }
 }
 
+function comprobarNombreParam(idElemento) {
+
+    document.getElementById(idElemento).style.borderWidth = "2px";
+
+    if (validaNoVacio(idElemento, "errorFormatoNombre", idElemento) && comprobarSoloLetrasYEspacio(idElemento, "errorFormatoNombre", idElemento)
+        && comprobarLongitud(idElemento, 45, 3, "errorFormatoNombre", idElemento)) {
+        validacionOK(idElemento, "errorFormatoNombre");
+        return true;
+    } else {
+        validacionKO(idElemento, "errorFormatoNombre");
+        return false;
+    }
+}
+
+function comprobarDescripcionParam(idElemento) {
+
+    document.getElementById(idElemento).style.borderWidth = "2px";
+
+    if (validaNoVacio(idElemento, "errorFormatoDescr", idElemento) && comprobarSoloLetrasYEspacio(idElemento, "errorFormatoDescr", idElemento)
+        && comprobarLongitud(idElemento, 200, 20, "errorFormatoDescr", idElemento)) {
+        validacionOK(idElemento, "errorFormatoDescr");
+        return true;
+    } else {
+        validacionKO(idElemento, "errorFormatoDescr");
+        return false;
+    }
+}
+
+function comprobarApellidosParam(idElemento) {
+
+    document.getElementById(idElemento).style.borderWidth = "2px";
+
+    if (validaNoVacio(idElemento, "errorFormatoApellidos", idElemento) && comprobarSoloLetrasYEspacio(idElemento, "errorFormatoApellidos", idElemento)
+        && comprobarLongitud(idElemento, 100, 3, "errorFormatoApellidos", idElemento)) {
+        validacionOK(idElemento, "errorFormatoApellidos");
+        return true;
+    } else {
+        validacionKO(idElemento, "errorFormatoApellidos");
+        return false;
+    }
+}
 function comprobarSoloLetrasYEspacio(idElemento, idElementoError, campo) {
     var valor = document.getElementById(idElemento).value;
     var patron = /^[A-Za-záÁéÉíÍóÓúÚñÑüÜ\s]+$/;
@@ -562,6 +690,30 @@ function comprobarSoloLetrasYEspacio(idElemento, idElementoError, campo) {
                 break;
             case 'nombre_persona':
                 codigo = "error_formato_nombre_persona"
+                break;
+            case 'nombre_grupo':
+                codigo = "error_formato_nombre_persona"
+                break;
+            case 'nombre_espacio':
+                codigo = "error_formato_nombre_persona"
+                break;
+            case 'nombre_categoria':
+                codigo = "error_formato_nombre_persona"
+                break;
+            case 'nombre_actividad':
+                codigo = "error_formato_nombre_persona"
+                break;
+            case 'descripcion_espacio':
+                codigo = "error_formato_descripcion"
+                break;
+            case 'descripcion_categoria':
+                codigo = "error_formato_descripcion"
+                break;
+            case 'descripcion_grupo':
+                codigo = "error_formato_descripcion"
+                break;
+            case 'descripcion_actividad':
+                codigo = "error_formato_descripcion"
                 break;
         }
         addCodeError(idElementoError, codigo);
@@ -717,7 +869,7 @@ function comprobarCaracteresDireccion(idElemento, idElementoError) {
 function comprobarEmail() {
     document.getElementById("email_persona").style.borderWidth = "2px";
 
-    if (validaNoVacio("email_persona", "errorFormatoEmail", "nombre_grupo") && comprobarEmailFormato("email_persona", "errorFormatoEmail")) {
+    if (validaNoVacio("email_persona", "errorFormatoEmail", "email_persona") && comprobarEmailFormato("email_persona", "errorFormatoEmail")) {
         validacionOK("email_persona", "errorFormatoEmail");
         return true;
     } else {
@@ -726,10 +878,28 @@ function comprobarEmail() {
     }
 }
 
+function comprobarFoto(idElemento, idElementoError) {
+    codigo = '';
+    var longitud = document.getElementById(idElemento).value.length;
+
+    if (longitud < 5) {
+        codigo = 'error_foto_corto';
+        addCodeError(idElementoError, codigo);
+        return false;
+    }
+
+    if (longitud > 100) {
+        codigo = 'error_foto_largo';
+        addCodeError(idElementoError, codigo);
+        return false;
+    }
+
+    return true;
+}
 function comprobarEmailFormato(idElemento, idElementoError) {
     codigo = '';
     var valor = document.getElementById(idElemento).value;
-    var patron = /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/;
+    var patron =/^([a-z0-9_\.\-])+\@(([a-z0-9\-])+\.)+([a-z0-9]{2,4})+$/;
     var longitud = document.getElementById(idElemento).value.length;
 
     if (!patron.test(valor)) {
@@ -751,85 +921,6 @@ function comprobarEmailFormato(idElemento, idElementoError) {
     }
 
     return true;
-}
-
-function comprobarNombreGrupo() {
-
-    document.getElementById("nombre_grupo").style.borderWidth = "2px";
-
-    if (validaNoVacio("nombre_grupo", "errorFormatoNombre", "nombre_grupo") && comprobarLetrasNumeros("nombre_grupo", 45, 3, "errorFormatoNombre", "nombre_grupo")) {
-        validacionOK("nombre_grupo", "errorFormatoNombre");
-        return true;
-    } else {
-        validacionKO("nombre_grupo", "errorFormatoNombre");
-        return false;
-    }
-}
-
-function comprobarNombreCategoria() {
-
-    document.getElementById("nombre_categoria").style.borderWidth = "2px";
-
-    if (validaNoVacio("nombre_categoria", "errorFormatoNombre", "nombre_categoria") && comprobarLetrasNumeros("nombre_categoria", 45, 3, "errorFormatoNombre", "nombre_categoria")) {
-        validacionOK("nombre_categoria", "errorFormatoNombre");
-        return true;
-    } else {
-        validacionKO("nombre_categoria", "errorFormatoNombre");
-        return false;
-    }
-}
-
-function comprobarNombreEspacio() {
-
-    document.getElementById("nombre_persona").style.borderWidth = "2px";
-    document.getElementById("nombre_espacio").style.borderWidth = "2px";
-
-    if (validaNoVacio("nombre_espacio", "errorFormatoNombre", "nombre_espacio") && comprobarLetrasNumeros("nombre_espacio", 45, 3, "errorFormatoNombre", "nombre_espacio")) {
-        validacionOK("nombre_espacio", "errorFormatoNombre");
-        return true;
-    } else {
-        validacionKO("nombre_espacio", "errorFormatoNombre");
-        return false;
-    }
-}
-
-function comprobarDescrGrupo() {
-
-    document.getElementById("descripcion_grupo").style.borderWidth = "2px";
-
-    if (validaNoVacio("descripcion_grupo", "errorFormatoDescr", "descripcion_grupo") && comprobarLetrasNumeros("descripcion_grupo", 200, 20, "errorFormatoDescr", "descripcion_grupo")) {
-        validacionOK("descripcion_grupo", "errorFormatoDescr");
-        return true;
-    } else {
-        validacionKO("descripcion_grupo", "errorFormatoDescr");
-        return false;
-    }
-}
-
-function comprobarDescrCategoria() {
-
-    document.getElementById("descripcion_categoria").style.borderWidth = "2px";
-
-    if (validaNoVacio("descripcion_categoria", "errorFormatoDescr", "descripcion_categoria") && comprobarLetrasNumeros("descripcion_categoria", 200, 20, "errorFormatoDescr", "descripcion_categoria")) {
-        validacionOK("descripcion_categoria", "errorFormatoDescr");
-        return true;
-    } else {
-        validacionKO("descripcion_categoria", "errorFormatoDescr");
-        return false;
-    }
-}
-
-function comprobarDescrEspacio() {
-
-    document.getElementById("descripcion_espacio").style.borderWidth = "2px";
-
-    if (validaNoVacio("descripcion_espacio", "errorFormatoDescr", "descripcion_espacio") && comprobarLetrasNumeros("descripcion_espacio", 200, 20, "errorFormatoDescr", "descripcion_espacio")) {
-        validacionOK("descripcion_espacio", "errorFormatoDescr");
-        return true;
-    } else {
-        validacionKO("descripcion_espacio", "errorFormatoDescr");
-        return false;
-    }
 }
 
 //Añade al div que se indique a traves de la ID, el mensaje especificado con el tamaño de letra y color especificado
@@ -966,7 +1057,7 @@ function comprobarDescripcion(idcampo, idError) {
     return true;
 }
 
-function comprobarFecha(fecha, errorFormato){
+function comprobarFecha(fecha, errorFormato) {
 
     if (validaNoVacio(fecha, errorFormato, fecha)) {
         validacionOK(fecha, errorFormato);
