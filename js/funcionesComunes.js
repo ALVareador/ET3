@@ -981,19 +981,21 @@ function comprobarId(idcampo, idError) {
     //Si contiene espacios o letras
     if (!patron.test(data)) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "ERROR: El campo id no puede contener espacios ni letras");
+        showError(idError, 20, 'red', "error_id_soloNum");
         return false;
     }
 
     //si la ID son mas de 11 caracteres
     if (data.length > 11) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "ERROR: La id no puede tener mas de 11 caracteres");
+        showError(idError, 20, 'red', "error_id_muyGrande");
         return false;
     }
 
     validacionOK(idcampo, idError);
     return true;
+
+
 }
 
 function comprobarNombre(idcampo, idError) {
@@ -1004,33 +1006,35 @@ function comprobarNombre(idcampo, idError) {
     //Si es vacio 
     if (data.length == 0) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "ERROR: El campo nombre no puede estar vacio");
+        showError(idError, 20, 'red', "error_nombre_vacio");
         return false;
     }
 
     //Si menor que 3 caracteres
     if (data.length < 4) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "ERROR: El campo nombre debe tener mas de 3 caracteres"); //"al menos 4 caracteres" quedaria mejor
+        showError(idError, 20, 'red', "error_nombre_corto");
         return false;
     }
 
     //si mas de 45 caracteres
-    if (data.length > 45) {
+    if (data.length > 11) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "ERROR: El campo nombre no puede  tener mas de 11 caracteres");
+        showError(idError, 20, 'red', "error_nombre_largo");
         return false;
     }
 
     //Si contiene espacios o letras
     if (!patron.test(data)) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "ERROR: El campo nombre no puede contener numeros,signos de puntuacion o simbolos");
+        showError(idError, 20, 'red', "error_solo_letras");
         return false;
     }
 
     validacionOK(idcampo, idError);
     return true;
+
+
 }
 
 
@@ -1043,32 +1047,30 @@ function comprobarDescripcion(idcampo, idError) {
     //Si es vacio 
     if (data.length == 0) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "ERROR: La descripción no puede estar vacia");
+        showError(idError, 20, 'red', "error_descripcion_vacia");
         return false;
     }
 
     //Si menor que 20 caracteres
     if (data.length < 19) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "ERROR: La descripción debe de tener mas  de 20 caracteres");
+        showError(idError, 20, 'red', "error_descripcion_corta");
         return false;
     }
 
     //si mas de 45 caracteres
     if (data.length > 201) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "ERROR: La descripción no puede  tener mas de 200 caracteres");
+        showError(idError, 20, 'red', "error_descripcion_larga");
         return false;
     }
 
     //Si contiene espacios o letras
     if (!patron.test(data)) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "ERROR: La descripción no puede contener numeros,signos de puntuacion o simbolos");
+        showError(idError, 20, 'red', "error_descripción_letras");
         return false;
     }
-
-
 
     validacionOK(idcampo, idError);
     return true;
@@ -1085,3 +1087,20 @@ function comprobarFecha(fecha, errorFormato) {
     }
 
 }
+
+
+    /*
+    error_id_vacia El campo id no puede estar vacio
+    error_id_soloNum El campo id no puede contener espacios ni letras
+    error_id_muyGrande La id no puede tener mas de 11 caracteres
+
+    error_nombre_vacio El campo nombre no puede estar vacio
+    error_nombre_corto El campo nombre debe teneral menos 4 caracteres
+    error_nombre_largo El campo nombre no puede  tener mas de 11 caracteres
+    error_solo_letras El campo nombre no puede contener numeros,signos de puntuacion o simbolos
+
+    error_descripcion_vacia La descripción no puede estar vacia
+    error_descripcion_corta La descripción debe de tener mas  de 20 caracteres
+    error_descripcion_larga La descripción no puede  tener mas de 200 caracteres
+    error_descripción_letras La descripción no puede contener numeros,signos de puntuacion o simbolos
+    */
