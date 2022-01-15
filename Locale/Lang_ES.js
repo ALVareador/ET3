@@ -116,6 +116,8 @@ arrayES = {
 	//fin errores accion
 
 	//errores formato
+
+	'error_id_vacia':'El id no puede estar vacío.',
 	'error_dni_vacio':'El DNI no puede estar vacío.',
 	'error_formato_dni':'El DNI debe tener 8 números y una letra.(11111111T)',
 	'error_formato_dni_letra':'La letra introducida no se corresponde con el número',

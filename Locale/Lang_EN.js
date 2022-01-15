@@ -1,5 +1,5 @@
 arrayEN = {
-
+	'error_id_vacia':'Id can not be null',
 	'00000': 'Failed to connect to database. Contact your administrator ',
 	'00001': 'Success when executing the SQL',
 	'00002': 'Error executing SQL',
