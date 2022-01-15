@@ -1,10 +1,48 @@
+@font-face {
+    font-family: 'Ubuntu-Medium';
+    src: url('/fonts/Ubuntu/Ubuntu-Light.ttf'); 
+}
+
+
+ 
 body{
     margin: 0;
+    font-family:'Ubuntu-Medium';
+    
 
 }
 
 
-/*NavBAr*/
+/*NavBar*/
+.divMenuIdioma {
+
+    display: flex;
+    max-height: 100%;
+
+}
+
+
+.divMenuIdioma img {
+
+    display: inline-flex;
+    max-height: 50%;
+    width: auto;
+    object-fit: contain;
+    margin: 18px 7px;
+    padding: 0px 0px;
+
+}
+
+.divMenuIdioma{
+
+    display: flex;
+    text-align: center;
+    justify-content:center;
+    margin: 0px;
+    padding: 0px;
+}
+
+
 #navBar {
 
     display: flex;
@@ -16,18 +54,13 @@ body{
     background-color: #137fe2;
     justify-content: center;
 
-
-
 }
 
 .itemNavBar {
 
-    float: left;
     margin-left: auto;
     margin-right: auto;
     color: white;
-
-    display: flex;
     align-self: center;
 
 
@@ -43,6 +76,8 @@ body{
 .menuIdioma{
     margin-top: 0px;
 }
+
+
 
 
 /*Formulario*/
@@ -169,3 +204,4 @@ td {
     width: 200px;
 
 }
+

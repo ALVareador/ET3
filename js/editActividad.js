@@ -15,7 +15,7 @@ function addActividad() {
         url: "http://193.147.87.202/ET3_IU/noRest.php",
         data: $("#formgenericoActividad").serialize(),
 
-    }).done(function(response) {
+    }).done(function (response) {
         if (response.ok == true) {
             respuestaOKAjax();
             location.reload();
@@ -47,7 +47,7 @@ function buscarActividad() {
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
         data: $("#formgenericoActividad").serialize(),
-    }).done(function(response) {
+    }).done(function (response) {
         if (response.ok == true) {
             $("#datosActividad").html("");
             nodos = document.getElementById("formgenericoActividad").childNodes;
@@ -96,7 +96,7 @@ function editActividad() {
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
         data: $("#formgenericoActividad").serialize(),
-    }).done(function(response) {
+    }).done(function (response) {
         if (response.ok == true) {
             respuestaOKAjax();
             location.reload();
@@ -133,7 +133,7 @@ function deleteActividad() {
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
         data: $("#formgenericoActividad").serialize(),
-    }).done(function(response) {
+    }).done(function (response) {
         if (response.ok == true) {
             respuestaOKAjax();
             location.reload();
@@ -163,7 +163,7 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoActividad").attr('style', 'display: block');
     $("#formgenericoActividad").attr('action', 'javascript:editActividad();');
-    $("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
+    $("#formgenericoActividad").attr('verificaSubmit', 'comprobareditsubmit();');
 
     //Se pone el titulo de la acción añadir
     document.getElementById('tituloAccion').innerHTML = "Editar actividad";
@@ -182,13 +182,13 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
     $("#id_categoria").val(id_categoria);
 
     // rellenamos los onblur de los input que se validad
-    //$("#txtnumcuentaresponsable").attr('onblur', 'comprobarNumCuenta();');
-    //$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
-
-    // se rellena los select
-
-    // se deshabilita el id para que no pueda cambiarse
-    //$("#txtidresponsable").attr('disabled', true);	
+    $("#id_actividad").attr('onblur', 'comprobarId(\'id_actividad\',\'errorFormatoId\');');
+    $("#nombre_actividad").attr('onblur', 'comprobarNombreActividad();');
+    $("#descripcion_actividad").attr('onblur', 'comprobarDescripcionActividad();');
+    $("#precio_actividad").attr('onblur', 'comprobarPrecio();');
+    $("#color_actividad").attr('onblur', 'comprobarColorActividad(\'color_actividad\',\'errorFormatoColorActividad\');');
+    $("#color_nombre_actividad").attr('onblur', 'comprobarColorActividad(\'color_nombre_actividad\',\'errorFormatoColorNombre\');');
+    $("#numPlazas_actividad").attr('onblur', 'comprobarNumeroPlaazas();');
 
 }
 
@@ -245,8 +245,8 @@ function showEliminarActividad(id_actividad, nombre_actividad, descripcion_activ
     hideDivTablaActividades();
 
     resetearformularioActividad()
-        // se resetea todo el formulario generico
-        //resetearformularioresponsable();
+    // se resetea todo el formulario generico
+    //resetearformularioresponsable();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoActividad").attr('style', 'display: disabled');
@@ -292,7 +292,7 @@ function showAddActividad() {
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoActividad").attr('style', 'display: block');
     $("#formgenericoActividad").attr('action', 'javascript:addActividad();');
-    $("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
+    $("#formgenericoActividad").attr('onsubmit', 'verificaSubmit();');
 
     //Se pone el titulo de la acción añadir
     document.getElementById('tituloAccion').innerHTML = "Añadir actividad";
@@ -306,6 +306,8 @@ function showAddActividad() {
     $("#precio_actividad").attr('onblur', 'comprobarPrecio();');
     $("#color_actividad").attr('onblur', 'comprobarColorActividad(\'color_actividad\',\'errorFormatoColorActividad\');');
     $("#color_nombre_actividad").attr('onblur', 'comprobarColorActividad(\'color_nombre_actividad\',\'errorFormatoColorNombre\');');
+    $("#numPlazas_actividad").attr('onblur', 'comprobarNumeroPlaazas();');
+
 }
 
 function showBuscarActividad() {
@@ -382,7 +384,7 @@ function rellenaId_espacio(id_actividad) {
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
         data: $("#formgenericoActividad").serialize(),
-    }).done(function(response) {
+    }).done(function (response) {
         if (response.ok == true) {
             // Rellenamos el selector.
             addOptions('id_espacio', response.resource, 'id_espacio', 'nombre_espacio');
@@ -415,7 +417,7 @@ function rellenaid_categoria(id_actividad) {
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
         data: $("#formgenericoActividad").serialize(),
-    }).done(function(response) {
+    }).done(function (response) {
         if (response.ok == true) {
             // Rellenamos el selector.
             addOptions('id_categoria', response.resource, 'id_categoria', 'nombre_categoria');
@@ -690,11 +692,84 @@ function comprobarColorActividad(idcampo, idError) {
     return true;
 }
 
+function comprobarNumeroPlaazas() {
+    var linea = document.getElementById('numPlazas_actividad');
+    var data = linea.value;
+    idcampo = 'numPlazas_actividad'
+    idError = 'ErrornumPlazas_actividad'
+
+    var patron = /^[0-9\-]+$/;
+
+    if (data.length == 0) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: El numero de plazas no puede quedar vacio");
+        return false;
+    }
+
+
+    if (!patron.test(data)) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: El numero de plazas solo pueden ser numeros");
+        return false;
+    }
+
+
+    if (data.charAt(0) == '-') {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: El numero debe de ser positivo");
+        return false
+    }
+
+
+    if (data > 40) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "ERROR: La actividad no puede tener mas de 40 plazas");
+        return false
+    }
+
+    validacionOK(idcampo, idError);
+    return true
+
+
+}
+
+
+
 
 function hideDivTablaActividades() {
-	document.getElementById('divtablaActividades').style.display = 'none';
+    document.getElementById('divtablaActividades').style.display = 'none';
 }
 
 function showDivTablaActividades() {
-	document.getElementById('divtablaActividades').style.display = 'block';
+    document.getElementById('divtablaActividades').style.display = 'block';
+}
+
+
+function verificaSubmit() {
+    // rellenamos los onblur de los input que se validad
+    if (comprobarId('id_actividad', 'errorFormatoId') && comprobarNombreActividad() && comprobarDescripcionActividad() && comprobarPrecio() &&
+        comprobarColorActividad('color_actividad', 'errorFormatoColorActividad') && comprobarColorActividad('color_nombre_actividad', 'errorFormatoColorNombre') &&
+        $comprobarNumeroPlaazas()) {
+
+        return true;
+    }
+
+    else {
+        return false
+    }
+
+
+
+
+}
+
+
+function reseteaPagina() {
+
+    resetearformularioActividad;
+    GetArrayEspacios();
+    GetArrayCategorias();
+    GetLisActividades();
+    rellenaId_espacio(); rellenaid_categoria();
+
 }

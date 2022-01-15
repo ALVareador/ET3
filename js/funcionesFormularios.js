@@ -159,9 +159,10 @@ function includeMenuIdioma() {
                         '<a onclick="setLang(\'EN\')" class="en" id="en">EN</a>' +
                         '<a onclick="setLang(\'GA\')" class="ga" id="ga">GA</a>' +
                         '</div>';
-    */
+    /*
 
     /*Opcion ComboBox refacherita */
+    /*
     var menuIdioma = '<div class="divMenuIdioma">' +
         '<select name="comboIdioma" class="menuIdioma" id="comboIdioma" onchange="setLang(comboIdioma.value)">' +
         '<option id="es" value="ES" >ES</option>' +
@@ -169,8 +170,18 @@ function includeMenuIdioma() {
         '<option id="en" value="EN" >EN</option>' +
         '</select>' +
         '</div>';
+*/
+
+    //version 3 Mas refachera que nunca
+    var menuIdioma = "<div class=\'divMenuIdioma\'>" +
+        "<img id=\'es\' src=\'/images/BanderasMenuIdioma/BanderaEspaña.png\' alt=\'\' onclick=\'setLang(\"ES\")\'>" +
+        "<img id=\'ga' src=\'/images/BanderasMenuIdioma/BanderaGallega.png\' alt=\'\' onclick=\'setLang(\"GA\")\'>" +
+        "<img id=\'en\' src=\'/images/BanderasMenuIdioma/BanderaInglesa.png\' alt=\'\' onclick=\'setLang(\"EN\")\'>" +
+        "</div>";
 
     $("#menuIdioma").append(menuIdioma);
+
+
 }
 
 /**Función que aplica los cambios necesarios cuando la respuesta de las petición Ajax ha sido OK*/
@@ -207,7 +218,7 @@ function actualizaMensajesRespuestAjax(codigo) {
 //Función para agregar opciones a un <select>.
 //campo Id se corresponde con el campo del array que contiene la id (debe ser un string)
 //campo nombre se corresponde con el campo del array que contiene el nombre (debe ser un string)
-function addOptions(domElement, array,campoId,CampoNombre) {
+function addOptions(domElement, array, campoId, CampoNombre) {
     var selector = document.getElementById(domElement);
     //Recorremos el array.
     longitud = array.length;
