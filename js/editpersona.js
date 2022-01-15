@@ -263,14 +263,11 @@ function showDetallePersona(dni_persona, nombre_persona, apellidos_persona, fech
     $("#telefono_persona").val(telefono_persona);
     $("#email_persona").val(email_persona);
     $("#foto_persona").val(foto_persona);
-    $("#ewCeliaco_persona").val(esCeliaco_persona);
+    $("#esCeliaco_persona").val(esCeliaco_persona);
     $("#borrado_persona").val(borrado_persona);
-
-    var link = '</td> <td> <a href=\'' + 'images/' + foto_persona + '\'>' + foto_persona + '</a>' + '</td> </tr>';
 
     $("#labelsubefotopersona").attr('style', 'display:none');
     $("#subefotopersona").attr('style', 'display:none');
-    $("#foto_persona").attr('style', 'display:none');
 
     $("#dni_persona").attr('disabled', true);
     $("#nombre_persona").attr('disabled', true);
@@ -442,6 +439,8 @@ function showBuscarPersona() {
     $("#formgenericoPersona").attr('action', 'javascript:buscarPersona();');
     $("#formgenericoPersona").attr('onsubmit', 'comprobareditsubmit();');
 
+
+    $("#subefotopersona").attr('style', 'display:none');
     //Se pone el titulo de la acción buscar
     document.getElementById('tituloAccion').innerHTML = "Buscar Persona";
     document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";

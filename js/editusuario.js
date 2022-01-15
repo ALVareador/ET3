@@ -4,7 +4,7 @@ function addUsuario() {
 
 	insertacampo(document.formgenericoUsuario, 'controlador', 'usuario');
 	insertacampo(document.formgenericoUsuario, 'action', 'insertar');
-	//insertacampo(document.formgenericoUsuario,'ID_SESSION', idSession); Solo para buscar
+	
 	console.log(document.formgenericoUsuario);
 	var idioma = getCookie('lang');
 
@@ -66,7 +66,7 @@ function editUsuario() {
 	//insertacampo(document.formgenericoUsuario,'ID_SESSION', idSession);
 	insertacampo(document.formgenericoUsuario, 'controlador', 'usuario');
 	insertacampo(document.formgenericoUsuario, 'action', 'editar');
-
+	$("#dni_usuario").attr('disabled', false);
 	var idioma = getCookie('lang');
 
 	$.ajax({
@@ -79,12 +79,13 @@ function editUsuario() {
 		} else {
 			respuestaKOAjax('edit');
 		}
-		console.log(response.resource);
+
 		actualizaMensajesRespuestAjax(response.code);
-
+		resetearformulariousuario();
+		getLisUsuarios();
 		setLang(idioma);
-
 		deleteActionController();
+		//hasProbadoAReiniciarlo();
 	});
 
 }
@@ -92,8 +93,8 @@ function editUsuario() {
 //
 // Funcion para modificar un formulario generico para editar un usuario
 //
-function showEditarUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario) {
-
+function showEditarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, borrado_usuario) {
+	//console.log(id, dni_usuario, usuario, id_grupo, borrado_usuario);
 	// se resetea todo el formulario generico
 	resetearformulariousuario();
 
@@ -103,6 +104,7 @@ function showEditarUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario) 
 	$("#formgenericoUsuario").attr('onsubmit', 'comprobareditsubmit();');
 
 	//rellenamos los tipo text
+	insertacampo(document.formgenericoUsuario,'id', id);
 	$("#dni_usuario").val(dni_usuario);
 	$("#labelusuario").val(usuario);
 
@@ -111,8 +113,8 @@ function showEditarUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario) 
 	$("#labelcontrasena").attr('style', 'display:none');
 
 	// rellenamos los onblur de los input que se validad
-	$("#dni_usuario").attr('onblur', 'comprobarDni();');
-	$("#labelusuario").attr('onblur', 'comprobarUser();');
+	$("#dni_usuario").attr('onblur', /*'comprobarDni();'*/);
+	$("#labelusuario").attr('onblur', /*'comprobarUser();'*/);
 
 	deleteoptionsSelect("id_grupo");
 	rellenaid_grupo(id_grupo, borrado_usuario);
@@ -120,53 +122,21 @@ function showEditarUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario) 
 	$("#dni_usuario").attr('disabled', true);
 }
 
-//*
-// funcion deleteusuario, recibe los datos del formulario formdeleteusuario y los envia al back para borrarlo
-//*
-function deleteUsuario() {
-
-	var idSession = getCookie('sessionId');
-
-	//insertacampo(document.formgenericoUsuario,'ID_SESSION', idSession);
-	insertacampo(document.formgenericoUsuario, 'controlador', 'usuario');
-	insertacampo(document.formgenericoUsuario, 'action', 'borrar');
-
-	var idioma = getCookie('lang');
-
-	$.ajax({
-		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
-		data: $("#formgenericoUsuario").serialize(),
-	}).done(function (response) {
-		if (response.ok == true) {
-			respuestaOKAjax();
-		} else {
-			respuestaKOAjax('borrar');
-		}
-
-		actualizaMensajesRespuestAjax(response.code);
-
-		setLang(idioma);
-
-		deleteActionController();
-	});
-
-}
-
 function comprobareditsubmit() {
 
-	if (comprobarUser()) {
+	/*if (comprobarUser()) {
 		return true;
 	}
 	else {
 		return false;
-	}
+	}*/
+	return true;
 }
 
 function detalleusuario() {
 
     var idioma = getCookie('lang');
-    resetearformulariopersona();
+    resetearformulariousuario();
     GetLisUsuarios()
     setLang(idioma);
 }
@@ -196,12 +166,45 @@ function showDetalleUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario)
 
 }
 
-function showEliminarUsuario(id, dni_usuario, usuario,id_grupo, borrado_usuario) {
+function deleteUsuario() {
+
+	var idSession = getCookie('sessionId');
+
+	//insertacampo(document.formgenericoUsuario,'ID_SESSION', idSession);
+	insertacampo(document.formgenericoUsuario, 'controlador', 'usuario');
+	insertacampo(document.formgenericoUsuario, 'action', 'borrar');
+	$("#dni_usuario").attr('disabled', false);
+
+	console.log(formgenericoUsuario);
+	var idioma = getCookie('lang');
+
+	$.ajax({
+		method: "POST",
+		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		data: $("#formgenericoUsuario").serialize(),
+	}).done(function (response) {
+		if (response.ok == true) {
+			respuestaOKAjax();
+		} else {
+			respuestaKOAjax('borrar');
+		}
+		console.log(response.resource);
+		actualizaMensajesRespuestAjax(response.code);
+
+		setLang(idioma);
+
+		deleteActionController();
+	});
+
+}
+
+function showEliminarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, borrado_usuario) {
 
 	$("#divformgenericoUsuario").attr('style', 'display: block');
 	$("#formgenericoUsuario").attr('action', 'javascript:deleteUsuario();');
 	$("#formgenericoUsuario").attr('onsubmit', '');
 
+	insertacampo(document.formgenericoUsuario,'id', id);
 	$("#dni_usuario").val(dni_usuario);
 	$("#labelusuario").val(usuario);
 
@@ -224,7 +227,7 @@ function rellenaid_grupo(id) {
 
     var idSession = getCookie('sessionId');
 
-	addActionControler(document.formgenericoUsuario, 'search', 'espacio')
+	addActionControler(document.formgenericoUsuario, 'search', 'grupo')
 
     var idioma = getCookie('lang');
 
