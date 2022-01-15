@@ -1,5 +1,5 @@
 arrayGA = {
-
+	'error_id_vacia':'O id non pode estar vacío.',
 	'00000': 'Produciuse un erro ao conectar coa base de datos. Contacta co teu administrador ',
 	'00001': 'Éxito ao executar o SQL',
 	'00002': 'Erro ao executar SQL',
