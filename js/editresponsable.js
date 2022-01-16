@@ -49,6 +49,20 @@ function addResponsable() {
 };
 
 //*
+// funcion detalleresponsable, recibe los datos del back y los muestra
+//*
+function detalleresponsable() {
+
+	var idioma = getCookie('lang');
+
+	resetearformularioresponsable();
+
+	GetLisResponsables()
+
+	setLang(idioma);
+}
+
+//*
 // funcion editresponsable, recibe los datos del formulario editresponsable y los envia al back
 //*
 function editresponsable() {
@@ -137,57 +151,89 @@ function deleteresponsable() {
 
 }
 
-function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
+//*
+// funcion buscarresponsable, recibe los datos del formulario y busca datos
+//*
+function buscarresponsable() {
+
+	console.log("getLisResponsable -> getLisResponsable triggered");
+
+	var idioma = getCookie('lang');
+	var idSession = getCookie('sessionId');
+	console.log("getLisResponsable -> formulario oculto  construyendose");
+	addActionControler(document.formgenericoresponsable, 'search', 'responsable')
+	insertacampo(document.formgenericoresponsable, 'ID_SESSION', idSession);
+
+	console.log("getLisResponsable ->formulario oculto  construido");
+	console.log(document.formgenericoresponsable);
+
+	$.ajax({
+		method: "POST",
+		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		data: $("#formgenericoresponsable").serialize(),
+	}).done(function (response) {
+		if (response.ok == true) {
+			$("#datosResponsables").html("");
+			nodos = document.getElementById("formgenericoresponsable").childNodes;
+			for (var i = 0; i < nodos.length; i++) {
+				var item = nodos[i];
+				if (item.id != undefined) {
+					//  alert(item.id);
+				}
+			}
+			//alert(nodos);
+			for (var i = 0; i < response.resource.length; i++) {
+				var tr = construyeFila(response.resource[i]);
+				$("#datosResponsables").append(tr);
+			}
+
+			setLang(idioma);
+		} else {
+			$("#mensajeError").removeClass();
+			$("#mensajeError").addClass(response.code);
+			$("#mensajeError").append(response.code);
+			$("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+			$("#imagenAviso").attr('src', "images/icons/error.png");
+			setLang(idioma);
+			$("#modal").attr('style', 'display: block');
+		}
+
+		deleteActionController();
+
+	});
+}
+
+//SHOW's ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function showAddResponsable() {
 
 	// se resetea todo el formulario generico
 	resetearformularioresponsable();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoresponsable").attr('style', 'display: block');
-	$("#formgenericoresponsable").attr('action', 'javascript:editresponsable();');
+	$("#formgenericoresponsable").attr('action', 'javascript:addResponsable();');
 	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
 
-	//rellenamos los tipo text
-	$("#dni_responsable").val(dni_responsable);
-	$("#numCuenta_responsable").val(numCuenta_responsable);
-	$("#txtcurriculumresponsable").val(curriculum_responsable);
+	// eliminar input no necesario
+	$("#labeltxtcurriculumresponsable").attr('style', 'display:none');
+	$("#txtcurriculumresponsable").attr('style', 'display:none');
+	$("#txtcurriculumresponsable").attr('disabled', true);
 
 	// rellenamos los onblur de los input que se validad
 	$("#dni_responsable").attr('onblur', 'comprobarDNI("dni_responsable","errorFormatoDni");');
 	$("#numCuenta_responsable").attr('onblur', 'comprobarNumCuenta("numCuenta_responsable","errorFormatoCuenta");');
 	$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
+	$("#subetxtcurriculumresponsable").attr('onblur', '');
 
-	// se habilita el id para que no pueda cambiarse
+	// se rellena los select
 
+	// se deshabilita el id para que no pueda cambiarse
 	$("#dni_responsable").attr('disabled', false);
-	$("#numCuenta_responsable").attr('disabled', false);
-	$("#txtcurriculumresponsable").attr('disabled', false);
-	$("#txtborradoresponsable").attr('disabled', false);
 
 	//cambiar icono submit
-	$("#iconoAcciones").attr('src', "./images/icons/editUser.png");
+	$("#iconoAcciones").attr('src', "./images/icons/addUser.png");
 
-}
-
-function comprobareditsubmit() {
-
-	if (comprobarResponsable()) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-function detalleresponsable() {
-
-	var idioma = getCookie('lang');
-
-	resetearformularioresponsable();
-
-	GetLisResponsables()
-
-	setLang(idioma);
 }
 
 function showDetalleResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
@@ -227,6 +273,38 @@ function showDetalleResponsable(dni_responsable, numCuenta_responsable, curricul
 
 }
 
+function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
+
+	// se resetea todo el formulario generico
+	resetearformularioresponsable();
+
+	// se pone visible el formulario y se rellena el action y el onsubmit
+	$("#divformgenericoresponsable").attr('style', 'display: block');
+	$("#formgenericoresponsable").attr('action', 'javascript:editresponsable();');
+	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
+
+	//rellenamos los tipo text
+	$("#dni_responsable").val(dni_responsable);
+	$("#numCuenta_responsable").val(numCuenta_responsable);
+	$("#txtcurriculumresponsable").val(curriculum_responsable);
+
+	// rellenamos los onblur de los input que se validad
+	$("#dni_responsable").attr('onblur', 'comprobarDNI("dni_responsable","errorFormatoDni");');
+	$("#numCuenta_responsable").attr('onblur', 'comprobarNumCuenta("numCuenta_responsable","errorFormatoCuenta");');
+	$("#txtcurriculumresponsable").attr('onblur', 'comprobarCurriculum();');
+
+	// se habilita el id para que no pueda cambiarse
+
+	$("#dni_responsable").attr('disabled', false);
+	$("#numCuenta_responsable").attr('disabled', false);
+	$("#txtcurriculumresponsable").attr('disabled', false);
+	$("#txtborradoresponsable").attr('disabled', false);
+
+	//cambiar icono submit
+	$("#iconoAcciones").attr('src', "./images/icons/editUser.png");
+
+}
+
 function showEliminarResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
 	// se resetea todo el formulario generico
 	resetearformularioresponsable();
@@ -253,24 +331,23 @@ function showEliminarResponsable(dni_responsable, numCuenta_responsable, curricu
 	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
 
 	//cambiar icono submit
-    $("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
+	$("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
 
 }
 
-function showAddResponsable() {
+function showBuscarResponsable() {
 
 	// se resetea todo el formulario generico
 	resetearformularioresponsable();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoresponsable").attr('style', 'display: block');
-	$("#formgenericoresponsable").attr('action', 'javascript:addResponsable();');
+	$("#formgenericoresponsable").attr('action', 'javascript:buscarresponsable();');
 	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
 
 	// eliminar input no necesario
-	$("#labeltxtcurriculumresponsable").attr('style', 'display:none');
-	$("#txtcurriculumresponsable").attr('style', 'display:none');
-	$("#txtcurriculumresponsable").attr('disabled', true);
+	$("#labelsubetxtcurriculumresponsable").attr('style', 'display:none');
+	$("#subetxtcurriculumresponsable").attr('style', 'display:none');
 
 	// rellenamos los onblur de los input que se validad
 	$("#dni_responsable").attr('onblur', 'comprobarDNI("dni_responsable","errorFormatoDni");');
@@ -286,6 +363,18 @@ function showAddResponsable() {
 	//cambiar icono submit
 	$("#iconoAcciones").attr('src', "./images/icons/addUser.png");
 
+}
+
+//Otras funciones -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function comprobareditsubmit() {
+
+	if (comprobarResponsable()) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }
 
 function resetearformularioresponsable(idformUsado) {

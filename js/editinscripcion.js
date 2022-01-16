@@ -29,7 +29,7 @@ function editinscripcion() {
             $("#id_usuario").val(ArrayDNI[j]['id']);
         }
     }
-    if(document.getElementById("documento_pago").value == ""){
+    if (document.getElementById("documento_pago").value == "") {
         $("#documento_pago").val(document.getElementById("sube_documento_pago").value.substring(11,));
     }
 
@@ -83,7 +83,7 @@ function addinscripcion() {
             $("#id_usuario").val(ArrayDNI[j]['id']);
         }
     }
-    if(document.getElementById("documento_pago").value == ""){
+    if (document.getElementById("documento_pago").value == "") {
         $("#documento_pago").val(document.getElementById("sube_documento_pago").value.substring(11,));
     }
 
@@ -160,6 +160,58 @@ function deleteinscripcion() {
         hasProbadoAReiniciarlo();
     });
 
+}
+
+//*
+// funcion buscarinscripcion, recibe los datos del formulario y busca datos
+//*
+function buscarinscripcion() {
+
+    console.log("getLisInscripcion -> getLisInscripcion triggered");
+
+    var idioma = getCookie('lang');
+    var idSession = getCookie('sessionId');
+    console.log("getLisInscripcion -> formulario oculto  construyendose");
+    addActionControler(document.formgenericoinscripcion, 'search', 'inscripcion')
+    insertacampo(document.formgenericoinscripcion, 'ID_SESSION', idSession);
+
+    console.log("getLisInscripcion ->formulario oculto  construido");
+    console.log(document.formgenericoinscripcion);
+
+    $.ajax({
+        method: "POST",
+        url: "http://193.147.87.202/ET3_IU/noRest.php",
+        data: $("#formgenericoinscripcion").serialize(),
+    }).done(function (response) {
+        if (response.ok == true) {
+            $("#datosInscripciones").html("");
+            nodos = document.getElementById("formgenericoinscripcion").childNodes;
+            for (var i = 0; i < nodos.length; i++) {
+                var item = nodos[i];
+                if (item.id != undefined) {
+                    //  alert(item.id);
+                }
+            }
+            //alert(nodos);
+            for (var i = 0; i < response.resource.length; i++) {
+                var tr = construyeFila(response.resource[i]);
+                $("#datosInscripciones").append(tr);
+            }
+
+            setLang(idioma);
+        } else {
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);
+            $("#mensajeError").append(response.code);
+            $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+            $("#imagenAviso").attr('src', "images/icons/error.png");
+            setLang(idioma);
+            $("#modal").attr('style', 'display: block');
+        }
+
+        deleteActionController();
+
+    });
 }
 
 //SHOW's ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -347,6 +399,44 @@ function showEliminarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha
     $("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
 }
 
+function showBuscarInscripcion() {
+
+    // se resetea todo el formulario generico
+    resetearformularioinscripcion();
+
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericoinscripcion").attr('style', 'display: block');
+    $("#formgenericoinscripcion").attr('action', 'javascript:buscarinscripcion();');
+    $("#formgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
+
+    // rellenamos los onblur de los input que se validad
+    $("#id_inscripcion").attr('onblur', 'comprobarId("id_inscripcion", "errorFormatoId");');
+    $("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario", "errorFormatoDni");');
+    $("#fecha_solicitud_inscripcion").attr('onblur', 'comprobarFecha("fecha_solicitud_inscripcion", "errorFormatoFechaInscripcion");');
+    $("#fecha_pago_inscripcion").attr('onblur', 'comprobarFecha("fecha_pago_inscripcion", "errorFormatoFechaPago");');
+    $("#fecha_aceptacion_inscripcion").attr('onblur', 'comprobarFecha("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion");');
+
+    // documentos
+    $("#documento_pago").attr('style', 'display:');
+    $("#enlace_documento_pago").attr('style', 'display:none');
+    $("#label_sube_documento_pago").attr('style', 'display:none');
+    $("#sube_documento_pago").attr('style', 'display:none');
+
+    //cambiar icono submit
+    $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
+
+    // habilitar/deshabilitar campos
+    $("#id_actividad").attr('disabled', false);
+    $("#id_inscripcion").attr('disabled', false);
+    $("#id_actividad").attr('disabled', false);
+    $("#dni_usuario").attr('disabled', false);
+    $("#fecha_solicitud_inscripcion").attr('disabled', false);
+    $("#documento_pago").attr('disabled', false);
+    $("#fecha_pago_inscripcion").attr('disabled', false);
+    $("#fecha_aceptacion_inscripcion").attr('disabled', false);
+
+}
+
 //Otras funciones -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 function resetearformularioinscripcion(idformUsado) {
@@ -425,111 +515,3 @@ function comprobareditsubmit() {
     }*/
     return true;
 }
-
-/*
-function buscarInscripcion() {
-
-	console.log("GetLisInscripcions -> GetLisInscripcions triggered");
-
-	var idioma = getCookie('lang');
-	var idSession = getCookie('sessionId');
-	console.log("GetLisInscripcions -> formulario oculto  construyendose");
-	addActionControler(document.formgenericoinscripcion, 'search', 'inscripcion')
-	insertacampo(document.formgenericoinscripcion, 'ID_SESSION', idSession);
-
-	console.log("GetLisInscripcions ->formulario oculto  construido");
-	console.log(document.formgenericoinscripcion);
-
-	$.ajax({
-		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
-		data: $("#formgenericoinscripcion").serialize(),
-	}).done(function (response) {
-		if (response.ok == true) {
-			$("#datosInscripciones").html("");
-			nodos = document.getElementById("formgenericoinscripcion").childNodes;
-			for (var i = 0; i < nodos.length; i++) {
-				var item = nodos[i];
-				if (item.id != undefined) {
-					//  alert(item.id);
-				}
-			}
-			//alert(nodos);
-			for (var i = 0; i < response.resource.length; i++) {
-				var tr = construyeFila(response.resource[i]);
-				$("#datosInscripciones").append(tr);
-			}
-
-			setLang(idioma);
-		} else {
-			$("#mensajeError").removeClass();
-			$("#mensajeError").addClass(response.code);
-			$("#mensajeError").append(response.code);
-			$("#cerrar").attr('onclick', "cerrar('modal', '', '')");
-			$("#imagenAviso").attr('src', "images/icons/error.png");
-			setLang(idioma);
-			$("#modal").attr('style', 'display: block');
-		}
-
-		deleteActionController();
-
-	});
-}
-
-//SHOWS
-
-function showBuscarInscripcion() {
-
-    // se resetea todo el formulario generico
-    resetearformularioinscripcion();
-
-    // se pone visible el formulario y se rellena el action y el onsubmit
-    $("#divformgenericoinscripcion").attr('style', 'display: block');
-    $("#divformgenericoinscripcion").attr('action', 'javascript:buscarInscripcion();');
-    $("#divformgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
-/*
-    // eliminar input no necesario
-    $("#label_documento_pago").attr('style', 'display:none');
-    $("#documento_pago").attr('style', 'display:none');
-    $("#documento_pago").attr('disabled', true);
-
-    //cambiar icono submit
-    $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
-
-    // habilitar/deshabilitar campos
-    $("#id_actividad").attr('disabled', false);
-    $("#id_inscripcion").attr('disabled', true);
-    $("#id_actividad").attr('disabled', false);
-    $("#dni_usuario").attr('disabled', false);
-    $("#fecha_solicitud_inscripcion").attr('disabled', false);
-    $("#documento_pago").attr('disabled', false);
-    $("#fecha_pago_inscripcion").attr('disabled', false);
-    $("#fecha_aceptacion_inscripcion").attr('disabled', false);
-
-    // rellenamos los onblur de los input que se validad
-    $("#dni_usuario").attr('onblur', 'comprobarDNI();');
-    //-------------------$("#fecha_solicitud_inscripcion").attr('onblur', 'comprobarFecha();');
-    //-------------------$("#documento_pago").attr('onblur', 'comprobarDocumento();');
-    //-------------------$("#fecha_pago_inscripcion").attr('onblur', 'comprobarFecha();');
-    //-------------------$("#fecha_aceptacion_inscripcion").attr('onblur', 'comprobarFecha();');
-*/}
-
-/*function showBuscarInscripcion() {
-
-	// se resetea todo el formulario generico
-	resetearformularioinscripcion();
-
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoInscripcion").attr('style', 'display: ');
-	$("#formgenericoInscripcion").attr('action', 'javascript:buscarInscripcion();');
-	$("#formgenericoInscripcion").attr('onsubmit', 'comprobareditsubmit();');
-
-	//Se pone el titulo de la acción buscar
-	//document.getElementById('tituloAccion').innerHTML = "Buscar Inscripcion";
-	//document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
-
-	// rellenamos los onblur de los input que se validad
-	//$("#id_inscripcion").attr('onblur', 'comprobarIdInscripcion(\"id_inscripcion\");');
-	//$("#nombre_inscripcion").attr('onblur', 'comprobarNombreInscripcion();');
-}*/
-*/
