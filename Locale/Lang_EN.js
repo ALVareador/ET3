@@ -10,7 +10,7 @@ arrayEN = {
 	'gal': 'Galician',
 	'eng': 'English',
 	'Inicio': 'Beginning',
-	'bienvenida': 'Welcome to the architecture of IU 2021/2022',
+	'bienvenida': 'Welcome',
 	'listUsers': 'Welcome to the sample table of users',
 	'addForm': 'Welcome to the insert form',
 	'searchForm': 'Welcome to the search form',

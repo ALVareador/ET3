@@ -10,7 +10,7 @@ arrayGA = {
 	'gal': 'galego',
 	'eng': 'inglés',
 	'Inicio': 'comezo',
-	'bienvenida': 'Benvido á arquitectura de IU 2021/2022',
+	'bienvenida': 'Benvido',
 	'listUsers': 'Benvido á táboa de mostra de usuarios',
 	'addForm': 'Benvido ao formulario de inserción',
 	'searchForm': 'Benvido ao formulario de busca',

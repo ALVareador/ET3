@@ -19,7 +19,7 @@ arrayES = {
 	// usuario
 	//- titulos
 	'Inicio': 'Inicio',
-	'bienvenida': 'Bienvenido a la arquitectura de IU 2021/2022',
+	'bienvenida': 'Bienvenido',
 	'listUsers': 'Bienvenido a la tabla de muestra de usuarios',
 	'addForm': 'Bienvenido al formulario de inserción',
 	'searchForm': 'Bienvenido al formulario de búsqueda',
@@ -33,22 +33,22 @@ arrayES = {
 	'datosPersonales': 'Datos personales',
 	'datosUsuario': 'Datos usuario',
 	//- atributos
-
+	'recuperar_contrasena': 'Recuperar Contraseña',
 	'contrasenarecuperada': 'La contraseña de este usuario es: ',
-	'correorecuperacion':'Correo asociado a la contraseña',
-	'usuariorecuperacion':'Usuario propietario de la contraseña a recuperar',
+	'correorecuperacion': 'Correo asociado a la contraseña',
+	'usuariorecuperacion': 'Usuario propietario de la contraseña a recuperar',
 	'id': 'ID de Usuario',
 	'id_usuario': 'ID de Usuario',
 	'labelusuario': 'Nombre de Usuario',
 	'labelcontrasena': 'Contraseña de Usuario',
-	'repetir_contrasena':'Repita Contraseña',
+	'repetir_contrasena': 'Repita Contraseña',
 	'dni_usuario': 'DNI de Usuario',
 	'id_grupo': 'Grupo',
 	'borrado_usuario': 'Activo',
 	'ACCIONES': 'Acciones',
 	'SI': 'Sí',
 	'NO': 'No',
-	'seleccionNula' : 'Seleccione una opción',
+	'seleccionNula': 'Seleccione una opción',
 
 	'nombre_grupo': 'Nombre de Grupo',
 	'descripcion_grupo': 'Descripcion de Grupo',
@@ -101,7 +101,7 @@ arrayES = {
 	'LOGIN_USU_CORRECTO': 'El Usuario accedió correctamente',
 	'session_stored_ok': 'Sesión guardada en BD',
 	'session_disconnect_ok': 'Sesión eliminada de BD y usuario desconectado',
-	
+
 	//fin exito
 
 	//- errores accion
@@ -117,55 +117,55 @@ arrayES = {
 
 	//errores formato
 
-	'error_id_vacia':'El id no puede estar vacío.',
-	'error_dni_vacio':'El DNI no puede estar vacío.',
-	'error_formato_dni':'El DNI debe tener 8 números y una letra.(11111111T)',
-	'error_formato_dni_letra':'La letra introducida no se corresponde con el número',
-	
-	'error_apellidos_vacio':'El campo apellidos no puede estar vacío',
-	'error_formato_apellidos_corto':'Los apellidos deben tener más de 2 caracteres',
-	'error_formato_apellidos_largo':'Los apellidos deben tener a lo sumo 100 caracteres',
-	'error_formato_apellidos_persona':'Introduzca los apellidos separados por espacios sin utilizar números ni símbolos',
-	
-	'error_nombre_persona_vacio':'El nombre no puede estar vacío',
-	'error_formato_nombre_persona':'Introduzca el nombre sin utilizar números ni símbolos',
-	'error_formato_nombre_corto':'El nombre debe tener más de 2 caracteres',
-	'error_formato_nombre_largo':'El nombre debe tener menos de 46 caracteres',
+	'error_id_vacia': 'El id no puede estar vacío.',
+	'error_dni_vacio': 'El DNI no puede estar vacío.',
+	'error_formato_dni': 'El DNI debe tener 8 números y una letra.(11111111T)',
+	'error_formato_dni_letra': 'La letra introducida no se corresponde con el número',
 
-	'error_descripcion_vacio':'La descripcion no puede ser vacía',
-	'error_formato_descripcion':'Introduzca la descripción sin utilizar números ni símbolos',
-	'error_formato_descripcion_corto':'La descripcion debe tener más de 19 caracteres',
-	'error_formato_descripcion_largo':'La descripcion debe tener a lo sumo 200 caracteres',
+	'error_apellidos_vacio': 'El campo apellidos no puede estar vacío',
+	'error_formato_apellidos_corto': 'Los apellidos deben tener más de 2 caracteres',
+	'error_formato_apellidos_largo': 'Los apellidos deben tener a lo sumo 100 caracteres',
+	'error_formato_apellidos_persona': 'Introduzca los apellidos separados por espacios sin utilizar números ni símbolos',
 
-	'error_fecha_vacia':'La fecha no puede estar vacía',
-	'error_menor_edad':'Debe ser mayor de edad.',
-	'error_fecha_nacimiento_negativa':'Cuando hayas nacido vuelve a intentarlo',
+	'error_nombre_persona_vacio': 'El nombre no puede estar vacío',
+	'error_formato_nombre_persona': 'Introduzca el nombre sin utilizar números ni símbolos',
+	'error_formato_nombre_corto': 'El nombre debe tener más de 2 caracteres',
+	'error_formato_nombre_largo': 'El nombre debe tener menos de 46 caracteres',
+
+	'error_descripcion_vacio': 'La descripcion no puede ser vacía',
+	'error_formato_descripcion': 'Introduzca la descripción sin utilizar números ni símbolos',
+	'error_formato_descripcion_corto': 'La descripcion debe tener más de 19 caracteres',
+	'error_formato_descripcion_largo': 'La descripcion debe tener a lo sumo 200 caracteres',
+
+	'error_fecha_vacia': 'La fecha no puede estar vacía',
+	'error_menor_edad': 'Debe ser mayor de edad.',
+	'error_fecha_nacimiento_negativa': 'Cuando hayas nacido vuelve a intentarlo',
 
 	'error_cuenta_vacia': 'El número de cuenta no puede estar vacía',
 	'error_cuenta_corto': 'El número de cuenta no puede tener menos de 24 caracteres',
 	'error_cuenta_largo': 'El número de cuenta no puede tener más de 24 caracteres',
 	'error_cuenta_formato': 'El formato del numero de cuenta debe ser 2 letras seguido de 22 números',
-	
-	'error_formato_direccion_caracteres':'No admitidos caracteres que no sean alfanuméricos o º,ª,.,,',
-	'error_formato_direccion_corto':'La dirección debe tener más de 2 caracteres',
-	'error_formato_direccion_largo':'La direccion debe tener menos de 200 caracteres',
-	'error_direccion_vacia':'La direccion no puede estar vacía',
-	
-	'error_formato_telefono':'Introduce el telefono sin simbolos ni letras, ejemplo: 111222333',
-	'error_telefono_vacio':'El campo no puede estar vacío',
-	'error_telefono_largo':'El telefono no debe tener más de 9 dígitos',
-	'error_telefono_corto':'El telefono no debe tener menos de 9 dígitos',
-	
-	'error_email_vacio':'El email no puede estar vacío.',
-	'error_email_corto':'El email no puede ser menor de 3 caracteres',
-	'error_email_largo':'El email no puede exceder los 45 caracteres',
-	'error_formato_email':'Formato de email incorrecto, ejemplo: enlafabricadesueños@gmail.com',
 
-	'error_foto_corto':'El email no puede ser menor de 5 caracteres',
-	'error_foto_largo':'El email no puede exceder los 100 caracteres',
+	'error_formato_direccion_caracteres': 'No admitidos caracteres que no sean alfanuméricos o º,ª,.,,',
+	'error_formato_direccion_corto': 'La dirección debe tener más de 2 caracteres',
+	'error_formato_direccion_largo': 'La direccion debe tener menos de 200 caracteres',
+	'error_direccion_vacia': 'La direccion no puede estar vacía',
 
-	'error_password_disintas':'Las contraseñas deben coincidir',
-	'error_password_iguales' :'La nueva contraseña es igual a la antigua',
+	'error_formato_telefono': 'Introduce el telefono sin simbolos ni letras, ejemplo: 111222333',
+	'error_telefono_vacio': 'El campo no puede estar vacío',
+	'error_telefono_largo': 'El telefono no debe tener más de 9 dígitos',
+	'error_telefono_corto': 'El telefono no debe tener menos de 9 dígitos',
+
+	'error_email_vacio': 'El email no puede estar vacío.',
+	'error_email_corto': 'El email no puede ser menor de 3 caracteres',
+	'error_email_largo': 'El email no puede exceder los 45 caracteres',
+	'error_formato_email': 'Formato de email incorrecto, ejemplo: enlafabricadesueños@gmail.com',
+
+	'error_foto_corto': 'El email no puede ser menor de 5 caracteres',
+	'error_foto_largo': 'El email no puede exceder los 100 caracteres',
+
+	'error_password_disintas': 'Las contraseñas deben coincidir',
+	'error_password_iguales': 'La nueva contraseña es igual a la antigua',
 	//fin errores formato
 
 	//************************************************************************************************
@@ -311,7 +311,7 @@ arrayES = {
 	'user_in_session': 'Usuario con sesión activa',
 	'session_disconnect_ok': 'Sesión eliminada de BD y usuario desconectado',
 
-	'id_inscripcion':'Id de inscripcion',
+	'id_inscripcion': 'Id de inscripcion',
 	/////////////////////////////////////////////////////////////////////////////////
 	'USUARIO_BORRAR_OK': 'Usuario borrado correctamente',
 	'PERSONA_BORRAR_OK': 'Persona borrada correctamente',
