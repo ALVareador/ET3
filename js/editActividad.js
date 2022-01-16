@@ -67,8 +67,6 @@ function buscarActividad() {
         } else {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
-            $("#mensajeError").append(response.code);
-            $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
             $("#imagenAviso").attr('src', "images/icons/error.png");
             setLang(idioma);
             $("#modal").attr('style', 'display: block');
@@ -163,7 +161,7 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoActividad").attr('style', 'display: block');
     $("#formgenericoActividad").attr('action', 'javascript:editActividad();');
-    $("#formgenericoActividad").attr('verificaSubmit', 'comprobareditsubmit();');
+    $("#formgenericoActividad").attr('verificaSubmit', 'verificaSubmit();();');
 
     //Se pone el titulo de la acción añadir
     document.getElementById('tituloAccion').innerHTML = "Editar actividad";
@@ -192,11 +190,6 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
 
 }
 
-function comprobareditsubmit() {
-
-    return true;
-
-}
 
 function showDetalleActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
@@ -209,7 +202,7 @@ function showDetalleActividad(id_actividad, nombre_actividad, descripcion_activi
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoActividad").attr('style', 'display: disabled');
     $("#formgenericoActividad").attr('action', 'javascript:editActividad();');
-    $("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
+    $("#formgenericoActividad").attr('onsubmit', '');
 
     //Se pone el titulo de la acción añadir
     document.getElementById('tituloAccion').innerHTML = "Detalles de la actividad: " + nombre_actividad;
@@ -251,7 +244,7 @@ function showEliminarActividad(id_actividad, nombre_actividad, descripcion_activ
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoActividad").attr('style', 'display: disabled');
     $("#formgenericoActividad").attr('action', 'javascript:deleteActividad();');
-    $("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
+    $("#formgenericoActividad").attr('onsubmit', '');
 
     //Se pone el titulo de la acción añadir
     document.getElementById('tituloAccion').innerHTML = "Eliminar actividad";
@@ -318,7 +311,7 @@ function showBuscarActividad() {
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoActividad").attr('style', 'display: block');
     $("#formgenericoActividad").attr('action', 'javascript:buscarActividad();');
-    $("#formgenericoActividad").attr('onsubmit', 'comprobareditsubmit();');
+    $("#formgenericoActividad").attr('onsubmit', '');
 
     //Se pone el titulo de la acción buscar
     document.getElementById('tituloAccion').innerHTML = "Buscar Actividad";
@@ -395,7 +388,6 @@ function rellenaId_espacio(id_actividad) {
         } else {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
-            $("#mensajeError").append(response.code);
             setLang(idioma);
             document.getElementById("modal").style.display = "block";
         }
@@ -428,7 +420,6 @@ function rellenaid_categoria(id_actividad) {
         } else {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
-            $("#mensajeError").append(response.code);
             setLang(idioma);
             document.getElementById("modal").style.display = "block";
         }

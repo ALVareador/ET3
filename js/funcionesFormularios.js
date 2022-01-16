@@ -197,19 +197,18 @@ function respuestaKOAjax(opcion) {
 
     $("#cerrar").attr('onclick', "cerrar('modal', '" + opcion + "', '')");
     $("#imagenAviso").attr('src', "images/icons/error.png");
-    $("#mensajeError").attr('style', 'color: #ff0000; margin-top: 5%; margin-left: 17%');
+    $("#mensajeError").attr('style', 'color: #ff0000; margin-right: 20px');
 
 }
 
 /**Función que actualiza el mensaje con el código que nos llega de la petición Ajax y aplica estilos*/
 function actualizaMensajesRespuestAjax(codigo) {
-    console.log("actualizaMensajesRespuestAjax call");
-    console.log(codigo);
     $("#mensajeError").removeClass();
     $("#mensajeError").addClass(codigo);
-    $("#mensajeError").append(codigo);
     $("#imagenAviso").attr('style', 'width: 16%; margin-top: 0');
-    $("#modal").attr('style', 'background-color: rgba(1, 1, 1, 0.5); z-index: 1030; display: block');
+    $("#modal").attr('style', 'display: flex');
+    var idioma = getCookie('lang');
+    setLang(idioma);
 
 }
 

@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Ubuntu-Medium';
-    src: url('fonts/Ubuntu/Ubuntu-Light.ttf'); 
+    src: url('fonts/Ubuntu/Ubuntu-Light.ttf');
 
 }
 
@@ -282,4 +282,28 @@ td {
 #searchButtomText {
     margin: 2% 0% 0% 0%;
     padding: 0px;
+}
+
+/*Bloque de error y tal*/
+
+#contenido-interno {
+    
+    margin-left: 20%;
+    display: flex;
+    flex-direction: row;
+    font-size: 25px;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+#imagenAviso {
+    margin: auto;
+    width: fit-content;
+}
+
+#iconCerrar{
+
+    height: 40px;
+
 }

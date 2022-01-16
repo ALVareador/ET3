@@ -944,7 +944,7 @@ function showError(idError, tamanhoLetra, colorTexto, idMensajeErrormensaje) {
     }
 
 
-    divError.classList.add(idMensajeErrormensaje,idMensajeErrormensaje);
+    divError.classList.add(idMensajeErrormensaje, idMensajeErrormensaje);
     var idioma = getCookie('lang');
     setLang(idioma);
 
@@ -1089,18 +1089,19 @@ function comprobarFecha(fecha, errorFormato) {
 }
 
 
-    /*
-    error_id_vacia El campo id no puede estar vacio
-    error_id_soloNum El campo id no puede contener espacios ni letras
-    error_id_muyGrande La id no puede tener mas de 11 caracteres
 
-    error_nombre_vacio El campo nombre no puede estar vacio
-    error_nombre_corto El campo nombre debe teneral menos 4 caracteres
-    error_nombre_largo El campo nombre no puede  tener mas de 11 caracteres
-    error_solo_letras El campo nombre no puede contener numeros,signos de puntuacion o simbolos
+/*
+error_id_vacia El campo id no puede estar vacio
+error_id_soloNum El campo id no puede contener espacios ni letras
+error_id_muyGrande La id no puede tener mas de 11 caracteres
 
-    error_descripcion_vacia La descripción no puede estar vacia
-    error_descripcion_corta La descripción debe de tener mas  de 20 caracteres
-    error_descripcion_larga La descripción no puede  tener mas de 200 caracteres
-    error_descripción_letras La descripción no puede contener numeros,signos de puntuacion o simbolos
-    */
+error_nombre_vacio El campo nombre no puede estar vacio
+error_nombre_corto El campo nombre debe teneral menos 4 caracteres
+error_nombre_largo El campo nombre no puede  tener mas de 11 caracteres
+error_solo_letras El campo nombre no puede contener numeros,signos de puntuacion o simbolos
+
+error_descripcion_vacia La descripción no puede estar vacia
+error_descripcion_corta La descripción debe de tener mas  de 20 caracteres
+error_descripcion_larga La descripción no puede  tener mas de 200 caracteres
+error_descripción_letras La descripción no puede contener numeros,signos de puntuacion o simbolos
+*/
