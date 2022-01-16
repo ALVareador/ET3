@@ -15,7 +15,7 @@
    xmlns:svg="http://www.w3.org/2000/svg">
   <sodipodi:namedview
      id="namedview7"
-     pagecolor="#505050"
+     pagecolor="#000000"
      bordercolor="#ffffff"
      borderopacity="1"
      inkscape:pageshadow="0"
@@ -52,7 +52,7 @@
      id="layer1"
      style="display:inline">
     <rect
-       style="fill:#999999;stroke:#000000;stroke-width:0.6;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.6;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
        id="rect993"
        width="4.7621818"
        height="15.467961"
@@ -61,7 +61,7 @@
        ry="3.3533628"
        rx="3.3533628" />
     <rect
-       style="display:inline;fill:#999999;stroke:#000000;stroke-width:0.6;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       style="display:inline;fill:#ffffff;stroke:#000000;stroke-width:0.6;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
        id="rect993-8"
        width="5.0989432"
        height="15.512155"
@@ -71,7 +71,7 @@
        transform="rotate(90)"
        rx="3.3438091" />
     <rect
-       style="fill:#999999;stroke:none;stroke-width:0.6;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       style="fill:#ffffff;stroke:none;stroke-width:0.6;stroke-miterlimit:4.8;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
        id="rect2366"
        width="4.7289586"
        height="6.0121298"

@@ -19,28 +19,49 @@
 	<script type="text/javascript" src="Locale/Lang_ES.js"></script>
 	<script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
+	
+	<link rel="stylesheet" href="css/iconos.css">
+	<link rel="stylesheet" href="css/divs.css">
+	<link rel="stylesheet" href="css/showallActividad.css">
+
 </head>
 
 <body onload="includeMenuIdioma();setLang('');">
 
 	<div id="menuIdioma"></div>
 
+	<h1 class="saludoLOGIN"></h1>
+
 	<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:login();"
 		onsubmit="comprobarLogin();">
 
-		<label class="usuario"></label>
+		<label class="labelusuario"></label>
 		<input type="text" name="usuario" id="txtUsuario" onblur="return comprobarUser();"> <br>
 		<div style="display:none" id="errorFormatoUser"></div>
 
-		<label class="contrasena"></label>
+		<label class="labelcontrasena"></label>
 		<input type="password" name="contrasena" id="contrasena" onblur="return comprobarPassword();">
 		<div style="display:none" id="errorFormatoPassword"></div>
 
-		<input type="submit" value="login">
-	</form>
+		<button class='icon' type="button" onclick="location.href='index.html'">
+			<img src="images/iconos_oscar/cerrados/back.svg" style="object-fit:fill; width:80%; margin:0px"
+				alt="back" />
+			<span class="iconText iconVolver"></span>
+		</button>
 
+		<button class='icon' type="submit">
+			<img src="images/iconos_oscar/cerrados/login.svg" style="object-fit:fill; width:80%; margin:0px"
+				alt="back" />
+			<span class="iconText iconEntrar"></span>
+		</button>
+
+	</form>
+	<!-- falta icono recuperar contraseña-->
 	<div id="quieresrecuperar">
-		<a onclick='javascript:recuperarcontrasena();'>Recuperar Contraseña</a>
+		<button class='icon' type="button" onclick="">
+			<img src="" style="object-fit:fill; width:80%; margin:0px" alt="recuperar contrasena" />
+			<span class="iconText recuperar_contrasena"></span>
+		</button>
 	</div>
 
 	<div id="divrecuperarcontrasena" style="display:none">
@@ -51,8 +72,8 @@
 
 			<label class='usuariorecuperacion'></label>
 			<input type='text' name='usuario' id='usuario' onblur=''><br>
-			
-			<p class= "contrasenarecuperada" id="contrasenarecuperada"></p>
+
+			<p class="contrasenarecuperada" id="contrasenarecuperada"></p>
 			<input type="submit" value="recuperar">
 		</form>
 	</div>
