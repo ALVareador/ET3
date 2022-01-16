@@ -1,5 +1,5 @@
 arrayEN = {
-	'error_id_vacia':'Id can not be null',
+	'error_id_vacia': 'Id can not be null',
 	'00000': 'Failed to connect to database. Contact your administrator ',
 	'00001': 'Success when executing the SQL',
 	'00002': 'Error executing SQL',
@@ -9,6 +9,13 @@ arrayEN = {
 	'esp': 'Spanish',
 	'gal': 'Galician',
 	'eng': 'English',
+
+	'go_Espacios': 'Go to Spaces',
+	'go_Categorías': 'Go to categories',
+	'go_Actividadades': 'Go to activities',
+	'go_Incripciones': 'Go to registrations',
+
+
 	'Inicio': 'Beginning',
 	'bienvenida': 'Welcome',
 	'listUsers': 'Welcome to the sample table of users',

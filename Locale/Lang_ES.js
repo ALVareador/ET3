@@ -17,6 +17,17 @@ arrayES = {
 	'eng': 'Inglés',
 
 	// usuario
+	//-titulos NavBar
+	'go_Espacios': 'Ir a espacios',
+	'go_Categorías': 'Ir a categorías',
+	'go_Actividadades': 'Ir a actividades',
+	'go_Incripciones': 'Ir a inscripciones',
+	'go_Usuarios': 'Ir a usuarios',
+	'go_Responsables': 'Ir a responsables',
+	'go_Personas': 'Ir a personas',
+	'go_Grupos': 'Ir a grupos',
+	'Opciones_pesonales': 'Ir a ajustes',
+
 	//- titulos
 	'Inicio': 'Inicio',
 	'bienvenida': 'Bienvenido',
@@ -26,7 +37,6 @@ arrayES = {
 	'editForm': 'Bienvenido al formulario de edición',
 	'deleteForm': 'Bienvenido al formulario de borrado',
 	'detailForm': 'Bienvenido al formulario de detalle',
-	'GestUsu': 'Gestión de Usuarios',
 	'saludoLOGIN': 'Iniciar Sesión',
 	'saludoREGISTRO': 'Registro',
 	'datosRegistro': 'Introduzca los siguientes datos',
