@@ -29,7 +29,7 @@
 
         <div id="navBar">
                 <div class="itemNavBar" id="linkEspacios">
-                        <a class="navBarLink" href="showallespacio.html">Espacios</a>
+                        <a class="navBarLink " href="showallespacio.html">Espacios</a>
                 </div>
                 <div class="itemNavBar" id="linkCategorias">
                         <a class="navBarLink" href="showallcategoria.html">Categorias</a>
@@ -43,13 +43,13 @@
 
                 <div class="itemNavBar" id="UserDesconectar"></div>
 
-                <div class="itemNavBar" id="menuIdioma"></div>
+
 
         </div>
 
         <div id='divformgenericoActividad' style="display:none">
                 <div id="tituloForms"></div>
-                <a onclick="location.reload();"><img src='./images/icons/close.png' width="50px"></a>
+
                 <form name='formgenericoActividad' id='formgenericoActividad'>
 
                         <h1 id="tituloAccion"></h1>
@@ -63,12 +63,6 @@
                         <label class='nombre_actividad'></label>
                         <input type='text' name='nombre_actividad' id='nombre_actividad' onblur=''><br>
                         <div style="display:none" id="errorFormatonombre_actividad"></div>
-
-
-                        <label class='descripcion_actividad'></label>
-                        <input type='text' name='descripcion_actividad' id='descripcion_actividad' onblur=''><br>
-                        <div style="display:none" id="errorFormatoDescripciónActividad"></div>
-
 
                         <label class='precio_actividad'></label>
                         <input type='text' name='precio_actividad' id='precio_actividad' onblur=''><br>
@@ -94,10 +88,21 @@
                         <select name="id_categoria" id="id_categoria">
                         </select><br>
 
+                        <div id="divDescripcion">
+                                <label id="label_descripcion_actividad" class='descripcion_actividad'></label>
+                                <textarea id="descripcion_actividad"type='text' name='descripcion_actividad' id='descripcion_actividad'  onblur=''></textarea><br>
+                                <div style="display:none" id="errorFormatoDescripciónActividad"></div>
+                        </div>
 
 
-                        <button id='submitbuttom' type='submit'><img src="./images/icons/editUser.png"
-                                        width="50px" /></button><br>
+
+                        <div id="botones">
+                                <button id='submitbuttom' type='submit'><img
+                                                src="./images/iconos_oscar/cerrados/tick.svg" width="50px" /></button>
+
+                                <a onclick="reseteaPagina()"><img src='images/iconos_oscar/cerrados/cross.svg'
+                                                width="50px"></a>
+                        </div>
                 </form>
         </div>
 
@@ -108,10 +113,18 @@
 
                 <div id="Funciones">
 
-                        <button class="itemFunciones" onclick="showAddActividad()" alt="Insertar Actividad">Insertar
-                                Actividad</button>
-                        <button class="itemFunciones" onclick="showBuscarActividad()" alt="Insertar Actividad">Buscar
-                                Actividad</button>
+                        <button id='addButtom' class="itemFunciones" onclick="showAddActividad()"
+                                alt="Insertar Actividad">
+                                <img id='addButtomIcon' src="/images/iconos_oscar/cerrados/Add.svg" alt="">
+                                <p id="addButtomText" class="addButtomText">Insertar Actividad</p>
+                        </button>
+
+
+                        <button id='searchButtom' class="itemFunciones" onclick="showBuscarActividad()"
+                                alt="Buscar Actividad">
+                                <img id='searchButtomIcon' src="/images/iconos_oscar/cerrados/search.svg" alt="">
+                                <p id="searchButtomText" class="searchButtomText">Buscar Actividad</p>
+                        </button>
 
                 </div>
 
@@ -144,18 +157,13 @@
                         <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
                         <div id="mensajeError"></div>
                         <a id="cerrar" href="#" onclick="reseteaPagina()" class="tooltip">
-                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
+                                <img class="iconCerrar" alt="Cerrar" src="images/iconos_oscar/cerrados/cross.svg" />
                                 <span class="tooltiptext iconCerrar"></span>
                         </a>
                 </div>
         </div>
 
         </div>
-
-
-
-        <h1>RECORDAD CAMBIAR LO DE LOS IDIOMAS DE LOS TITULOS,SUBTITULOS Y ERRORES</h1>
-
 
 </body>
 <script type="text/javascript" src="js/editActividad.js"></script>

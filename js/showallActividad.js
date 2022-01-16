@@ -3,12 +3,12 @@ function construyeFila(fila,num) {
 
     let atributosFunciones = ["'" + fila.id_actividad + "'", "'" + fila.nombre_actividad + "'", "'" + fila.descripcion_actividad + "'", "'" + fila.precio_actividad + "'", "'" + fila.numPlazas_actividad + "'", "'" + fila.color_actividad + "'", "'" + fila.color_nombre_actividad + "'", "'" + fila.id_espacio + "'", "'" + fila.id_categoria + "'"];
 
-    var celdaAccionesDetalle = '<div><a onclick="showDetalleActividad(' + atributosFunciones +
-        ')" alt="Detalle Actividad"/>Detalle Actividad</a></div>';
+    var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetalleActividad(' + atributosFunciones +
+        ')" alt="Detalle Actividad"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.png" alt="detalles Actividad"></a></div>';
     var celdaAccionesEditar = '<div><a onclick="showEditarActividad(' + atributosFunciones +
-        ')" alt="Editar Actividad"/>Editar Actividad</a></div>';
+        ')" alt="Editar Actividad"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar actividad"></a></div>';
     var celdaAccionesEliminar = '<div><a onclick="showEliminarActividad(' + atributosFunciones +
-        ')" alt="Eliminar Actividad"/>Eliminar Actividad</a></div>';
+        ')" alt="Eliminar Actividad"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar actividad"></a></div></div>';
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 

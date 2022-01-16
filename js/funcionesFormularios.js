@@ -149,8 +149,6 @@ function includeUserDesconectar() {
 /**Función generadora el menú de idioma, llama a la función setLang cuando cambia el valor del ComboBox */
 function includeMenuIdioma() {
 
-    $("#menuIdioma").html("");
-
     /*Opcion Rodeiro*/
 
     /*
@@ -179,7 +177,7 @@ function includeMenuIdioma() {
         "<img id=\'en\' src=\'images/BanderasMenuIdioma/BanderaInglesa.png\' alt=\'\' onclick=\'setLang(\"EN\")\'>" +
         "</div>";
 
-    $("#menuIdioma").append(menuIdioma);
+    $("#navBar").append(menuIdioma);
 
 
 }

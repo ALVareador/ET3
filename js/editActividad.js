@@ -734,8 +734,6 @@ function comprobarNumeroPlaazas() {
 }
 
 
-
-
 function hideDivTablaActividades() {
     document.getElementById('divtablaActividades').style.display = 'none';
 }
@@ -766,10 +764,14 @@ function verificaSubmit() {
 
 function reseteaPagina() {
 
-    resetearformularioActividad;
+    
     GetArrayEspacios();
     GetArrayCategorias();
     GetLisActividades();
-    rellenaId_espacio(); rellenaid_categoria();
+    rellenaId_espacio(); 
+    rellenaid_categoria();
+    GetLisActividades();
+    showDivTablaActividades();
+    $("#divformgenericoActividad").attr('style', 'display: none');
 
 }

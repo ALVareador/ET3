@@ -1,15 +1,13 @@
 @font-face {
-    font-family: 'Ubuntu-Medium';
-    src: url('/fonts/Ubuntu/Ubuntu-Light.ttf'); 
+    font-family: 'Ubuntu-Light';
+    src: url('/fonts/Ubuntu/Ubuntu-Light.ttf');
 }
 
 
- 
-body{
-    margin: 0;
-    font-family:'Ubuntu-Medium';
-    
 
+body {
+    margin: 0;
+    font-family: 'Ubuntu-Light';
 }
 
 
@@ -25,19 +23,19 @@ body{
 .divMenuIdioma img {
 
     display: inline-flex;
-    max-height: 50%;
+    max-height: 30%;
     width: auto;
     object-fit: contain;
-    margin: 18px 7px;
-    padding: 0px 0px;
+    margin-right: 20px;
+    align-self: center;
 
 }
 
-.divMenuIdioma{
+.divMenuIdioma {
 
     display: flex;
     text-align: center;
-    justify-content:center;
+    justify-content: center;
     margin: 0px;
     padding: 0px;
 }
@@ -73,7 +71,7 @@ body{
 
 }
 
-.menuIdioma{
+.menuIdioma {
     margin-top: 0px;
 }
 
@@ -93,12 +91,16 @@ h1 {
 
 }
 
-input {
+input, textarea {
     margin-top: 20px;
     border-style: solid;
     border-radius: 3px;
     border-color: lightgray;
 
+}
+
+label {
+    margin-right: 5px;
 }
 
 
@@ -110,48 +112,46 @@ select {
 
 }
 
-#descripcion_actividad{
-
-    width: 18%;
-    height: 10%;
-
+#divDescripcion {
+    margin-top: 20px;
+    display: flex;
+    vertical-align: super;
 }
+
+#descripcion_actividad {
+    max-height: 100%;
+    margin-top: 0px;
+    height: 93px;
+    width: 364px;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 3px;
+    border-color: lightgray;
+}
+
 
 #submitbuttom {
 
     margin-top: 20px;
+    margin-right: 20px;
     border: none;
 }
 
 
-/*Funciones de insertar actividad y buscar*/
-#Funciones {
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-top: 2%;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 
-}
-
-.itemFunciones {
-
-    background-color: #137fe2;
-    color: White;
-    padding: 5px;
-    border: none;
-    border-radius: 4px;
-
-
-}
 
 /*Tabla*/
+#divtablaActividades {
+    margin-top: 50px;
+
+
+}
+
 #divTabla {
 
-    overflow-y:auto;
-    overflow-x:auto;
+    margin-top: 0px;
+    overflow-y: auto;
+    overflow-x: auto;
     margin-left: 7%;
     margin-right: 7%;
     height: 70%;
@@ -170,7 +170,7 @@ th {
 
     border-bottom: 2px solid black;
     text-align: center;
-    
+
 }
 
 td {
@@ -205,3 +205,79 @@ td {
 
 }
 
+#iconoDetalles, #iconoEdit, #iconoDelete {
+    height: 25px;
+    margin-right: 8px;
+}
+
+#divIconos {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+
+
+
+/*Funciones de insertar actividad y buscar*/
+#Funciones {
+
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 2%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
+}
+
+.itemFunciones {
+
+    background-color: #137fe2;
+    color: White;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+
+
+}
+
+/*Botones de search y add*/
+
+#addButtom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 20px;
+
+}
+
+#addButtomIcon {
+    height: 20px;
+    margin-right: 5px;
+}
+
+#addButtomText {
+    margin: 2% 0% 0% 0%;
+    padding: 0px;
+}
+
+#searchButtom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+#searchButtomIcon {
+    height: 20px;
+    margin-right: 5px;
+}
+
+#searchButtomText {
+    margin: 2% 0% 0% 0%;
+    padding: 0px;
+}
