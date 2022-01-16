@@ -23,13 +23,13 @@
      inkscape:pagecheckerboard="1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="16"
-     inkscape:cx="10.78125"
-     inkscape:cy="8.71875"
+     inkscape:zoom="22.627417"
+     inkscape:cx="17.434602"
+     inkscape:cy="9.0377085"
      inkscape:window-width="1366"
      inkscape:window-height="715"
-     inkscape:window-x="1144"
-     inkscape:window-y="-8"
+     inkscape:window-x="1272"
+     inkscape:window-y="248"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      inkscape:snap-bbox="true"
@@ -57,17 +57,10 @@
      id="layer4"
      inkscape:label="Capa 2"
      style="display:inline">
-    <rect
-       style="fill:#b3b3b3;stroke:#000000;stroke-width:0.4;stroke-opacity:1;paint-order:stroke fill markers"
-       id="rect4134"
-       width="15.065001"
-       height="12.810497"
-       x="0.59551752"
-       y="1.8704144" />
     <path
        id="rect3788-8"
        style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-opacity:1;paint-order:stroke fill markers"
-       d="M 13.679913,2.3868564 8.3435779,6.5406521 2.9884762,2.4121075 1.2587032,4.7004826 6.003849,8.3587268 1.2743431,12.039067 3.0166279,14.317974 8.352962,10.167332 13.708065,14.29588 15.437837,12.007504 10.689565,8.3492578 15.422199,4.6689187 Z" />
+       d="M 13.589519,1.956517 8.0029469,6.3062751 2.3967285,1.9829594 0.58584123,4.3792925 5.5535011,8.2101205 0.60221453,12.064087 l 1.82398577,2.386419 5.5865708,-4.346457 5.6062199,4.32332 1.810886,-2.396334 -4.970933,-3.8308302 4.954561,-3.8539654 z" />
   </g>
   <g
      inkscape:label="Capa 1"
@@ -76,7 +69,7 @@
      style="display:inline">
     <path
        id="rect3788"
-       style="fill:#e6e6e6;stroke:#000000;stroke-width:0.4;stroke-opacity:1;paint-order:stroke fill markers"
-       d="M 13.297388,2.2707015 8.0264542,6.3468302 2.7369824,2.2954803 1.028409,4.541068 5.7153999,8.130911 1.0438572,11.742435 2.7647891,13.978731 8.035723,9.9056992 13.325196,13.95705 15.033768,11.711461 10.343686,8.1216189 15.018321,4.5100943 Z" />
+       style="fill:#ff8080;stroke:#000000;stroke-width:0.4;stroke-opacity:1;paint-order:stroke fill markers"
+       d="M 13.715968,1.3280919 7.9714856,5.7729509 2.2068004,1.3551123 0.34472648,3.8038378 5.452803,7.7184213 0.36156262,11.656647 2.2371054,14.09524 7.9815872,9.6537585 13.746273,14.071598 15.608346,11.622871 10.496901,7.7082887 15.591511,3.7700622 Z" />
   </g>
 </svg>
