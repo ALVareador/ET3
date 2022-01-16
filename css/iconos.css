@@ -20,7 +20,7 @@
     width: 130px;
     font-size: 11pt;
     font-family: 'Times New Roman';
-    background-color: #3647a1;
+    background-color: #666666;
     color: #ffffff;
     text-align: center;
     border-radius: 6px;
@@ -41,19 +41,15 @@
 }
 
 button[type="button"] {
-    background: #1075b7;
-    background: -moz-linear-gradient(top, #707fcc 0%, #707fcc 66%, #707fcc 100%);
-    background: -webkit-linear-gradient(top, #707fcc 0%, #707fcc 66%, #707fcc 100%);
-    background: linear-gradient(to bottom, #707fcc 0%, #707fcc 66%, #707fcc 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1075b7', endColorstr='#8abacc', GradientType=0);
+    background: #6a6a6a;
     cursor: pointer;
-    width: 135px;
+    width: 60px;
     margin: 25px 0 20px 30px;
     height: 50px;
-    border: 10px solid #000000;
+    border: 4px solid #000000;
     color: #000000;
     font-weight: bold;
-    box-shadow: 0px 2px 0px #093959;
+    box-shadow: 0px 2px 0px #000000;
     /* -webkit-box-shadow: 0px 2px 0px #093959; */
     -moz-box-shadow: 0px 2px 0px #093959;
     border-radius: 3px;
