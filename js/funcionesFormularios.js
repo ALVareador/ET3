@@ -177,7 +177,8 @@ function includeMenuIdioma() {
         "<img id=\'en\' src=\'images/BanderasMenuIdioma/BanderaInglesa.png\' alt=\'\' onclick=\'setLang(\"EN\")\'>" +
         "</div>";
 
-    $("#navBar").append(menuIdioma);
+    /* $("#navBar").append(menuIdioma); */
+    document.getElementById("navBar").innerHTML = document.getElementById("navBar").innerHTML + menuIdioma;
 
 
 }
