@@ -51,66 +51,75 @@
         <div class="itemNavBar" id="UserDesconectar"></div>
     </div>
 
-    <div id='divformgenericoPersona' style="display:none">
-        <div id="tituloForms"></div>
-        <a onclick="cerrar('divformgenericoPersona','','');"><img src='./images/icons/close.png' width="50px"></a>
-        <form name='formgenericoPersona' id='formgenericoPersona' method="post" action="" onsubmit="">
+    <div id="divformgenericoPersona" style="display: none;">
+        <div id="contenidoForm">
+            <div id="tituloForms"></div>
+            <div class="formularioComun"></div>
+            <form name='formgenericoPersona' id='formgenericoPersona' method="post" action="" onsubmit="">
 
-            <h1 id="tituloAccion"></h1>
+                <h1 id="tituloAccion"></h1>
 
-            <label class='dni_persona'></label>
-            <input type='text' name='dni_persona' id='dni_persona'
-                onblur='return comprobarDNI("dni_persona","errorFormatoDni")'><br>
-            <div style="display:none" id="errorFormatoDni"></div>
+                <label class='dni_persona'></label>
+                <input type='text' name='dni_persona' id='dni_persona'
+                    onblur='return comprobarDNI("dni_persona","errorFormatoDni")'><br>
+                <div style="display:none" id="errorFormatoDni"></div>
 
-            <label class='nombre_persona'></label>
-            <input type='text' name='nombre_persona' id='nombre_persona'
-                onblur='return comprobarNombreParam("nombre_persona")'><br>
-            <div style="display:none" id="errorFormatoNombre"></div>
+                <label class='nombre_persona'></label>
+                <input type='text' name='nombre_persona' id='nombre_persona'
+                    onblur='return comprobarNombreParam("nombre_persona")'><br>
+                <div style="display:none" id="errorFormatoNombre"></div>
 
-            <label class='apellidos_persona'></label>
-            <input type='text' name='apellidos_persona' id='apellidos_persona'
-                onblur='return comprobarApellidosParam("apellidos_persona")'><br>
-            <div style="display:none" id="errorFormatoApellidos"></div>
+                <label class='apellidos_persona'></label>
+                <input type='text' name='apellidos_persona' id='apellidos_persona'
+                    onblur='return comprobarApellidosParam("apellidos_persona")'><br>
+                <div style="display:none" id="errorFormatoApellidos"></div>
 
-            <label class='fechaNacimiento_persona'></label>
-            <input type="text" name="fechaNacimiento_persona" id="fechaNacimiento_persona" class="tcal"
-                onblur='return comprobarFechaDeNacimiento()'> <br>
-            <div style="display:none" id="errorFormatoFechaNacimiento"></div>
+                <label class='fechaNacimiento_persona'></label>
+                <input type="text" name="fechaNacimiento_persona" id="fechaNacimiento_persona" class="tcal"
+                    onblur='return comprobarFechaDeNacimiento()'> <br>
+                <div style="display:none" id="errorFormatoFechaNacimiento"></div>
 
-            <label class='direccion_persona'></label>
-            <input type='text' name='direccion_persona' id='direccion_persona' onblur='return comprobarDireccion()'><br>
-            <div style="display:none" id="errorFormatoDireccion"></div>
+                <label class='direccion_persona'></label>
+                <input type='text' name='direccion_persona' id='direccion_persona'
+                    onblur='return comprobarDireccion()'><br>
+                <div style="display:none" id="errorFormatoDireccion"></div>
 
-            <label class='telefono_persona'></label>
-            <input type='text' name='telefono_persona' id='telefono_persona' onblur='return comprobarTelefono()'><br>
-            <div style="display:none" id="errorFormatoTelefono"></div>
+                <label class='telefono_persona'></label>
+                <input type='text' name='telefono_persona' id='telefono_persona'
+                    onblur='return comprobarTelefono()'><br>
+                <div style="display:none" id="errorFormatoTelefono"></div>
 
-            <label class='email_persona'></label>
-            <input type='text' name='email_persona' id='email_persona' onblur='return comprobarEmail()'><br>
-            <div style="display:none" id="errorFormatoEmail"></div>
+                <label class='email_persona'></label>
+                <input type='text' name='email_persona' id='email_persona' onblur='return comprobarEmail()'><br>
+                <div style="display:none" id="errorFormatoEmail"></div>
 
-            <label class='foto_persona' id='labelfotopersona'></label>
-            <input type='text' name='foto_persona' id='foto_persona' onblur=''><br>
-            <label class='sube_persona' id='labelfotopersona'></label>
-            <input type='file' accept=".png, .jpg" name='subefotopersona' id='subefotopersona'><br>
+                <label class='foto_persona' id='labelfotopersona'></label>
+                <input type='text' name='foto_persona' id='foto_persona' onblur=''><br>
+                <label class='sube_persona' id='labelfotopersona'></label>
+                <input type='file' accept=".png, .jpg" name='subefotopersona' id='subefotopersona'><br>
 
-            <label class='esCeliaco_persona'></label>
-            <select name='esCeliaco_persona' id='esCeliaco_persona'>
-                <option id="seleccionNula" value="" class="seleccionNula"></option>
-                <option value="1" class="SI"></option>
-                <option value="0" class="NO"></option>
-            </select>
-            <label class='borrado_persona'></label>
-            <select name='borrado_persona' id='borrado_persona'>
-                <option id="seleccionNula" value="" class="seleccionNula"></option>
-                <option value="1" class="SI"></option>
-                <option value="0" class="NO"></option>
-            </select>
+                <label class='esCeliaco_persona'></label>
+                <select name='esCeliaco_persona' id='esCeliaco_persona'>
+                    <option id="seleccionNula" value="" class="seleccionNula"></option>
+                    <option value="1" class="SI"></option>
+                    <option value="0" class="NO"></option>
+                </select>
+                <label class='borrado_persona'></label>
+                <select name='borrado_persona' id='borrado_persona'>
+                    <option id="seleccionNula" value="" class="seleccionNula"></option>
+                    <option value="1" class="SI"></option>
+                    <option value="0" class="NO"></option>
+                </select>
 
-            <br>
-            <button id='submitbuttom' type='submit'><img src="./images/icons/editUser.png" width="50px" /></button><br>
-        </form>
+                <br>
+                <button id='submitbuttom' type='submit'><img src="./images/icons/editUser.png"
+                        width="50px" /></button><br>
+            </form>
+        </div>
+    <a id="cerrarForm" href="#" onclick="cerrar('divformgenericoPersona','','')" class="tooltip">
+        <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
+        <span class="tooltiptext iconCerrar"></span>
+    </a>
     </div>
 
     <div id="divtablaPersonas">

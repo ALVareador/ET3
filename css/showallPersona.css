@@ -7,24 +7,47 @@
 #divformgenericoPersona {
 
     color: #5e696d;
-    margin-left: 20%;
 
-}
-
-#descripcion_persona {
-    max-height: 100%;
-    margin-top: 0px;
-    height: 93px;
-    width: 364px;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 3px;
-    border-color: lightgray;
 }
 
 /*Tabla*/
 #divtablaPersonas {
     margin-top: 50px;
+}
 
+#divformgenericoPersona {
+	width:100%; /*Toma el 100% del ancho de la página*/
+	height:100%; /*Toma el 100% del alto de la página*/
+	position:fixed; /*Con este código hacemos que el contenedor se mantenga en la pantalla y para que tome las dimensiones del body y no de la entrada*/
+	background-color: rgba(1, 1, 1, 0.5); /*Color de fondo, incluye opacidad del 90%*/
+    align-self:left;
+	top:0px; /*Position superior*/
+	left:0px; /*Posición lateral*/
+	z-index:1001; /*Evitamos que algún elemento del blog sobreponga la ventana modal*/
+}
 
+#contenidoForm { 
+	background: #707fcc;
+    position: absolute;
+    z-index: 20;
+    border-radius: 5px;
+    width: 80%;
+    height: 78.5%;
+    margin-top: 6%;
+    margin-left: 19%;
+}
+
+#tituloForms {
+	margin-top: 1.25%;
+    color: #ffffff;
+    font-size: 2em;
+    margin-left: 30%;
+}
+
+#cerrarForm {
+	position: absolute;
+    top: 14%;
+    right: 1.5%;
+    padding: 2px;
+    z-index: 22;
 }
