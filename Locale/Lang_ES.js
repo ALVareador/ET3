@@ -19,8 +19,8 @@ arrayES = {
 	// usuario
 	//-titulos NavBar
 	'go_Espacios': 'Ir a espacios',
-	'go_Categorías': 'Ir a categorías',
-	'go_Actividadades': 'Ir a actividades',
+	'go_Categorias': 'Ir a categorías',
+	'go_Actividades': 'Ir a actividades',
 	'go_Incripciones': 'Ir a inscripciones',
 	'go_Usuarios': 'Ir a usuarios',
 	'go_Responsables': 'Ir a responsables',
@@ -39,6 +39,8 @@ arrayES = {
 	'detailForm': 'Bienvenido al formulario de detalle',
 	'saludoLOGIN': 'Iniciar Sesión',
 	'saludoREGISTRO': 'Registro',
+	'saludoRecuperacion':'Recuperacion de Contraseña',
+	'saludoMenu':'Menú principal',
 	'datosRegistro': 'Introduzca los siguientes datos',
 	'datosPersonales': 'Datos personales',
 	'datosUsuario': 'Datos usuario',

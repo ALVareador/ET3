@@ -12,7 +12,7 @@ arrayEN = {
 
 	'go_Espacios': 'Go to Spaces',
 	'go_Categorías': 'Go to categories',
-	'go_Actividadades': 'Go to activities',
+	'go_Actividades': 'Go to activities',
 	'go_Incripciones': 'Go to registrations',
 
 
