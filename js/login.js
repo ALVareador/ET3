@@ -66,8 +66,6 @@ function recuperar() {
 			document.getElementById("LabelContrasenaRecuperada").style.visibility = "visible";
 			document.getElementById("contrasenarecuperada").innerHTML = response.resource;
 		} else {
-			document.getElementById("LabelContrasenaRecuperada").style.visibility = "hidden";
-			document.getElementById("contrasenarecuperada").innerHTML = "";
 			$("#mensajeError").removeClass();
 			$("#mensajeError").addClass(response.code);
 			resetearformulariorecuperar();
@@ -81,8 +79,9 @@ function recuperar() {
 
 function resetearformulariorecuperar() {
 
-	$("divrecuperarcontrasena").attr('style', 'display: none');
+	document.getElementById("LabelContrasenaRecuperada").style.visibility = "hidden";
+	document.getElementById("contrasenarecuperada").innerHTML = "";
+	$("txtUsuario").val('');
 	$("email_persona").val('');
-	$("usuario").val('');
 
 }
