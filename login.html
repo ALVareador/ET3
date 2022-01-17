@@ -2,6 +2,7 @@
 
 <head lang='es'>
 
+	<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<script type="text/javascript" src="js/traducctorMasivo.js"></script>
 	<script type="text/javascript" src="js/config.js"></script>
@@ -10,6 +11,7 @@
 	<script type="text/javascript" src="js/funcionesFormularios.js"></script>
 	<script type="text/javascript" src="js/login.js"></script>
 	<script type="text/javascript" src="js/md5.js"></script>
+
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 	<script type="text/javascript" src="js/md5.js"></script>
@@ -19,21 +21,23 @@
 	<script type="text/javascript" src="Locale/Lang_ES.js"></script>
 	<script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
-	
+
 	<link rel="stylesheet" href="css/iconos.css">
 	<link rel="stylesheet" href="css/divs.css">
 	<link rel="stylesheet" href="css/showallActividad.css">
 
 </head>
 
+<title class="saludoLOGIN"></title>
+
 <body onload="includeMenuIdioma();setLang('');">
 
-	<div id="menuIdioma"></div>
+	<div id="navBar"></div>
 
 	<h1 class="saludoLOGIN"></h1>
 
 	<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:login();"
-		onsubmit="comprobarLogin();">
+		onsubmit="return comprobarLogin();">
 
 		<label class="labelusuario"></label>
 		<input type="text" name="usuario" id="txtUsuario" onblur="return comprobarUser();"> <br>
@@ -82,10 +86,10 @@
 		<div id="contenido-interno">
 			<div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
 			<div id="mensajeError"></div>
-			<a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-				<img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
-				<span class="tooltiptext iconCerrar"></span>
-			</a>
+			<button id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="icon">
+				<img alt="Cerrar" src="images/iconos_oscar/cerrados/cross.svg" />
+				<span class="iconText iconCerrar"></span>
+			</button>
 		</div>
 	</div>
 </body>
