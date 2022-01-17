@@ -738,10 +738,10 @@ function comprobarApellido() {
 
 /**Función que valida la fecha de nacimiento (no vacía y anterior a la fecha actual, porque al usar tcal garantizamos que es del formato dd/mm/aaaa)*/
 function comprobarFechaDeNacimiento() {
-
+    var valor = document.getElementById("fechaNacimiento_persona").value;
     document.getElementById("fechaNacimiento_persona").style.borderWidth = "2px";
 
-    if (validaNoVacio("fechaNacimiento_persona", "errorFormatoFechaNacimiento", "fecha") && comprobarMayorEdad("fechaNacimiento_persona", "errorFormatoFechaNacimiento")) {
+    if (validaNoVacio("fechaNacimiento_persona", "errorFormatoFechaNacimiento", "fecha") && fechamayoractual(valor, "fechaNacimiento_persona")) {
         validacionOK("fechaNacimiento_persona", "errorFormatoFechaNacimiento");
         return true;
     } else {
@@ -749,6 +749,57 @@ function comprobarFechaDeNacimiento() {
         return false;
     }
 
+}
+
+function fechamayoractual(fComp,campo){
+
+    var codigo= '';
+    var fechaActual= new Date();
+    let arrFecha= fComp.split('/');
+
+    var myDay= parseInt(arrFecha[0]);
+    var myMonth= parseInt(arrFecha[1])-1;
+    var myYear= parseInt(arrFecha[2]);
+
+    var fecha = new Date(myYear, myMonth, myDay);
+    console.log(fecha);
+    if(fecha < fechaActual){
+        validacionOK("fechaNacimiento_persona", "errorFormatoFechaNacimiento");
+        return true;
+    }else{
+        switch (campo) {
+            case 'fechaNacimiento_persona':
+                codigo = "error_fecha_mayor_actual";
+                break;
+        }
+        addCodeError("errorFormatoFechaNacimiento", codigo);
+        return false;
+    }
+    
+}
+
+function fechamayor(fComp, fLimite){ //POR REVISAR
+    var codigo= '';
+    let arrFecha= fComp.split('/');
+
+    var myDay= parseInt(arrFecha[0]);
+    var myMonth= parseInt(arrFecha[1])-1;
+    var myYear= parseInt(arrFecha[2]);
+
+    var fecha = new Date(myYear, myMonth, myDay);
+    console.log(fecha);
+    if(fecha < fechaActual){
+        validacionOK("fechaNacimiento_persona", "errorFormatoFechaNacimiento");
+        return true;
+    }else{
+        switch (campo) {
+            case 'fechaNacimiento_persona':
+                codigo = "error_fecha_mayor_actual";
+                break;
+        }
+        addCodeError("errorFormatoFechaNacimiento", codigo);
+        return false;
+    }
 }
 
 function comprobarTelefono() {

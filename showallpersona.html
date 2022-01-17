@@ -14,74 +14,68 @@
     <script type="text/javascript" src="Locale/Lang_ES.js"></script>
     <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
+    <link rel="stylesheet" href="css/CssComun.css">
+    <link rel="stylesheet" href="css/showallPersona.css">
+
     <link rel="stylesheet" type="text/css" href="css/tcal.css" />
     <script type="text/javascript" src="js/tcal.js"></script>
 </head>
 
 <body onload="includeCabecera();validaAutenticado();getLisPersonas();setLang('')">
-    <div id="menuIdioma"></div>
-    <div id="UserDesconectar"></div>
-    <div id="Funciones">
-        <button onclick="showAddPersona()" alt="Insertar Persona">Insertar Persona</button>
-        <button onclick="showBuscarPersona()" alt="Buscar Persona">Buscar Persona</button>
-    </div>
-    <div id="divtablaPersonas">
-        <table id="tablaPersonas" border='1'>
-            <thead>
-            <th class="dni_persona"></div>
-            </th>
-            <th class="nombre_persona"></div>
-            </th>
-            <th class="apellidos_persona"></div>
-            </th>
-            <th class="email_persona"></div>
-            </th>
-            <th class="foto_persona"></div>
-            </th>
-            <th class="borrado_persona"></div>
-            </th>
-            <th class="ACCIONES"></th>
-            </thead>
-            <tbody id="datosPersonas">
-
-    </tbody>
-    </tbody>
-    </table>
-    </div>
-
-    <div id="modal" style="display:none">
-        <div id="contenido-interno">
-            <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
-            <div id="mensajeError"></div>
-            <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
-                <span class="tooltiptext iconCerrar"></span>
-            </a>
+    <div id="navBar">
+        <div class="itemNavBar" id="linkUsuarios">
+            <a class="navBarLink " href="showallusuario.html">Usuarios</a>
         </div>
+        <div class="itemNavBar" id="linkGrupos">
+            <a class="navBarLink " href="showallgrupo.html">Grupos</a>
+        </div>
+        <div class="itemNavBar" id="linkResponsables">
+            <a class="navBarLink " href="showallresponsable.html">Responsables</a>
+        </div>
+
+        <div class="itemNavBar" id="linkPersonas">
+            <a class="navBarLink " href="showallpersona.html">Personas</a>
+        </div>
+        <div class="itemNavBar" id="linkEspacios">
+            <a class="navBarLink " href="showallespacio.html">Espacios</a>
+        </div>
+        <div class="itemNavBar" id="linkCategorias">
+            <a class="navBarLink" href="showallcategoria.html">Categorias</a>
+        </div>
+        <div class="itemNavBar" id="linkActividades">
+            <a class="navBarLink" href="showallActividad.html">Actividades</a>
+        </div>
+        <div class="itemNavBar" id="linkInscripciones">
+            <a class="navBarLink" href="showallinscripcion.html">Inscripciones</a>
+        </div>
+        <div class="itemNavBar" id="UserDesconectar"></div>
     </div>
-
-
-    <a href="menu.html"><img src="./images/icons/volver.png" width="50px" /></a>
 
     <div id='divformgenericoPersona' style="display:none">
         <div id="tituloForms"></div>
         <a onclick="cerrar('divformgenericoPersona','','');"><img src='./images/icons/close.png' width="50px"></a>
         <form name='formgenericoPersona' id='formgenericoPersona' method="post" action="" onsubmit="">
 
+            <h1 id="tituloAccion"></h1>
+
             <label class='dni_persona'></label>
-            <input type='text' name='dni_persona' id='dni_persona' onblur='return comprobarDNI("dni_persona","errorFormatoDni")'><br>
+            <input type='text' name='dni_persona' id='dni_persona'
+                onblur='return comprobarDNI("dni_persona","errorFormatoDni")'><br>
             <div style="display:none" id="errorFormatoDni"></div>
 
             <label class='nombre_persona'></label>
-            <input type='text' name='nombre_persona' id='nombre_persona' onblur='return comprobarNombreParam("nombre_persona")'><br>
+            <input type='text' name='nombre_persona' id='nombre_persona'
+                onblur='return comprobarNombreParam("nombre_persona")'><br>
             <div style="display:none" id="errorFormatoNombre"></div>
 
             <label class='apellidos_persona'></label>
-            <input type='text' name='apellidos_persona' id='apellidos_persona' onblur='return comprobarApellidosParam("apellidos_persona")'><br>
+            <input type='text' name='apellidos_persona' id='apellidos_persona'
+                onblur='return comprobarApellidosParam("apellidos_persona")'><br>
             <div style="display:none" id="errorFormatoApellidos"></div>
 
             <label class='fechaNacimiento_persona'></label>
-            <input type="text" name="date" id="fechaNacimiento_persona" class="tcal" onblur='return comprobarFechaDeNacimiento("fechaNacimiento_persona","errorFormatoFechaNacimiento")'> <br>
+            <input type="text" name="fechaNacimiento_persona" id="fechaNacimiento_persona" class="tcal"
+                onblur='return comprobarFechaDeNacimiento()'> <br>
             <div style="display:none" id="errorFormatoFechaNacimiento"></div>
 
             <label class='direccion_persona'></label>
@@ -99,26 +93,75 @@
             <label class='foto_persona' id='labelfotopersona'></label>
             <input type='text' name='foto_persona' id='foto_persona' onblur=''><br>
             <label class='sube_persona' id='labelfotopersona'></label>
-            <input type='file' accept= ".png, .jpg" name='subefotopersona' id='subefotopersona'><br>
+            <input type='file' accept=".png, .jpg" name='subefotopersona' id='subefotopersona'><br>
 
             <label class='esCeliaco_persona'></label>
             <select name='esCeliaco_persona' id='esCeliaco_persona'>
-                                <option id="seleccionNula" value="" class="seleccionNula"></option>
-                                <option value="1" class="SI"></option>
-                                <option value="0" class="NO"></option>
-                        </select>
+                <option id="seleccionNula" value="" class="seleccionNula"></option>
+                <option value="1" class="SI"></option>
+                <option value="0" class="NO"></option>
+            </select>
             <label class='borrado_persona'></label>
             <select name='borrado_persona' id='borrado_persona'>
-                                <option id="seleccionNula" value="" class="seleccionNula"></option>
-                                <option value="1" class="SI"></option>
-                                <option value="0" class="NO"></option>
-                        </select>
+                <option id="seleccionNula" value="" class="seleccionNula"></option>
+                <option value="1" class="SI"></option>
+                <option value="0" class="NO"></option>
+            </select>
 
             <br>
-            <button type='submit'><img src="./images/icons/editUser.png" width="50px" /></button><br>
+            <button id='submitbuttom' type='submit'><img src="./images/icons/editUser.png" width="50px" /></button><br>
         </form>
     </div>
 
+    <div id="divtablaPersonas">
+        <div id="Funciones">
+
+            <button id='addButtom' class="itemFunciones" onclick="showAddPersona()" alt="Insertar Actividad">
+                <img id='addButtomIcon' src="/images/iconos_oscar/cerrados/Add.svg" alt="">
+                <p id="addButtomText" class="addButtomText">Insertar Persona</p>
+            </button>
+
+
+            <button id='searchButtom' class="itemFunciones" onclick="showBuscarPersona()" alt="Buscar Actividad">
+                <img id='searchButtomIcon' src="/images/iconos_oscar/cerrados/search.svg" alt="">
+                <p id="searchButtomText" class="searchButtomText">Buscar Persona</p>
+            </button>
+
+        </div>
+        <div id="divTabla">
+            <table id="tablaPersonas" border='1'>
+                <thead>
+                    <th class="dni_persona">
+                    </th>
+                    <th class="nombre_persona">
+                    </th>
+                    <th class="apellidos_persona">
+                    </th>
+                    <th class="email_persona">
+                    </th>
+                    <th class="foto_persona">
+                    </th>
+                    <th class="borrado_persona">
+                    </th>
+                    <th class="ACCIONES"></th>
+                </thead>
+                <tbody id="datosPersonas">
+
+                </tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="modal" style="display:none">
+        <div id="contenido-interno">
+            <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
+            <div id="mensajeError"></div>
+            <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
+                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
+                <span class="tooltiptext iconCerrar"></span>
+            </a>
+        </div>
+    </div>
 
 </body>
 

@@ -20,8 +20,11 @@ function addEspacio() {
 		}
 
 		actualizaMensajesRespuestAjax(response.code);
-
-		deleteActionController();
+        setLang(idioma);
+        resetearformularioespacio();
+        getLisEspacios();
+        deleteActionController();
+        eliminarcampo("ID_SESSION");
 	});
 
 }
@@ -36,7 +39,7 @@ function showAddEspacio() {
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoEspacio").attr('style', 'display: block');
 	$("#formgenericoEspacio").attr('action', 'javascript:addEspacio();');
-	$("#formgenericoEspacio").attr('onsubmit', 'comprobareditsubmit();');
+	$("#formgenericoEspacio").attr('onsubmit', '');
 
 	//rellenamos los tipo text
 	/*$("#txtidresponsable").val("1");
@@ -80,6 +83,7 @@ function editEspacio() {
 	}).done(function (response) {
 		if (response.ok == true) {
 			respuestaOKAjax();
+			location.reload();
 		} else {
 			respuestaKOAjax('edit');
 		}
@@ -278,23 +282,29 @@ function showEliminarEspacio(id_espacio, nombre_espacio, descripcion_espacio) {
 
 }
 
-function resetearformularioespacio(idformUsado) {
+function resetearformularioespacio() {
 
-	$("idformUsado").attr('action', '');
-	$("idformUsado").attr('onsubmit', '');
+	$("formgenericoEspacio").attr('action', '');
+    $("formgenericoEspacio").attr('onsubmit', '');
 
-	$("#idEspacio").attr('disabled', false);
-	$("#nombre_espacio").attr('disabled', false);
-	$("#descripcion_espacio").attr('disabled', false);
+    $("#id_espacio").val('');
+    $("#nombre_espacio").val('');
+    $("#descripcion_espacio").val('');
 
-	$("#idEspacio").val('');
-	$("#nombre_espacio").val('');
-	$("#descripcion_espacio").val('');
+    $("#id_espacio").attr('onblur', '');
+    $("#nombre_espacio").attr('onblur', '');
+    $("#descripcion_espacio").attr('onblur', '');
 
-	$("#idEspacio").attr('onblur', '');
-	$("#nombre_espacio").attr('onblur', '');
-	$("#descripcion_espacio").attr('onblur', '');
+    $("divformgenericoEspacio").attr('style', 'display: none');
 
-	$("divformgenericoEspacio").attr('style', 'display: none');
+    $("#id_espacio").attr('style', 'display:');
+    $("#nombre_espacio").attr('style', 'display:');
+    $("#descripcion_espacio").attr('style', 'display:');
+
+    $("#id_espacio").attr('disabled', false);
+    $("#nombre_espacio").attr('disabled', false);
+    $("#descripcion_espacio").attr('disabled', false);
+
+    document.getElementById('submitbuttom').style.visibility = 'visible';
 
 }
