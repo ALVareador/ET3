@@ -1,12 +1,12 @@
 /**Función que valida los datos antes de hacer el envío y encripta la password*/
 function comprobarLogin() {
 
-	if(comprobarUser() && comprobarPassword()) {
-	encriptar("contrasena");
-	generarSessionId();
-	return true;
+	if (comprobarUser() && comprobarPassword()) {
+		encriptar("contrasena");
+		generarSessionId();
+		return true;
 	} else {
-	return false;
+		return false;
 
 	}
 
@@ -41,38 +41,45 @@ function login() {
 
 }
 
-function recuperarcontrasena(){
-    $("#divrecuperarcontrasena").attr('style', 'display:block');
+function comprobarRecuperarContrasena() {
+	if (comprobarEmail() && comprobarUser()) {
+		return true;
+	} else {
+		return false;
+	}
 }
 
-function recuperar(){
+function recuperar() {
 
-	insertacampo(document.formulariorecuperar,'controlador', 'AUTH');
-	insertacampo(document.formulariorecuperar,'action', 'recuperar_contrasena');
+	insertacampo(document.formulariorecuperar, 'controlador', 'AUTH');
+	insertacampo(document.formulariorecuperar, 'action', 'recuperar_contrasena');
 
 	var idioma = getCookie('lang');
 
 	$.ajax({
-	method: "POST",
-	url: urlPeticionesAjax,
-	data: $("#formulariorecuperar").serialize(), 
-	}).done(function( response ) {
+		method: "POST",
+		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		data: $("#formulariorecuperar").serialize(),
+	}).done(function (response) {
 		if (response.ok == true) {
 			console.log(response.resource);
-			document.getElementById("contrasenarecuperada").innerHTML + response.resource;
+			document.getElementById("LabelContrasenaRecuperada").style.visibility = "visible";
+			document.getElementById("contrasenarecuperada").innerHTML = response.resource;
 		} else {
+			document.getElementById("LabelContrasenaRecuperada").style.visibility = "hidden";
+			document.getElementById("contrasenarecuperada").innerHTML = "";
 			$("#mensajeError").removeClass();
-	    	$("#mensajeError").addClass(response.code);
-	    	resetearformulariorecuperar();
-        	setLang(idioma);
-        	document.getElementById("modal").style.display = "block";
+			$("#mensajeError").addClass(response.code);
+			resetearformulariorecuperar();
+			setLang(idioma);
+			document.getElementById("modal").style.display = "block";
 		}
 
 	});
-	console.log(formulariorecuperar); 
+	console.log(formulariorecuperar);
 }
 
-function resetearformulariorecuperar(){
+function resetearformulariorecuperar() {
 
 	$("divrecuperarcontrasena").attr('style', 'display: none');
 	$("email_persona").val('');

@@ -62,26 +62,11 @@
 	</form>
 	<!-- falta icono recuperar contraseña-->
 	<div id="quieresrecuperar">
-		<button class='icon' type="button" onclick="">
-			<img src="" style="object-fit:fill; width:80%; margin:0px" alt="recuperar contrasena" />
+		<button class='icon' type="button" onclick="location.href='recuperarContrasena.html'">
+			<img src="images/iconos_oscar/cerrados/recuperarPassword.svg" style="object-fit:fill; width:80%; margin:0px" alt="recuperar contrasena" />
 			<span class="iconText recuperar_contrasena"></span>
 		</button>
 	</div>
-
-	<div id="divrecuperarcontrasena" style="display:none">
-		<form name="formulariorecuperar" id="formulariorecuperar" method="post" action="javascript:recuperar();"
-			onsubmit="">
-			<label class='correorecuperacion'></label>
-			<input type='text' name='email_persona' id='email_persona' onblur=''><br>
-
-			<label class='usuariorecuperacion'></label>
-			<input type='text' name='usuario' id='usuario' onblur=''><br>
-
-			<p class="contrasenarecuperada" id="contrasenarecuperada"></p>
-			<input type="submit" value="recuperar">
-		</form>
-	</div>
-
 	<div id="modal" style="display:none">
 		<div id="contenido-interno">
 			<div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>

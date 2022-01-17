@@ -1,0 +1,76 @@
+<html>
+
+<head lang='es'>
+
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="js/traducctorMasivo.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script type="text/javascript" src="js/funcionesComunes.js"></script>
+    <script type="text/javascript" src="js/showallusuario.js"></script>
+    <script type="text/javascript" src="js/funcionesFormularios.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/md5.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script type="text/javascript" src="js/md5.js"></script>
+
+    <script type="text/javascript" src="Locale/idioma.js"></script>
+    <script type="text/javascript" src="Locale/Lang_EN.js"></script>
+    <script type="text/javascript" src="Locale/Lang_ES.js"></script>
+    <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+
+
+    <link rel="stylesheet" href="css/iconos.css">
+    <link rel="stylesheet" href="css/divs.css">
+    <link rel="stylesheet" href="css/showallActividad.css">
+
+</head>
+<!-- falta mensaje de bienvenida -->
+<title class="saludoRecuperacion"></title>
+
+<body onload="includeMenuIdioma();setLang('');">
+
+    <div id="navBar"></div>
+    <!-- falta mensaje de bienvenida -->
+    <h1 class="saludoRecuperacion"></h1>
+
+
+
+    <div id="divrecuperarcontrasena">
+        <form name="formulariorecuperar" id="formulariorecuperar" method="post" action="javascript:recuperar();"
+            onsubmit="return comprobarRecuperarContrasena()">
+            <label class='correorecuperacion'></label>
+            <input type='text' name='email_persona' id='email_persona' onblur="return comprobarEmail()"><br>
+            <div style="display:none" id="errorFormatoEmail"></div>
+
+            <label class='usuariorecuperacion'></label>
+            <input type='text' name='usuario' id='txtUsuario' onblur='return comprobarUser()'><br>
+            <div style="display:none" id="errorFormatoUser"></div><br>
+
+            <label id="LabelContrasenaRecuperada" class="contrasena_recuperada_es" style="visibility: hidden;"></label>
+            <div style="display: inline;" id="contrasenarecuperada"></div>
+
+            <button class='icon' type="submit" style="display: block ;">
+                <img src="images/iconos_oscar/cerrados/recuperarPassword.svg" style="object-fit:fill; width:80%; margin:0px"
+                    alt="recuperar" />
+                <span class="iconText iconRecuperar"></span>
+            </button>
+
+        </form>
+    </div>
+
+    <div id="modal" style="display:none">
+        <div id="contenido-interno">
+            <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
+            <div id="mensajeError"></div>
+            <button id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="icon">
+                <img alt="Cerrar" src="images/iconos_oscar/cerrados/cross.svg" />
+                <span class="iconText iconCerrar"></span>
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -44,7 +44,7 @@ arrayES = {
 	'datosUsuario': 'Datos usuario',
 	//- atributos
 	'recuperar_contrasena': 'Recuperar Contraseña',
-	'contrasenarecuperada': 'La contraseña de este usuario es: ',
+	'contrasena_recuperada_es': 'La contraseña de este usuario es: ',
 	'correorecuperacion': 'Correo asociado a la contraseña',
 	'usuariorecuperacion': 'Usuario propietario de la contraseña a recuperar',
 	'id': 'ID de Usuario',
@@ -102,6 +102,7 @@ arrayES = {
 	'iconOrdenar': 'Ordenar',
 	'iconOk': 'OK',
 	'iconLogin': 'Acceso',
+	'iconRecuperar':'Recuperar',
 
 	//************************************************************************************************
 	// login registro
