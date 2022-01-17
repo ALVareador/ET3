@@ -2,8 +2,7 @@
 
 <head lang='es'>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script type="text/javascript" src="js/showallespacio.js"></script>
-        <script type="text/javascript" src="js/editespacio.js"></script>
+        
         <script type="text/javascript" src="js/funcionesComunes.js"></script>
         <script type="text/javascript" src="js/funcionesFormularios.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -14,35 +13,97 @@
         <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
 
+        <link rel="stylesheet" href="css/showallEspacio.css">
+
 </head>
 
 <body onload="includeCabecera();validaAutenticado();getLisEspacios();setLang('');">
-        <div id="menuIdioma"></div>
-        <div id="UserDesconectar"></div>
-        <div id="Funciones">
-                <button onclick="showAddEspacio()" alt="Insertar Espacio">Insertar Espacio</button>
-                <button onclick="showBuscarEspacio()" alt="Buscar Espacio">Buscar Espacio</button>
+        <div id="navBar">
+                <div class="itemNavBar" id="linkUsuarios">
+                        <a class="navBarLink " href="showallusuario.html">Usuarios</a>
+                </div>
+                <div class="itemNavBar" id="linkGrupos">
+                        <a class="navBarLink " href="showallgrupo.html">Grupos</a>
+                </div>
+                <div class="itemNavBar" id="linkResponsables">
+                        <a class="navBarLink " href="showallresponsable.html">Responsables</a>
+                </div>
+
+                <div class="itemNavBar" id="linkPersonas">
+                        <a class="navBarLink " href="showallpersona.html">Personas</a>
+                </div>
+                <div class="itemNavBar" id="linkEspacios">
+                        <a class="navBarLink " href="showallespacio.html">Espacios</a>
+                </div>
+                <div class="itemNavBar" id="linkCategorias">
+                        <a class="navBarLink" href="showallcategoria.html">Categorias</a>
+                </div>
+                <div class="itemNavBar" id="linkActividades">
+                        <a class="navBarLink" href="showallActividad.html">Actividades</a>
+                </div>
+                <div class="itemNavBar" id="linkInscripciones">
+                        <a class="navBarLink" href="showallinscripcion.html">Inscripciones</a>
+                </div>
+                <div class="itemNavBar" id="UserDesconectar"></div>
+        </div>
+
+        <div id='divformgenericoEspacio' style="display:none">
+                <div id="tituloForms"></div>
+                <a onclick="cerrar('divformgenericoEspacio','','');"><img src='images/iconos_oscar/cerrados/cross.svg'
+                                width="50px"></a>
+                <form name='formgenericoEspacio' id='formgenericoEspacio' method="post" action="" onsubmit="">
+                        <label class='id_espacio'></label>
+                        <input type='text' name='id_espacio' id='id_espacio'
+                                onblur='return comprobarId("id_espacio","errorFormatoId")'><br>
+                        <div style="display:none" id="errorFormatoId"></div>
+                        <label class='nombre_espacio'></label>
+                        <input type='text' name='nombre_espacio' id='nombre_espacio'
+                                onblur='return comprobarNombreParam("nombre_espacio")'><br>
+                        <div style="display:none" id="errorFormatoNombre"></div>
+                        <label class='descripcion_espacio'></label>
+                        <input type='text' name='descripcion_espacio' id='descripcion_espacio'
+                                onblur='return comprobarDescripcionParam("descripcion_espacio")'><br>
+                        <div style="display:none" id="errorFormatoDescr"></div>
+
+                        <br>
+                        <div id="botones">
+                                <button id='submitbuttom' type='submit'><img
+                                                src="./images/iconos_oscar/cerrados/tick.svg" width="50px" /></button>
+                        </div>
+                </form>
         </div>
 
         <div id="divtablaEspacios">
-                <table id="tablaEspacios" border='1'>
-                        <thead>
-                                <th class="id_espacio">
-        </div>
-        </th>
-        <th class="nombre_espacio">
-                </div>
-        </th>
-        <th class="descripcion_espacio">
-                </div>
-        </th>
-        <th class="ACCIONES"></th>
-        </thead>
-        <tbody id="datosEspacio">
 
-        </tbody>
-        </tbody>
-        </table>
+                <div id="Funciones">
+
+                        <button id='addButtom' class="itemFunciones" onclick="showAddEspacio()" alt="Insertar Espacio">
+                                <img id='addButtomIcon' src="/images/iconos_oscar/cerrados/Add.svg" alt="">
+                                <p id="addButtomText" class="addButtomText">Insertar Espacio</p>
+                        </button>
+
+
+                        <button id='searchButtom' class="itemFunciones" onclick="showBuscarEspacio()"
+                                alt="Buscar Actividad">
+                                <img id='searchButtomIcon' src="/images/iconos_oscar/cerrados/search.svg" alt="">
+                                <p id="searchButtomText" class="searchButtomText">Buscar Espacio</p>
+                        </button>
+
+                </div>
+
+                <div id="divtabla">
+                        <table id="tablaEspacios" border='1'>
+                                <thead>
+                                        <th class="id_espacio"></th>
+                                        <th class="nombre_espacio"></th>
+                                        <th class="descripcion_espacio"></th>
+                                        <th class="ACCIONES"></th>
+                                </thead>
+                                <tbody id="datosEspacio">
+                                </tbody>
+                                </tbody>
+                        </table>
+                </div>
         </div>
 
         <div id="modal" style="display:none">
@@ -50,36 +111,18 @@
                         <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
                         <div id="mensajeError"></div>
                         <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
-                                <span class="tooltiptext iconCerrar"></span>
+                                <img class="iconCerrar" src="images/iconos_oscar/cerrados/cross.svg" />
                         </a>
                 </div>
         </div>
 
-
-        <a href="menu.html"><img src="./images/icons/volver.png" width="50px" /></a>
-
-        <div id='divformgenericoEspacio' style="display:none">
-                <div id="tituloForms"></div>
-                <a onclick="cerrar('divformgenericoEspacio','','');"><img src='./images/icons/close.png'
-                                width="50px"></a>
-                <form name='formgenericoEspacio' id='formgenericoEspacio' method="post" action="" onsubmit="">
-                        <label class='id_espacio'></label>
-                        <input type='text' name='id_espacio' id='id_espacio' onblur='return comprobarId("id_espacio","errorFormatoId")'><br>
-                        <div style="display:none" id="errorFormatoId"></div>
-                        <label class='nombre_espacio'></label>
-                        <input type='text' name='nombre_espacio' id='nombre_espacio' onblur='return comprobarNombreParam("nombre_espacio")'><br>
-                        <div style="display:none" id="errorFormatoNombre"></div>
-                        <label class='descripcion_espacio'></label>
-                        <input type='text' name='descripcion_espacio' id='descripcion_espacio' onblur='return comprobarDescripcionParam("descripcion_espacio")'><br>
-                        <div style="display:none" id="errorFormatoDescr"></div>
-
-                        <br>
-                        <button type='submit'><img src="./images/icons/editUser.png" width="50px" /></button><br>
-                </form>
+        <div id="footerNombres">
+                <p class="itemfooterNombres">Andrés García Figueroa</p>
+                <p class="itemfooterNombres">Álvaro Nóvoa Fernández</p>
+                <p class="itemfooterNombres">Óscar Lestón Casais</p>
+                <p class="itemfooterNombres">Rubén Gómez Mártínez</p>
         </div>
-
-
 </body>
-
+<script type="text/javascript" src="js/editespacio.js"></script>
+<script type="text/javascript" src="js/showallespacio.js"></script>
 </html>

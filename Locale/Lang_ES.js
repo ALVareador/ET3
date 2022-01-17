@@ -148,6 +148,7 @@ arrayES = {
 	'error_formato_descripcion_largo': 'La descripcion debe tener a lo sumo 200 caracteres',
 
 	'error_fecha_vacia': 'La fecha no puede estar vacía',
+	'error_fecha_mayor_actual':'La fecha de nacimiento supera a la actual',
 	'error_menor_edad': 'Debe ser mayor de edad.',
 	'error_fecha_nacimiento_negativa': 'Cuando hayas nacido vuelve a intentarlo',
 
@@ -390,4 +391,10 @@ arrayES = {
 	'ACTIVIDAD_BORRAR_OK': 'Actividad eliminada correctamente',
 	'USUARIO_BORRAR_OK': 'Usuario eliminado correctamente',
 	'PERSONA_BORRAR_OK': 'Persona eliminada correctamente',
+
+	'tituloAnadir':'Formulario de inserción',
+	'tituloEditar':'Formulario de edición',
+	'tituloDetalle':'Formulario de detalle',
+	'tituloEliminar':'Formulario de información',
+	'tituloBuscar':'Formulario de búsqueda'
 }
