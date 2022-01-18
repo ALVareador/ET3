@@ -1,6 +1,6 @@
 
 arrayES = {
-
+	'obligatorio':'*',
 	// generales base de datos
 	'00000': 'Error al conectar con la base de datos. Contacte con su administrador',
 	'00001': 'Éxito al ejecutar el SQL',
@@ -208,7 +208,7 @@ arrayES = {
 	//************************************************************************************************
 	// persona
 	//************************************************************************************************
-
+	'error_id_soloNum':'El id solo debe llevar hasta 11 números, ejemplo: 11111111',
 	//- atributos persona
 	'dni_persona': 'DNI de Persona',
 	'nombre_persona': 'Nombre de Persona',
@@ -228,7 +228,7 @@ arrayES = {
 	'email_persona_ya_existe': 'El correo electrónico ya existe en persona',
 	'PERSONA_BORRAR_NO_EXISTE': 'La persona a borrar no existe',
 	'BORRAR_PERSONA_EXISTE_USUARIO': 'No se puede borrar, existe un usuario con ese dni',
-	'ERROR_INSERTAR_PERSONA': 'Error al insertar la persona',
+	'ERROR_INSERTAR_PERSONA': 'Error al insertar la persona, compruebe posibles errores de formato o si falta algún campo obligatorio marcado con "*"',
 	'ERROR_MODIFICAR_PERSONA': 'Error al modificar la persona',
 	'ERROR_BORRAR_PERSONA ': 'Error al borrar la persona',
 
@@ -340,7 +340,6 @@ arrayES = {
 	'PERSONA_INSERTAR_OK': 'Persona insertada correctamente',
 	'DNI_PERSONA_YA_EXISTE': 'Este DNI ya existe',
 	'EMAIL_PERSONA_YA_EXISTE': 'Este email ya existe',
-	'ERROR_INSERTAR_PERSONA': 'Persona no se puedo insertar',
 	'PERSONA_MODIFICAR_OK': 'Persona modificada correctamente',
 	'ADMIN_NO_SE_PUEDE_EDITAR': 'No se puede editar el admin',
 	'ERROR_MODIFICAR_PERSONA': 'No se ha podido modificar la persona',
@@ -394,6 +393,7 @@ arrayES = {
 	'ACTIVIDAD_BORRAR_OK': 'Actividad eliminada correctamente',
 	'USUARIO_BORRAR_OK': 'Usuario eliminado correctamente',
 	'PERSONA_BORRAR_OK': 'Persona eliminada correctamente',
+	'ERROR_INSERTAR_ESPACIO': 'No se puede introducir el espacio, compruebe posibles errores de formato',
 
 	'tituloAnadir':'Formulario de inserción',
 	'tituloEditar':'Formulario de edición',

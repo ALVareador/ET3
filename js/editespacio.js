@@ -1,3 +1,11 @@
+function comprobarOnBlurEspacio(){
+	if(comprobarId("id_espacio","errorFormatoId") && comprobarNombreParam("nombre_espacio") && comprobarDescripcionParam("descripcion_espacio")){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 function addEspacio() {
 
 	var idSession = getCookie('sessionId');
@@ -20,11 +28,8 @@ function addEspacio() {
 		}
 
 		actualizaMensajesRespuestAjax(response.code);
-        setLang(idioma);
-        resetearformularioespacio();
-        getLisEspacios();
-        deleteActionController();
-        eliminarcampo("ID_SESSION");
+
+		deleteActionController();
 	});
 
 }
@@ -39,8 +44,9 @@ function showAddEspacio() {
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoEspacio").attr('style', 'display: block');
 	$("#formgenericoEspacio").attr('action', 'javascript:addEspacio();');
-	$("#formgenericoEspacio").attr('onsubmit', '');
-
+	$("#formgenericoEspacio").attr('onsubmit', 'comprobarOnBlurEspacio();');
+	
+	$("#tituloAccion").attr("class", "tituloAnadir");
 	//rellenamos los tipo text
 	/*$("#txtidresponsable").val("1");
 	$("#txtnumcuentaresponsable").val("1");
@@ -48,20 +54,17 @@ function showAddEspacio() {
 
 	// rellenamos los onblur de los input que se validad
 
-	/*
-	$("#idEspacio").attr('onblur', 'comprobarDNI();');
-	$("#nombre_espacio").attr('onblur', 'comprobarNumCuenta();');
-	$("#descripcion_espacio").attr('onblur', 'comprobarCurriculum();');
-	*/
 	$("#id_espacio").attr('onblur', 'comprobarId(\'id_espacio\',\'errorFormatoId\');');
 	$("#nombre_espacio").attr('onblur', 'comprobarNombreParam("nombre_espacio");');
 	$("#descripcion_espacio").attr('onblur', 'comprobarDescripcionParam("descripcion_espacio");');
+
 	// se rellena los select
 
 	// se deshabilita el id para que no pueda cambiarse
 	//$("#idEspacio").attr('disabled', true);	
 	//$("#txtnumcuentaresponsable").attr('disabled', false);	
 	//$("#txtcurriculumresponsable").attr('disabled', false);	
+	setLang(getCookie("lang"));
 }
 
 function editEspacio() {
@@ -83,7 +86,6 @@ function editEspacio() {
 	}).done(function (response) {
 		if (response.ok == true) {
 			respuestaOKAjax();
-			location.reload();
 		} else {
 			respuestaKOAjax('edit');
 		}
@@ -143,21 +145,22 @@ function showEditarEspacio(id_espacio, nombre_espacio, descripcion_espacio) {
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoEspacio").attr('style', 'display: block');
 	$("#formgenericoEspacio").attr('action', 'javascript:editEspacio();');
-	$("#formgenericoEspacio").attr('onsubmit', 'comprobareditsubmit();');
+	$("#formgenericoEspacio").attr('onsubmit', 'comprobarOnBlurEspacio();');
 
+	$("#tituloAccion").attr("class", "tituloEditar");
 	//rellenamos los tipo text
 	$("#id_espacio").val(id_espacio);
 	$("#nombre_espacio").val(nombre_espacio);
 	$("#descripcion_espacio").val(descripcion_espacio);
 
-	// rellenamos los onblur de los input que se validad
 	$("#id_espacio").attr('onblur', 'comprobarId(\'id_espacio\',\'errorFormatoId\');');
 	$("#nombre_espacio").attr('onblur', 'comprobarNombreParam("nombre_espacio");');
 	$("#descripcion_espacio").attr('onblur', 'comprobarDescripcionParam("descripcion_espacio");');
 
 	// se deshabilita el id para que no pueda cambiarse
 	$("#id_espacio").attr('disabled', true);
-
+	$("#nombre_espacio").attr('disabled', false);
+	setLang(getCookie("lang"));
 }
 
 function comprobareditsubmit() {
@@ -227,15 +230,11 @@ function showBuscarEspacio() {
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoEspacio").attr('style', 'display: block');
 	$("#formgenericoEspacio").attr('action', 'javascript:buscarEspacio();');
-	$("#formgenericoEspacio").attr('onsubmit', 'comprobareditsubmit();');
+	$("#formgenericoEspacio").attr('onsubmit', '');
 
-	//Se pone el titulo de la acción buscar
-	document.getElementById('tituloAccion').innerHTML = "Buscar Espacio";
-	document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
+	$("#tituloAccion").attr("class", "tituloBuscar");
 
-	// rellenamos los onblur de los input que se validad
-	$("#id_espacio").attr('onblur', 'comprobarIdEspacio(\"id_espacio\");');
-	$("#nombre_espacio").attr('onblur', 'comprobarNombreEspacio();');
+	setLang(getCookie("lang"));
 }
 
 function detalleespacio() {
@@ -252,6 +251,8 @@ function showDetalleEspacio(id_espacio, nombre_espacio, descripcion_espacio) {
 	$("#divformgenericoEspacio").attr('style', 'display:');
 	$("#formgenericoEspacio").attr('action', 'javascript:detalleespacio();');
 
+	$("#tituloAccion").attr("class", "tituloDetalle");
+
 	$("#id_espacio").val(id_espacio);
 	$("#nombre_espacio").val(nombre_espacio);
 	$("#descripcion_espacio").val(descripcion_espacio);
@@ -262,8 +263,8 @@ function showDetalleEspacio(id_espacio, nombre_espacio, descripcion_espacio) {
 
 	document.getElementById('submitbuttom').style.visibility = 'hidden';
 	$("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
-	
-	setLang('');
+
+	setLang(getCookie("lang"));
 }
 
 function showEliminarEspacio(id_espacio, nombre_espacio, descripcion_espacio) {
@@ -271,6 +272,8 @@ function showEliminarEspacio(id_espacio, nombre_espacio, descripcion_espacio) {
 	$("#divformgenericoEspacio").attr('style', 'display: block');
 	$("#formgenericoEspacio").attr('action', 'javascript:deleteEspacio();');
 	$("#formgenericoEspacio").attr('onsubmit', '');
+
+	$("#tituloAccion").attr("class","tituloEliminar");
 
 	$("#id_espacio").val(id_espacio);
 	$("#nombre_espacio").val(nombre_espacio);
@@ -280,14 +283,15 @@ function showEliminarEspacio(id_espacio, nombre_espacio, descripcion_espacio) {
 	$("#nombre_espacio").attr('disabled', true);
 	$("#descripcion_espacio").attr('disabled', true);
 
+	setLang(getCookie("lang"));
 }
 
 function resetearformularioespacio() {
 
 	$("formgenericoEspacio").attr('action', '');
-    $("formgenericoEspacio").attr('onsubmit', '');
+	$("formgenericoEspacio").attr('onsubmit', '');
 
-    $("#id_espacio").val('');
+	$("#id_espacio").val('');
     $("#nombre_espacio").val('');
     $("#descripcion_espacio").val('');
 

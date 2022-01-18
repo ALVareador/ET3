@@ -4,18 +4,18 @@
 
 }
 
-#divformgenericoPersona {
+#divformgenericoCategoria {
 
     color: #5e696d;
 
 }
 
 /*Tabla*/
-#divtablaEspacios {
+#divtablaCategorias {
     margin-top: 50px;
 }
 
-#divformgenericoEspacio {
+#divformgenericoCategoria {
 	width:100%; /*Toma el 100% del ancho de la página*/
 	height:100%; /*Toma el 100% del alto de la página*/
 	position:fixed; /*Con este código hacemos que el contenedor se mantenga en la pantalla y para que tome las dimensiones del body y no de la entrada*/
@@ -31,7 +31,7 @@
     justify-content:center;
 	background: #ffffff;
     position: absolute;
-    z-index: 2;
+    z-index: 20;
     border-radius: 5px;
     width: 45%;
     height: 78.5%;

@@ -1,3 +1,11 @@
+function comprobarOnBlurGrupo(){
+	if(comprobarId("id_grupo","errorFormatoId") && comprobarNombreParam("nombre_grupo") && comprobarDescripcionParam("descripcion_grupo")){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 function addGrupo() {
 
 	var idSession = getCookie('sessionId');
@@ -20,11 +28,8 @@ function addGrupo() {
 		}
 
 		actualizaMensajesRespuestAjax(response.code);
-		setLang(idioma);
-		resetearformulariogrupo();
-		GetLisGrupos();
+
 		deleteActionController();
-		hasProbadoAReiniciarlo();
 	});
 
 }
@@ -39,8 +44,9 @@ function showAddGrupo() {
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoGrupo").attr('style', 'display: block');
 	$("#formgenericoGrupo").attr('action', 'javascript:addGrupo();');
-	$("#formgenericoGrupo").attr('onsubmit', 'comprobareditsubmit();');
-
+	$("#formgenericoGrupo").attr('onsubmit', 'comprobarOnBlurGrupo();');
+	
+	$("#tituloAccion").attr("class", "tituloAnadir");
 	//rellenamos los tipo text
 	/*$("#txtidresponsable").val("1");
 	$("#txtnumcuentaresponsable").val("1");
@@ -48,11 +54,9 @@ function showAddGrupo() {
 
 	// rellenamos los onblur de los input que se validad
 
-	
 	$("#id_grupo").attr('onblur', 'comprobarId(\'id_grupo\',\'errorFormatoId\');');
 	$("#nombre_grupo").attr('onblur', 'comprobarNombreParam("nombre_grupo");');
 	$("#descripcion_grupo").attr('onblur', 'comprobarDescripcionParam("descripcion_grupo");');
-	
 
 	// se rellena los select
 
@@ -60,6 +64,7 @@ function showAddGrupo() {
 	//$("#idGrupo").attr('disabled', true);	
 	//$("#txtnumcuentaresponsable").attr('disabled', false);	
 	//$("#txtcurriculumresponsable").attr('disabled', false);	
+	setLang(getCookie("lang"));
 }
 
 function editGrupo() {
@@ -86,11 +91,10 @@ function editGrupo() {
 		}
 
 		actualizaMensajesRespuestAjax(response.code);
-		resetearformulariogrupo();
-		GetLisGrupos();
+
 		setLang(idioma);
+
 		deleteActionController();
-		hasProbadoAReiniciarlo();
 	});
 
 }
@@ -122,11 +126,10 @@ function deleteGrupo() {
 		}
 
 		actualizaMensajesRespuestAjax(response.code);
-		resetearformulariogrupo();
-		GetLisGrupos();
+
 		setLang(idioma);
+
 		deleteActionController();
-		hasProbadoAReiniciarlo();
 	});
 
 }
@@ -142,21 +145,22 @@ function showEditarGrupo(id_grupo, nombre_grupo, descripcion_grupo) {
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoGrupo").attr('style', 'display: block');
 	$("#formgenericoGrupo").attr('action', 'javascript:editGrupo();');
-	$("#formgenericoGrupo").attr('onsubmit', 'comprobareditsubmit();');
+	$("#formgenericoGrupo").attr('onsubmit', 'comprobarOnBlurGrupo();');
 
+	$("#tituloAccion").attr("class", "tituloEditar");
 	//rellenamos los tipo text
 	$("#id_grupo").val(id_grupo);
 	$("#nombre_grupo").val(nombre_grupo);
 	$("#descripcion_grupo").val(descripcion_grupo);
 
-	// rellenamos los onblur de los input que se validad
 	$("#id_grupo").attr('onblur', 'comprobarId(\'id_grupo\',\'errorFormatoId\');');
 	$("#nombre_grupo").attr('onblur', 'comprobarNombreParam("nombre_grupo");');
 	$("#descripcion_grupo").attr('onblur', 'comprobarDescripcionParam("descripcion_grupo");');
 
 	// se deshabilita el id para que no pueda cambiarse
 	$("#id_grupo").attr('disabled', true);
-
+	$("#nombre_grupo").attr('disabled', false);
+	setLang(getCookie("lang"));
 }
 
 function comprobareditsubmit() {
@@ -167,51 +171,6 @@ function comprobareditsubmit() {
 	else {
 		return false;
 	}
-}
-
-function detallegrupo() {
-
-	var idioma = getCookie('lang');
-	resetearformulariogrupo();
-	GetLisGrupos()
-	setLang(idioma);
-}
-function showDetalleGrupo(id_grupo, nombre_grupo, descripcion_grupo) {
-
-	resetearformulariogrupo();
-
-	$("#divformgenericoGrupo").attr('style', 'display:');
-	$("#formgenericoGrupo").attr('action', 'javascript:detallegrupo();');
-
-	$("#id_grupo").val(id_grupo);
-	$("#nombre_grupo").val(nombre_grupo);
-	$("#descripcion_grupo").val(descripcion_grupo);
-
-	$("#id_grupo").attr('disabled', true);
-	$("#nombre_grupo").attr('disabled', true);
-	$("#descripcion_grupo").attr('disabled', true);
-
-	document.getElementById('submitbuttom').style.visibility = 'hidden';
-	$("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
-	
-	setLang('');
-}
-
-function showEliminarGrupo(id_grupo, nombre_grupo, descripcion_grupo) {
-
-	resetearformulariogrupo();
-	$("#divformgenericoGrupo").attr('style', 'display: block');
-	$("#formgenericoGrupo").attr('action', 'javascript:deleteGrupo();');
-	$("#formgenericoGrupo").attr('onsubmit', '');
-
-	$("#id_grupo").val(id_grupo);
-	$("#nombre_grupo").val(nombre_grupo);
-	$("#descripcion_grupo").val(descripcion_grupo);
-
-	$("#id_grupo").attr('disabled', true);
-	$("#nombre_grupo").attr('disabled', true);
-	$("#descripcion_grupo").attr('disabled', true);
-
 }
 
 function buscarGrupo() {
@@ -271,36 +230,85 @@ function showBuscarGrupo() {
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoGrupo").attr('style', 'display: block');
 	$("#formgenericoGrupo").attr('action', 'javascript:buscarGrupo();');
-	$("#formgenericoGrupo").attr('onsubmit', 'comprobareditsubmit();');
+	$("#formgenericoGrupo").attr('onsubmit', '');
 
-	//Se pone el titulo de la acción buscar
-	document.getElementById('tituloAccion').innerHTML = "Buscar Grupo";
-	document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
+	$("#tituloAccion").attr("class", "tituloBuscar");
 
-	/*// rellenamos los onblur de los input que se validad
-	$("#id_grupo").attr('onblur', 'comprobarIdGrupo(\"id_grupo\");');
-	$("#nombre_grupo").attr('onblur', 'comprobarNombreGrupo();');
-	*/
+	setLang(getCookie("lang"));
 }
 
-function resetearformulariogrupo(idformUsado) {
+function detallegrupo() {
 
-	$("idformUsado").attr('action', '');
-	$("idformUsado").attr('onsubmit', '');
+	var idioma = getCookie('lang');
+	resetearformulariogrupo();
+	GetLisGrupos()
+	setLang(idioma);
+}
+function showDetalleGrupo(id_grupo, nombre_grupo, descripcion_grupo) {
 
-	$("#id_grupo").attr('disabled', false);
-	$("#nombre_grupo").attr('disabled', false);
-	$("#descripcion_grupo").attr('disabled', false);
+	resetearformulariogrupo();
+
+	$("#divformgenericoGrupo").attr('style', 'display:');
+	$("#formgenericoGrupo").attr('action', 'javascript:detallegrupo();');
+
+	$("#tituloAccion").attr("class", "tituloDetalle");
+
+	$("#id_grupo").val(id_grupo);
+	$("#nombre_grupo").val(nombre_grupo);
+	$("#descripcion_grupo").val(descripcion_grupo);
+
+	$("#id_grupo").attr('disabled', true);
+	$("#nombre_grupo").attr('disabled', true);
+	$("#descripcion_grupo").attr('disabled', true);
+
+	document.getElementById('submitbuttom').style.visibility = 'hidden';
+	$("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
+
+	setLang(getCookie("lang"));
+}
+
+function showEliminarGrupo(id_grupo, nombre_grupo, descripcion_grupo) {
+
+	$("#divformgenericoGrupo").attr('style', 'display: block');
+	$("#formgenericoGrupo").attr('action', 'javascript:deleteGrupo();');
+	$("#formgenericoGrupo").attr('onsubmit', '');
+
+	$("#tituloAccion").attr("class","tituloEliminar");
+
+	$("#id_grupo").val(id_grupo);
+	$("#nombre_grupo").val(nombre_grupo);
+	$("#descripcion_grupo").val(descripcion_grupo);
+
+	$("#id_grupo").attr('disabled', true);
+	$("#nombre_grupo").attr('disabled', true);
+	$("#descripcion_grupo").attr('disabled', true);
+
+	setLang(getCookie("lang"));
+}
+
+function resetearformulariogrupo() {
+
+	$("formgenericoGrupo").attr('action', '');
+	$("formgenericoGrupo").attr('onsubmit', '');
 
 	$("#id_grupo").val('');
-	$("#nombre_grupo").val('');
-	$("#descripcion_grupo").val('');
+    $("#nombre_grupo").val('');
+    $("#descripcion_grupo").val('');
 
-	$("#id_grupo").attr('onblur', '');
-	$("#nombre_grupo").attr('onblur', '');
-	$("#descripcion_grupo").attr('onblur', '');
+    $("#id_grupo").attr('onblur', '');
+    $("#nombre_grupo").attr('onblur', '');
+    $("#descripcion_grupo").attr('onblur', '');
 
-	$("divformgenericoGrupo").attr('style', 'display: none');
+    $("divformgenericoGrupo").attr('style', 'display: none');
+
+    $("#id_grupo").attr('style', 'display:');
+    $("#nombre_grupo").attr('style', 'display:');
+    $("#descripcion_grupo").attr('style', 'display:');
+
+    $("#id_grupo").attr('disabled', false);
+    $("#nombre_grupo").attr('disabled', false);
+    $("#descripcion_grupo").attr('disabled', false);
+
+    document.getElementById('submitbuttom').style.visibility = 'visible';
 
 }
-

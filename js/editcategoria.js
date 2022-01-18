@@ -37,7 +37,8 @@ function showAddCategoria() {
 	$("#divformgenericoCategoria").attr('style', 'display: block');
 	$("#formgenericoCategoria").attr('action', 'javascript:addCategoria();');
 	$("#formgenericoCategoria").attr('onsubmit', 'comprobareditsubmit();');
-
+	
+	$("#tituloAccion").attr("class", "tituloAnadir");
 	//rellenamos los tipo text
 	/*$("#txtidresponsable").val("1");
 	$("#txtnumcuentaresponsable").val("1");
@@ -55,6 +56,7 @@ function showAddCategoria() {
 	//$("#idCategoria").attr('disabled', true);	
 	//$("#txtnumcuentaresponsable").attr('disabled', false);	
 	//$("#txtcurriculumresponsable").attr('disabled', false);	
+	setLang(getCookie("lang"));
 }
 
 function editCategoria() {
@@ -137,6 +139,7 @@ function showEditarCategoria(id_categoria, nombre_categoria, descripcion_categor
 	$("#formgenericoCategoria").attr('action', 'javascript:editCategoria();');
 	$("#formgenericoCategoria").attr('onsubmit', 'comprobareditsubmit();');
 
+	$("#tituloAccion").attr("class", "tituloEditar");
 	//rellenamos los tipo text
 	$("#id_categoria").val(id_categoria);
 	$("#nombre_categoria").val(nombre_categoria);
@@ -149,7 +152,7 @@ function showEditarCategoria(id_categoria, nombre_categoria, descripcion_categor
 	// se deshabilita el id para que no pueda cambiarse
 	$("#id_categoria").attr('disabled', true);
 	$("#nombre_categoria").attr('disabled', false);
-
+	setLang(getCookie("lang"));
 }
 
 function comprobareditsubmit() {
@@ -219,15 +222,11 @@ function showBuscarCategoria() {
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoCategoria").attr('style', 'display: block');
 	$("#formgenericoCategoria").attr('action', 'javascript:buscarCategoria();');
-	$("#formgenericoCategoria").attr('onsubmit', 'comprobareditsubmit();');
+	$("#formgenericoCategoria").attr('onsubmit', '');
 
-	//Se pone el titulo de la acción buscar
-	document.getElementById('tituloAccion').innerHTML = "Buscar Categoria";
-	document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
+	$("#tituloAccion").attr("class", "tituloBuscar");
 
-	// rellenamos los onblur de los input que se validad
-	$("#id_categoria").attr('onblur', 'comprobarIdCategoria(\"id_categoria\");');
-	$("#nombre_categoria").attr('onblur', 'comprobarNombreCategoria();');
+	setLang(getCookie("lang"));
 }
 
 function detallecategoria() {
@@ -244,6 +243,8 @@ function showDetalleCategoria(id_categoria, nombre_categoria, descripcion_catego
 	$("#divformgenericoCategoria").attr('style', 'display:');
 	$("#formgenericoCategoria").attr('action', 'javascript:detallecategoria();');
 
+	$("#tituloAccion").attr("class", "tituloDetalle");
+
 	$("#id_categoria").val(id_categoria);
 	$("#nombre_categoria").val(nombre_categoria);
 	$("#descripcion_categoria").val(descripcion_categoria);
@@ -255,7 +256,7 @@ function showDetalleCategoria(id_categoria, nombre_categoria, descripcion_catego
 	document.getElementById('submitbuttom').style.visibility = 'hidden';
 	$("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
 
-	setLang('');
+	setLang(getCookie("lang"));
 }
 
 function showEliminarCategoria(id_categoria, nombre_categoria, descripcion_categoria) {
@@ -263,6 +264,8 @@ function showEliminarCategoria(id_categoria, nombre_categoria, descripcion_categ
 	$("#divformgenericoCategoria").attr('style', 'display: block');
 	$("#formgenericoCategoria").attr('action', 'javascript:deleteCategoria();');
 	$("#formgenericoCategoria").attr('onsubmit', '');
+
+	$("#tituloAccion").attr("class","tituloEliminar");
 
 	$("#id_categoria").val(id_categoria);
 	$("#nombre_categoria").val(nombre_categoria);
@@ -272,25 +275,32 @@ function showEliminarCategoria(id_categoria, nombre_categoria, descripcion_categ
 	$("#nombre_categoria").attr('disabled', true);
 	$("#descripcion_categoria").attr('disabled', true);
 
+	setLang(getCookie("lang"));
 }
 
-function resetearformulariocategoria(idformUsado) {
+function resetearformulariocategoria() {
 
-	$("idformUsado").attr('action', '');
-	$("idformUsado").attr('onsubmit', '');
+	$("formgenericoCategoria").attr('action', '');
+	$("formgenericoCategoria").attr('onsubmit', '');
 
-	$("#idCategoria").attr('disabled', false);
-	$("#nombre_categoria").attr('disabled', false);
-	$("#descripcion_categoria").attr('disabled', false);
+	$("#id_categoria").val('');
+    $("#nombre_categoria").val('');
+    $("#descripcion_categoria").val('');
 
-	$("#idcategoria").val('');
-	$("#nombre_categoria").val('');
-	$("#descripcion_categoria").val('');
+    $("#id_categoria").attr('onblur', '');
+    $("#nombre_categoria").attr('onblur', '');
+    $("#descripcion_categoria").attr('onblur', '');
 
-	$("#idcategoria").attr('onblur', '');
-	$("#nombre_categoria").attr('onblur', '');
-	$("#descripcion_categoria").attr('onblur', '');
+    $("divformgenericoCategoria").attr('style', 'display: none');
 
-	$("divformgenericoCategoria").attr('style', 'display: none');
+    $("#id_categoria").attr('style', 'display:');
+    $("#nombre_categoria").attr('style', 'display:');
+    $("#descripcion_categoria").attr('style', 'display:');
+
+    $("#id_categoria").attr('disabled', false);
+    $("#nombre_categoria").attr('disabled', false);
+    $("#descripcion_categoria").attr('disabled', false);
+
+    document.getElementById('submitbuttom').style.visibility = 'visible';
 
 }

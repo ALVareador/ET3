@@ -249,3 +249,59 @@ td {
     margin: 2% 0% 0% 0%;
     padding: 0px;
 }
+
+/*Modal*/
+#modal {
+	width:100%; /*Toma el 100% del ancho de la página*/
+	height:100%; /*Toma el 100% del alto de la página*/
+	position:fixed; /*Con este código hacemos que el contenedor se mantenga en la pantalla y para que tome las dimensiones del body y no de la entrada*/
+	background-color: rgba(1, 1, 1, 0.95); /*Color de fondo, incluye opacidad del 90%*/
+	top:0; /*Position superior*/
+	left:0; /*Posición lateral*/
+	z-index:1001; /*Evitamos que algún elemento del blog sobreponga la ventana modal*/
+}
+
+#contenido-interno { 
+	background: #d7e6ec;
+    position: absolute;
+    z-index: 20;
+    border-radius: 5px;
+    width: 55%;
+    height: 19%;
+    margin-top: 18%;
+    margin-left: 26%;
+}
+
+#aviso {
+	position:absolute;
+	margin-top: 2%;
+	margin-left: 2%;
+}
+
+#aviso img {
+	width: 19%;
+	margin-top: -3%;
+}
+
+#mensajeError {
+	font-size: 35px;
+	font-weight: bold;
+	position: absolute;
+	margin-left: 11%;
+	margin-top: 2%;
+	color: #ff0000;
+	font-family: "Times New Roman";
+	text-align: center;
+}
+
+#cerrar {
+	position:absolute;
+    top:0px;
+    right:0px;
+    padding:2px;
+}
+
+.iconCerrar {
+	cursor: pointer;
+	width: 25px;
+}

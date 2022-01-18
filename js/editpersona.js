@@ -315,6 +315,7 @@ function showEliminarPersona(dni_persona, nombre_persona, apellidos_persona, fec
     $("#formgenericoPersona").attr('action', 'javascript:deletePersona();');
     $("#formgenericoPersona").attr('onsubmit', '');
 
+    $("#tituloAccion").attr("class","tituloEliminar");
     $("#dni_persona").val(dni_persona);
     $("#nombre_persona").val(nombre_persona);
     $("#apellidos_persona").val(apellidos_persona);
@@ -341,15 +342,16 @@ function showEliminarPersona(dni_persona, nombre_persona, apellidos_persona, fec
     $("#subefotopersona").attr('style', 'display:none');
 
     $("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
+    setLang(getCookie("lang"));
 }
 /**
  * 
  * @param {*} idformUsado 
  */
-function resetearformulariopersona(idformUsado) {
+function resetearformulariopersona() {
 
-    $("idformUsado").attr('action', '');
-    $("idformUsado").attr('onsubmit', '');
+    $("formgenericoPersona").attr('action', '');
+    $("formgenericoPersona").attr('onsubmit', '');
 
     $("#dni_persona").val('');
     $("#nombre_persona").val('');

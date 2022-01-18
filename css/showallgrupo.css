@@ -11,11 +11,11 @@
 }
 
 /*Tabla*/
-#divtablaEspacios {
+#divtablaGrupos {
     margin-top: 50px;
 }
 
-#divformgenericoEspacio {
+#divformgenericoGrupo {
 	width:100%; /*Toma el 100% del ancho de la página*/
 	height:100%; /*Toma el 100% del alto de la página*/
 	position:fixed; /*Con este código hacemos que el contenedor se mantenga en la pantalla y para que tome las dimensiones del body y no de la entrada*/
