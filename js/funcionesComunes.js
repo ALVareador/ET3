@@ -543,7 +543,6 @@ function cerrar(idElemento, accion, operacion) {
 
 }
 
-
 /**Función que generar un sessionId*/
 function generarSessionId() {
 
