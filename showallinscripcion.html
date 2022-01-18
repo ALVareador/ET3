@@ -13,62 +13,46 @@
     <script type="text/javascript" src="Locale/Lang_EN.js"></script>
     <script type="text/javascript" src="Locale/Lang_ES.js"></script>
     <script type="text/javascript" src="Locale/Lang_GA.js"></script>
+
+    <link rel="stylesheet" href="css/CssComun.css">
+    <link rel="stylesheet" href="css/showallGrupo.css">
 </head>
 
 <body
     onload="includeCabecera();validaAutenticado();rellenaId_actividad();GetArrayActividades();GetArrayDNI();getLisInscripcion();setLang('');">
-    <div id="navBar"></div>
-    <div id="UserDesconectar"></div>
-    <div id="Funciones">
-        <button onclick="showAddInscripcion()" alt="Insertar inscripcion"><img src="./images/icons/add.png"
-                width="50px" /></button>
-        <button onclick="showBuscarInscripcion()" alt="Buscar Inscripcion">Buscar Inscripcion</button>
-    </div>
-    <div id="divtablaInscripciones">
-        <table id="tablaInscripciones" border='1'>
-            <thead>
-                <th class="id_inscripcion"></th>
-                <th class="nombre_actividad">
-                    <div class="actividad"></div>
-                </th>
-                <th class="dni_usuario">
-                    <div class="usuario"></div>
-                </th>
-                <th class="fecha_solicitud_inscripcion"></th>
-                <th class="documento_pago">
-                    <div class="documento_pago"></div>
-                </th>
-                <th class="fecha_pago_inscripcion"></th>
-                <th class="fecha_aceptacion_inscripcion"></th>
-                <th class="ACCIONES"></th>
-            </thead>
-            <tbody id="datosInscripciones">
-
-            </tbody>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="modal" style="display:none">
-        <div id="contenido-interno">
-            <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
-            <div id="mensajeError"></div>
-            <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
-                <span class="tooltiptext iconCerrar"></span>
-            </a>
+    <div id="navBar">
+        <div class="itemNavBar" id="linkUsuarios">
+            <a class="navBarLink " href="showallusuario.html">Usuarios</a>
         </div>
-    </div>
-
-    <a href="menu.html"><img src="./images/icons/volver.png" width="50px" /></a>
-
-    <div id="divdetalleinscripcion">
+        <div class="itemNavBar" id="linkGrupos">
+            <a class="navBarLink " href="showallgrupo.html">Grupos</a>
+        </div>
+        <div class="itemNavBar" id="linkResponsables">
+            <a class="navBarLink " href="showallresponsable.html">Responsables</a>
+        </div>
+        <div class="itemNavBar" id="linkPersonas">
+            <a class="navBarLink " href="showallpersona.html">Personas</a>
+        </div>
+        <div class="itemNavBar" id="linkGrupos">
+            <a class="navBarLink " href="showallespacio.html">Espacios</a>
+        </div>
+        <div class="itemNavBar" id="linkCategorias">
+            <a class="navBarLink" href="showallcategoria.html">Categorias</a>
+        </div>
+        <div class="itemNavBar" id="linkActividades">
+            <a class="navBarLink" href="showallActividad.html">Actividades</a>
+        </div>
+        <div class="itemNavBar" id="linkInscripciones">
+            <a class="navBarLink" href="showallinscripcion.html">Inscripciones</a>
+        </div>
+        <div class="itemNavBar" id="UserDesconectar"></div>
     </div>
 
     <div id='divformgenericoinscripcion' style="display:none">
         <div id="tituloForms"></div>
-        <a onclick="cerrar('divformgenericoinscripcion','','');"><img src='./images/icons/close.png' width="50px"></a>
         <form name='formgenericoinscripcion' id='formgenericoinscripcion' method="post" action="" onsubmit="">
+            <h1 id="tituloAccion"></h1>
+            <p id="subTituloAccion"></p>
             <fieldset>
                 <legend class="datosInscripcion">Datos de la inscripcion:</legend>
                 <!-- Id Inscripcion-->
@@ -109,9 +93,64 @@
                 <div style="display:none" id="errorFormatoFechaAceptacion"></div>
             </fieldset>
 
-            <button id='submitbuttom' type='submit'><img id='iconoAcciones' src="./images/icons/editUser.png"
-                    width="50px" /></button><br>
+            <div id="botones">
+                <button id='submitbuttom' type='submit'><img
+                                src="./images/iconos_oscar/cerrados/tick.svg" width="50px" /></button>
+
+                <a onclick="reseteaPagina()"><img src='images/iconos_oscar/cerrados/cross.svg'
+                                width="50px"></a>
+            </div>
         </form>
+    </div>
+
+    <div id="divtablaInscripciones">
+
+        <div id="Funciones">
+            <button id='addButtom' class="itemFunciones" onclick="showAddInscripcion()" alt="Insertar Inscripcion">
+                <img id='addButtomIcon' src="/images/iconos_oscar/cerrados/Add.svg" alt="">
+                <p id="addButtomText" class="addButtomText">Insertar Inscripcion</p>
+            </button>
+
+            <button id='searchButtom' class="itemFunciones" onclick="showBuscarInscripcion()" alt="Buscar Inscripcion">
+                <img id='searchButtomIcon' src="/images/iconos_oscar/cerrados/search.svg" alt="">
+                <p id="searchButtomText" class="searchButtomText">Buscar Inscripcion</p>
+            </button>
+
+        </div>
+
+        <div id="divtabla">
+            <table id="tablaInscripciones" border='1'>
+                <thead>
+                    <th class="id_inscripcion"></th>
+                    <th class="nombre_actividad"></th>
+                    <th class="dni_usuario"></th>
+                    <th class="fecha_solicitud_inscripcion"></th>
+                    <th class="documento_pago"></th>
+                    <th class="fecha_pago_inscripcion"></th>
+                    <th class="fecha_aceptacion_inscripcion"></th>
+                    <th class="ACCIONES"></th>
+                </thead>
+                <tbody id="datosInscripciones"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <div id="modal" style="display:none">
+        <div id="contenido-interno">
+            <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
+            <div id="mensajeError"></div>
+            <a id="cerrar" href="#" onclick="reseteaPagina();" class="tooltip">
+                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
+                <span class="tooltiptext iconCerrar"></span>
+            </a>
+        </div>
+    </div>
+
+    <div id="footerNombres">
+        <p class="itemfooterNombres">Andrés García Figueroa</p>
+        <p class="itemfooterNombres">Álvaro Nóvoa Fernández</p>
+        <p class="itemfooterNombres">Óscar Lestón Casais</p>
+        <p class="itemfooterNombres">Rubén Gómez Martínez</p>
     </div>
 
 </body>

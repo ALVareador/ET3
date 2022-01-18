@@ -220,6 +220,7 @@ function showDetalleInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
+    hidedivtablaInscripciones();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
@@ -272,6 +273,7 @@ function showEditarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_s
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
+    hidedivtablaInscripciones();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
@@ -316,6 +318,7 @@ function showAddInscripcion() {
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
+    hidedivtablaInscripciones();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
@@ -355,6 +358,7 @@ function showAddInscripcion() {
 function showEliminarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
+    hidedivtablaInscripciones();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
@@ -403,6 +407,7 @@ function showBuscarInscripcion() {
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
+    hidedivtablaInscripciones();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
@@ -514,4 +519,21 @@ function comprobareditsubmit() {
         return false;
     }*/
     return true;
+}
+
+function reseteaPagina() {
+    rellenaId_actividad();
+    GetArrayActividades();
+    GetArrayDNI();
+    getLisInscripcion();
+    showdivtablaInscripciones();
+    $("#divformgenericoinscripcion").attr('style', 'display: none');
+}
+
+function hidedivtablaInscripciones() {
+    document.getElementById('divtablaInscripciones').style.display = 'none';
+}
+
+function showdivtablaInscripciones() {
+    document.getElementById('divtablaInscripciones').style.display = 'block';
 }
