@@ -1,0 +1,268 @@
+@font-face {
+    font-family: 'Ubuntu-Medium';
+    src: url('fonts/Ubuntu/Ubuntu-Light.ttf');
+}
+
+body {
+    margin: 0;
+    font-family: 'Ubuntu-Light';
+}
+
+/*NavBar*/
+.divMenuIdioma {
+    display: flex;
+    max-height: 100%;
+}
+
+.divMenuIdioma img {
+    display: inline-flex;
+    max-height: 30%;
+    width: auto;
+    object-fit: contain;
+    margin-right: 20px;
+    align-self: center;
+}
+
+.divMenuIdioma {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+#navBar {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 70px;
+    background-color: #137fe2;
+    justify-content: center;
+}
+
+.itemNavBar {
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    align-self: center;
+}
+
+.navBarLink {
+    color: white;
+    text-decoration: none;
+}
+
+.menuIdioma {
+    margin-top: 0px;
+}
+
+#footerNombres {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 70px;
+    background-color: #137fe2;
+    justify-content: center;
+}
+
+.itemfooterNombres {
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    align-self: center;
+}
+
+/*Formulario*/
+
+h1 {
+    color: #137fe2;
+}
+
+legend
+{
+    font-size: 25px;
+    color: #137fe2;
+}
+
+fieldset {
+    margin-top: 0px;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-right: 25%;
+}
+
+#divformgenericoinscripcion {
+    color: #5e696d;
+    margin-left: 20%;
+}
+
+input, textarea {
+    margin-top: 20px;
+    border-style: solid;
+    border-radius: 3px;
+    border-color: lightgray;
+}
+
+label {
+    margin-right: 5px;
+}
+
+select {
+    margin-top: 20px;
+    border-style: solid;
+    border-radius: 3px;
+    border-color: lightgray;
+}
+
+#submitbuttom {
+    margin-top: 20px;
+    margin-right: 50px;
+    border: none;
+    background-color: white;
+}
+
+/*Tabla*/
+#divtablaInscripciones {
+    margin-top: 50px;
+}
+
+#divTabla {
+    margin-top: 0px;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-left: 7%;
+    margin-right: 7%;
+    height: 70%;
+}
+
+table {
+    border-collapse: collapse;
+    border-color: white;
+    width: 100%;
+    max-height: 40px;
+}
+
+th {
+    border-bottom: 2px solid black;
+    text-align: center;
+}
+
+td {
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
+
+.colorLinea0 {
+    background-color: white;
+    border-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.colorLinea1 {
+    background-color: rgb(243, 241, 241);
+    border-color: rgb(243, 241, 241);
+    border-bottom: 1px solid #ddd;
+}
+
+.celdaAcciones {
+    text-align: center;
+    width: 200px;
+}
+
+.celdasDatos {
+    text-align: center;
+    width: 200px;
+}
+
+#iconoDetalles, #iconoEdit, #iconoDelete {
+    height: 25px;
+    margin-right: 8px;
+}
+
+#divIconos {
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+/*Funciones de insertar actividad y buscar*/
+#Funciones {
+
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 2%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
+}
+
+.itemFunciones {
+    background-color: #137fe2;
+    color: White;
+    padding: 5px;
+    border: none;
+    border-radius: 4px;
+}
+
+/*Botones de search y add*/
+
+#addButtom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+#addButtomIcon {
+    height: 20px;
+    margin-right: 5px;
+}
+
+#addButtomText {
+    margin: 2% 0% 0% 0%;
+    padding: 0px;
+}
+
+#searchButtom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#searchButtomIcon {
+    height: 20px;
+    margin-right: 5px;
+}
+
+#searchButtomText {
+    margin: 2% 0% 0% 0%;
+    padding: 0px;
+}
+
+/*Bloque de error y tal*/
+
+#contenido-interno {
+    margin-left: 20%;
+    display: flex;
+    flex-direction: row;
+    font-size: 25px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#imagenAviso {
+    margin: auto;
+    width: fit-content;
+}
+
+#iconCerrar{
+    height: 40px;
+}

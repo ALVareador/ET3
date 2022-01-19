@@ -1,13 +1,16 @@
-function construyeFila(fila) {
+function construyeFila(fila, num) {
+
+    color = num % 2;
 
     let atributosFunciones = ["'" + fila.dni_responsable + "'", "'" + fila.numCuenta_responsable + "'", "'" + fila.curriculum_responsable + "'", "'" + fila.borrado_responsable + "'"];
 
-    var celdaAccionesDetalle = '<div><a onclick="showDetalleResponsable(' + atributosFunciones +
-        ')" alt="Detalle Responsable"/>Detalle Responsable</a></div>';
+    var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetalleResponsable(' + atributosFunciones +
+        ')" alt="Detalle Responsable"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles responsable"></a></div>';
     var celdaAccionesEditar = '<div><a onclick="showEditarResponsable(' + atributosFunciones +
-        ')" alt="Editar Responsable"/>Editar Responsable</a></div>';
+        ')" alt="Editar Responsable"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar responsable"></a></div>';
     var celdaAccionesEliminar = '<div><a onclick="showEliminarResponsable(' + atributosFunciones +
-        ')" alt="Eliminar Responsable"/>Eliminar Responsable</a></div>';
+        ')" alt="Eliminar Responsable"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar responsable"></a></div></div>';
+
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
@@ -15,11 +18,11 @@ function construyeFila(fila) {
     rutauploadcurriculum = rutauploadcurriculum.substring(29, 0);
     rutauploadcurriculum = rutauploadcurriculum + 'curriculums/';
 
-    var filaTabla = '<tr> <td>' + fila.dni_responsable +
-        '</td> <td>' + fila.numCuenta_responsable +
-        '</td> <td> <a href=\'' + rutauploadcurriculum + fila.curriculum_responsable + '\'>' + fila.curriculum_responsable + '</a>' +
-        '</td> <td>' + fila.borrado_responsable +
-        '</td> <td>' + celdaAcciones +
+    var filaTabla = '<tr class=\"colorLinea' + color + '\"> <td>' + fila.dni_responsable +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.numCuenta_responsable +
+        '</td> <td <tdclass=\"celdasDatos\"> <a href=\'' + rutauploadcurriculum + fila.curriculum_responsable + '\'>' + fila.curriculum_responsable + '</a>' +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.borrado_responsable +
+        '</td> <td class=\"celdaAcciones\">' + celdaAcciones +
         '</td> </tr>';
 
     return filaTabla;
@@ -47,12 +50,11 @@ function GetLisResponsables() {
             for (var i = 0; i < nodos.length; i++) {
                 var item = nodos[i];
                 if (item.id != undefined) {
-                    //  alert(item.id);
                 }
             }
             //alert(nodos);
             for (var i = 0; i < response.resource.length; i++) {
-                var tr = construyeFila(response.resource[i]);
+                var tr = construyeFila(response.resource[i], i);
                 $("#datosResponsables").append(tr);
             }
 

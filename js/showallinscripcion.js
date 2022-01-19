@@ -1,13 +1,15 @@
-function construyeFila(fila) {
+function construyeFila(fila, num) {
+
+    color = num%2;
 
     let atributosFunciones = ["'" + fila.id_inscripcion + "'", "'" + fila.id_actividad + "'", "'" + fila.id_usuario + "'", "'" + fila.fecha_solicitud_inscripcion + "'", "'" + fila.documento_pago + "'", "'" + fila.fecha_pago_inscripcion + "'", "'" + fila.fecha_aceptacion_inscripcion + "'"];
 
-    var celdaAccionesDetalle = '<div><a onclick="showDetalleInscripcion(' + atributosFunciones +
-        ')" alt="Detalle Inscripcion"/>Detalle Inscripcion</a></div>';
+    var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetalleInscripcion(' + atributosFunciones +
+        ')" alt="Detalle Inscripcion"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles inscripcion"></a></div>';
     var celdaAccionesEditar = '<div><a onclick="showEditarInscripcion(' + atributosFunciones +
-        ')" alt="Editar Inscripcion"/>Editar Inscripcion</a></div>';
+        ')" alt="Editar Inscripcion"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar inscripcion"></a></div>';
     var celdaAccionesEliminar = '<div><a onclick="showEliminarInscripcion(' + atributosFunciones +
-        ')" alt="Eliminar Inscripcion"/>Eliminar Inscripcion</a></div>';
+        ')" alt="Eliminar Inscripcion"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar inscripcion"></a></div></div>';
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
@@ -25,14 +27,14 @@ function construyeFila(fila) {
                 fila.id_usuario = ArrayDNI[j]['dni_usuario'];
         }
 
-        var filaTabla = '<tr> <td>' + fila.id_inscripcion +
-            '</td> <td>' + fila.id_actividad +
-            '</td> <td>' + fila.id_usuario +
-            '</td> <td>' + fila.fecha_solicitud_inscripcion +
-            '</td> <td> <a href=\'' + rutauploaddocumentos + fila.documento_pago + '\'>' + fila.documento_pago + '</a>' +
-            '</td> <td>' + fila.fecha_pago_inscripcion +
-            '</td> <td>' + fila.fecha_aceptacion_inscripcion +
-            '</td> <td>' + celdaAcciones +
+        var filaTabla = '<tr class=\"colorLinea' + color +'\"> <td>' + fila.id_inscripcion +
+            '</td> <td <tdclass=\"celdasDatos\">' + fila.id_actividad +
+            '</td> <td <tdclass=\"celdasDatos\">' + fila.id_usuario +
+            '</td> <td <tdclass=\"celdasDatos\">' + fila.fecha_solicitud_inscripcion +
+            '</td> <td <tdclass=\"celdasDatos\"> <a href=\'' + rutauploaddocumentos + fila.documento_pago + '\'>' + fila.documento_pago + '</a>' +
+            '</td> <td <tdclass=\"celdasDatos\">' + fila.fecha_pago_inscripcion +
+            '</td> <td <tdclass=\"celdasDatos\">' + fila.fecha_aceptacion_inscripcion +
+            '</td> <td class=\"celdaAcciones\">' + celdaAcciones +
             '</td> </tr>';
 
         return filaTabla;
@@ -60,7 +62,7 @@ function getLisInscripcion() {
             if (response.ok == true) {
                 $("#datosInscripciones").html("");
                 for (var i = 0; i < response.resource.length; i++) {
-                    var tr = construyeFila(response.resource[i]);
+                    var tr = construyeFila(response.resource[i], i);
                     $("#datosInscripciones").append(tr);
                 }
 
