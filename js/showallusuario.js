@@ -35,7 +35,7 @@ function getArrayGrupos() {
     var idSession = getCookie('sessionId');
 
 	addActionControler(document.formgenericoUsuario, 'search', 'grupo')
-
+    insertacampo(document.formgenericoUsuario, 'ID_SESSION', idSession);
     var idioma = getCookie('lang');
 
     $.ajax({

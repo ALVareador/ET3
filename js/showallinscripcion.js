@@ -41,47 +41,6 @@ function construyeFila(fila, num) {
 
 }
 
-function getLisInscripcion() {
-
-    $.when(GetArrayActividades(), GetArrayDNI()).done(function (respuesta1, respuesta2) {
-        
-        var idioma = getCookie('lang');
-        var idSession = getCookie('sessionId');
-
-        crearformoculto("formulariolistarinscripciones", "");
-
-        insertacampo(document.formulariolistarinscripciones, 'ID_SESSION', idSession);
-        insertacampo(document.formulariolistarinscripciones, 'controlador', 'inscripcion');
-        insertacampo(document.formulariolistarinscripciones, 'action', 'buscar');
-
-        $.ajax({
-            method: "POST",
-            url: "http://193.147.87.202/ET3_IU/noRest.php",
-            data: $("#formulariolistarinscripciones").serialize(),
-        }).done(function (response) {
-            if (response.ok == true) {
-                $("#datosInscripciones").html("");
-                for (var i = 0; i < response.resource.length; i++) {
-                    var tr = construyeFila(response.resource[i], i);
-                    $("#datosInscripciones").append(tr);
-                }
-
-                setLang(idioma);
-            } else {
-                $("#mensajeError").removeClass();
-                $("#mensajeError").addClass(response.code);
-                $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
-                $("#imagenAviso").attr('src', "images/icons/error.png");
-                setLang(idioma);
-                $("#modal").attr('style', 'display: block');
-            }
-
-            deleteActionController();
-        });
-    });
-
-}
-
 ArrayActividades = null;
 
 function GetArrayActividades() {
@@ -91,6 +50,7 @@ function GetArrayActividades() {
     var idSession = getCookie('sessionId');
 
     addActionControler(document.formgenericoinscripcion, 'search', 'actividad')
+    insertacampo(document.formgenericoinscripcion, 'ID_SESSION', idSession);
 
     var idioma = getCookie('lang');
 
@@ -124,6 +84,7 @@ function GetArrayDNI() {
     var idSession = getCookie('sessionId');
 
     addActionControler(document.formgenericoinscripcion, 'search', 'usuario')
+    insertacampo(document.formgenericoinscripcion, 'ID_SESSION', idSession);
 
     var idioma = getCookie('lang');
 
@@ -148,4 +109,42 @@ function GetArrayDNI() {
 
         deleteActionController();
     });
+}
+
+function getLisInscripcion() {
+
+    $.when(GetArrayActividades(), GetArrayDNI()).done(function (respuesta1, respuesta2) {
+        
+        var idioma = getCookie('lang');
+        var idSession = getCookie('sessionId');
+        
+        addActionControler(document.formgenericoinscripcion,'search','inscripcion')
+        insertacampo(document.formgenericoinscripcion, 'ID_SESSION', idSession);
+
+        $.ajax({
+            method: "POST",
+            url: "http://193.147.87.202/ET3_IU/noRest.php",
+            data: $("#formgenericoinscripcion").serialize(),
+        }).done(function (response) {
+            if (response.ok == true) {
+                $("#datosInscripciones").html("");
+                for (var i = 0; i < response.resource.length; i++) {
+                    var tr = construyeFila(response.resource[i], i);
+                    $("#datosInscripciones").append(tr);
+                }
+
+                setLang(idioma);
+            } else {
+                $("#mensajeError").removeClass();
+                $("#mensajeError").addClass(response.code);
+                $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+                $("#imagenAviso").attr('src', "images/icons/error.png");
+                setLang(idioma);
+                $("#modal").attr('style', 'display: block');
+            }
+
+            deleteActionController();
+        });
+    });
+
 }

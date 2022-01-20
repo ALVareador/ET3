@@ -249,6 +249,7 @@ arrayEN = {
 	'ACTIVIDAD_MODIFICAR_OK': 'Activation successfully modified',
 	'ACTIVIDAD_BORRAR_NO_EXISTE': 'The activity to delete does not exist',
 	'ACTIVIDAD_BORRAR_OK': 'Activity removed successfully',
+	'datosInscripcion':'Inscription Data: '
 }
 //"original"
 /*

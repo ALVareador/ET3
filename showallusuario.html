@@ -6,102 +6,130 @@
         <script type="text/javascript" src="js/editusuario.js"></script>
         <script type="text/javascript" src="js/funcionesComunes.js"></script>
         <script type="text/javascript" src="js/funcionesFormularios.js"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <script type="text/javascript" src="Locale/idioma.js"></script>
         <script type="text/javascript" src="Locale/Lang_EN.js"></script>
         <script type="text/javascript" src="Locale/Lang_ES.js"></script>
         <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
+        <link rel="stylesheet" href="css/CssComun.css">
+        <link rel="stylesheet" href="css/showallUsuario.css">
 
-</head>      
+</head>
 
 <body onload="includeCabecera();validaAutenticado();getArrayGrupos();getLisUsuarios();setLang('');rellenaid_grupo();">
-        <div id="navBar"></div>
-        <div id="UserDesconectar"></div>
-        <div id="Funciones">
-                <button onclick="showAddUsuario()" alt="Insertar Usuario">Insertar Usuario</button>
-                <button onclick="showBuscarUsuario()" alt="Buscar Usuario">Buscar Usuario</button>
+        <div id="navBar">
+                <div class="itemNavBar" id="linkUsuarios">
+                        <a class="navBarLink " href="showallusuario.html">Usuarios</a>
+                </div>
+                <div class="itemNavBar" id="linkGrupos">
+                        <a class="navBarLink " href="showallgrupo.html">Grupos</a>
+                </div>
+                <div class="itemNavBar" id="linkResponsables">
+                        <a class="navBarLink " href="showallresponsable.html">Responsables</a>
+                </div>
+                <div class="itemNavBar" id="linkPersonas">
+                        <a class="navBarLink " href="showallpersona.html">Personas</a>
+                </div>
+                <div class="itemNavBar" id="linkEspacios">
+                        <a class="navBarLink " href="showallespacio.html">Espacios</a>
+                </div>
+                <div class="itemNavBar" id="linkCategorias">
+                        <a class="navBarLink" href="showallcategoria.html">Categorias</a>
+                </div>
+                <div class="itemNavBar" id="linkActividades">
+                        <a class="navBarLink" href="showallActividad.html">Actividades</a>
+                </div>
+                <div class="itemNavBar" id="linkInscripciones">
+                        <a class="navBarLink" href="showallinscripcion.html">Inscripciones</a>
+                </div>
+                <div class="itemNavBar" id="UserDesconectar"></div>
+        </div>
+
+        <div id='divformgenericoUsuario' style="display:none">
+                <div id="contenidoForm">
+                        <div class="formularioComun">
+                                <form name='formgenericoUsuario' id='formgenericoUsuario' method="post" action=""
+                                        onsubmit="">
+
+                                        <h1 id="tituloAccion"></h1>
+
+                                        <label class='dni_usuario'></label>
+                                        <input type='text' name='dni_usuario' id='dni_usuario' onblur=''><br>
+
+                                        <label class='labelusuario'></label>
+                                        <input type='text' name='usuario' id='labelusuario' onblur=''><br>
+
+                                        <label class='contrasena'></label>
+                                        <input type='text' name='contrasena' id='contrasena' onblur=''><br>
+                                        <div style="display:none" id=""></div>
+
+                                        <label class='id_grupo'></label>
+                                        <select name='id_grupo' id='id_grupo'><br>
+                                        </select>
+
+                                        <label class='borrado_usuario'></label>
+                                        <select name='borrado_usuario' id='borrado_usuario'>
+                                                <option value="0">Si</option>
+                                                <option value="1">No</option>
+                                        </select>
+
+                                        <br>
+                                        <button id='submitbuttom' type='submit'><img
+                                                        src="images/iconos_oscar/cerrados/tick.svg"
+                                                        width="50px" /></button><br>
+                                </form>
+                                <a id="cerrarForm" href="#" onclick="cerrar('divformgenericoUsuario','','')"
+                                        class="tooltip">
+                                        <img class="iconCerrar" alt="Cerrar"
+                                                src="images/iconos_oscar/cerrados/cross.svg" />
+                                </a>
+                        </div>
+                </div>
         </div>
 
         <div id="divtablaUsuarios">
-                <table id="tablaUsuarios" border= '1'>
-                        <thead >
-                                <th class="dni_usuario"></div>
-                                </th>
-                                <th class="labelusuario"></div>
-                                </th>
-                                <th class="id_grupo"></div>
-                                </th>
-                                <th class="borrado_usuario"></div>
-                                </th>
+                <div id="Funciones">
+        
+                        <button id='addButtom' class="itemFunciones" onclick="showAddUsuario()" alt="Insertar Actividad">
+                                <img id='addButtomIcon' src="/images/iconos_oscar/cerrados/Add.svg" alt="">
+                                <p id="addButtomText" class="addButtomText"></p>
+                        </button>
+        
+        
+                        <button id='searchButtom' class="itemFunciones" onclick="showBuscarUsuario()" alt="Buscar Actividad">
+                                <img id='searchButtomIcon' src="/images/iconos_oscar/cerrados/search.svg" alt="">
+                                <p id="searchButtomText" class="searchButtomText"></p>
+                        </button>
+        
+                </div>
+        
+                <div id="divTabla">
+                <table id="tablaUsuarios" border='1'>
+                        <thead>
+                                <th class="dni_usuario"></th>
+                                <th class="labelusuario"></th>
+                                <th class="id_grupo"></th>
+                                <th class="borrado_usuario"></th>
                                 <th class="ACCIONES"></th>
                         </thead>
                         <tbody id="datosUsuarios">
-
                         </tbody>
                         </tbody>
-                </table>
+                        </table>
+                </div>
         </div>
 
         <div id="modal" style="display:none">
                 <div id="contenido-interno">
-                        <div id="aviso"><img src="" name="aviso" id="imagenAviso"/></div>
+                        <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
                         <div id="mensajeError"></div>
-                        <a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
-                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png"/>
-                                <span class="tooltiptext iconCerrar"></span>
+                        <a id="cerrar" href="showallusuario.html" onclick="cerrar('modal', '', '');" class="tooltip">
+                                <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
                         </a>
                 </div>
         </div>
-
-
-        <a href="menu.html"><img src="./images/icons/volver.png" width="50px"  /></a>
-
-        <div id='divformgenericoUsuario' style="display:none">
-                <div id="tituloForms"></div>
-                <a onclick = "cerrar('divformgenericoUsuario','','');"><img src = './images/icons/close.png' width="50px"></a>
-                <form name='formgenericoUsuario' id='formgenericoUsuario' method="post" action="" onsubmit="">
-
-                        <label class='dni_usuario'></label>
-                        <input type='text' name='dni_usuario' id='dni_usuario' onblur=''><br>
-                       
-                        <label class='labelusuario'></label>
-                        <input type='text' name='usuario' id='labelusuario' onblur=''><br>
-                       
-                        <label class ='contrasena'></label>
-                        <input type='text' name='contrasena' id='contrasena' onblur=''><br>
-                        <div style="display:none" id=""></div> 
-                       
-                        <label class='id_grupo'></label>
-                        <select name='id_grupo' id='id_grupo'><br>
-                        </select> 
-                       
-                        <label class='borrado_usuario'></label>
-                        <select name='borrado_usuario' id='borrado_usuario'>
-                                <option value="0">Si</option>
-                                <option value="1">No</option>
-                        </select>
-                        
-                        <button type='submit'><img src="./images/icons/editUser.png" width="50px"/></button><br>
-                </form>
-        </div>        
-
-        <div id="divcambiarcontrasena" style="display:none">
-		<form name="formulariocambiar" id="formulariocambiar" method="post" action="javascript:recuperar();"
-			onsubmit="">
-			<label class='contrasenaantigua'></label>
-			<input type='text' name='contrasena' id='contrasena' onblur=''><br>
-
-			<label class='contrasenanueva1'></label>
-			<input type='text' name='contrasenan1' id='contrasenan1' onblur=''><br>
-
-                        <label class='contrasenanueva2'></label>
-			<input type='text' name='contrasenan2' id='contrasenan1' onblur=''><br>
-			
-			<input type="submit" value="recuperar">
-		</form>
-	</div>
-
 </body>
+
 </html>

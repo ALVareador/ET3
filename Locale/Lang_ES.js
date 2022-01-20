@@ -131,6 +131,9 @@ arrayES = {
 	//errores formato
 
 	'error_id_vacia': 'El id no puede estar vacío.',
+	'error_id_soloNum':'El id solo puede estar conformado por números',
+	'error_id_muyGrande':'El id debe tener como máximo 11 números: 11111111',
+	
 	'error_dni_vacio': 'El DNI no puede estar vacío.',
 	'error_formato_dni': 'El DNI debe tener 8 números y una letra.(11111111T)',
 	'error_formato_dni_letra': 'La letra introducida no se corresponde con el número',
@@ -399,5 +402,7 @@ arrayES = {
 	'tituloEditar':'Formulario de edición',
 	'tituloDetalle':'Formulario de detalle',
 	'tituloEliminar':'Formulario de información',
-	'tituloBuscar':'Formulario de búsqueda'
+	'tituloBuscar':'Formulario de búsqueda',
+	'datosInscripcion':'Datos de la inscripción: ',
+	'datosPago':'Datos del pago: '
 }

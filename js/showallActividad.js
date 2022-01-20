@@ -45,7 +45,7 @@ function GetArrayEspacios() {
     var idSession = getCookie('sessionId');
 
 	addActionControler(document.formgenericoActividad, 'search', 'espacio')
-
+    insertacampo(document.formgenericoActividad, 'ID_SESSION', idSession);
     var idioma = getCookie('lang');
 
     $.ajax({
@@ -78,7 +78,7 @@ function GetArrayCategorias() {
     var idSession = getCookie('sessionId');
 
 	addActionControler(document.formgenericoActividad, 'search', 'categoria')
-
+    insertacampo(document.formgenericoActividad, 'ID_SESSION', idSession);
     var idioma = getCookie('lang');
 
     $.ajax({

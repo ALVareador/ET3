@@ -18,7 +18,7 @@ function addGrupo() {
 
 	$.ajax({
 		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		url: urlPeticionesAjax,
 		data: $("#formgenericoGrupo").serialize(),
 	}).done(function (response) {
 		if (response.ok == true) {
@@ -81,7 +81,7 @@ function editGrupo() {
 
 	$.ajax({
 		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		url: urlPeticionesAjax,
 		data: $("#formgenericoGrupo").serialize(),
 	}).done(function (response) {
 		if (response.ok == true) {
@@ -116,7 +116,7 @@ function deleteGrupo() {
 
 	$.ajax({
 		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		url: urlPeticionesAjax,
 		data: $("#formgenericoGrupo").serialize(),
 	}).done(function (response) {
 		if (response.ok == true) {
@@ -188,7 +188,7 @@ function buscarGrupo() {
 
 	$.ajax({
 		method: "POST",
-		url: "http://193.147.87.202/ET3_IU/noRest.php",
+		url: urlPeticionesAjax,
 		data: $("#formgenericoGrupo").serialize(),
 	}).done(function (response) {
 		if (response.ok == true) {
