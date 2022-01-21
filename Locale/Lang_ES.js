@@ -7,7 +7,7 @@ arrayES = {
 	'00002': 'Error al ejecutar el SQL',
 	'00003': 'El recordset está vacío',
 	'00004': 'El recordset no está vacío',
-
+	'no_coincide_usuario': 'No puedes cambiar una contraseña que no sea la tuya',
 	// generales interfaz
 	'usuarioConectado': 'Usuario conectado: ',
 
@@ -176,7 +176,7 @@ arrayES = {
 	'error_email_vacio': 'El email no puede estar vacío.',
 	'error_email_corto': 'El email no puede ser menor de 3 caracteres',
 	'error_email_largo': 'El email no puede exceder los 45 caracteres',
-	'error_formato_email': 'Formato de email incorrecto, ejemplo: enlafabricadesueños@gmail.com',
+	'error_formato_email': 'Formato de email incorrecto, ejemplo: enlafabricadesuenos@gmail.com',
 
 	'error_foto_corto': 'El email no puede ser menor de 5 caracteres',
 	'error_foto_largo': 'El email no puede exceder los 100 caracteres',
@@ -397,7 +397,7 @@ arrayES = {
 	'USUARIO_BORRAR_OK': 'Usuario eliminado correctamente',
 	'PERSONA_BORRAR_OK': 'Persona eliminada correctamente',
 	'ERROR_INSERTAR_ESPACIO': 'No se puede introducir el espacio, compruebe posibles errores de formato',
-
+	'ERROR_INSERTAR_CATEGORIA':'No se puede introducir la categoría, compruebe errores de formato de cada campo',
 	'tituloAnadir':'Formulario de inserción',
 	'tituloEditar':'Formulario de edición',
 	'tituloDetalle':'Formulario de detalle',

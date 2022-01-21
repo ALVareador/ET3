@@ -459,6 +459,45 @@ function estaAutenticado() {
 
 }
 
+function obtenerUsuarioParaComparar() {
+
+    var idioma = getCookie('lang');
+    var idSession = getCookie('sessionId');
+
+    if (idSession == null) {
+        errorAutenticado("02109", idioma);
+    } else {
+
+        insertacampo(document.formularioAutenticacion, 'ID_SESSION', idSession);
+
+        $.ajax({
+            method: "POST",
+            url: "http://193.147.87.202/ET3_IU/noRest.php",
+            data: $("#formularioAutenticacion").serialize(),
+        }).done(function (response) {
+            if (response.ok == true) {
+                return response.resource[0].LOGIN_USUARIO;
+            } else {
+                errorAutenticado(response.code, idioma);
+            }
+
+            deleteActionController();
+        });
+    }
+
+}
+
+function comprobarUsuarioValido(idClaveACambiar){
+    var codigo= "";
+    var valor= document.getElementById(idClaveACambiar);
+    if(obtenerUsuarioParaComparar()==valor){
+        return true;
+    }else{
+        codigo="no_coincide_usuario";
+        return false;
+    }
+}
+
 /*Función que muestra el error de acceso por no estar autenticado**/
 function errorAutenticado(codigoResponse, idioma) {
     $("#mensajeError").removeClass();
