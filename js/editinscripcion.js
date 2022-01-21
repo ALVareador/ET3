@@ -220,7 +220,6 @@ function showDetalleInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
-    hidedivtablaInscripciones();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
@@ -236,7 +235,7 @@ function showDetalleInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_
         }
     }
     $("#fecha_solicitud_inscripcion").val(fecha_solicitud_inscripcion);
-    $("#documento_pago").val(documento_pago);
+    //$("#documento_pago").val(documento_pago);
     $("#fecha_pago_inscripcion").val(fecha_pago_inscripcion);
     $("#fecha_aceptacion_inscripcion").val(fecha_aceptacion_inscripcion);
 
@@ -247,8 +246,9 @@ function showDetalleInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_
     var link = '</td> <td> <a href=\'' + rutauploaddocumentos + documento_pago + '\'>' + documento_pago + '</a>' + '</td> </tr>';
     document.getElementById('enlace_documento_pago').innerHTML = link;
     $("#label_sube_documento_pago").attr('style', 'display:none');
-    $("#sube_documento_pago").attr('style', 'display:none');
     $("#documento_pago").attr('style', 'display:none');
+    $("#sube_documento_pago").attr('style', 'display:none');
+    $("#label_documento_pago").attr('style', 'display:');
     $("#enlace_documento_pago").attr('style', 'display:');
 
     // habilitar/deshabilitar campos
@@ -273,7 +273,6 @@ function showEditarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_s
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
-    hidedivtablaInscripciones();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
@@ -290,9 +289,15 @@ function showEditarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_s
         }
     }
     $("#fecha_solicitud_inscripcion").val(fecha_solicitud_inscripcion);
-    $("#documento_pago").val(documento_pago);
     $("#fecha_pago_inscripcion").val(fecha_pago_inscripcion);
     $("#fecha_aceptacion_inscripcion").val(fecha_aceptacion_inscripcion);
+
+    // subir archivos
+    $("#label_sube_documento_pago").attr('style', 'display:');
+    $("#documento_pago").attr('style', 'display:none');
+    $("#sube_documento_pago").attr('style', 'display:');
+    $("#label_documento_pago").attr('style', 'display:');
+    $("#enlace_documento_pago").attr('style', 'display:');
 
     // rellenamos los onblur de los input que se validad
     $("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario", "errorFormatoDni");');
@@ -318,7 +323,6 @@ function showAddInscripcion() {
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
-    hidedivtablaInscripciones();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
@@ -335,7 +339,9 @@ function showAddInscripcion() {
     // eliminar input no necesario
     $("#label_documento_pago").attr('style', 'display:none');
     $("#documento_pago").attr('style', 'display:none');
-    $("#documento_pago").attr('disabled', true);
+    $("#sube_documento_pago").attr('style', 'display:');
+    $("#labe_sube_documento_pago").attr('style', 'display:');
+    $("#enlace_documento_pago").attr('style', 'display:none');
 
     //cambiar icono submit
     $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
@@ -349,16 +355,11 @@ function showAddInscripcion() {
     $("#documento_pago").attr('disabled', false);
     $("#fecha_pago_inscripcion").attr('disabled', false);
     $("#fecha_aceptacion_inscripcion").attr('disabled', false);
-
-    //cambiar icono submit
-    $("#iconoAcciones").attr('src', "./images/icons/addUser.png");
-
 }
 
 function showEliminarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
-    hidedivtablaInscripciones();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
@@ -385,8 +386,9 @@ function showEliminarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha
     var link = '</td> <td> <a href=\'' + rutauploaddocumentos + documento_pago + '\'>' + documento_pago + '</a>' + '</td> </tr>';
     document.getElementById('enlace_documento_pago').innerHTML = link;
     $("#label_sube_documento_pago").attr('style', 'display:none');
-    $("#sube_documento_pago").attr('style', 'display:none');
     $("#documento_pago").attr('style', 'display:none');
+    $("#sube_documento_pago").attr('style', 'display:none');
+    $("#label_documento_pago").attr('style', 'display:');
     $("#enlace_documento_pago").attr('style', 'display:');
 
     // habilitar/deshabilitar campos
@@ -407,7 +409,6 @@ function showBuscarInscripcion() {
 
     // se resetea todo el formulario generico
     resetearformularioinscripcion();
-    hidedivtablaInscripciones();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
@@ -422,6 +423,7 @@ function showBuscarInscripcion() {
     $("#fecha_aceptacion_inscripcion").attr('onblur', 'comprobarFecha("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion");');
 
     // documentos
+    $("#label_documento_pago").attr('style', 'display:');
     $("#documento_pago").attr('style', 'display:');
     $("#enlace_documento_pago").attr('style', 'display:none');
     $("#label_sube_documento_pago").attr('style', 'display:none');
@@ -444,20 +446,20 @@ function showBuscarInscripcion() {
 
 //Otras funciones -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-function resetearformularioinscripcion(idformUsado) {
+function resetearformularioinscripcion() {
 
-    $("idformUsado").attr('action', '');
-    $("idformUsado").attr('onsubmit', '');
+    $("formgenericoActividad").attr('action', '');
+    $("formgenericoActividad").attr('onsubmit', '');
 
     $("#id_inscripcion").attr('disabled', true);
 
     $("#id_inscripcion").val(null);
-    $("#id_actividad").val('');
-    $("#dni_usuario").val('');
-    $("#fecha_solicitud_inscripcion").val('');
-    $("#documento_pago").val('');
-    $("#fecha_pago_inscripcion").val('');
-    $("#fecha_aceptacion_inscripcion").val('');
+    $("#id_actividad").val(null);
+    $("#dni_usuario").val(null);
+    $("#fecha_solicitud_inscripcion").val(null);
+    $("#documento_pago").val(null);
+    $("#fecha_pago_inscripcion").val(null);
+    $("#fecha_aceptacion_inscripcion").val(null);
 
     $("#id_inscripcion").attr('onblur', '');
     $("#id_actividad").attr('onblur', '');
@@ -468,7 +470,7 @@ function resetearformularioinscripcion(idformUsado) {
     $("#fecha_aceptacion_inscripcion").attr('onblur', '');
 
     $("#documento_pago").attr('style', 'display:');
-    $("#enlace_documento_pago").attr('style', 'display:none');
+    $("#enlace_documento_pago").attr('style', 'display:');
     $("#label_sube_documento_pago").attr('style', 'display:');
     $("#sube_documento_pago").attr('style', 'display:');
 
@@ -522,11 +524,11 @@ function comprobareditsubmit() {
 }
 
 function reseteaPagina() {
+    resetearformularioinscripcion();
     rellenaId_actividad();
     GetArrayActividades();
     GetArrayDNI();
     getLisInscripcion();
-    showdivtablaInscripciones();
     $("#divformgenericoinscripcion").attr('style', 'display: none');
 }
 
