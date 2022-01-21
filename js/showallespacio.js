@@ -2,12 +2,12 @@ function construyeFila(fila) {
 
     let atributosFunciones = ["'" + fila.id_espacio + "'", "'" + fila.nombre_espacio + "'", "'" + fila.descripcion_espacio + "'"];
 
-    var celdaAccionesDetalle = '<div><a onclick="showDetalleEspacio(' + atributosFunciones +
-        ')" alt="Detalle Espacio"/>Detalle Espacio</a></div>';
-    var celdaAccionesEditar = '<div><a onclick="showEditarEspacio(' + atributosFunciones +
-        ')" alt="Editar Espacio"/>Editar Espacio</a></div>';
-    var celdaAccionesEliminar = '<div><a onclick="showEliminarEspacio(' + atributosFunciones +
-        ')" alt="Eliminar Espacio"/>Eliminar Espacio</a></div>';
+    var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetalleEspacio(' + atributosFunciones +
+    ')" alt="Detalle Espacio"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles Espacio"></a></div>';
+var celdaAccionesEditar = '<div><a onclick="showEditarEspacio(' + atributosFunciones +
+    ')" alt="Editar Espacio"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar espacio"></a></div>';
+var celdaAccionesEliminar = '<div><a onclick="showEliminarEspacio(' + atributosFunciones +
+    ')" alt="Eliminar Espacio"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar espacio"></a></div></div>';
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 

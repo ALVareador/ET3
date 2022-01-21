@@ -53,6 +53,22 @@ body {
 
 }
 
+#CuadroIndex {
+
+    display:flex;
+    justify-content:center;
+	background: #ffffff;
+    position: absolute;
+    z-index: 20;
+    border-radius: 5px;
+    width: 45%;
+    height: 78.5%;
+    margin-top: 6%;
+    margin-left: 35%;
+    margin-right: 35%;
+
+}
+
 .itemNavBar {
 
     margin-left: auto;
@@ -302,4 +318,25 @@ td {
 .iconCerrar {
 	cursor: pointer;
 	width: 25px;
+}
+
+.bienvenida{
+    font-size:75px;
+    text-align:center;
+}
+
+#footerNombres {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    height: 70px;
+    background-color: #137fe2;
+    justify-content: center;
+}
+
+.itemfooterNombres {
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    align-self: center;
 }
