@@ -449,8 +449,6 @@ function showBuscarPersona() {
     $("#tituloAccion").attr("class", "tituloBuscar");
     $("#subefotopersona").attr('style', 'display:none');
     //Se pone el titulo de la acción buscar
-    document.getElementById('tituloAccion').innerHTML = "Buscar Persona";
-    document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
 
     setLang(getCookie("lang"));
     // rellenamos los onblur de los input que se validad

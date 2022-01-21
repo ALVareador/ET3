@@ -47,8 +47,6 @@ body {
     display: flex;
     flex-direction: row;
     text-align: center;
-    margin-left: 7%;
-    margin-right: 7%;
     height: 70px;
     background-color: #137fe2;
     justify-content: center;

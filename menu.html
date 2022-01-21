@@ -24,65 +24,35 @@
 </head>
 
 <body onload="includeCabecera();setLang('');validaAutenticado();">
-        <div id="navBar"></div>
-        <div id="UserDesconectar"></div>
-        <h1 class="saludoMenu"></h1>
+        <div id="navBar">
+                <div class="itemNavBar" id="linkUsuarios">
+                    <a class="USUARIOTOP navBarLink" class="navBarLink "  href="showallusuario.html"></a>
+                </div>
+                <div class="itemNavBar" id="linkGrupos">
+                    <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
+                </div>
+                <div class="itemNavBar" id="linkResponsables">
+                    <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
+                </div>
+        
+                <div class="itemNavBar" id="linkPersonas">
+                    <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
+                </div>
+                <div class="itemNavBar" id="linkEspacios">
+                    <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
+                </div>
+                <div class="itemNavBar" id="linkCategorias">
+                    <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
+                </div>
+                <div class="itemNavBar" id="linkActividades">
+                    <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
+                </div>
+                <div class="itemNavBar" id="linkInscripciones">
+                    <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html"><h1></h1></a>
+                </div>
+                <div class="itemNavBar" id="UserDesconectar"></div>
+        </div>
 
-        <button class='icon' type="button" onclick="location.href='showallActividad.html'">
-                <img src="images/iconos_oscar/cerrados/actividades.svg" style="object-fit:fill; width:80%; margin:0px"
-                        alt="go_Actividades" />
-                <span class="iconText go_Actividades"></span>
-        </button>
-
-        <button class='icon' type="button" onclick="location.href='showallcategoria.html'">
-                <img src="images/iconos_oscar/cerrados/Categoría.svg" style="object-fit:fill; width:80%; margin:0px"
-                        alt="go_Categorias" />
-                <span class="iconText go_Categorias"></span>
-        </button>
-
-        <button class='icon' type="button" onclick="location.href='showallusuario.html'">
-                <img src="images/iconos_oscar/cerrados/usuario.svg" style="object-fit:fill; width:80%; margin:0px"
-                        alt="go_Usuarios" />
-                <span class="iconText go_Usuarios"></span>
-        </button>
-
-        <button class='icon' type="button" onclick="location.href='showallgrupo.html'">
-                <img src="images/iconos_oscar/cerrados/grupoB.svg" style="object-fit:fill; width:80%; margin:0px"
-                        alt="go_Grupos" />
-                <span class="iconText go_Grupos"></span>
-        </button>
-        <button class='icon' type="button" onclick="location.href='showallpersona.html'">
-                <img src="images/iconos_oscar/cerrados/" style="object-fit:fill; width:80%; margin:0px"
-                        alt="go_Personas" />
-                <span class="iconText go_Personas"></span>
-        </button>
-        <button class='icon' type="button" onclick="location.href='showallinscripcion.html'">
-                <img src="images/iconos_oscar/cerrados/" style="object-fit:fill; width:80%; margin:0px"
-                        alt="go_Inscripciones" />
-                <span class="iconText go_Inscripciones"></span>
-        </button>
-        <button class='icon' type="button" onclick="location.href='showallresponsable.html'">
-                <img src="images/iconos_oscar/cerrados/responsable.svg" style="object-fit:fill; width:80%; margin:0px"
-                        alt="go_Responsables" />
-                <span class="iconText go_Responsables"></span>
-        </button>
-
-        <button class='icon' type="button" onclick="location.href='showallespacio.html'">
-                <img src="images/iconos_oscar/cerrados/Espacio.svg" style="object-fit:fill; width:80%; margin:0px"
-                        alt="go_Espacios" />
-                <span class="iconText go_Espacios"></span>
-        </button>
-
-        <!-- <ul>
-                <li><a href="showallusuario.html">Gestion Usuarios</a></li>
-                <li><a href="showallpersona.html">Gestion Personas</a></li>
-                <li><a href="showallgrupo.html">Gestion Grupos</a></li>
-                <li><a href="showallinscripcion.html">Gestion Inscripciones</a></li>
-                <li><a href="showallresponsable.html">Gestion Responsables</a></li>
-                <li><a href="showallActividad.html">Gestion Actividades</a></li>
-                <li><a href="showallespacio.html">Gestion Espacios</a></li>
-                <li><a href="showallcategoria.html">Gestion Categorias</a></li>
-        </ul> -->
         <div id="modal" style="display:none">
                 <div id="contenido-interno">
                         <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>

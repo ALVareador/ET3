@@ -66,7 +66,7 @@ arrayEN = {
 	'iconEditar': 'Edit',
 	'iconEliminar': 'Remove',
 	'iconAdd': 'Add',
-	'iconDesconectar': 'Disconnect',
+	'iconDesconectar': 'Disconnect: ',
 	'iconAddUser': 'Add User',
 	'iconSearchUser': 'Search Users',
 	'iconDetailUser': 'User Detail',
@@ -249,7 +249,16 @@ arrayEN = {
 	'ACTIVIDAD_MODIFICAR_OK': 'Activation successfully modified',
 	'ACTIVIDAD_BORRAR_NO_EXISTE': 'The activity to delete does not exist',
 	'ACTIVIDAD_BORRAR_OK': 'Activity removed successfully',
-	'datosInscripcion':'Inscription Data: '
+	'datosInscripcion': 'Inscription Data: ',
+	
+	'USUARIOTOP': 'Users',
+	'GRUPOTOP': 'Groups',
+	'RESPONSABLETOP': 'Responsables',
+	'PERSONATOP': 'Persons',
+	'ESPACIOTOP': 'Spaces',
+	'CATEGORIATOP': 'Categories',
+	'ACTIVIDADTOP': 'Activities',
+	'INSCRIPCIONTOP': 'Inscriptions'
 }
 //"original"
 /*
