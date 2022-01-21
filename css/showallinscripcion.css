@@ -93,11 +93,11 @@ legend
     display:flex;
     justify-content:center;
 	background: #ffffff;
-    position: absolute;
+    position: fixed;
     z-index: 20;
     border-radius: 5px;
     width: 40%;
-    height: 60%;
+    height: auto;
     margin-top: 1%;
     margin-left: 30%;
     margin-right: 30%;
@@ -105,9 +105,8 @@ legend
 
 fieldset {
     border-radius: 5px;
-    text-align: center;
     flex-direction: row;
-    margin-top: 10%;
+    margin-top: 5%;
     overflow-y: auto;
     overflow-x: auto;
     margin-right: 10%;
@@ -119,10 +118,12 @@ input, textarea {
     border-style: solid;
     border-radius: 3px;
     border-color: lightgray;
+    text-align: center;
 }
 
 label {
     margin-right: 5px;
+    text-align: center;
 }
 
 select {
@@ -130,13 +131,15 @@ select {
     border-style: solid;
     border-radius: 3px;
     border-color: lightgray;
+    text-align: center;
 }
 
 #submitbuttom {
     margin-top: 20px;
-    margin-right: 50px;
+    margin-left: 30%;
     border: none;
     background-color: white;
+    
 }
 
 /*Tabla*/
