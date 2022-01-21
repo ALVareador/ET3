@@ -238,6 +238,15 @@ arrayGA = {
 	'ACTIVIDAD_MODIFICAR_OK': 'Activación modificada correctamente',
 	'ACTIVIDAD_BORRAR_NO_EXISTE': 'A actividade a eliminar non existe',
 	'ACTIVIDAD_BORRAR_OK': 'Actividade eliminada correctamente',
+
+	'USUARIOTOP': 		'Usuarios',
+	'GRUPOTOP': 		'Grupos',
+	'RESPONSABLETOP':   'Responsables',
+	'PERSONATOP': 		'Personas',
+	'ESPACIOTOP': 		'Espacios',
+	'CATEGORIATOP': 	'Categorías',
+	'ACTIVIDADTOP': 	'Actividades',
+	'INSCRIPCIONTOP': 	'Inscripcions'
 }
 
 /*

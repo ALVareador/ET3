@@ -1,6 +1,6 @@
 
 arrayES = {
-	'obligatorio':'*',
+	'obligatorio': '*',
 	// generales base de datos
 	'00000': 'Error al conectar con la base de datos. Contacte con su administrador',
 	'00001': 'Éxito al ejecutar el SQL',
@@ -39,8 +39,8 @@ arrayES = {
 	'detailForm': 'Bienvenido al formulario de detalle',
 	'saludoLOGIN': 'Iniciar Sesión',
 	'saludoREGISTRO': 'Registro',
-	'saludoRecuperacion':'Recuperacion de Contraseña',
-	'saludoMenu':'Menú principal',
+	'saludoRecuperacion': 'Recuperacion de Contraseña',
+	'saludoMenu': 'Menú principal',
 	'datosRegistro': 'Introduzca los siguientes datos',
 	'datosPersonales': 'Datos personales',
 	'datosUsuario': 'Datos usuario',
@@ -93,7 +93,7 @@ arrayES = {
 	'iconEditar': 'Editar',
 	'iconEliminar': 'Eliminar',
 	'iconAdd': 'Añadir',
-	'iconDesconectar': 'Desconectar',
+	'iconDesconectar': 'Desconectar: ',
 	'iconAddUser': 'Añadir Usuario',
 	'iconSearchUser': 'Buscar Usuarios',
 	'iconDetailUser': 'Detalle Usuario',
@@ -104,7 +104,7 @@ arrayES = {
 	'iconOrdenar': 'Ordenar',
 	'iconOk': 'OK',
 	'iconLogin': 'Acceso',
-	'iconRecuperar':'Recuperar',
+	'iconRecuperar': 'Recuperar',
 
 	//************************************************************************************************
 	// login registro
@@ -131,9 +131,9 @@ arrayES = {
 	//errores formato
 
 	'error_id_vacia': 'El id no puede estar vacío.',
-	'error_id_soloNum':'El id solo puede estar conformado por números',
-	'error_id_muyGrande':'El id debe tener como máximo 11 números: 11111111',
-	
+	'error_id_soloNum': 'El id solo puede estar conformado por números',
+	'error_id_muyGrande': 'El id debe tener como máximo 11 números: 11111111',
+
 	'error_dni_vacio': 'El DNI no puede estar vacío.',
 	'error_formato_dni': 'El DNI debe tener 8 números y una letra.(11111111T)',
 	'error_formato_dni_letra': 'La letra introducida no se corresponde con el número',
@@ -154,7 +154,7 @@ arrayES = {
 	'error_formato_descripcion_largo': 'La descripcion debe tener a lo sumo 200 caracteres',
 
 	'error_fecha_vacia': 'La fecha no puede estar vacía',
-	'error_fecha_mayor_actual':'La fecha de nacimiento supera a la actual',
+	'error_fecha_mayor_actual': 'La fecha de nacimiento supera a la actual',
 	'error_menor_edad': 'Debe ser mayor de edad.',
 	'error_fecha_nacimiento_negativa': 'Cuando hayas nacido vuelve a intentarlo',
 
@@ -211,7 +211,7 @@ arrayES = {
 	//************************************************************************************************
 	// persona
 	//************************************************************************************************
-	'error_id_soloNum':'El id solo debe llevar hasta 11 números, ejemplo: 11111111',
+	'error_id_soloNum': 'El id solo debe llevar hasta 11 números, ejemplo: 11111111',
 	//- atributos persona
 	'dni_persona': 'DNI de Persona',
 	'nombre_persona': 'Nombre de Persona',
@@ -397,12 +397,24 @@ arrayES = {
 	'USUARIO_BORRAR_OK': 'Usuario eliminado correctamente',
 	'PERSONA_BORRAR_OK': 'Persona eliminada correctamente',
 	'ERROR_INSERTAR_ESPACIO': 'No se puede introducir el espacio, compruebe posibles errores de formato',
-	'ERROR_INSERTAR_CATEGORIA':'No se puede introducir la categoría, compruebe errores de formato de cada campo',
-	'tituloAnadir':'Formulario de inserción',
-	'tituloEditar':'Formulario de edición',
-	'tituloDetalle':'Formulario de detalle',
-	'tituloEliminar':'Formulario de información',
-	'tituloBuscar':'Formulario de búsqueda',
-	'datosInscripcion':'Datos de la inscripción: ',
-	'datosPago':'Datos del pago: '
+	'ERROR_INSERTAR_CATEGORIA': 'No se puede introducir la categoría, compruebe errores de formato de cada campo',
+	
+	'tituloAnadir': 'Formulario de inserción',
+	'tituloEditar': 'Formulario de edición',
+	'tituloDetalle': 'Formulario de detalle',
+	'tituloEliminar': 'Formulario de información',
+	'tituloBuscar': 'Formulario de búsqueda',
+	
+	'datosInscripcion': 'Datos de la inscripción: ',
+	'datosPago': 'Datos del pago: ',
+
+	'USUARIOTOP': 'Usuarios',
+	'GRUPOTOP': 'Grupos',
+	'RESPONSABLETOP': 'Responsables',
+	'PERSONATOP': 'Personas',
+	'ESPACIOTOP': 'Espacios',
+	'CATEGORIATOP': 'Categorías',
+	'ACTIVIDADTOP': 'Actividades',
+	'INSCRIPCIONTOP': 'Inscripciones',
 }
+
