@@ -25,19 +25,32 @@
 
 	<div id="navBar"></div>
 
-    <div id="divcambiarcontrasena" style="display:none">
+	<div id="divcambiarcontrasena" style="display:none">
 		<form name="formulariocambiar" id="formulariocambiar" method="post" action="javascript:cambiarcontraseña();"
 			onsubmit="">
-			<label class='contrasenaantigua'></label>
+			<label class='dni_usuario'></label>
+			<input type='text' name='dni_usuario' id='dni_usuario' onblur=''><br>
+
+			<label class='labelusuario'></label>
+			<input type='text' name='usuario' id='labelusuario' onblur=''><br>
+
+			<label class='contrasena'></label>
 			<input type='text' name='contrasena' id='contrasena' onblur=''><br>
+			<div style="display:none" id=""></div>
 
-			<label class='contrasenanueva1'></label>
-			<input type='text' name='contrasenan1' id='contrasenan1' onblur=''><br>
+			<label class='id_grupo'></label>
+			<select name='id_grupo' id='id_grupo'><br>
+			</select>
 
-                        <label class='contrasenanueva2'></label>
-			<input type='text' name='contrasenan2' id='contrasenan1' onblur=''><br>
-			
-			<input type="submit" value="recuperar">
+			<label class='borrado_usuario'></label>
+			<select name='borrado_usuario' id='borrado_usuario'>
+				<option value="0">Si</option>
+				<option value="1">No</option>
+			</select>
+
+			<label class='contrasenanueva'></label>
+			<input type='text' name='contrasenanueva' id='contrasena' onblur=''><br>
+			<input type="submit">
 		</form>
 	</div>
 

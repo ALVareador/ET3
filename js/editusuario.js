@@ -284,3 +284,69 @@ function resetearformulariousuario(idformUsado) {
 	$("divformgenericoUsuario").attr('style', 'display: none');
 
 }
+
+function buscarUsuario() {
+
+    var idioma = getCookie('lang');
+    var idSession = getCookie('sessionId');
+    addActionControler(document.formgenericoUsuario, 'search', 'usuario')
+    insertacampo(document.formgenericoUsuario, 'ID_SESSION', idSession);
+
+    console.log(document.formgenericoUsuario);
+
+    $.ajax({
+        method: "POST",
+        url: "http://193.147.87.202/ET3_IU/noRest.php",
+        data: $("#formgenericoUsuario").serialize(),
+    }).done(function(response) {
+        if (response.ok == true) {
+            $("#datosUsuarios").html("");
+            nodos = document.getElementById("formgenericoUsuario").childNodes;
+            for (var i = 0; i < nodos.length; i++) {
+                var item = nodos[i];
+                if (item.id != undefined) {
+                    //  alert(item.id);
+                }
+            }
+            //alert(nodos);
+            for (var i = 0; i < response.resource.length; i++) {
+                var tr = construyeFila(response.resource[i]);
+                $("#datosUsuarios").append(tr);
+            }
+
+            setLang(idioma);
+        } else {
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);
+            $("#mensajeError").append(response.code);
+            $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+            $("#imagenAviso").attr('src', "images/icons/error.png");
+            setLang(idioma);
+            $("#modal").attr('style', 'display: block');
+        }
+
+        deleteActionController();
+
+    });
+}
+/**
+ * 
+ */
+function showBuscarUsuario() {
+
+    // se resetea todo el formulario generico
+    resetearformulariousuario();
+
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericoUsuario").attr('style', 'display: block');
+    $("#formgenericoUsuario").attr('action', 'javascript:buscarPersona();');
+    $("#formgenericoUsuario").attr('onsubmit', '');
+
+    $("#tituloAccion").attr("class", "tituloBuscar");
+    //Se pone el titulo de la acción buscar
+
+    setLang(getCookie("lang"));
+    // rellenamos los onblur de los input que se validad
+    //$("#dni_persona").attr('onblur', '');
+    //$("#nombre_persona").attr('onblur', 'comprobarNombrePersona();');
+}

@@ -17,9 +17,9 @@ function construyeFila(fila) {
     rutauploadimages = rutauploadimages + 'images/';
 
     var filaTabla = '<tr> <td>' + fila.dni_persona +
-        '</td> <td>' + encodeURI(fila.nombre_persona) +
-        '</td> <td>' + encodeURI(fila.apellidos_persona) +
-        '</td> <td>' + encodeURI(fila.email_persona) +
+        '</td> <td>' + fila.nombre_persona +
+        '</td> <td>' + fila.apellidos_persona +
+        '</td> <td>' + fila.email_persona +
         '</td> <td> <a href=\'' + rutauploadimages + fila.foto_persona + '\'>' + fila.foto_persona + '</a>' +
         '</td> <td>' + fila.borrado_persona +
         '</td> <td>' + celdaAcciones +
@@ -72,16 +72,4 @@ function getLisPersonas() {
 
         deleteActionController();
     });
-}
-
-function comprobarPersona() {
-
-    if (comprobarDNI("dni_persona", "errorFormatoDni") && comprobarPass()) {
-        encriptar("contrasena");
-        generarSessionId();
-        return true;
-    } else {
-        return false;
-    }
-
 }

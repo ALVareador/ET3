@@ -1,3 +1,11 @@
+function comprobarOnBlurEspacio(){
+	if(comprobarId("id_categoria","errorFormatoId") && comprobarNombreParam("nombre_categoria") && comprobarDescripcionParam("descripcion_categoria")){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 function addCategoria() {
 
 	var idSession = getCookie('sessionId');
@@ -36,7 +44,7 @@ function showAddCategoria() {
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoCategoria").attr('style', 'display: block');
 	$("#formgenericoCategoria").attr('action', 'javascript:addCategoria();');
-	$("#formgenericoCategoria").attr('onsubmit', 'comprobareditsubmit();');
+	$("#formgenericoCategoria").attr('onsubmit', 'comprobarOnBlurCategoria();');
 	
 	$("#tituloAccion").attr("class", "tituloAnadir");
 	//rellenamos los tipo text

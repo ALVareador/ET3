@@ -1,6 +1,11 @@
-/**
- * 
- */
+function comprobarPersona(){
+if(comprobarDNI("dni_persona","errorFormatoDni") && comprobarNombreParam("nombre_persona") && comprobarApellidosParam("apellidos_persona") && comprobarFechaDeNacimiento() && comprobarDireccion() && comprobarTelefono()){
+    return true;
+}else{
+    return false;
+}
+
+}
 function addPersona() {
 
     var idSession = getCookie('sessionId');
@@ -53,7 +58,7 @@ function showAddPersona() {
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoPersona").attr('style', 'display: block');
     $("#formgenericoPersona").attr('action', 'javascript:addPersona();');
-    $("#formgenericoPersona").attr('onsubmit', 'comprobareditsubmit();');
+    $("#formgenericoPersona").attr('onsubmit', 'comprobarPersona();');
 
     $("#tituloAccion").attr("class", "tituloAnadir");
     //rellenamos los tipo text
@@ -190,7 +195,7 @@ function showEditarPersona(dni_persona, nombre_persona, apellidos_persona, fecha
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoPersona").attr('style', 'display: block');
     $("#formgenericoPersona").attr('action', 'javascript:editPersona();');
-    $("#formgenericoPersona").attr('onsubmit', 'comprobareditsubmit();');
+    $("#formgenericoPersona").attr('onsubmit', 'comprobarPersona();');
 
     $("#tituloAccion").attr("class", "tituloEditar");
     //rellenamos los tipo text
@@ -221,21 +226,7 @@ function showEditarPersona(dni_persona, nombre_persona, apellidos_persona, fecha
 
     setLang(getCookie("lang"));
 }
-/**
- * 
- * @returns boolean
- */
-function comprobareditsubmit() {
 
-    if (comprobarUser()) {
-        return true;
-    } else {
-        return false;
-    }
-}
-/**
- * 
- */
 function detallepersona() {
 
     var idioma = getCookie('lang');
@@ -453,7 +444,7 @@ function showBuscarPersona() {
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoPersona").attr('style', 'display: block');
     $("#formgenericoPersona").attr('action', 'javascript:buscarPersona();');
-    $("#formgenericoPersona").attr('onsubmit', 'comprobareditsubmit();');
+    $("#formgenericoPersona").attr('onsubmit', '');
 
     $("#tituloAccion").attr("class", "tituloBuscar");
     $("#subefotopersona").attr('style', 'display:none');
