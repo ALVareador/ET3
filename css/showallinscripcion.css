@@ -35,8 +35,6 @@ body {
     display: flex;
     flex-direction: row;
     text-align: center;
-    margin-left: 7%;
-    margin-right: 7%;
     height: 70px;
     background-color: #137fe2;
     justify-content: center;
@@ -62,8 +60,6 @@ body {
     display: flex;
     flex-direction: row;
     text-align: center;
-    margin-left: 7%;
-    margin-right: 7%;
     height: 70px;
     background-color: #137fe2;
     justify-content: center;
@@ -88,16 +84,32 @@ legend
     color: #137fe2;
 }
 
-fieldset {
-    margin-top: 0px;
-    overflow-y: auto;
-    overflow-x: auto;
-    margin-right: 25%;
+#divformgenericoinscripcion { 
+    flex-direction: row;
+    height: 70px;
+    justify-content: center;
+    display:flex;
+    justify-content:center;
+	background: #ffffff;
+    position: absolute;
+    z-index: 20;
+    border-radius: 5px;
+    width: 40%;
+    height: 60%;
+    margin-top: 1%;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
-#divformgenericoinscripcion {
-    color: #5e696d;
-    margin-left: 20%;
+fieldset {
+    border-radius: 5px;
+    text-align: center;
+    flex-direction: row;
+    margin-top: 10%;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
 input, textarea {
