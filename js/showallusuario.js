@@ -3,12 +3,12 @@ function construyeFila(fila) {
     console.log(fila);
         let atributosFunciones = ["'" + fila.id + "'","'" + fila.dni_usuario + "'", "'" + fila.usuario + "'", "'" + fila.id_grupo + "'","'" + fila.borrado_usuario + "'"];
     
-        var celdaAccionesDetalle = '<div><a onclick="showDetalleUsuario(' + atributosFunciones + 
-                                   ')" alt="Detalle Usuario"/>Detalle Usuario</a></div>';
-        var celdaAccionesEditar = '<div><a onclick="showEditarUsuario(' + atributosFunciones + 
-                                   ')" alt="Editar Usuario"/>Editar Usuario</a></div>';
-        var celdaAccionesEliminar = '<div><a onclick="showEliminarUsuario(' + atributosFunciones + 
-                                   ')" alt="Eliminar Usuario"/>Eliminar Usuario</a></div>';
+        var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetalleUsuario(' + atributosFunciones +
+    ')" alt="Detalle Usuario"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles Usuario"></a></div>';
+var celdaAccionesEditar = '<div><a onclick="showEditarUsuario(' + atributosFunciones +
+    ')" alt="Editar Usuario"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar usuario"></a></div>';
+var celdaAccionesEliminar = '<div><a onclick="showEliminarUsuario(' + atributosFunciones +
+    ')" alt="Eliminar Usuario"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar usuario"></a></div></div>';
     
         var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
         

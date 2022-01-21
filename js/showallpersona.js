@@ -3,12 +3,12 @@ function construyeFila(fila) {
     //console.log(fila);
     let atributosFunciones = ["'" + fila.dni_persona + "'", "'" + fila.nombre_persona + "'", "'" + fila.apellidos_persona + "'", "'" + fila.fechaNacimiento_persona + "'", "'" + fila.direccion_persona + "'", "'" + fila.telefono_persona + "'", "'" + fila.email_persona + "'", "'" + fila.foto_persona + "'", "'" + fila.esCeliaco_persona + "'", "'" + fila.borrado_persona + "'"];
 
-    var celdaAccionesDetalle = '<div><a onclick="showDetallePersona(' + atributosFunciones +
-        ')" alt="Detalle Persona"/>Detalle Persona</a></div>';
-    var celdaAccionesEditar = '<div><a onclick="showEditarPersona(' + atributosFunciones +
-        ')" alt="Editar Persona"/>Editar Persona</a></div>';
-    var celdaAccionesEliminar = '<div><a onclick="showEliminarPersona(' + atributosFunciones +
-        ')" alt="Eliminar Persona"/>Eliminar Persona</a></div>';
+    var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetallePersona(' + atributosFunciones +
+    ')" alt="Detalle Persona"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles Persona"></a></div>';
+var celdaAccionesEditar = '<div><a onclick="showEditarPersona(' + atributosFunciones +
+    ')" alt="Editar Persona"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar persona"></a></div>';
+var celdaAccionesEliminar = '<div><a onclick="showEliminarPersona(' + atributosFunciones +
+    ')" alt="Eliminar Persona"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar persona"></a></div></div>';
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
@@ -21,7 +21,6 @@ function construyeFila(fila) {
         '</td> <td>' + fila.apellidos_persona +
         '</td> <td>' + fila.email_persona +
         '</td> <td> <a href=\'' + rutauploadimages + fila.foto_persona + '\'>' + fila.foto_persona + '</a>' +
-        '</td> <td>' + fila.borrado_persona +
         '</td> <td>' + celdaAcciones +
         '</td> </tr>';
 

@@ -2,12 +2,12 @@ function construyeFila(fila) {
 
     let atributosFunciones = ["'" + fila.id_categoria + "'", "'" + fila.nombre_categoria + "'", "'" + fila.descripcion_categoria + "'"];
 
-    var celdaAccionesDetalle = '<div><a onclick="showDetalleCategoria(' + atributosFunciones +
-        ')" alt="Detalle Categoria"/>Detalle Categoria</a></div>';
-    var celdaAccionesEditar = '<div><a onclick="showEditarCategoria(' + atributosFunciones +
-        ')" alt="Editar Categoria"/>Editar Categoria</a></div>';
-    var celdaAccionesEliminar = '<div><a onclick="showEliminarCategoria(' + atributosFunciones +
-        ')" alt="Eliminar Categoria"/>Eliminar Categoria</a></div>';
+    var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetalleCategoria(' + atributosFunciones +
+    ')" alt="Detalle Categoria"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles Categoria"></a></div>';
+var celdaAccionesEditar = '<div><a onclick="showEditarCategoria(' + atributosFunciones +
+    ')" alt="Editar Categoria"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar categoria"></a></div>';
+var celdaAccionesEliminar = '<div><a onclick="showEliminarCategoria(' + atributosFunciones +
+    ')" alt="Eliminar Categoria"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar categoria"></a></div></div>';
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
