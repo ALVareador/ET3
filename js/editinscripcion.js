@@ -225,6 +225,7 @@ function showDetalleInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_
     $("#divformgenericoinscripcion").attr('style', 'display: block');
     $("#formgenericoinscripcion").attr('action', 'javascript:detalleinscripcion();');
 
+    $("#tituloAccion").attr("class", "tituloDetalle");
     //rellenamos los tipo text
     $("#id_inscripcion").val(id_inscripcion);
     $("#id_actividad").val(id_actividad);
@@ -278,7 +279,7 @@ function showEditarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_s
     $("#divformgenericoinscripcion").attr('style', 'display: block');
     $("#formgenericoinscripcion").attr('action', 'javascript:editinscripcion();');
     $("#formgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
-
+    $("#tituloAccion").attr("class", "tituloEditar");
     //rellenamos los tipo text
     $("#id_inscripcion").val(id_inscripcion);
     $("#id_actividad").val(id_actividad);
@@ -328,7 +329,7 @@ function showAddInscripcion() {
     $("#divformgenericoinscripcion").attr('style', 'display: block');
     $("#formgenericoinscripcion").attr('action', 'javascript:addinscripcion();');
     $("#formgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
-
+    $("#tituloAccion").attr("class", "tituloAnadir");
     // rellenamos los onblur de los input que se validad
     $("#id_inscripcion").attr('onblur', 'comprobarId("id_inscripcion", "errorFormatoId");');
     $("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario", "errorFormatoDni");');
@@ -365,7 +366,7 @@ function showEliminarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha
     $("#divformgenericoinscripcion").attr('style', 'display: block');
     $("#formgenericoinscripcion").attr('action', 'javascript:deleteinscripcion();');
     $("#formgenericoinscripcion").attr('onsubmit', '');
-
+    $("#tituloAccion").attr("class", "tituloEliminar");
     //rellenamos los tipo text
     $("#id_inscripcion").val(id_inscripcion);
     $("#id_actividad").val(id_actividad);
@@ -414,6 +415,7 @@ function showBuscarInscripcion() {
     $("#divformgenericoinscripcion").attr('style', 'display: block');
     $("#formgenericoinscripcion").attr('action', 'javascript:buscarinscripcion();');
     $("#formgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
+    $("#tituloAccion").attr("class", "tituloBuscar");
 
     // rellenamos los onblur de los input que se validad
     $("#id_inscripcion").attr('onblur', 'comprobarId("id_inscripcion", "errorFormatoId");');

@@ -216,6 +216,7 @@ function showAddResponsable() {
 	$("#formgenericoresponsable").attr('action', 'javascript:addResponsable();');
 	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
 
+	$("#tituloAccion").attr("class", "tituloAnadir");
 	// eliminar input no necesario
 	$("#labeltxtcurriculumresponsable").attr('style', 'display:none');
 	$("#txtcurriculumresponsable").attr('style', 'display:none');
@@ -247,6 +248,7 @@ function showDetalleResponsable(dni_responsable, numCuenta_responsable, curricul
 	$("#divformgenericoresponsable").attr('style', 'display: block');
 	$("#formgenericoresponsable").attr('action', 'javascript:detalleresponsable();');
 
+	$("#tituloAccion").attr("class", "tituloDetalle");
 	//rellenamos los tipo text
 	$("#dni_responsable").val(dni_responsable);
 	$("#numCuenta_responsable").val(numCuenta_responsable);
@@ -286,6 +288,7 @@ function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculu
 	$("#formgenericoresponsable").attr('action', 'javascript:editresponsable();');
 	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
 
+	$("#tituloAccion").attr("class", "tituloEditar");
 	//rellenamos los tipo text
 	$("#dni_responsable").val(dni_responsable);
 	$("#numCuenta_responsable").val(numCuenta_responsable);
@@ -318,6 +321,7 @@ function showEliminarResponsable(dni_responsable, numCuenta_responsable, curricu
 	$("#formgenericoresponsable").attr('action', 'javascript:deleteresponsable();');
 	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
 
+	$("#tituloAccion").attr("class", "tituloEliminar");
 	//rellenamos los tipo text
 	$("#dni_responsable").val(dni_responsable);
 	$("#numCuenta_responsable").val(numCuenta_responsable);
@@ -349,6 +353,7 @@ function showBuscarResponsable() {
 	$("#divformgenericoresponsable").attr('style', 'display: block');
 	$("#formgenericoresponsable").attr('action', 'javascript:buscarresponsable();');
 	$("#formgenericoresponsable").attr('onsubmit', 'comprobareditsubmit();');
+	$("#tituloAccion").attr("class", "tituloBuscar");
 
 	// eliminar input no necesario
 	$("#labelsubetxtcurriculumresponsable").attr('style', 'display:none');

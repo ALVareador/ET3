@@ -164,8 +164,7 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
     $("#formgenericoActividad").attr('verificaSubmit', 'verificaSubmit();();');
 
     //Se pone el titulo de la acción añadir
-    document.getElementById('tituloAccion').innerHTML = "Editar actividad";
-    document.getElementById('subTituloAccion').innerHTML = "Se estan editando los datos de la actividad: " + nombre_actividad;
+    $("#tituloAccion").attr("class", "tituloEditar");
 
     //rellenamos los tipo text
     $("#id_actividad").val(id_actividad);
@@ -205,7 +204,7 @@ function showDetalleActividad(id_actividad, nombre_actividad, descripcion_activi
     $("#formgenericoActividad").attr('onsubmit', '');
 
     //Se pone el titulo de la acción añadir
-    document.getElementById('tituloAccion').innerHTML = "Detalles de la actividad: " + nombre_actividad;
+    $("#tituloAccion").attr("class", "tituloDetalle");
 
     //rellenamos los tipo text
     $("#id_actividad").val(id_actividad);
@@ -246,9 +245,7 @@ function showEliminarActividad(id_actividad, nombre_actividad, descripcion_activ
     $("#formgenericoActividad").attr('action', 'javascript:deleteActividad();');
     $("#formgenericoActividad").attr('onsubmit', '');
 
-    //Se pone el titulo de la acción añadir
-    document.getElementById('tituloAccion').innerHTML = "Eliminar actividad";
-    document.getElementById('subTituloAccion').innerHTML = "Se estan mostrando los datos de la actividad: " + nombre_actividad;
+    $("#tituloAccion").attr("class", "tituloEliminar");
 
     //rellenamos los tipo text
     $("#id_actividad").val(id_actividad);
@@ -288,8 +285,7 @@ function showAddActividad() {
     $("#formgenericoActividad").attr('onsubmit', 'verificaSubmit();');
 
     //Se pone el titulo de la acción añadir
-    document.getElementById('tituloAccion').innerHTML = "Añadir actividad";
-    document.getElementById('subTituloAccion').innerHTML = "Rellena los siguientes campos para añadir una nueva actividad";
+    $("#tituloAccion").attr("class", "tituloAnadir");
 
 
     // rellenamos los onblur de los input que se validad
@@ -313,9 +309,9 @@ function showBuscarActividad() {
     $("#formgenericoActividad").attr('action', 'javascript:buscarActividad();');
     $("#formgenericoActividad").attr('onsubmit', '');
 
+    $("#tituloAccion").attr("class", "tituloBuscar");
     //Se pone el titulo de la acción buscar
-    document.getElementById('tituloAccion').innerHTML = "Buscar Actividad";
-    document.getElementById('subTituloAccion').innerHTML = "Rellene uno o varios campos para ver todas las coincidencias";
+    
 
     // rellenamos los onblur de los input que se validad
     $("#id_actividad").attr('onblur', 'comprobarIdActividad(\"id_actividad\");');
@@ -355,8 +351,7 @@ function resetearformularioActividad() {
     resetValidacion("id_actividad", "", "errorFormatoId");
 
     //limpiar titulo y subtitulos
-    document.getElementById('tituloAccion').innerHTML = null;
-    document.getElementById('subTituloAccion').innerHTML = null;
+    
 
 
     $("divformgenericoActividad").attr('style', 'display: none');
@@ -459,11 +454,6 @@ function resetearformularioActividad() {
 
     //limpiar los mensajes de error	
     resetValidacion("id_actividad", "", "errorFormatoId");
-
-    //limpiar titulo y subtitulos
-    document.getElementById('tituloAccion').innerHTML = null;
-    document.getElementById('subTituloAccion').innerHTML = null;
-
 
     $("divformgenericoActividad").attr('style', 'display: none');
 

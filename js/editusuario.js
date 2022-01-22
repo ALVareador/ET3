@@ -27,7 +27,7 @@ function addUsuario() {
 }
 
 function comprobarUsuario(){
-	if(comprobarDNI("dni_usuario","errorFormatoDni") && comprobarNombreParam("labelusuario","errorFormatoDni") && comprobarPassword()){
+	if(comprobarDNI("dni_usuario","errorFormatoDni") && comprobarNombreParam("labelusuario","errorFormatoDni") && comprobarContraseña()){
 		return true;
 	}else{
 		return false;
@@ -46,6 +46,8 @@ function showAddUsuario() {
 	$("#formgenericoUsuario").attr('action', 'javascript:addUsuario();');
 	$("#formgenericoUsuario").attr('onsubmit', 'comprobarUsuario();');
 
+	$("#tituloAccion").attr("class", "tituloAnadir");
+	
 	//rellenamos los tipo text
 	/*$("#txtidresponsable").val("1");
 	$("#txtnumcuentaresponsable").val("1");
@@ -55,7 +57,7 @@ function showAddUsuario() {
 
 	$("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario","errorFormatoDni");');
 	$("#labelusuario").attr('onblur', 'comprobarNombreParam("labelusuario","errorFormatoDni");');
-	$("#contrasena").attr('onblur', 'comprobarPassword();');
+	$("#contrasena").attr('onblur', 'comprobarContraseña();');
 	
 }
 
@@ -103,6 +105,7 @@ function showEditarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, borra
 	$("#formgenericoUsuario").attr('action', 'javascript:editUsuario();');
 	$("#formgenericoUsuario").attr('onsubmit', 'comprobarUsuario();');
 
+	$("#tituloAccion").attr("class", "tituloEditar");
 	//rellenamos los tipo text
 	insertacampo(document.formgenericoUsuario,'id', id);
 	$("#dni_usuario").val(dni_usuario);
@@ -115,7 +118,7 @@ function showEditarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, borra
 	// rellenamos los onblur de los input que se validad
 	$("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario","errorFormatoDni");');
 	$("#labelusuario").attr('onblur', 'comprobarNombreParam("labelusuario","errorFormatoNombre");');
-	$("#contrasena").attr('onblur', 'comprobarPassword();');
+	$("#contrasena").attr('onblur', 'comprobarContraseña();');
 
 	deleteoptionsSelect("id_grupo");
 	rellenaid_grupo(id_grupo, borrado_usuario);
@@ -136,6 +139,8 @@ function showDetalleUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario)
 	$("#divformgenericoUsuario").attr('style', 'display:');
     $("#formgenericoUsuario").attr('action', 'javascript:detalleusuario();');
 	
+	$("#tituloAccion").attr("class", "tituloDetalle");
+
 	$("#dni_usuario").val(dni_usuario);
 	$("#labelusuario").val(usuario);
 	
@@ -194,6 +199,7 @@ function showEliminarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, bor
 	$("#formgenericoUsuario").attr('action', 'javascript:deleteUsuario();');
 	$("#formgenericoUsuario").attr('onsubmit', '');
 
+	$("#tituloAccion").attr("class", "tituloEliminar");
 	insertacampo(document.formgenericoUsuario,'id', id);
 	$("#dni_usuario").val(dni_usuario);
 	$("#labelusuario").val(usuario);

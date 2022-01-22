@@ -1,5 +1,5 @@
 /**Función que valida el usuario*/
-function comprobarUser() {
+function comprobarUserusuario() {
 
     document.getElementById("labelusuario").style.borderWidth = "2px";
 
@@ -11,7 +11,19 @@ function comprobarUser() {
         return false;
     }
 }
+function comprobarUser() {
 
+	document.getElementById("txtUsuario").style.borderWidth = "2px";
+		
+	if (validaNoVacio("txtUsuario", "errorFormatoUser", "usuarioLogin") && comprobarLetrasNumeros("txtUsuario", 15, 3, "errorFormatoUser", "usuarioLogin")) {
+		validacionOK("txtUsuario", "errorFormatoUser");
+		return true;
+	} else {
+		validacionKO("txtUsuario", "errorFormatoUser");		
+		return false;
+	}
+
+}
 /** Comprueba el formato de la contraseña introduciendo 2 contraseñas iguales */
 function comprobarPasswordModificacion() {
 
@@ -46,7 +58,7 @@ function comprobarCambiarPassword() {
 }
 
 /**Función que valida la contraseña*/
-function comprobarPassword() {
+function comprobarContraseña() {
 
     document.getElementById("contrasena").style.borderWidth = "2px";
 
@@ -57,6 +69,20 @@ function comprobarPassword() {
         validacionKO("contrasena", "errorFormatoPassword");
         return false;
     }
+
+}
+
+function comprobarPass() {
+
+	document.getElementById("txtPassword").style.borderWidth = "2px";
+	
+	if (validaNoVacio("txtPassword", "errorFormatoPass", "passLogin") && comprobarLetrasNumeros("txtPassword", 16, 3, "errorFormatoPass", "passLogin")) {
+		validacionOK("txtPassword", "errorFormatoPass");
+		return true;
+	} else {
+		validacionKO("txtPassword", "errorFormatoPass");		
+		return false;
+	}
 
 }
 /**Controla que las 2 contraseñas sean la misma. */
