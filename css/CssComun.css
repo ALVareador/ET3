@@ -120,10 +120,6 @@ legend {
 }
 
 .formulario {
-    /*flex-direction: row;
-    justify-content: center;
-
-    position: fixed;*/
     display: flex;
     justify-content: center;
     background: #ffffff;
@@ -132,9 +128,10 @@ legend {
     border-radius: 5px;
     width: 40%;
     height: auto;
-    margin-top: 6%;
+    margin-top: 3%;
     margin-left: 30%;
     margin-right: 30%;
+    min-height: 50%;
 }
 
 .fondoFormulario {
