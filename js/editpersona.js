@@ -22,7 +22,7 @@ function addPersona() {
     var datos = new FormData();
     datos.append("upload", file);
     datos.append("formulario", formdata);
-
+    console.log("subefotopersona")
     $.ajax({
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
@@ -81,11 +81,11 @@ function showAddPersona() {
     $("#dni_persona").attr('onblur', 'comprobarDNI("dni_persona","errorFormatoDni");');
     $("#nombre_persona").attr('onblur', 'comprobarNombreParam("nombre_persona")');
     $("#apellidos_persona").attr('onblur', 'comprobarApellidosParam("apellidos_persona")');
-    $("#fechaNacimiento_persona").attr('onblur', 'return comprobarFechaDeNacimiento()');
-    $("#direccion_persona").attr('onblur', 'return comprobarDireccion()');
-    $("#telefono_persona").attr('onblur', 'return comprobarTelefono()');
-    $("#email_persona").attr('onblur', 'return comprobarEmail()');
-    $("#foto_persona").attr('onblur', 'return comprobarFoto()');
+    $("#fechaNacimiento_persona").attr('onblur', 'comprobarFechaDeNacimiento()');
+    $("#direccion_persona").attr('onblur', 'comprobarDireccion()');
+    $("#telefono_persona").attr('onblur', 'comprobarTelefono()');
+    $("#email_persona").attr('onblur', 'comprobarEmail()');
+    $("#foto_persona").attr('onblur', 'comprobarUploadFoto()');
 
 
 

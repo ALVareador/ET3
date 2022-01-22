@@ -94,8 +94,9 @@
                     <label class='foto_persona' id='labelfotopersona'></label>
                     <input type='text' name='foto_persona' id='foto_persona' onblur=''><br>
                     <label class='sube_persona' id='labelfotopersona'></label>
-                    <input type='file' accept=".png, .jpg" name='subefotopersona' id='subefotopersona'><br>
-
+                    <input type='file' accept=".png, .jpg" name='subefotopersona' id='subefotopersona' onblur="return comprobarUploadFoto()"><br>
+                    <div style="display:none" id="errorFormatoUpload"></div>
+                    
                     <label class='esCeliaco_persona'></label>
                     <select name='esCeliaco_persona' id='esCeliaco_persona'>
                         <option id="seleccionNula" value="" class="seleccionNula"></option>

@@ -235,6 +235,18 @@ function validateDNI(dnivalue, idElementoError) {
     }
     return resultado;
 }
+
+function comprobarUploadFoto(){
+    return comprobarLongitud("sube_persona",100,5,"errorFormatoUpload","sube_persona");
+}
+
+function comprobarUploadDocumento(){
+    return comprobarLongitud("documento_pago",100,5,"errorFormatoUpload","documento_pago");
+}
+
+function comprobarUploadCurriculum(){
+    return comprobarLongitud("curriculum_responsable",200,5,"errorFormatoUpload","curriculum_responsable");
+}
 /** Comprueba que la longuitud se encuentre entre sizeMax y  sizeMin*/
 function comprobarLongitud(idElemento, sizeMax, sizeMin, idElementoError, campo) {
 
@@ -286,6 +298,16 @@ function comprobarLongitud(idElemento, sizeMax, sizeMin, idElementoError, campo)
             case 'descripcion_actividad':
                 codigo = 'error_formato_descripcion_largo'
                 break;
+            case 'foto_persona':
+                codigo = 'error_formato_upload_cien'
+                break;
+            case 'documento_pago':
+                codigo = 'error_formato_upload_cien'
+                break;
+            case 'curriculum_responsable':
+                codigo = 'error_formato_upload_doscientos'
+                break;    
+                
         }
         addCodeError(idElementoError, codigo);
         return false;

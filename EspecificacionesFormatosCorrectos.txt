@@ -1,24 +1,8 @@
-Usuario
 
-foto_persona varchar(100). solo letras, números y punto separando extensión, max 100 mínimo 5, solo jpg y png.
-
-Persona
-
-fechaNacimiento_persona date. formato dd/mm/aaaa, con fecha válida, no superior a la actual max 10 mínimo 10
 foto_persona varchar(100). solo letras, números y punto separando extensión, max 100 mínimo 5, solo jpg y png.(con upload  maximo 20 MB)
-
-Responsable
-
-curriculum_responsable varchar(200): solo letras, números y punto separando extensión, max 200 mínimo 5, solo pdf.
-numCuenta_responsable varchar(24) letras mayusculas y numeros (formato IBAN) max 24 minimo 24
-
-Actividad
-precio_actividad (6):  solo números, como máximo 4 enteros y máximo dos decimales
-color_actividad (7): un # seguido de 6 valores hexadecimales
-color_nombre_actividad (7): un # seguido de 6 valores hexadecimales
-
-Inscripción
-fecha_solicitud_inscripcion (date): formato dd/mm/aaaa, con fecha válida, no superior a la actual max 10 mínimo 10
 documento_pago (100): solo letras, números y punto separando extensión, max 100 mínimo 5, solo pdf.(con upload  maximo 20 MB)
+curriculum_responsable varchar(200): solo letras, números y punto separando extensión, max 200 mínimo 5, solo pdf.
+
+fecha_solicitud_inscripcion (date): formato dd/mm/aaaa, con fecha válida, no superior a la actual max 10 mínimo 10
 fecha_pago_inscripcion (date): formato dd/mm/aaaa, con fecha válida, no superior a la actual y superior a la fecha de solicitud de inscripcion max 10 mínimo 10
 fecha_aceptacion_inscripcion (date):  formato dd/mm/aaaa, con fecha válida, no superior a la actual y superior a la fecha de pago de inscripcion max 10 mínimo 10
