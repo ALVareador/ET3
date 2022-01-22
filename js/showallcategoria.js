@@ -1,5 +1,5 @@
-function construyeFila(fila) {
-
+function construyeFila(fila,num) {
+    color = num % 2;
     let atributosFunciones = ["'" + fila.id_categoria + "'", "'" + fila.nombre_categoria + "'", "'" + fila.descripcion_categoria + "'"];
 
     var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetalleCategoria(' + atributosFunciones +
@@ -11,10 +11,10 @@ var celdaAccionesEliminar = '<div><a onclick="showEliminarCategoria(' + atributo
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
-    var filaTabla = '<tr> <td>' + fila.id_categoria +
-        '</td> <td>' + fila.nombre_categoria +
-        '</td> <td>' + fila.descripcion_categoria +
-        '</td> <td>' + celdaAcciones +
+    var filaTabla = 
+    '<tr class=\"colorLinea' + color + '\"> <td>' + fila.nombre_categoria +
+    '</td> <td <tdclass=\"celdasDatos\">' + fila.descripcion_categoria +
+    '</td> <td class=\"celdaAcciones\">' + celdaAcciones +
         '</td> </tr>';
 
     return filaTabla;
@@ -39,7 +39,7 @@ function getLisCategorias() {
         if (response.ok == true) {
             $("#datosCategoria").html("");
             for (var i = 0; i < response.resource.length; i++) {
-                var tr = construyeFila(response.resource[i]);
+                var tr = construyeFila(response.resource[i],i);
                 $("#datosCategoria").append(tr);
             }
 

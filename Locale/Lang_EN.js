@@ -77,7 +77,7 @@ arrayEN = {
 'iconEditar':'Edit',
 'iconEliminar':'Remove',
 'iconAdd':'Add',
-'iconDesconectar':'Disconnect: ',
+'iconDesconectar':'Disconnect',
 'iconAddUser':'Add User',
 'iconSearchUser':'Search Users',
 'iconDetailUser':'User Detail',

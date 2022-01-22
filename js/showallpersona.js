@@ -1,14 +1,14 @@
 
-function construyeFila(fila) {
-    //console.log(fila);
+function construyeFila(fila,num) {
+    color = num % 2;
     let atributosFunciones = ["'" + fila.dni_persona + "'", "'" + fila.nombre_persona + "'", "'" + fila.apellidos_persona + "'", "'" + fila.fechaNacimiento_persona + "'", "'" + fila.direccion_persona + "'", "'" + fila.telefono_persona + "'", "'" + fila.email_persona + "'", "'" + fila.foto_persona + "'", "'" + fila.esCeliaco_persona + "'", "'" + fila.borrado_persona + "'"];
 
     var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetallePersona(' + atributosFunciones +
-    ')" alt="Detalle Persona"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles Persona"></a></div>';
-var celdaAccionesEditar = '<div><a onclick="showEditarPersona(' + atributosFunciones +
-    ')" alt="Editar Persona"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar persona"></a></div>';
-var celdaAccionesEliminar = '<div><a onclick="showEliminarPersona(' + atributosFunciones +
-    ')" alt="Eliminar Persona"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar persona"></a></div></div>';
+        ')" alt="Detalle Persona"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles Persona"></a></div>';
+    var celdaAccionesEditar = '<div><a onclick="showEditarPersona(' + atributosFunciones +
+        ')" alt="Editar Persona"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar persona"></a></div>';
+    var celdaAccionesEliminar = '<div><a onclick="showEliminarPersona(' + atributosFunciones +
+        ')" alt="Eliminar Persona"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar persona"></a></div></div>';
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
@@ -16,12 +16,12 @@ var celdaAccionesEliminar = '<div><a onclick="showEliminarPersona(' + atributosF
     rutauploadimages = rutauploadimages.substring(29, 0);
     rutauploadimages = rutauploadimages + 'images/';
 
-    var filaTabla = '<tr> <td>' + fila.dni_persona +
-        '</td> <td>' + fila.nombre_persona +
-        '</td> <td>' + fila.apellidos_persona +
-        '</td> <td>' + fila.email_persona +
-        '</td> <td> <a href=\'' + rutauploadimages + fila.foto_persona + '\'>' + fila.foto_persona + '</a>' +
-        '</td> <td>' + celdaAcciones +
+    var filaTabla = '<tr class=\"colorLinea' + color + '\"> <td>' + fila.dni_persona +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.nombre_persona +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.apellidos_persona +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.email_persona +
+        '</td> <td <tdclass=\"celdasDatos\"> <a href=\'' + rutauploadimages + fila.foto_persona + '\'>' + fila.foto_persona + '</a>' +
+        '</td> <td class=\"celdaAcciones\">' + celdaAcciones +
         '</td> </tr>';
 
     return filaTabla;
@@ -55,7 +55,7 @@ function getLisPersonas() {
             }
             //console.log(response.resource);
             for (var i = 0; i < response.resource.length; i++) {
-                var tr = construyeFila(response.resource[i]);
+                var tr = construyeFila(response.resource[i], i);
                 $("#datosPersonas").append(tr);
             }
 

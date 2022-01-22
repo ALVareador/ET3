@@ -59,6 +59,8 @@
 			</a>
 		</div>
 		<div class="itemNavBar" id="UserDesconectar"></div>
+		<div class="itemNavBar" id="linkCambiarContraseña"></div>
+	</div>
 	</div>
 
 	<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:login();"
@@ -74,25 +76,25 @@
 		<div style="display:none" id="errorFormatoPassword"></div>
 
 		<div id="FuncionesLogin">
-		<button class='icon' type="button" onclick="location.href='index.html'">
-			<img src="images/iconos_oscar/cerrados/back.svg" style="object-fit:fill; width:80%; margin:0px"
-				alt="back" />
-			<span class="iconText iconVolver"></span>
-		</button>
-
-		<button class='icon' type="submit">
-			<img src="images/iconos_oscar/cerrados/login.svg" style="object-fit:fill; width:80%; margin:0px"
-				alt="back" />
-			<span class="iconText iconEntrar"></span>
-		</button>
-		<div id="quieresrecuperar">
-			<button class='icon' type="button" onclick="location.href='recuperarContrasena.html'">
-				<img src="images/iconos_oscar/cerrados/recuperarPassword.svg"
-					style="object-fit:fill; width:80%; margin:0px" alt="recuperar contrasena" />
-				<span class="iconText recuperar_contrasena"></span>
+			<button class='icon' type="button" onclick="location.href='index.html'">
+				<img src="images/iconos_oscar/cerrados/back.svg" style="object-fit:fill; width:80%; margin:0px"
+					alt="back" />
+				<span class="iconText iconVolver"></span>
 			</button>
+			<div id="quieresrecuperar">
+				<button class='icon' type="button" onclick="location.href='recuperarContrasena.html'">
+					<img src="images/iconos_oscar/cerrados/recuperarPassword.svg"
+						style="object-fit:fill; width:80%; margin:0px" alt="recuperar contrasena" />
+					<span class="iconText recuperar_contrasena"></span>
+				</button>
+			</div>
+			<button class='icon' type="submit">
+				<img src="images/iconos_oscar/cerrados/login.svg" style="object-fit:fill; width:80%; margin:0px"
+					alt="back" />
+				<span class="iconText iconEntrar"></span>
+			</button>
+			
 		</div>
-	</div>
 	</form>
 
 	<div id="modal" style="display:none">

@@ -143,7 +143,6 @@ function includeUserDesconectar() {
 
     var UserDesconectar = '<div class="UserDesconectar">' +
         '<a onclick="desconectar();" class = "iconDesconectar"> </a>' +
-        '<label id="usuario"></label>' +
         '</div>';
 
     $("#UserDesconectar").append(UserDesconectar);

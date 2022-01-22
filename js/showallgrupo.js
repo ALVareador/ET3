@@ -1,20 +1,21 @@
-function construyeFila(fila) {
+function construyeFila(fila,num) {
 
+    color = num % 2;
     let atributosFunciones = ["'" + fila.id_grupo + "'", "'" + fila.nombre_grupo + "'", "'" + fila.descripcion_grupo + "'"];
 
     var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetalleGrupo(' + atributosFunciones +
-    ')" alt="Detalle Grupo"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles Grupo"></a></div>';
-var celdaAccionesEditar = '<div><a onclick="showEditarGrupo(' + atributosFunciones +
-    ')" alt="Editar Grupo"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar grupo"></a></div>';
-var celdaAccionesEliminar = '<div><a onclick="showEliminarGrupo(' + atributosFunciones +
-    ')" alt="Eliminar Grupo"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar grupo"></a></div></div>';
+        ')" alt="Detalle Grupo"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles Grupo"></a></div>';
+    var celdaAccionesEditar = '<div><a onclick="showEditarGrupo(' + atributosFunciones +
+        ')" alt="Editar Grupo"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar grupo"></a></div>';
+    var celdaAccionesEliminar = '<div><a onclick="showEliminarGrupo(' + atributosFunciones +
+        ')" alt="Eliminar Grupo"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar grupo"></a></div></div>';
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
-    var filaTabla = '<tr> <td>' + fila.id_grupo +
-        '</td> <td>' + fila.nombre_grupo +
-        '</td> <td>' + fila.descripcion_grupo +
-        '</td> <td>' + celdaAcciones +
+    var filaTabla =
+        '<tr class=\"colorLinea' + color + '\"> <td>' + fila.nombre_grupo +
+        '</td> <td <tdclass=\"celdasDatos\">' + fila.descripcion_grupo +
+        '</td> <td class=\"celdasAcciones\">' + celdaAcciones +
         '</td> </tr>';
 
     return filaTabla;
@@ -39,7 +40,7 @@ function getLisGrupos() {
         if (response.ok == true) {
             $("#datosGrupo").html("");
             for (var i = 0; i < response.resource.length; i++) {
-                var tr = construyeFila(response.resource[i]);
+                var tr = construyeFila(response.resource[i],i);
                 $("#datosGrupo").append(tr);
             }
 

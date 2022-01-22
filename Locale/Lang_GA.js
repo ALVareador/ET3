@@ -77,7 +77,7 @@ arrayGA = {
 	'iconEditar': 'Editar',
 	'iconEliminar': 'Quitar',
 	'iconAdd': 'Engadir',
-	'iconDesconectar': 'Desconectar:',
+	'iconDesconectar': 'Desconectar',
 	'iconAddUser': 'Engadir usuario',
 	'iconSearchUser': 'Buscar usuarios',
 	'iconDetailUser': 'Detalles do usuario',

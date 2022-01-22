@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Ubuntu-Medium';
-    src: url('fonts/Ubuntu/Ubuntu-Light.ttf'); 
+    src: url('fonts/Ubuntu/Ubuntu-Light.ttf');
 
 }
 
@@ -42,9 +42,9 @@ body {
 }
 
 #CuadroIndex {
-    display:flex;
-    justify-content:center;
-	background: #ffffff;
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
     position: absolute;
     z-index: 20;
     border-radius: 5px;
@@ -114,20 +114,19 @@ select {
     border-color: lightgray;
 }
 
-legend
-{
+legend {
     font-size: 25px;
     color: #137fe2;
 }
 
-.formulario { 
+.formulario {
     /*flex-direction: row;
     justify-content: center;
 
     position: fixed;*/
-    display:flex;
-    justify-content:center;
-	background: #ffffff;
+    display: flex;
+    justify-content: center;
+    background: #ffffff;
     position: absolute;
     z-index: 2;
     border-radius: 5px;
@@ -138,15 +137,22 @@ legend
     margin-right: 30%;
 }
 
-.fondoFormulario{
-    width:100%; /*Toma el 100% del ancho de la página*/
-	height:100%; /*Toma el 100% del alto de la página*/
-	position:fixed; /*Con este código hacemos que el contenedor se mantenga en la pantalla y para que tome las dimensiones del body y no de la entrada*/
-	background-color: rgba(1, 1, 1, 0.5); /*Color de fondo, incluye opacidad del 90%*/
-    align-self:center;
-	top:0px; /*Position superior*/
-	left:0px; /*Posición lateral*/
-	z-index:1001; /*Evitamos que algún elemento del blog sobreponga la ventana modal*/
+.fondoFormulario {
+    width: 100%;
+    /*Toma el 100% del ancho de la página*/
+    height: 100%;
+    /*Toma el 100% del alto de la página*/
+    position: fixed;
+    /*Con este código hacemos que el contenedor se mantenga en la pantalla y para que tome las dimensiones del body y no de la entrada*/
+    background-color: rgba(1, 1, 1, 0.5);
+    /*Color de fondo, incluye opacidad del 90%*/
+    align-self: center;
+    top: 0px;
+    /*Position superior*/
+    left: 0px;
+    /*Posición lateral*/
+    z-index: 1001;
+    /*Evitamos que algún elemento del blog sobreponga la ventana modal*/
 }
 
 fieldset {
@@ -163,8 +169,8 @@ fieldset {
     vertical-align: super;
 }
 
-#botones{
-    margin-left: auto; 
+#botones {
+    margin-left: auto;
     margin-right: auto;
 }
 
@@ -276,7 +282,6 @@ td {
 
 #addButtomIcon {
     height: 20px;
-    margin-right: 5px;
 }
 
 #addButtomText {
@@ -293,7 +298,6 @@ td {
 
 #searchButtomIcon {
     height: 20px;
-    margin-right: 5px;
 }
 
 #searchButtomText {
@@ -304,17 +308,24 @@ td {
 /*Modal*/
 
 #modal {
-	width:100%; /*Toma el 100% del ancho de la página*/
-	height:100%; /*Toma el 100% del alto de la página*/
-	position:fixed; /*Con este código hacemos que el contenedor se mantenga en la pantalla y para que tome las dimensiones del body y no de la entrada*/
-	background-color: rgba(1, 1, 1, 0.95); /*Color de fondo, incluye opacidad del 90%*/
-	top:0; /*Position superior*/
-	left:0; /*Posición lateral*/
-	z-index:1001; /*Evitamos que algún elemento del blog sobreponga la ventana modal*/
+    width: 100%;
+    /*Toma el 100% del ancho de la página*/
+    height: 100%;
+    /*Toma el 100% del alto de la página*/
+    position: fixed;
+    /*Con este código hacemos que el contenedor se mantenga en la pantalla y para que tome las dimensiones del body y no de la entrada*/
+    background-color: rgba(1, 1, 1, 0.95);
+    /*Color de fondo, incluye opacidad del 90%*/
+    top: 0;
+    /*Position superior*/
+    left: 0;
+    /*Posición lateral*/
+    z-index: 1001;
+    /*Evitamos que algún elemento del blog sobreponga la ventana modal*/
 }
 
-#contenido-interno { 
-	background: #d7e6ec;
+#contenido-interno {
+    background: #d7e6ec;
     position: absolute;
     z-index: 20;
     border-radius: 5px;
@@ -325,42 +336,42 @@ td {
 }
 
 #aviso {
-	position:absolute;
-	margin-top: 2%;
-	margin-left: 2%;
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 2%;
 }
 
 #aviso img {
-	width: 19%;
-	margin-top: -3%;
+    width: 19%;
+    margin-top: -3%;
 }
 
 #mensajeError {
-	font-size: 35px;
-	font-weight: bold;
-	position: absolute;
-	margin-left: 11%;
-	margin-top: 2%;
-	color: #ff0000;
-	font-family: "Times New Roman";
-	text-align: center;
+    font-size: 35px;
+    font-weight: bold;
+    position: absolute;
+    margin-left: 11%;
+    margin-top: 2%;
+    color: #ff0000;
+    font-family: "Times New Roman";
+    text-align: center;
 }
 
 #cerrar {
-	position:absolute;
-    top:0px;
-    right:0px;
-    padding:2px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    padding: 2px;
 }
 
 .iconCerrar {
-	cursor: pointer;
-	width: 25px;
+    cursor: pointer;
+    width: 25px;
 }
 
-.bienvenida{
-    font-size:75px;
-    text-align:center;
+.bienvenida {
+    font-size: 75px;
+    text-align: center;
 }
 
 #footerNombres {
@@ -379,7 +390,7 @@ td {
     align-self: center;
 }
 
-#Funciones{
+#FuncionesRegistro{
     display:flex;
     justify-content: center;
     margin-left: auto;
