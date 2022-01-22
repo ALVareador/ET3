@@ -23,7 +23,7 @@
 <body onload="includeCabecera();validaAutenticado();getLisPersonas();setLang('')">
     <div id="navBar">
         <div class="itemNavBar" id="linkUsuarios">
-            <a class="USUARIOTOP navBarLink" class="navBarLink "  href="showallusuario.html"></a>
+            <a class="USUARIOTOP navBarLink" class="navBarLink " href="showallusuario.html"></a>
         </div>
         <div class="itemNavBar" id="linkGrupos">
             <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
@@ -44,14 +44,18 @@
             <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
         </div>
         <div class="itemNavBar" id="linkInscripciones">
-            <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html"><h1></h1></a>
-        </div>
-        <div class="itemNavBar" id="UserDesconectar"></div>
-        <div class="itemNavBar" id="linkCambiarContraseña">
-            <a class="CAMBIARCONTRASEÑATOP navBarLink" href="cambiarcontrasena.html">
-                    <h1></h1>
+            <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html">
+                <h1></h1>
             </a>
-    </div>
+        </div>
+        <div class="itemNavBar" id="linkCambiarContraseña">
+            <a class="navBarLink" href="cambiarcontrasena.html">
+                <img class="CAMBIARTOP" alt="" src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
+            </a>
+        </div>
+        
+        <div class="itemNavBar" id="UserDesconectar"></div>
+
     </div>
 
     <div id="divformgenericoPersona" style="display: none;" class='fondoFormulario'>
@@ -100,7 +104,7 @@
                     <label class='sube_persona' id='labelfotopersona'></label>
                     <input type='file' accept=".png, .jpg" name='subefotopersona' id='subefotopersona' onblur=""><br>
                     <div style="display:none" id="errorFormatoUpload"></div>
-                    
+
                     <label class='esCeliaco_persona'></label>
                     <select name='esCeliaco_persona' id='esCeliaco_persona'>
                         <option id="seleccionNula" value="" class="seleccionNula"></option>
@@ -115,18 +119,17 @@
                     </select>
                     <br>
                     <div id="botones">
-                        <button id='submitbuttom' type='submit'><img
-                                        src="./images/iconos_oscar/cerrados/tick.svg"
-                                        width="50px" /></button>
-                </div>
+                        <button id='submitbuttom' type='submit'><img src="./images/iconos_oscar/cerrados/tick.svg"
+                                width="50px" /></button>
+                    </div>
                 </form>
                 <a id="cerrarForm" href="#" onclick="cerrar('divformgenericoPersona','','')" class="tooltip">
                     <img class="iconCerrar" alt="Cerrar" src="images/iconos_oscar/cerrados/cross.svg" />
                 </a>
             </div>
-        
-        
-    </div>
+
+
+        </div>
     </div>
 
     <div id="divtablaPersonas">
@@ -144,7 +147,7 @@
             </button>
 
         </div>
-        
+
         <div id="divTabla">
             <table id="tablaPersonas" border='1'>
                 <thead>
@@ -182,7 +185,7 @@
         <p class="itemfooterNombres">Álvaro Nóvoa Fernández</p>
         <p class="itemfooterNombres">Óscar Lestón Casais</p>
         <p class="itemfooterNombres">Rubén Gómez Martínez</p>
-</footer>
+    </footer>
 </body>
 
 </html>
