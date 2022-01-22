@@ -399,8 +399,6 @@ arrayES = {
 	'ERROR_INSERTAR_ESPACIO': 'No se puede introducir el espacio, compruebe posibles errores de formato',
 	'ERROR_INSERTAR_CATEGORIA': 'No se puede introducir la categoría, compruebe errores de formato de cada campo',
 
-	'contrasena': 'Contraseña: ',
-	'contrasenanueva': 'Nueva Contraseña: ',
 	'tituloAnadir': 'Formulario de inserción',
 	'tituloEditar': 'Formulario de edición',
 	'tituloDetalle': 'Formulario de detalle',
@@ -442,7 +440,9 @@ arrayES = {
 	'empieza_hash': 'El campo color debe comenzar con #',
 	'limite_superior_color': 'El campo  color no puede tener mas de 7 caracteres',
 	'error_formato_color': 'El campo  color debe contener 6 caracteres que deben estar entre el 0 y 9, y la A y F mayusculas',
-	'error_caracteres_color': 'El campo  color debe de ser de 7 caracteres'
+	'error_caracteres_color': 'El campo  color debe de ser de 7 caracteres',
+	'error_formato_upload_cien': 'El nombre del archivo a subir debe tener como máximo 100 caracteres y como mínimo 5',
+	'error_formato_upload_doscientos': 'El nombre del archivo a subir debe tener como máximo 200 caracteres y como mínimo 5',
 }
 
 
