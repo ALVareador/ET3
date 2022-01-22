@@ -95,7 +95,7 @@ arrayES = {
 	'iconEditar': 'Editar',
 	'iconEliminar': 'Eliminar',
 	'iconAdd': 'Añadir',
-	'iconDesconectar': 'Desconectar: ',
+	'iconDesconectar': 'Desconectar',
 	'iconAddUser': 'Añadir Usuario',
 	'iconSearchUser': 'Buscar Usuarios',
 	'iconDetailUser': 'Detalle Usuario',
