@@ -53,7 +53,7 @@
                 <div id="contenidoForm" class='formulario'>
                         <div class="formularioComun">
                                 <form name='formgenericoUsuario' id='formgenericoUsuario' method="post" action=""
-                                        onsubmit="">
+                                        onsubmit="return comprobarUsuario();">
 
                                         <h1 id="tituloAccion"></h1>
 
@@ -62,12 +62,12 @@
                                         <div style="display:none" id="errorFormatoDni"></div>
 
                                         <label class='labelusuario'></label>
-                                        <input type='text' name='usuario' id='labelusuario' onblur='return comprobarNombreParam("labelusuario","errorFormatoDni");'><br>
-                                        <div style="display:none" id="errorFormatoUser"></div>
+                                        <input type='text' name='usuario' id='labelusuario' onblur='return comprobarNombreParam("labelusuario");'><br>
+                                        <div style="display:none" id="errorFormatoNombre"></div>
 
                                         <label class='contrasena'></label>
                                         <input type='text' name='contrasena' id='contrasena' onblur='return comprobarContraseña()'><br>
-                                        <div style="display:none" id="errorFormatoPass"></div>
+                                        <div style="display:none" id="errorFormatoPassword"></div>
 
                                         <label class='id_grupo'></label>
                                         <select name='id_grupo' id='id_grupo'><br>

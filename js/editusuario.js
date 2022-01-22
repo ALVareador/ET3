@@ -27,7 +27,7 @@ function addUsuario() {
 }
 
 function comprobarUsuario(){
-	if(comprobarDNI("dni_usuario","errorFormatoDni") && comprobarNombreParam("labelusuario","errorFormatoDni") && comprobarContraseña()){
+	if(comprobarDNI("dni_usuario","errorFormatoDni") && comprobarNombreParam("labelusuario") && comprobarContraseña()){
 		encriptar("contrasena");
 		return true;
 	}else{
@@ -57,7 +57,7 @@ function showAddUsuario() {
 	// rellenamos los onblur de los input que se validad
 
 	$("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario","errorFormatoDni");');
-	$("#labelusuario").attr('onblur', 'comprobarNombreParam("labelusuario","errorFormatoDni");');
+	$("#labelusuario").attr('onblur', 'comprobarNombreParam("labelusuario");');
 	$("#contrasena").attr('onblur', 'comprobarContraseña();');
 	
 }
@@ -66,7 +66,6 @@ function editUsuario() {
 
 	var idSession = getCookie('sessionId');
 
-	//insertacampo(document.formgenericoUsuario,'ID_SESSION', idSession);
 	insertacampo(document.formgenericoUsuario, 'controlador', 'usuario');
 	insertacampo(document.formgenericoUsuario, 'action', 'editar');
 	$("#dni_usuario").attr('disabled', false);
@@ -118,7 +117,7 @@ function showEditarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, borra
 
 	// rellenamos los onblur de los input que se validad
 	$("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario","errorFormatoDni");');
-	$("#labelusuario").attr('onblur', 'comprobarNombreParam("labelusuario","errorFormatoNombre");');
+	$("#labelusuario").attr('onblur', 'comprobarNombreParam("labelusuario");');
 	$("#contrasena").attr('onblur', 'comprobarContraseña();');
 
 	deleteoptionsSelect("id_grupo");
@@ -166,7 +165,6 @@ function deleteUsuario() {
 
 	var idSession = getCookie('sessionId');
 
-	//insertacampo(document.formgenericoUsuario,'ID_SESSION', idSession);
 	insertacampo(document.formgenericoUsuario, 'controlador', 'usuario');
 	insertacampo(document.formgenericoUsuario, 'action', 'borrar');
 	$("#dni_usuario").attr('disabled', false);

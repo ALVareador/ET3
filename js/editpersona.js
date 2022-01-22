@@ -85,7 +85,6 @@ function showAddPersona() {
     $("#direccion_persona").attr('onblur', 'comprobarDireccion()');
     $("#telefono_persona").attr('onblur', 'comprobarTelefono()');
     $("#email_persona").attr('onblur', 'comprobarEmail()');
-    $("#foto_persona").attr('onblur', 'comprobarUploadFoto()');
 
 
 
@@ -217,7 +216,6 @@ function showEditarPersona(dni_persona, nombre_persona, apellidos_persona, fecha
     $("#direccion_persona").attr('onblur', 'comprobarDireccion()');
     $("#telefono_persona").attr('onblur', 'comprobarTelefono()');
     $("#email_persona").attr('onblur', 'comprobarEmail()');
-    $("#foto_persona").attr('onblur', '');
 
     $("#esCeliaco_persona option[value='" + esCeliaco_persona + "'").attr("selected", true);
     $("#borrado_persona option[value='" + borrado_persona + "'").attr("selected", true);
