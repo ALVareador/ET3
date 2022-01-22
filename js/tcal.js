@@ -126,7 +126,6 @@ function f_tcalCancel() {
 	for (var n = 0; n < a_inputs.length; n++)
 		f_tcalRemoveClass(a_inputs[n], s_pfx + 'Active');
 
-	comprobarFechaDeNacimiento();
 }
 
 function f_tcalUpdate(n_date, b_keepOpen) {

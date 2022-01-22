@@ -776,6 +776,7 @@ function comprobarApellido() {
 
 /**Función que valida la fecha de nacimiento (no vacía y anterior a la fecha actual, porque al usar tcal garantizamos que es del formato dd/mm/aaaa)*/
 function comprobarFechaDeNacimiento() {
+
     var valor = document.getElementById("fechaNacimiento_persona").value;
     document.getElementById("fechaNacimiento_persona").style.borderWidth = "2px";
 
@@ -784,6 +785,51 @@ function comprobarFechaDeNacimiento() {
         return true;
     } else {
         validacionKO("fechaNacimiento_persona", "errorFormatoFechaNacimiento");
+        return false;
+    }
+
+}
+
+function comprobarFecha() {
+
+    var valor = document.getElementById("fecha_solicitud_inscripcion").value;
+    document.getElementById("fecha_solicitud_inscripcion").style.borderWidth = "2px";
+
+    if (validaNoVacio("fecha_solicitud_inscripcion", "errorFormatoFechaInscripcion", "fecha")) {
+        validacionOK("fecha_solicitud_inscripcion", "errorFormatoFechaInscripcion");
+        return true;
+    } else {
+        validacionKO("fecha_solicitud_inscripcion", "errorFormatoFechaInscripcion");
+        return false;
+    }
+
+}
+
+function comprobarFechaPago() {
+
+    var valor = document.getElementById("fecha_pago_inscripcion").value;
+    var valor2 = document.getElementById("fecha_solicitud_inscripcion").value;
+
+    if (validaNoVacio("fecha_pago_inscripcion", "errorFormatoFechaPago", "fecha") && fechamayor(valor, valor1, "fecha_pago_inscripcion")) {
+        validacionOK("fecha_pago_inscripcion", "errorFormatoFechaPago");
+        return true;
+    } else {
+        validacionKO("fecha_pago_inscripcion", "errorFormatoFechaPago");
+        return false;
+    }
+
+}
+
+function comprobarFechaAceptacion() {
+
+    var valor = document.getElementById("fecha_aceptacion_inscripcion").value;
+    var valor2 = document.getElementById("fecha_pago_inscripcion").value;
+
+    if (validaNoVacio("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion", "fecha") && fechamayor(valor, valor1, "fecha_aceptacion_inscripcion")) {
+        validacionOK("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion");
+        return true;
+    } else {
+        validacionKO("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion");
         return false;
     }
 
@@ -816,23 +862,36 @@ function fechamayoractual(fComp,campo){
     
 }
 
-function fechamayor(fComp, fLimite){ //POR REVISAR
+function fechamayor(fComp, fLimite, campo){ //POR REVISAR
+
+    var fCompValue= document.getElementById(fComp).value;
+    var fLimiteValue= document.getElementById(fLimite).value;
+
     var codigo= '';
     let arrFecha= fComp.split('/');
+    let arrFechaLimite= fLimite.split('/');
 
     var myDay= parseInt(arrFecha[0]);
     var myMonth= parseInt(arrFecha[1])-1;
     var myYear= parseInt(arrFecha[2]);
 
+    var limitDay= parseInt(arrFechaLimite[0]);
+    var limitMonth= parseInt(arrFechaLimite[1])-1;
+    var limitYear= parseInt(arrFechaLimite[2]);
+
     var fecha = new Date(myYear, myMonth, myDay);
-    console.log(fecha);
-    if(fecha < fechaActual){
-        validacionOK("fechaNacimiento_persona", "errorFormatoFechaNacimiento");
+    var fechaLimite= new Date(limitYear, limitMonth, limitDay);
+
+    if(fecha < fechaLimite){
+        validacionOK(campo, "errorFormatoFecha");
         return true;
     }else{
         switch (campo) {
-            case 'fechaNacimiento_persona':
-                codigo = "error_fecha_mayor_actual";
+            case 'fecha_pago_inscripcion':
+                codigo = "error_fecha_pago_mayor_solicitud";
+                break;
+            case 'fecha_aceptacion_inscripcion':
+                codigo = "error_fecha_pago_mayor_aceptacion";
                 break;
         }
         addCodeError("errorFormatoFechaNacimiento", codigo);

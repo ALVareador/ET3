@@ -14,8 +14,10 @@
     <script type="text/javascript" src="Locale/Lang_ES.js"></script>
     <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
-    <link rel="stylesheet" href="css/CssComun.css">
-    <link rel="stylesheet" href="css/showallinscripcion.css">
+
+
+    <link rel="stylesheet" type="text/css" href="css/tcal.css" />
+    <script type="text/javascript" src="js/tcal.js"></script>
 </head>
 
 <body
@@ -68,7 +70,7 @@
                 <div style="display:none" id="errorFormatoDni"></div>
                 <!--Fecha de la inscripcion-->
                 <label class='fecha_solicitud_inscripcion'></label>
-                <input type='date' name='fecha_solicitud_inscripcion' id='fecha_solicitud_inscripcion' onblur=''><br>
+                <input type='text' name='fecha_solicitud_inscripcion' id='fecha_solicitud_inscripcion' class= "tcal" onblur=''><br>
                 <div style="display:none" id="errorFormatoFechaInscripcion"></div>
             </fieldset>
 
@@ -83,11 +85,11 @@
                 <div style="display:none" id="errorFormatoDocumentoPago"></div>
                 <!--Fecha de realizacion del Pago-->
                 <label class='fecha_pago_inscripcion'></label>
-                <input type='date' name='fecha_pago_inscripcion' id='fecha_pago_inscripcion' onblur=''><br>
+                <input type='text' name='fecha_pago_inscripcion' id='fecha_pago_inscripcion' class= "tcal" onblur=''><br>
                 <div style="display:none" id="errorFormatoFechaPago"></div>
                 <!--Fecha aceptacion del Pago-->
                 <label class='fecha_aceptacion_inscripcion'></label>
-                <input type='date' name='fecha_aceptacion_inscripcion' id='fecha_aceptacion_inscripcion' onblur=''><br>
+                <input type='text' name='fecha_aceptacion_inscripcion' id='fecha_aceptacion_inscripcion' class= "tcal" onblur=''><br>
                 <div style="display:none" id="errorFormatoFechaAceptacion"></div>
             </fieldset>
 

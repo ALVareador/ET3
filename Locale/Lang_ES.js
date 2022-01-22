@@ -408,6 +408,9 @@ arrayES = {
 	'datosInscripcion': 'Datos de la inscripción: ',
 	'datosPago': 'Datos del pago: ',
 
+	'error_fecha_pago_mayor_aceptacion':'La fecha de pago no puede ser menor que la de solicitud',
+    'error_fecha_pago_mayor_aceptacion':'La fecha de aceptación no puede ser menor que la de pago',
+
 	'USUARIOTOP': 'Usuarios',
 	'GRUPOTOP': 'Grupos',
 	'RESPONSABLETOP': 'Responsables',

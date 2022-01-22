@@ -25,9 +25,10 @@
 
 	<div id="navBar"></div>
 
-	<div id="divcambiarcontrasena" style="display:none">
-		<form name="formulariocambiar" id="formulariocambiar" method="post" action="javascript:cambiarcontraseña();"
+	<div id="divcambiarcontrasena">
+		<form name="formulariocambiar" id="formulariocambiar" method="post" action="javascript:cambiarcontrasena();"
 			onsubmit="">
+			
 			<label class='dni_usuario'></label>
 			<input type='text' name='dni_usuario' id='dni_usuario' onblur=''><br>
 
@@ -49,7 +50,9 @@
 			</select>
 
 			<label class='contrasenanueva'></label>
-			<input type='text' name='contrasenanueva' id='contrasena' onblur=''><br>
+			<input type='text' name='contrasenanueva' id='contrasena' onblur=''>
+			<br>
+
 			<input type="submit">
 		</form>
 	</div>

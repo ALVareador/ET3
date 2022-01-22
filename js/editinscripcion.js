@@ -333,8 +333,8 @@ function showAddInscripcion() {
     $("#id_inscripcion").attr('onblur', 'comprobarId("id_inscripcion", "errorFormatoId");');
     $("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario", "errorFormatoDni");');
     $("#fecha_solicitud_inscripcion").attr('onblur', 'comprobarFecha("fecha_solicitud_inscripcion", "errorFormatoFechaInscripcion");');
-    $("#fecha_pago_inscripcion").attr('onblur', 'comprobarFecha("fecha_pago_inscripcion", "errorFormatoFechaPago");');
-    $("#fecha_aceptacion_inscripcion").attr('onblur', 'comprobarFecha("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion");');
+    $("#fecha_pago_inscripcion").attr('onblur', 'comprobarFechaPago("fecha_pago_inscripcion", "errorFormatoFechaPago");');
+    $("#fecha_aceptacion_inscripcion").attr('onblur', 'comprobarFechaAceptacion("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion");');
 
     // eliminar input no necesario
     $("#label_documento_pago").attr('style', 'display:none');

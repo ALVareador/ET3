@@ -8,8 +8,8 @@ function cambiarcontrasena() {
 	var idioma = getCookie('lang');
 	var idSession = getCookie('sessionId');
 
-	addActionControler(document.formulariocambiar, 'buscar', 'usuario')
 	insertacampo(document.formulariocambiar, 'ID_SESSION', idSession);
+	addActionControler(document.formulariocambiar, 'cambiar_contrasena', 'usuario');
 
 	$.ajax({
 		method: "POST",
@@ -17,19 +17,8 @@ function cambiarcontrasena() {
 		data: $("#formulariocambiar").serialize(),
 	}).done(function (response) {
 		if (response.ok == true) {
-			nodos = document.getElementById("formgenericoCategoria").childNodes;
-			for (var i = 0; i < nodos.length; i++) {
-				var item = nodos[i];
-				if (item.id != undefined) {
-					//  alert(item.id);
-				}
-			}
-			//alert(nodos);
-			for (var i = 0; i < response.resource.length; i++) {
-				var tr = construyeFila(response.resource[i]);
-			}
-
-			setLang(idioma);
+			respuestaOKAjax();
+			
 		} else {
 			$("#mensajeError").removeClass();
 			$("#mensajeError").addClass(response.code);
@@ -41,7 +30,7 @@ function cambiarcontrasena() {
 		}
 
 		deleteActionController();
-
+		setLang(idioma);
 	});
 }
 
