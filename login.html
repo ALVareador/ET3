@@ -24,20 +24,47 @@
 
 	<link rel="stylesheet" href="css/iconos.css">
 	<link rel="stylesheet" href="css/divs.css">
+	<link rel="stylesheet" href="css/CssComun.css">
 
 </head>
 
-<title class="saludoLOGIN"></title>
-
 <body onload="includeMenuIdioma();setLang('');">
 
-	<div id="navBar"></div>
+	<div id="navBar">
+		<div class="itemNavBar" id="linkUsuarios">
+			<a class="navBarLink" class="navBarLink " href="#"></a>
+		</div>
+		<div class="itemNavBar" id="linkGrupos">
+			<a class="navBarLink" class="navBarLink" href="#"></a>
+		</div>
+		<div class="itemNavBar" id="linkResponsables">
+			<a class="navBarLink" class="navBarLink " href="#"></a>
+		</div>
 
-	<h1 class="saludoLOGIN"></h1>
+		<div class="itemNavBar" id="linkPersonas">
+			<a class="navBarLink" class="navBarLink " href="#"></a>
+		</div>
+		<div class="itemNavBar" id="linkEspacios">
+			<a class="navBarLink" class="navBarLink " href="#"></a>
+		</div>
+		<div class="itemNavBar" id="linkCategorias">
+			<a class="navBarLink" class="navBarLink" href="#"></a>
+		</div>
+		<div class="itemNavBar" id="linkActividades">
+			<a class="navBarLink" class="navBarLink" href="#"></a>
+		</div>
+		<div class="itemNavBar" id="linkInscripciones">
+			<a class="navBarLink" href="#">
+				<h1></h1>
+			</a>
+		</div>
+		<div class="itemNavBar" id="UserDesconectar"></div>
+	</div>
 
 	<form name="formularioLogin" id="formularioLogin" method="post" action="javascript:login();"
 		onsubmit="return comprobarLogin();">
 
+		<h1 class="saludoLOGIN"></h1>
 		<label class="labelusuario"></label>
 		<input type="text" name="usuario" id="txtUsuario" onblur="return comprobarUser();"> <br>
 		<div style="display:none" id="errorFormatoUser"></div>
@@ -46,6 +73,7 @@
 		<input type="password" name="contrasena" id="contrasena" onblur="return comprobarPassword();">
 		<div style="display:none" id="errorFormatoPassword"></div>
 
+		<div id="FuncionesLogin">
 		<button class='icon' type="button" onclick="location.href='index.html'">
 			<img src="images/iconos_oscar/cerrados/back.svg" style="object-fit:fill; width:80%; margin:0px"
 				alt="back" />
@@ -57,15 +85,16 @@
 				alt="back" />
 			<span class="iconText iconEntrar"></span>
 		</button>
-
-	</form>
-	<!-- falta icono recuperar contraseña-->
-	<div id="quieresrecuperar">
-		<button class='icon' type="button" onclick="location.href='recuperarContrasena.html'">
-			<img src="images/iconos_oscar/cerrados/recuperarPassword.svg" style="object-fit:fill; width:80%; margin:0px" alt="recuperar contrasena" />
-			<span class="iconText recuperar_contrasena"></span>
-		</button>
+		<div id="quieresrecuperar">
+			<button class='icon' type="button" onclick="location.href='recuperarContrasena.html'">
+				<img src="images/iconos_oscar/cerrados/recuperarPassword.svg"
+					style="object-fit:fill; width:80%; margin:0px" alt="recuperar contrasena" />
+				<span class="iconText recuperar_contrasena"></span>
+			</button>
+		</div>
 	</div>
+	</form>
+
 	<div id="modal" style="display:none">
 		<div id="contenido-interno">
 			<div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
@@ -76,6 +105,12 @@
 			</button>
 		</div>
 	</div>
+	<footer id="footerNombres">
+		<p class="itemfooterNombres">Andrés García Figueroa Horas:</p>
+		<p class="itemfooterNombres">Álvaro Nóvoa Fernández Horas: </p>
+		<p class="itemfooterNombres">Óscar Lestón Casais Horas: </p>
+		<p class="itemfooterNombres">Rubén Gómez Martínez Horas:</p>
+	</footer>
 </body>
 
 </html>
