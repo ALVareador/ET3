@@ -22,7 +22,6 @@
 
 	<link rel="stylesheet" href="css/iconos.css">
 	<link rel="stylesheet" href="css/divs.css">
-	<link rel="stylesheet" href="css/showallActividad.css">
 	<!--Recursos del calendario-->
 	<link rel="stylesheet" type="text/css" href="css/tcal.css" />
 	<script type="text/javascript" src="js/tcal.js"></script>
@@ -38,92 +37,80 @@
 	<form name="formularioRegistro" id="formularioRegistro" enctype="multipart/form-data" method="post"
 		action="javascript:registrarUsuario();" onsubmit="return comprobarRegistro();">
 
-		<div class="div_Input">
-			<label class='dni_usuario'></label>
-			<input type="text" name="dni_persona" id="txtdniusuario"
-				onblur="return comprobarDNI('txtdniusuario', 'errorFormatoDNI')"> <br>
-		</div>
+		<label class='dni_usuario'></label>
+		<input type="text" name="dni_persona" id="txtdniusuario"
+			onblur="return comprobarDNI('txtdniusuario', 'errorFormatoDNI')"> <br>
 		<div style="display:none" id="errorFormatoDNI"></div>
 
-		<div class="div_Input">
-			<label class='nombre_persona'></label>
-			<input type="text" name="nombre_persona" id="nombre_persona" onblur="return comprobarNombrePersona()"> <br>
-		</div>
-		<div style="display:none" id="errorFormatoNombrePersona"></div>
+		<label class='nombre_persona'></label>
+		<input type="text" name="nombre_persona" id="nombre_persona"
+			onblur="return comprobarNombreParam('nombre_persona')"> <br>
+		<div style="display:none" id="errorFormatoNombre"></div>
 
-		<div class="div_Input">
-			<label class='apellidos_persona'></label>
-			<input type="text" name="apellidos_persona" id="apellidos_persona" onblur="return comprobarApellido()"> <br>
-		</div>
+		<label class='apellidos_persona'></label>
+		<input type="text" name="apellidos_persona" id="apellidos_persona" onblur="return comprobarApellido()"> <br>
 		<div style="display:none" id="errorFormatoApellidosPersona"></div>
 
-		<div class="div_Input">
-			<label class='fechaNacimiento_persona'></label>
-			<input type="text" name="fechaNacimiento_persona" id="fechaNacimiento_persona" class="tcal" readonly
-				onblur="return comprobarFechaDeNacimiento()" onchange="return comprobarFechaDeNacimiento()"
-				onclick="return comprobarFechaDeNacimiento()"> <br>
-		</div>
+		<label class='fechaNacimiento_persona'></label>
+		<input type="text" name="fechaNacimiento_persona" id="fechaNacimiento_persona" class="tcal" readonly
+			onblur="return comprobarFechaDeNacimiento()" onchange="return comprobarFechaDeNacimiento()"
+			onclick="return comprobarFechaDeNacimiento()"> <br>
 		<div style="display:none" id="errorFormatoFechaNacimiento"></div>
 
-		<div class="div_Input">
-			<label class='direccion_persona'></label>
-			<input type="text" name="direccion_persona" id="direccion_persona" onblur="return comprobarDireccion()">
-			<br>
-		</div>
+		<label class='direccion_persona'></label>
+		<input type="text" name="direccion_persona" id="direccion_persona" onblur="return comprobarDireccion()">
+		<br>
+
 		<div style="display:none" id="errorFormatoDireccion"></div>
 
-		<div class="div_Input">
-			<label class='telefono_persona'></label>
-			<input type="text" name="telefono_persona" id="telefono_persona" onblur="return comprobarTelefono()"> <br>
-		</div>
+
+		<label class='telefono_persona'></label>
+		<input type="text" name="telefono_persona" id="telefono_persona" onblur="return comprobarTelefono()"> <br>
+
 		<div style="display:none" id="errorFormatoTelefono"></div>
 
-		<div class="div_Input">
-			<label class='email_persona'></label>
-			<input type="text" name="email_persona" id="email_persona" onblur="return comprobarEmail()"> <br>
-		</div>
+
+		<label class='email_persona'></label>
+		<input type="text" name="email_persona" id="email_persona" onblur="return comprobarEmail()"> <br>
+
 		<div style="display:none" id="errorFormatoEmail"></div>
 
-		<div class="div_Input">
-			<label class='foto_persona'></label>
-			<input type="file" accept=".png" name="foto_persona" id="foto_persona" onblur=""> <br>
-		</div>
+
+		<label class='foto_persona'></label>
+		<input type="file" accept=".png" name="foto_persona" id="foto_persona" onblur=""> <br>
+
 		<div style="display:none" id=""></div>
 
-		<div class="div_Input">
-			<label class='esCeliaco_persona'></label>
-			<select name="esCeliaco_persona" id="esCeliaco_persona" onchange="">
-				<option value="" class="seleccionNula"></option>
-				<option value="1" class="SI">1</option>
-				<option value="0" class="NO">0</option>
-			</select>
-			<br>
-		</div>
+
+		<label class='esCeliaco_persona'></label>
+		<select name="esCeliaco_persona" id="esCeliaco_persona" onchange="">
+			<option value="" class="seleccionNula"></option>
+			<option value="1" class="SI">1</option>
+			<option value="0" class="NO">0</option>
+		</select>
+		<br>
+
 		<div style="display:none" id=""></div>
 
-		<div class="div_Input">
-			<label class='borrado_persona'></label>
-			<select name="borrado_persona" id="borrado_persona" onchange="">
-				<option value="" class="seleccionNula"></option>
-				<option value="1" class="SI">1</option>
-				<option value="0" class="NO">0</option>
-			</select>
-			<br>
-		</div>
+
+		<label class='borrado_persona'></label>
+		<select name="borrado_persona" id="borrado_persona" onchange="">
+			<option value="" class="seleccionNula"></option>
+			<option value="1" class="SI">1</option>
+			<option value="0" class="NO">0</option>
+		</select>
+		<br>
+
 		<div style="display:none" id=""></div>
 
-		<div class="div_Input">
-			<label class='usuario'></label>
-			<input type="text" name="usuario" id="txtUsuario" onblur="return comprobarUser()"> <br>
-		</div>
+
+		<label class='usuario'></label>
+		<input type="text" name="usuario" id="txtUsuario" onblur="return comprobarUser()"> <br>
 		<div style="display:none" id="errorFormatoUser"></div>
 
-		<div class="div_Input">
-			<label class='contrasena'></label>
-			<input type="password" name="contrasena" id="contrasena" onblur=""> <br>
-			<label class='repetir_contrasena'></label>
-			<input type="password" id="contrasenaRepetida" onblur=""> <br>
-		</div>
+
+		<label class='contrasena'></label>
+		<input type="password" name="contrasena" id="contrasena" onblur="return comprobarPassword()"> <br>
 		<div style="display:none" id="errorFormatoPassword"></div>
 
 		<input type="submit" value="Registrarse">

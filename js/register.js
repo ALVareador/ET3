@@ -1,6 +1,6 @@
 function comprobarRegistro() {
 
-	if (comprobarDNI('txtdniusuario', 'errorFormatoDNI') && comprobarNombrePersona() && comprobarApellido() && comprobarFechaDeNacimiento() && comprobarDireccion() && comprobarTelefono() && comprobarEmail() && comprobarUser() && comprobarPasswordModificacion()) {
+	if (comprobarDNI('txtdniusuario', 'errorFormatoDNI') && comprobarNombreParam("nombre_persona") && comprobarApellido() && comprobarFechaDeNacimiento() && comprobarDireccion() && comprobarTelefono() && comprobarEmail() && comprobarUser()) {
 		encriptar("contrasena");
 		generarSessionId();
 		return true;
@@ -17,14 +17,6 @@ function registrarUsuario() {
 	console.log(document.formularioRegistro);
 	var idioma = getCookie('lang');
 
-	/*
-	DEJO UNA MIERDA AQUI PARA CONCATENAR EL DNI DEL PIVE A SU FOTITO TE CUENTO EL ROLLO
-
-	var element = document.GetElementById('fileupload1');
-var file = element.files[0];
-var blob = file.slice(0, file.size, 'image/png'); 
-newFile = new File([blob], 'name.png', {type: 'image/png'});
-*/
 	var formdata = $("#formularioRegistro").serialize();
 	formdata = decodeURIComponent(formdata.replace(/%2F/g, "/"));
 	var file = $("#foto_persona")[0].files[0];

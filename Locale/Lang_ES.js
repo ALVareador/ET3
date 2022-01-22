@@ -413,6 +413,10 @@ arrayES = {
 	'error_caracteres_color': 'El campo  color debe de ser de 7 caracteres',
 	'error_formato_upload_cien': 'El nombre del archivo a subir debe tener como máximo 100 caracteres y como mínimo 5',
 	'error_formato_upload_doscientos': 'El nombre del archivo a subir debe tener como máximo 200 caracteres y como mínimo 5',
+
+	'usuario':'Nombre de Usuario: ',
+	'txtUsuario':'Nombre de Uusario: '
+
 }
 
 
