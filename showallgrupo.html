@@ -13,6 +13,9 @@
         <script type="text/javascript" src="Locale/Lang_ES.js"></script>
         <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
+        <script type="text/javascript" src="js/editgrupo.js"></script>
+        <script type="text/javascript" src="js/showallgrupo.js"></script>
+
         <link rel="stylesheet" href="css/CssComun.css">
         <link rel="stylesheet" href="css/showallGrupo.css">
 
@@ -21,35 +24,37 @@
 <body onload="includeCabecera();validaAutenticado();getLisGrupos();setLang('');">
         <div id="navBar">
                 <div class="itemNavBar" id="linkUsuarios">
-                    <a class="USUARIOTOP navBarLink" class="navBarLink "  href="showallusuario.html"></a>
+                        <a class="USUARIOTOP navBarLink" class="navBarLink " href="showallusuario.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkGrupos">
-                    <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
+                        <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkResponsables">
-                    <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
+                        <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
                 </div>
-        
+
                 <div class="itemNavBar" id="linkPersonas">
-                    <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
+                        <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkEspacios">
-                    <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
+                        <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkCategorias">
-                    <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
+                        <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkActividades">
-                    <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
+                        <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkInscripciones">
-                    <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html"><h1></h1></a>
+                        <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html">
+                                <h1></h1>
+                        </a>
                 </div>
                 <div class="itemNavBar" id="UserDesconectar"></div>
-            </div>
+        </div>
 
-        <div id='divformgenericoGrupo' style="display:none;" class='formulario'>
-                <div id="contenidoForm">
+        <div id='divformgenericoGrupo' style="display:none;" class='fondoFormulario'>
+                <div id="contenidoForm" class='formulario'>
                         <div class="formularioComun">
                                 <form name='formgenericoGrupo' id='formgenericoGrupo' method="post" action=""
                                         onsubmit="">
@@ -70,16 +75,14 @@
                                         <div style="display:none" id="errorFormatoDescr"></div>
                                         <br>
                                         <div id="botones">
-                                                <button id='submitbuttom' type='submit'><img
-                                                                src="./images/iconos_oscar/cerrados/tick.svg"
-                                                                width="50px" /></button>
+                                                <button id='submitbuttom' type='submit'><img src="./images/iconos_oscar/cerrados/tick.svg"/></button>
+                                                <a id="cerrarForm" href="#"
+                                                        onclick="cerrar('divformgenericoGrupo','','')" class="tooltip">
+                                                        <img class="iconCerrar" alt="Cerrar"
+                                                                src="./images/iconos_oscar/cerrados/cross.svg" />
+                                                </a>
                                         </div>
                                 </form>
-                                <a id="cerrarForm" href="#" onclick="cerrar('divformgenericoGrupo','','')"
-                                        class="tooltip">
-                                        <img class="iconCerrar" alt="Cerrar"
-                                                src="./images/iconos_oscar/cerrados/cross.svg" />
-                                </a>
                         </div>
                 </div>
         </div>
@@ -119,7 +122,8 @@
                 <div id="contenido-interno">
                         <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
                         <div id="mensajeError"></div>
-                        <a id="cerrar" href="showallgrupo.html" onclick="cerrar('modal', '', '');" onclick="cerrar('divformgenericoGrupo', '', '');" class="tooltip">
+                        <a id="cerrar" href="showallgrupo.html" onclick="cerrar('modal', '', '');"
+                                onclick="cerrar('divformgenericoGrupo', '', '');" class="tooltip">
                                 <img class="iconCerrar" src="images/iconos_oscar/cerrados/cross.svg" />
                         </a>
                 </div>
@@ -132,7 +136,5 @@
                 <p class="itemfooterNombres">Rubén Gómez Martínez</p>
         </footer>
 </body>
-<script type="text/javascript" src="js/editgrupo.js"></script>
-<script type="text/javascript" src="js/showallgrupo.js"></script>
 
 </html>
