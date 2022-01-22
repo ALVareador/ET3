@@ -222,7 +222,7 @@ arrayES = {
 	'email_persona': 'Correo electrónico de Persona',
 
 	'foto_persona': 'Foto de Persona',
-	'sube_persona': 'Sube foto: ',
+	'subefotopersona': 'Sube foto: ',
 
 	'esCeliaco_persona': 'Persona Celíaca',
 	'borrado_persona': 'Persona Inactiva',
