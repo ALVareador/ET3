@@ -58,14 +58,16 @@
                                         <h1 id="tituloAccion"></h1>
 
                                         <label class='dni_usuario'></label>
-                                        <input type='text' name='dni_usuario' id='dni_usuario' onblur=''><br>
+                                        <input type='text' name='dni_usuario' id='dni_usuario' onblur='return comprobarDNI("dni_usuario","errorFormatoDni")'><br>
+                                        <div style="display:none" id="errorFormatoDni"></div>
 
                                         <label class='labelusuario'></label>
-                                        <input type='text' name='usuario' id='labelusuario' onblur=''><br>
+                                        <input type='text' name='usuario' id='labelusuario' onblur='return comprobarNombreParam("labelusuario","errorFormatoDni");'><br>
+                                        <div style="display:none" id="errorFormatoUser"></div>
 
                                         <label class='contrasena'></label>
-                                        <input type='text' name='contrasena' id='contrasena' onblur=''><br>
-                                        <div style="display:none" id=""></div>
+                                        <input type='text' name='contrasena' id='contrasena' onblur='return comprobarContraseña()'><br>
+                                        <div style="display:none" id="errorFormatoPass"></div>
 
                                         <label class='id_grupo'></label>
                                         <select name='id_grupo' id='id_grupo'><br>

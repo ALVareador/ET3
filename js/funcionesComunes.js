@@ -1,3 +1,31 @@
+function comprobarUser() {
+
+    document.getElementById("txtUsuario").style.borderWidth = "2px";
+
+    if (validaNoVacio("txtUsuario", "errorFormatoUser", "usuarioLogin") && comprobarLetrasNumeros("txtUsuario", 45, 3, "errorFormatoUser", "usuarioLogin")) {
+        validacionOK("txtUsuario", "errorFormatoUser");
+        return true;
+    } else {
+        validacionKO("txtUsuario", "errorFormatoUser");
+        return false;
+    }
+}
+
+function comprobarPassword() {
+
+    document.getElementById("contrasena").style.borderWidth = "2px";
+
+    if (validaNoVacio("contrasena", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("contrasena", 16, 3, "errorFormatoPassword", "passLogin")) {
+        validacionOK("contrasena", "errorFormatoPassword");
+        return true;
+    } else {
+        validacionKO("contrasena", "errorFormatoPassword");
+        return false;
+    }
+
+}
+
+
 /**Función que valida el usuario*/
 function comprobarUserusuario() {
 
@@ -10,51 +38,6 @@ function comprobarUserusuario() {
         validacionKO("labelusuario", "errorFormatoUser");
         return false;
     }
-}
-function comprobarUser() {
-
-	document.getElementById("txtUsuario").style.borderWidth = "2px";
-		
-	if (validaNoVacio("txtUsuario", "errorFormatoUser", "usuarioLogin") && comprobarLetrasNumeros("txtUsuario", 15, 3, "errorFormatoUser", "usuarioLogin")) {
-		validacionOK("txtUsuario", "errorFormatoUser");
-		return true;
-	} else {
-		validacionKO("txtUsuario", "errorFormatoUser");		
-		return false;
-	}
-
-}
-/** Comprueba el formato de la contraseña introduciendo 2 contraseñas iguales */
-function comprobarPasswordModificacion() {
-
-    document.getElementById("contrasena").style.borderWidth = "2px";
-
-    if (validaNoVacio("contrasena", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("contrasena", 16, 3, "errorFormatoPassword", "passLogin") &&
-        comprobarPasswordIguales("contrasena", "contrasenaRepetida", "errorFormatoPassword")) {
-        validacionOK("contrasena", "errorFormatoPassword");
-        validacionOK("contrasena", "errorFormatoPassword");
-        return true;
-    } else {
-        validacionKO("contrasena", "errorFormatoPassword");
-        return false;
-    }
-
-}
-
-function comprobarCambiarPassword() {
-
-    document.getElementById("contrasena").style.borderWidth = "2px";
-
-    if (validaNoVacio("contrasena", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("contrasena", 16, 3, "errorFormatoPassword", "passLogin") &&
-        comprobarPasswordIguales("contrasenan1", "contrasenan2", "errorFormatoPassword") && !comprobarPasswordIguales("contrasena", "contrasenan1", "errorFormatoPassword")) {
-        validacionOK("contrasena", "errorFormatoPassword");
-        validacionOK("contrasena", "errorFormatoPassword");
-        return true;
-    } else {
-        validacionKO("contrasena", "errorFormatoPassword");
-        return false;
-    }
-
 }
 
 /**Función que valida la contraseña*/
@@ -153,6 +136,12 @@ function validaNoVacio(idElemento, idElementoError, campo) {
         switch (campo) {
             case 'labelusuario':
                 codigo = "02110";
+                break;
+            case 'usuarioLogin':
+                codigo = "02110";
+                break;
+            case 'passLogin':
+                codigo = "02113"
                 break;
             case 'contrasena':
                 codigo = "02113"
@@ -401,6 +390,9 @@ function comprobarLetrasNumeros(idElemento, sizeMax, sizeMin, idElementoError, c
             case 'contrasena':
                 codigo = "02114"
                 break;
+            case 'passLogin':
+                codigo = "02114"
+                break;    
             case 'numCuenta_responsable':
                 codigo = "error_cuenta_largo"
                 break;

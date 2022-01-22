@@ -52,7 +52,7 @@ arrayES = {
 	'id': 'ID de Usuario',
 	'id_usuario': 'ID de Usuario',
 	'labelusuario': 'Nombre de Usuario',
-	'contrasena': 'Contraseña de Usuario: ',
+	'labelcontrasena': 'Contraseña de Usuario: ',
 	'contrasenanueva': 'Nueva Contraseña: ',
 	'repetir_contrasena': 'Repita Contraseña',
 	'dni_usuario': 'DNI de Usuario',
