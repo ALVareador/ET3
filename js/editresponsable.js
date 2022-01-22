@@ -209,7 +209,6 @@ function showAddResponsable() {
 
 	// se resetea todo el formulario generico
 	resetearformularioresponsable();
-	hidedivtablaResponsables();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoresponsable").attr('style', 'display: block');
@@ -242,7 +241,6 @@ function showDetalleResponsable(dni_responsable, numCuenta_responsable, curricul
 
 	// se resetea todo el formulario generico
 	resetearformularioresponsable();
-	hidedivtablaResponsables();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoresponsable").attr('style', 'display: block');
@@ -281,7 +279,6 @@ function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculu
 
 	// se resetea todo el formulario generico
 	resetearformularioresponsable();
-	hidedivtablaResponsables();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoresponsable").attr('style', 'display: block');
@@ -314,7 +311,6 @@ function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculu
 function showEliminarResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
 	// se resetea todo el formulario generico
 	resetearformularioresponsable();
-	hidedivtablaResponsables();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoresponsable").attr('style', 'display: block');
@@ -347,7 +343,6 @@ function showBuscarResponsable() {
 
 	// se resetea todo el formulario generico
 	resetearformularioresponsable();
-	hidedivtablaResponsables();
 
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoresponsable").attr('style', 'display: block');
@@ -408,7 +403,6 @@ function resetearformularioresponsable(idformUsado) {
 	$("#dni_responsable").attr('style', 'border-width: ; border-color: ');
 	$("#numCuenta_responsable").attr('style', 'border-width: ; border-color: ;');
 
-
 	$("divformgenericoresponsable").attr('style', 'display: none');
 
 	$("#txtcurriculumresponsable").attr('style', 'display:');
@@ -421,19 +415,9 @@ function resetearformularioresponsable(idformUsado) {
 	$("#numCuenta_responsable").attr('disabled', false);
 	$("#txtcurriculumresponsable").attr('disabled', false);
 	$("#txtborradoresponsable").attr('disabled', false);
-
 }
 
 function reseteaPagina() {
     GetLisResponsables();
-    showdivtablaResponsables();
     $("#divformgenericoresponsable").attr('style', 'display: none');
-}
-
-function hidedivtablaResponsables() {
-    document.getElementById('divtablaResponsables').style.display = 'none';
-}
-
-function showdivtablaResponsables() {
-    document.getElementById('divtablaResponsables').style.display = 'block';
 }

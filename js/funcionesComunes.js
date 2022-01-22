@@ -845,52 +845,56 @@ function comprobarFecha() {
 
 }
 
-function comprobarFechaPago() {
+function comprobarFecha(valor, errorFormatoFechaInscripcion) {
+    valor = document.getElementById("fecha_solicitud_inscripcion").value;
+    document.getElementById("fecha_solicitud_inscripcion").style.borderWidth = "2px";
 
-    var valor = document.getElementById("fecha_pago_inscripcion").value;
-    var valor2 = document.getElementById("fecha_solicitud_inscripcion").value;
-
-    if (validaNoVacio("fecha_pago_inscripcion", "errorFormatoFechaPago", "fecha") && fechamayor(valor, valor1, "fecha_pago_inscripcion")) {
-        validacionOK("fecha_pago_inscripcion", "errorFormatoFechaPago");
+    if (validaNoVacio("fecha_solicitud_inscripcion", "errorFormatoFechaInscripcion", "fecha")) {
+        validacionOK("fecha_solicitud_inscripcion", "errorFormatoFechaInscripcion");
         return true;
     } else {
-        validacionKO("fecha_pago_inscripcion", "errorFormatoFechaPago");
+        validacionKO("fecha_solicitud_inscripcion", "errorFormatoFechaInscripcion");
         return false;
     }
-
 }
 
-function comprobarFechaAceptacion() {
+function comprobarFechaPago(campo, error) {
+    switch (campo) {
+        case "fecha_pago_inscripcion":
+            var valor2 = document.getElementById("fecha_pago_inscripcion").value;
+            var valor1 = document.getElementById("fecha_solicitud_inscripcion").value;
+            break;
+        case "fecha_aceptacion_inscripcion":
+            var valor2 = document.getElementById("fecha_aceptacion_inscripcion").value;
+            var valor1 = document.getElementById("fecha_pago_inscripcion").value;
+            break;
+    }
 
-    var valor = document.getElementById("fecha_aceptacion_inscripcion").value;
-    var valor2 = document.getElementById("fecha_pago_inscripcion").value;
-
-    if (validaNoVacio("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion", "fecha") && fechamayor(valor, valor1, "fecha_aceptacion_inscripcion")) {
-        validacionOK("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion");
+    if (validaNoVacio(campo, error, "fecha") && fechamayor(valor1, valor2, campo)) {
+        validacionOK(campo, error);
         return true;
     } else {
-        validacionKO("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion");
+        validacionKO(campo, error);
         return false;
     }
-
 }
 
-function fechamayoractual(fComp,campo){
+function fechamayoractual(fComp, campo) {
 
-    var codigo= '';
-    var fechaActual= new Date();
-    let arrFecha= fComp.split('/');
+    var codigo = '';
+    var fechaActual = new Date();
+    let arrFecha = fComp.split('/');
 
-    var myDay= parseInt(arrFecha[0]);
-    var myMonth= parseInt(arrFecha[1])-1;
-    var myYear= parseInt(arrFecha[2]);
+    var myDay = parseInt(arrFecha[0]);
+    var myMonth = parseInt(arrFecha[1]) - 1;
+    var myYear = parseInt(arrFecha[2]);
 
     var fecha = new Date(myYear, myMonth, myDay);
     console.log(fecha);
-    if(fecha < fechaActual){
+    if (fecha < fechaActual) {
         validacionOK("fechaNacimiento_persona", "errorFormatoFechaNacimiento");
         return true;
-    }else{
+    } else {
         switch (campo) {
             case 'fechaNacimiento_persona':
                 codigo = "error_fecha_mayor_actual";
@@ -899,33 +903,31 @@ function fechamayoractual(fComp,campo){
         addCodeError("errorFormatoFechaNacimiento", codigo);
         return false;
     }
-    
+
 }
 
-function fechamayor(fComp, fLimite, campo){ //POR REVISAR
+function fechamayor(fMenor, fMayor, campo) {
 
-    var fCompValue= document.getElementById(fComp).value;
-    var fLimiteValue= document.getElementById(fLimite).value;
-
-    var codigo= '';
-    let arrFecha= fComp.split('/');
-    let arrFechaLimite= fLimite.split('/');
-
-    var myDay= parseInt(arrFecha[0]);
-    var myMonth= parseInt(arrFecha[1])-1;
-    var myYear= parseInt(arrFecha[2]);
-
-    var limitDay= parseInt(arrFechaLimite[0]);
-    var limitMonth= parseInt(arrFechaLimite[1])-1;
-    var limitYear= parseInt(arrFechaLimite[2]);
-
-    var fecha = new Date(myYear, myMonth, myDay);
-    var fechaLimite= new Date(limitYear, limitMonth, limitDay);
-
-    if(fecha < fechaLimite){
-        validacionOK(campo, "errorFormatoFecha");
+    var codigo = '';
+    let arrMenor = fMenor.split('/');
+    let arrMayor = fMayor.split('/');
+    var myDay = parseInt(arrMenor[0]);
+    var myMonth = parseInt(arrMenor[1]) - 1;
+    var myYear = parseInt(arrMenor[2]);
+    var limitDay = parseInt(arrMayor[0]);
+    var limitMonth = parseInt(arrMayor[1]) - 1;
+    var limitYear = parseInt(arrMayor[2]);
+    if ((limitDay - myDay) >= 0 && (limitMonth - myMonth) >= 0 && (limitYear - myYear) >= 0) {
+        switch (campo) {
+            case 'fecha_pago_inscripcion':
+                validacionOK(campo, "errorFormatoFechaPago");
+                break;
+            case 'fecha_aceptacion_inscripcion':
+                validacionOK(campo, "errorFormatoFechaAceptacion");
+                break;
+        }
         return true;
-    }else{
+    } else {
         switch (campo) {
             case 'fecha_pago_inscripcion':
                 codigo = "error_fecha_pago_mayor_solicitud";
@@ -934,7 +936,7 @@ function fechamayor(fComp, fLimite, campo){ //POR REVISAR
                 codigo = "error_fecha_pago_mayor_aceptacion";
                 break;
         }
-        addCodeError("errorFormatoFechaNacimiento", codigo);
+        addCodeError("errorFormatoFechaPago", codigo);
         return false;
     }
 }
