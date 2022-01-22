@@ -11,8 +11,8 @@ function construyeFila(fila, num) {
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
-    var filaTabla = '<tr class=\"colorLinea' + color + '\"> <td>' + fila.id_espacio +
-        '</td> <td <tdclass=\"celdasDatos\">' + fila.nombre_espacio +
+    var filaTabla = 
+    '<tr class=\"colorLinea' + color + '\"> <td>' + fila.nombre_espacio +
         '</td> <td <tdclass=\"celdasDatos\">' + fila.descripcion_espacio +
     '</td> <td class=\"celdaAcciones\">' + celdaAcciones +
         '</td> </tr>';

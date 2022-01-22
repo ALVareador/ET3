@@ -11,8 +11,8 @@ var celdaAccionesEliminar = '<div><a onclick="showEliminarCategoria(' + atributo
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
-    var filaTabla = '<tr class=\"colorLinea' + color + '\"> <td>'+ fila.id_categoria +
-    '</td> <td <tdclass=\"celdasDatos\">' + fila.nombre_categoria +
+    var filaTabla = 
+    '<tr class=\"colorLinea' + color + '\"> <td>' + fila.nombre_categoria +
     '</td> <td <tdclass=\"celdasDatos\">' + fila.descripcion_categoria +
     '</td> <td class=\"celdaAcciones\">' + celdaAcciones +
         '</td> </tr>';
