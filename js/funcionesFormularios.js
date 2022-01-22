@@ -112,6 +112,9 @@ function addActionControler(form, action, controller) {
         case 'test':
             accion = 'test';
             break;
+        case 'cambiar_contrasena':
+            accion = 'cambiar_contrasena';
+            break;
     }
 
     insertacampo(form, 'action', accion);

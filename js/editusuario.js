@@ -26,6 +26,14 @@ function addUsuario() {
 
 }
 
+function comprobarUsuario(){
+	if(comprobarDNI("dni_usuario","errorFormatoDni") && comprobarNombreParam("labelusuario","errorFormatoDni") && comprobarPassword()){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 function showAddUsuario() {
 
 
@@ -36,7 +44,7 @@ function showAddUsuario() {
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoUsuario").attr('style', 'display: block');
 	$("#formgenericoUsuario").attr('action', 'javascript:addUsuario();');
-	$("#formgenericoUsuario").attr('onsubmit', 'comprobareditsubmit();');
+	$("#formgenericoUsuario").attr('onsubmit', 'comprobarUsuario();');
 
 	//rellenamos los tipo text
 	/*$("#txtidresponsable").val("1");
@@ -45,18 +53,10 @@ function showAddUsuario() {
 
 	// rellenamos los onblur de los input que se validad
 
-	/*
-	$("#idUsuario").attr('onblur', 'comprobarDNI();');
-	$("#dni_usuario").attr('onblur', 'comprobarNumCuenta();');
-	$("#descripcion_usuario").attr('onblur', 'comprobarCurriculum();');
-	*/
-
-	// se rellena los select
-
-	// se deshabilita el id para que no pueda cambiarse
-	//$("#idUsuario").attr('disabled', true);	
-	//$("#txtnumcuentaresponsable").attr('disabled', false);	
-	//$("#txtcurriculumresponsable").attr('disabled', false);	
+	$("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario","errorFormatoDni");');
+	$("#labelusuario").attr('onblur', 'comprobarNombreParam("labelusuario","errorFormatoDni");');
+	$("#contrasena").attr('onblur', 'comprobarPassword();');
+	
 }
 
 function editUsuario() {
@@ -101,7 +101,7 @@ function showEditarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, borra
 	// se pone visible el formulario y se rellena el action y el onsubmit
 	$("#divformgenericoUsuario").attr('style', 'display: block');
 	$("#formgenericoUsuario").attr('action', 'javascript:editUsuario();');
-	$("#formgenericoUsuario").attr('onsubmit', 'comprobareditsubmit();');
+	$("#formgenericoUsuario").attr('onsubmit', 'comprobarUsuario();');
 
 	//rellenamos los tipo text
 	insertacampo(document.formgenericoUsuario,'id', id);
@@ -113,24 +113,14 @@ function showEditarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, borra
 	$("#labelcontrasena").attr('style', 'display:none');
 
 	// rellenamos los onblur de los input que se validad
-	$("#dni_usuario").attr('onblur', /*'comprobarDni();'*/);
-	$("#labelusuario").attr('onblur', /*'comprobarUser();'*/);
+	$("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario","errorFormatoDni");');
+	$("#labelusuario").attr('onblur', 'comprobarNombreParam("labelusuario","errorFormatoNombre");');
+	$("#contrasena").attr('onblur', 'comprobarPassword();');
 
 	deleteoptionsSelect("id_grupo");
 	rellenaid_grupo(id_grupo, borrado_usuario);
 
 	$("#dni_usuario").attr('disabled', true);
-}
-
-function comprobareditsubmit() {
-
-	/*if (comprobarUser()) {
-		return true;
-	}
-	else {
-		return false;
-	}*/
-	return true;
 }
 
 function detalleusuario() {
@@ -339,7 +329,7 @@ function showBuscarUsuario() {
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoUsuario").attr('style', 'display: block');
-    $("#formgenericoUsuario").attr('action', 'javascript:buscarPersona();');
+    $("#formgenericoUsuario").attr('action', 'javascript:buscarUsuario();');
     $("#formgenericoUsuario").attr('onsubmit', '');
 
     $("#tituloAccion").attr("class", "tituloBuscar");

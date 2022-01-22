@@ -3,32 +3,30 @@
 <head lang='es'>
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<script type="text/javascript" src="js/traducctorMasivo.js"></script>
-	<script type="text/javascript" src="js/config.js"></script>
-	<script type="text/javascript" src="js/funcionesComunes.js"></script>
-	<script type="text/javascript" src="js/showallusuario.js"></script>
-	<script type="text/javascript" src="js/funcionesFormularios.js"></script>
-	<script type="text/javascript" src="js/login.js"></script>
-	<script type="text/javascript" src="js/md5.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="js/cambiarcontrasena.js"></script>
+    <script type="text/javascript" src="js/funcionesComunes.js"></script>
+    <script type="text/javascript" src="js/funcionesFormularios.js"></script>
+    <script type="text/javascript" src="js/config.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-	<script type="text/javascript" src="js/md5.js"></script>
+    <script type="text/javascript" src="Locale/idioma.js"></script>
+    <script type="text/javascript" src="Locale/Lang_EN.js"></script>
+    <script type="text/javascript" src="Locale/Lang_ES.js"></script>
+    <script type="text/javascript" src="Locale/Lang_GA.js"></script>
 
-	<script type="text/javascript" src="Locale/idioma.js"></script>
-	<script type="text/javascript" src="Locale/Lang_EN.js"></script>
-	<script type="text/javascript" src="Locale/Lang_ES.js"></script>
-	<script type="text/javascript" src="Locale/Lang_GA.js"></script>
-
+	<link rel="stylesheet" href="css/CssComun.css">
 </head>
 
-<body onload="includeMenuIdioma();setLang('');">
+<body onload="includeMenuIdioma();setLang('');rellenaid_grupo();">
 
 	<div id="navBar"></div>
-
+	
 	<div id="divcambiarcontrasena">
 		<form name="formulariocambiar" id="formulariocambiar" method="post" action="javascript:cambiarcontrasena();"
 			onsubmit="">
 			
+			<h1 id="tituloCambiar"></h1>
+
 			<label class='dni_usuario'></label>
 			<input type='text' name='dni_usuario' id='dni_usuario' onblur=''><br>
 
@@ -45,12 +43,12 @@
 
 			<label class='borrado_usuario'></label>
 			<select name='borrado_usuario' id='borrado_usuario'>
-				<option value="0">Si</option>
-				<option value="1">No</option>
-			</select>
-
+				<option value="0">No</option>
+				<option value="1">Si</option>
+			</select><br>
+			
 			<label class='contrasenanueva'></label>
-			<input type='text' name='contrasenanueva' id='contrasena' onblur=''>
+			<input type='text' name='contrasenanueva' id='contrasenanueva' onblur=''>
 			<br>
 
 			<input type="submit">
@@ -63,7 +61,6 @@
 			<div id="mensajeError"></div>
 			<a id="cerrar" href="#" onclick="cerrar('modal', '', '');" class="tooltip">
 				<img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
-				<span class="tooltiptext iconCerrar"></span>
 			</a>
 		</div>
 	</div>

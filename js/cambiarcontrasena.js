@@ -2,6 +2,9 @@
 //sacar usuario de la cookie
 //buscar en usuario todos los datos del usuario con el que estamos logueados
 //con esos datos los metemos en el formulario de cambio de contraseña
+function comprobar() {
+		encriptar("contrasenanueva");
+} 
 
 function cambiarcontrasena() {
 
@@ -18,7 +21,6 @@ function cambiarcontrasena() {
 	}).done(function (response) {
 		if (response.ok == true) {
 			respuestaOKAjax();
-			
 		} else {
 			$("#mensajeError").removeClass();
 			$("#mensajeError").addClass(response.code);
@@ -29,22 +31,8 @@ function cambiarcontrasena() {
 			$("#modal").attr('style', 'display: block');
 		}
 
+		actualizaMensajesRespuestAjax(response.code);
 		deleteActionController();
 		setLang(idioma);
 	});
-}
-
-function showBuscarCategoria() {
-
-	// se resetea todo el formulario generico
-	resetearformulariocategoria();
-
-	// se pone visible el formulario y se rellena el action y el onsubmit
-	$("#divformgenericoCategoria").attr('style', 'display: block');
-	$("#formgenericoCategoria").attr('action', 'javascript:buscarCategoria();');
-	$("#formgenericoCategoria").attr('onsubmit', '');
-
-	$("#tituloAccion").attr("class", "tituloBuscar");
-
-	setLang(getCookie("lang"));
 }

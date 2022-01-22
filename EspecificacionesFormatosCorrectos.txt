@@ -1,12 +1,6 @@
 Usuario
 
-fechaNacimiento_persona date. formato dd/mm/aaaa, con fecha válida, no superior a la actual max 10 mínimo 10
-
 foto_persona varchar(100). solo letras, números y punto separando extensión, max 100 mínimo 5, solo jpg y png.
-
-usuario varchar(45). solo letras (mayúsculas y minúsculas) y números max 45 mínimo 3
-contrasena varchar(45). solo letras (mayúsculas y minúsculas) y números max 45 mínimo 3 
-
 
 Persona
 
@@ -28,51 +22,3 @@ fecha_solicitud_inscripcion (date): formato dd/mm/aaaa, con fecha válida, no su
 documento_pago (100): solo letras, números y punto separando extensión, max 100 mínimo 5, solo pdf.(con upload  maximo 20 MB)
 fecha_pago_inscripcion (date): formato dd/mm/aaaa, con fecha válida, no superior a la actual y superior a la fecha de solicitud de inscripcion max 10 mínimo 10
 fecha_aceptacion_inscripcion (date):  formato dd/mm/aaaa, con fecha válida, no superior a la actual y superior a la fecha de pago de inscripcion max 10 mínimo 10
-
-
-CONDICIONES COMPROBADAS:
-
--DNI
-dni_persona varchar(11). 8 numero y una letra correcta con respecto al número.
-dni_responsable int(11): 8 numeros y una letra correcta con respecto al número.
-
--ID
-id_actividad (11): solo números max 11 mínimo 1
-id_inscripcion (11): solo números max 11 mínimo 1
-id_categoria int(11): solo numeros max 11 minimo 1
-id_espacio int(11): solo numeros max 11 minimo 1
-
--NOMBRE 
-nombre_persona varchar(45). solo letras (acentuada y mayúsculas incluidas) y espacios max 45 minimo 3
-nombre_persona varchar(45). solo letras (acentuada y mayúsculas incluidas) y espacios max 45 minimo 3
-nombre_espacio varchar(45): solo letras (acentuada y mayúsculas incluidas) y espacios max 45 minimo 3
-nombre_categoria varchar(45): solo letras (acentuada y mayúsculas incluidas) y espacios max 45 minimo 3
-nombre_actividad (45): solo letras (acentuada y mayúsculas incluidas) y espacios max 45 mínimo 3
-
--APELLIDOS 
-apellidos_persona varchar(100). solo letras (acentuada y mayúsculas incluidas) y espacios max 100 minimo 3
-apellidos_persona varchar(100). solo letras (acentuada y mayúsculas incluidas) y espacios max 100 minimo 3
-
--DESCRIPCIÓN 
-descripcion_espacio varchar(200): solo letras (acentuada y mayúsculas incluidas) y espacios max 200 minimo 20
-descripcion_categoria varchar(200): solo letras (acentuada y mayúsculas incluidas) y espacios max 200 minimo 20
-descripcion_actividad (200): solo letras (acentuada y mayúsculas incluidas) y espacios max 200 mínimo 20
-
--PLAZAS
-numPlazas_actividad (11): numero entre 1 y 40  
-
--SELECTORES
-esCeliaco_persona(1) solo valores 1 o 0
-borrado_persona(1) solo valores 1 o 0
-
--DIRECCION 
-direccion_persona varchar(200) solo letras (acentuada y mayúsculas incluidas) numeros y espacios max 200 minimo 3
-direccion_persona varchar(200) solo letras (acentuada y mayúsculas incluidas) numeros y espacios max 200 minimo 3
-
--TELEFONO 
-telefono_persona varchar(9) solo numeros, max 9 min 9, telefono válido España
-telefono_persona varchar(9) solo numeros, max 9 min 9, telefono válido España
-
--EMAIL 
-email_persona varchar(45) formato email max 45 min 11
-email_persona varchar(45) formato email max 45 min 11

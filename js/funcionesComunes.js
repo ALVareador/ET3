@@ -1,13 +1,13 @@
 /**Función que valida el usuario*/
 function comprobarUser() {
 
-    document.getElementById("txtUsuario").style.borderWidth = "2px";
+    document.getElementById("labelusuario").style.borderWidth = "2px";
 
-    if (validaNoVacio("txtUsuario", "errorFormatoUser", "usuarioLogin") && comprobarLetrasNumeros("txtUsuario", 45, 3, "errorFormatoUser", "usuarioLogin")) {
-        validacionOK("txtUsuario", "errorFormatoUser");
+    if (validaNoVacio("labelusuario", "errorFormatoUser", "labelusuario") && comprobarLetrasNumeros("labelusuario", 45, 3, "errorFormatoUser", "labelusuario")) {
+        validacionOK("labelusuario", "errorFormatoUser");
         return true;
     } else {
-        validacionKO("txtUsuario", "errorFormatoUser");
+        validacionKO("labelusuario", "errorFormatoUser");
         return false;
     }
 }
@@ -50,7 +50,7 @@ function comprobarPassword() {
 
     document.getElementById("contrasena").style.borderWidth = "2px";
 
-    if (validaNoVacio("contrasena", "errorFormatoPassword", "passLogin") && comprobarLetrasNumeros("contrasena", 16, 3, "errorFormatoPassword", "passLogin")) {
+    if (validaNoVacio("contrasena", "errorFormatoPassword", "contrasena") && comprobarLetrasNumeros("contrasena", 16, 3, "errorFormatoPassword", "contrasena")) {
         validacionOK("contrasena", "errorFormatoPassword");
         return true;
     } else {
@@ -125,10 +125,10 @@ function validaNoVacio(idElemento, idElementoError, campo) {
 
     if ((valor == null) || (longitud == 0)) {
         switch (campo) {
-            case 'usuarioLogin':
+            case 'labelusuario':
                 codigo = "02110";
                 break;
-            case 'passLogin':
+            case 'contrasena':
                 codigo = "02113"
                 break;
             case 'nombreRegistro':
@@ -244,10 +244,10 @@ function comprobarLongitud(idElemento, sizeMax, sizeMin, idElementoError, campo)
 
     if (longitud > sizeMax) {
         switch (campo) {
-            case 'usuarioLogin':
+            case 'labelusuario':
                 codigo = "02111";
                 break;
-            case 'passLogin':
+            case 'contrasena':
                 codigo = "02114"
                 break;
             case 'direccion_persona':
@@ -350,7 +350,7 @@ function comprobarLetrasNumeros(idElemento, sizeMax, sizeMin, idElementoError, c
             case 'usuarioLogin':
                 codigo = "02111";
                 break;
-            case 'passLogin':
+            case 'contrasena':
                 codigo = "02114"
                 break;
             case 'numCuenta_responsable':
@@ -726,7 +726,7 @@ function comprobarSoloLetrasYEspacio(idElemento, idElementoError, campo) {
             case 'apellidos_persona':
                 codigo = "error_formato_apellidos_persona"
                 break;
-            case 'nombre_persona':
+            case 'labelusuario':
                 codigo = "error_formato_nombre_persona"
                 break;
             case 'nombre_grupo':
@@ -1146,77 +1146,68 @@ function comprobarId(idcampo, idError) {
 
 }
 
-function comprobarNombre(idcampo, idError) {
+function comprobarPrecio() {
+    idcampo = "precio_actividad"
+    idError = "errorFormatoPrecioActividad"
     var linea = document.getElementById(idcampo);
     var data = linea.value;
-    var patron = /^[a-zA-ZáéíóúñÑ\s]+$/;
+    var patron = /^[0-9\.]+$/;
 
     //Si es vacio 
     if (data.length == 0) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "error_nombre_vacio");
+        showError(idError, 20, 'red', "precio_vacio");
         return false;
     }
 
-    //Si menor que 3 caracteres
-    if (data.length < 4) {
+    var string = document.getElementById(idcampo).value;
+    var locPunto = string.indexOf("\.")
+    var locPuntoLejano = string.lastIndexOf("\.")
+
+    //Si hay dos puntos da error
+    if (locPunto != locPuntoLejano) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "error_nombre_corto");
+        showError(idError, 20, 'red', "mas_dos_puntos");
+        return false;
+    }
+    
+    //si el precio es superior a 9999 es decir hay mas de 4 numeros en la parte entera, da error
+    if (locPunto == -1 && string.length > 4 || locPunto > 5) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "precio_superior");
         return false;
     }
 
-    //si mas de 45 caracteres
-    if (data.length > 11) {
+    if (locPunto != -1 && string.substring(locPunto).length == 1) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "error_nombre_largo");
+        showError(idError, 20, 'red', "decimal_punto");
         return false;
     }
+
+    if (locPunto != -1 && string.substring(locPunto).length > 3) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "decimal_grande");
+        return false;
+    }
+
+    if (locPunto > 5) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "precio_grande");
+        return false;
+    }
+
+    //Lo dejo por si acaso pero en teoria es imposible que se ejecute esto
+    if (data.length > 7) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "precio_grande");
+        return false;
+    }
+
 
     //Si contiene espacios o letras
     if (!patron.test(data)) {
         validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "error_solo_letras");
-        return false;
-    }
-
-    validacionOK(idcampo, idError);
-    return true;
-
-
-}
-
-
-function comprobarDescripcion(idcampo, idError) {
-
-    var linea = document.getElementById(idcampo);
-    var data = linea.value;
-    var patron = /^[a-zA-ZáéíóúñÑ\s]+$/;
-
-    //Si es vacio 
-    if (data.length == 0) {
-        validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "error_descripcion_vacia");
-        return false;
-    }
-
-    //Si menor que 20 caracteres
-    if (data.length < 19) {
-        validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "error_descripcion_corta");
-        return false;
-    }
-
-    //si mas de 45 caracteres
-    if (data.length > 201) {
-        validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "error_descripcion_larga");
-        return false;
-    }
-
-    //Si contiene espacios o letras
-    if (!patron.test(data)) {
-        validacionKO(idcampo, idError);
-        showError(idError, 20, 'red', "error_descripción_letras");
+        showError(idError, 20, 'red', "puntuacion_es_punto");
         return false;
     }
 
@@ -1224,32 +1215,87 @@ function comprobarDescripcion(idcampo, idError) {
     return true;
 }
 
-function comprobarFecha(fecha, errorFormato) {
+function comprobarColorActividad(idcampo, idError) {
+    var linea = document.getElementById(idcampo);
+    var data = linea.value;
+    var patron = /^[0-9A-F]+$/;
 
-    if (validaNoVacio(fecha, errorFormato, fecha)) {
-        validacionOK(fecha, errorFormato);
-        return true;
-    } else {
-        validacionKO(fecha, errorFormato);
+
+
+
+    //Si es vacio 
+    if (data.length == 0) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "color_vacio");
         return false;
     }
 
+    if (data.charAt(0) != '#') {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "empieza_hash");
+        return false;
+    }
+
+    if (data.length > 7) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "limite_superior_color");
+        return false;
+    }
+
+    if (!patron.test(data.substring(1))) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "error_formato_color");
+        return false;
+    }
+
+    if (data.length < 7) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "error_caracteres_color");
+        return false;
+    }
+
+
+
+    validacionOK(idcampo, idError);
+    return true;
 }
 
+function comprobarNumeroPlaazas() {
+    var linea = document.getElementById('numPlazas_actividad');
+    var data = linea.value;
+    idcampo = 'numPlazas_actividad'
+    idError = 'ErrornumPlazas_actividad'
+
+    var patron = /^[0-9\-]+$/;
+
+    if (data.length == 0) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "plazas_vacio");
+        return false;
+    }
 
 
-/*
-error_id_vacia El campo id no puede estar vacio
-error_id_soloNum El campo id no puede contener espacios ni letras
-error_id_muyGrande La id no puede tener mas de 11 caracteres
+    if (!patron.test(data)) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "plazas_numericas");
+        return false;
+    }
 
-error_nombre_vacio El campo nombre no puede estar vacio
-error_nombre_corto El campo nombre debe teneral menos 4 caracteres
-error_nombre_largo El campo nombre no puede  tener mas de 11 caracteres
-error_solo_letras El campo nombre no puede contener numeros,signos de puntuacion o simbolos
 
-error_descripcion_vacia La descripción no puede estar vacia
-error_descripcion_corta La descripción debe de tener mas  de 20 caracteres
-error_descripcion_larga La descripción no puede  tener mas de 200 caracteres
-error_descripción_letras La descripción no puede contener numeros,signos de puntuacion o simbolos
-*/
+    if (data.charAt(0) == '-') {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "plaza_positiva");
+        return false
+    }
+
+
+    if (data > 40) {
+        validacionKO(idcampo, idError);
+        showError(idError, 20, 'red', "limitacion_plazas");
+        return false
+    }
+
+    validacionOK(idcampo, idError);
+    return true
+
+}

@@ -106,7 +106,3 @@ function getArrayGrupos() {
                 deleteActionController();
             });
     }
-
-    function cambiarcontraseña(){
-        
-    }

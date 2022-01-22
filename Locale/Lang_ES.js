@@ -398,18 +398,21 @@ arrayES = {
 	'PERSONA_BORRAR_OK': 'Persona eliminada correctamente',
 	'ERROR_INSERTAR_ESPACIO': 'No se puede introducir el espacio, compruebe posibles errores de formato',
 	'ERROR_INSERTAR_CATEGORIA': 'No se puede introducir la categoría, compruebe errores de formato de cada campo',
-	
+
+	'contrasena': 'Contraseña: ',
+	'contrasenanueva': 'Nueva Contraseña: ',
 	'tituloAnadir': 'Formulario de inserción',
 	'tituloEditar': 'Formulario de edición',
 	'tituloDetalle': 'Formulario de detalle',
 	'tituloEliminar': 'Formulario de información',
 	'tituloBuscar': 'Formulario de búsqueda',
-	
+	'tituloCambiar': 'Formulario de cambio de contraseña',
+
 	'datosInscripcion': 'Datos de la inscripción: ',
 	'datosPago': 'Datos del pago: ',
 
-	'error_fecha_pago_mayor_aceptacion':'La fecha de pago no puede ser menor que la de solicitud',
-    'error_fecha_pago_mayor_aceptacion':'La fecha de aceptación no puede ser menor que la de pago',
+	'error_fecha_pago_mayor_aceptacion': 'La fecha de pago no puede ser menor que la de solicitud',
+	'error_fecha_pago_mayor_aceptacion': 'La fecha de aceptación no puede ser menor que la de pago',
 
 	'USUARIOTOP': 'Usuarios',
 	'GRUPOTOP': 'Grupos',
@@ -419,5 +422,33 @@ arrayES = {
 	'CATEGORIATOP': 'Categorías',
 	'ACTIVIDADTOP': 'Actividades',
 	'INSCRIPCIONTOP': 'Inscripciones',
+
+	'CONTRASEÑA_NO_CORRECTA': 'Contraseña original incorrecta',
+	'CONTRASEÑA_CAMBIADA_OK': 'Contraseña cambiada correctamente',
+	'NOMBRE_USUARIO_NO_EXISTE': 'El nombre del usuario que se quiere cambiar no existe',
+
+	'precio_vacio': 'El precio no puede estar vacio',
+	'mas_dos_puntos': 'El precio no puede contener mas de dos puntos',
+	'precio_superior': 'El precio no puede ser superior a 9999',
+	'decimal_punto': 'Se debe añadir el valor decimal despues del punto',
+	'decimal_grande': 'La parte decimal no puede contener mas de 3 digitos',
+	'precio_grande': 'El precio no puede ser superior a 9999.99',
+	'puntuacion_es_punto': 'El precio no puede contener letras o simbolos de puntuacion distintos al punto',
+	'plazas_vacio': 'El numero de plazas no puede quedar vacio',
+	'plazas_numericas': 'El numero de plazas solo pueden ser numeros',
+	'plaza_positiva': 'El numero debe de ser positivo',
+	'limitacion_plazas': 'La actividad no puede tener mas de 40 plazas',
+	'color_vacio': 'El campo de color no puede estar vacio',
+	'empieza_hash': 'El campo color debe comenzar con #',
+	'limite_superior_color': 'El campo  color no puede tener mas de 7 caracteres',
+	'error_formato_color': 'El campo  color debe contener 6 caracteres que deben estar entre el 0 y 9, y la A y F mayusculas',
+	'error_caracteres_color': 'El campo  color debe de ser de 7 caracteres'
 }
+
+
+
+
+
+
+
 
