@@ -53,6 +53,7 @@ arrayES = {
 	'id_usuario': 'ID de Usuario',
 	'labelusuario': 'Nombre de Usuario',
 	'labelcontrasena': 'Contraseña de Usuario: ',
+	'contrasena': 'Contraseña de Usuario: ',
 	'contrasenanueva': 'Nueva Contraseña: ',
 	'repetir_contrasena': 'Repita Contraseña',
 	'dni_usuario': 'DNI de Usuario',
@@ -132,7 +133,6 @@ arrayES = {
 	//errores formato
 
 	'error_id_vacia': 'El id no puede estar vacío.',
-	'error_id_soloNum': 'El id solo puede estar conformado por números',
 	'error_id_muyGrande': 'El id debe tener como máximo 11 números: 11111111',
 
 	'error_dni_vacio': 'El DNI no puede estar vacío.',
@@ -200,7 +200,6 @@ arrayES = {
 	'ERROR_MODIFICAR_USUARIO': 'Error al modificar el usuario',
 	'ERROR_BORRAR_USUARIO': 'Error al borrar el usuario',
 	'ERROR_AUTENTICAR_USUARIO': 'Error de autenticación. No estás autenticado',
-	'USUARIO_BORRAR_NO_EXISTE': 'El usuario a borrar no existe',
 
 	//-exito
 	'USUARIO_INSERTAR_OK': 'Usuario insertado correctamente',
@@ -239,21 +238,13 @@ arrayES = {
 	//-exito
 	'PERSONA_INSERTAR_OK': 'Persona insertada correctamente',
 	'PERSONA_MODIFICAR_OK': 'Persona modificada correctamente',
-	'PERSONA_BORRAR_OK': 'Persona borrada correctamente',
 
 	//errores Accion
-	'GRUPO_YA_EXISTE': 'El código de grupo ya existe',
-	'GRUPO_BORRAR_NO_EXISTE': 'El grupo a borrar no existe',
-	'GRUPO_BORRAR_EXISTE_EN_USUARIO': 'No se puede borrar, un usuario está en ese grupo',
 	'ERROR_INSERTAR_GRUPO': 'Error al insertar el grupo',
 	'ERROR_MODIFICAR_GRUPO': 'Error al modificar el grupo',
 	'ERROR_BORRAR_GRUPO ': 'Error al borrar el grupo',
 
 	//-exito
-	'GRUPO_INSERTAR_OK': 'Grupo insertado correctamente',
-	'GRUPO_INSERTAR_OK': 'Grupo insertado correctamente',
-	'GRUPO_MODIFICAR_OK': 'Grupo modificado correctamente',
-	'GRUPO_BORRAR_OK': 'Grupo borrado correctamente',
 
 	//************************************************************************************************
 	// Categoría
@@ -268,8 +259,6 @@ arrayES = {
 	"id_espacio": 'Espacio',
 	"nombre_espacio": 'Nombre de espacio',
 	"descripcion_espacio": 'Descripción de espacio',
-
-	'ESPACIO_YA_EXISTE': 'Este espacio ya existe',
 	//************************************************************************************************
 	// Actividad
 	//************************************************************************************************
@@ -325,18 +314,10 @@ arrayES = {
 	'DATOS': 'Datos',
 	'EXITO': 'Éxito',
 	'session_stored_ok': 'Sesión guardada en BD',
-	'session_stored_fail': 'No existe la sesión en BD',
-	'user_in_session': 'Usuario con sesión activa',
 	'session_disconnect_ok': 'Sesión eliminada de BD y usuario desconectado',
 
 	'id_inscripcion': 'Id de inscripcion',
 	/////////////////////////////////////////////////////////////////////////////////
-	'USUARIO_BORRAR_OK': 'Usuario borrado correctamente',
-	'PERSONA_BORRAR_OK': 'Persona borrada correctamente',
-	'LOGIN_USU_CORRECTO': 'Usuario accedió correctamente',
-	'LOGIN_USUARIO_INCORRECTO': 'No se puede acceder',
-	'LOGIN_CONTRASENA_INCORRECTO': 'Contraseña incorrecta',
-	'LOGIN_USU_CORRECTO': 'Usuario Correcto',
 	'CONTRASENA_CAMBIADA_EMAILOK': 'Contraseña cambiada corrcetamente',
 	'CONTRASENA_CAMBIADA_EMAILKO': 'Contraseña no pudo cambiarse',
 	'CORREO_ELECTRONICO_NO_EXISTE': 'Este email no está registrado',
@@ -348,17 +329,11 @@ arrayES = {
 	'ADMIN_NO_SE_PUEDE_EDITAR': 'No se puede editar el admin',
 	'ERROR_MODIFICAR_PERSONA': 'No se ha podido modificar la persona',
 	'BUSQUEDA_OK': 'Búsqueda realizada correctamente',
-	'PERSONA_BORRAR_NO_EXISTE': 'La persona que se quiere borrar no existe',
-	'BORRAR_PERSONA_EXISTE_USUARIO': 'No se puede borrar esta persona, existe un usuario con sus parámetros',
-	'DNI_USUARIO_NO_EXISTE_EN_PERSONA': 'El DNI de usuario no se corresponde con persona',
 	'DNI_USUARIO_YA_EXISTE': 'El DNI ya existe',
-	'USUARIO_INSERTAR_OK': 'Usuario insertado correctamente',
 	'NOMBRE_USUARIO_YA_EXISTE': 'El nombre de usuario ya existe',
 	'DNI_USUARIO_NO_EXISTE_EN_PERSONA': 'Este DNI de usuario no se corresponde con ninguna persona',
-	'NOMBRE_USUARIO_YA_EXISTE': 'El nombre de usuario ya existe',
 	'USUARIO_MODIFICAR_OK': 'Usuario modificado correctamente',
 	'DNI_USUARIO_YA_EXISTE_EN_USUARIO': 'Este DNI de usuario ya existe',
-	'USUARIO_BORRAR_OK': 'Usuario eliminado correctamente',
 	'USUARIO_BORRAR_NO_EXISTE': 'El usuario que se quiere eliminar no existe',
 	'USUARIO_NO_AUTENTICADO': 'El usuario no está auntenticado',
 	'CONTRASEÑA_CAMBIADA_OK': 'Contraseña cambiada correctamente',
@@ -374,7 +349,6 @@ arrayES = {
 	'CATEGORIA_YA_EXISTE': 'Esta categoría ya existe',
 	'CATEGORIA_MODIFICAR_OK': 'Categoría modificada correctamente',
 	'CATEGORIA_BORRAR_EXISTE_EN_ACTIVIDAD': 'La categoría que se quiere eliminar está asociada a una actividad',
-	'CATEGORIA_INSERTAR_OK': 'Categoría añadida correctamente',
 	'CATEGORIA_BORRAR_NO_EXISTE': 'La categoría a eliminar no existe',
 	'CATEGORIA_BORRAR_OK': 'Categoría eliminada correctamente',
 	'ESPACIO_INSERTAR_OK': 'Espacio insertado correctamente',
@@ -395,7 +369,6 @@ arrayES = {
 	'ACTIVIDAD_MODIFICAR_OK': 'Activida modificada correctamente',
 	'ACTIVIDAD_BORRAR_NO_EXISTE': 'La actividad a eliminar no existe',
 	'ACTIVIDAD_BORRAR_OK': 'Actividad eliminada correctamente',
-	'USUARIO_BORRAR_OK': 'Usuario eliminado correctamente',
 	'PERSONA_BORRAR_OK': 'Persona eliminada correctamente',
 	'ERROR_INSERTAR_ESPACIO': 'No se puede introducir el espacio, compruebe posibles errores de formato',
 	'ERROR_INSERTAR_CATEGORIA': 'No se puede introducir la categoría, compruebe errores de formato de cada campo',
@@ -410,7 +383,7 @@ arrayES = {
 	'datosInscripcion': 'Datos de la inscripción: ',
 	'datosPago': 'Datos del pago: ',
 
-	'error_fecha_pago_mayor_aceptacion': 'La fecha de pago no puede ser menor que la de solicitud',
+	'error_fecha_pago_mayor_solicitud': 'La fecha de pago no puede ser menor que la de solicitud',
 	'error_fecha_pago_mayor_aceptacion': 'La fecha de aceptación no puede ser menor que la de pago',
 
 	'USUARIOTOP': 'Usuarios',
@@ -421,10 +394,6 @@ arrayES = {
 	'CATEGORIATOP': 'Categorías',
 	'ACTIVIDADTOP': 'Actividades',
 	'INSCRIPCIONTOP': 'Inscripciones',
-
-	'CONTRASEÑA_NO_CORRECTA': 'Contraseña original incorrecta',
-	'CONTRASEÑA_CAMBIADA_OK': 'Contraseña cambiada correctamente',
-	'NOMBRE_USUARIO_NO_EXISTE': 'El nombre del usuario que se quiere cambiar no existe',
 
 	'precio_vacio': 'El precio no puede estar vacio',
 	'mas_dos_puntos': 'El precio no puede contener mas de dos puntos',

@@ -43,6 +43,7 @@ arrayEN = {
 'id_usuario':'User ID',
 'labelusuario':'Username',
 'labelcontrasena':'User Password',
+'contrasena': 'Password: ',
 'repetir_contrasena':'Repeat Password',
 'dni_usuario':'User ID',
 'id_grupo':'Group',

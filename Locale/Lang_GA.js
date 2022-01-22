@@ -43,6 +43,7 @@ arrayGA = {
 	'id_usuario': 'ID do usuario',
 	'labelusuario': 'Nome de usuario',
 	'labelcontrasena': 'Contrasinal de usuario',
+	'contrasena': 'Contrasinal de usuario: ',
 	'repetir_contrasena': 'Repite o contrasinal',
 	'dni_usuario': 'ID do usuario',
 	'id_grupo': 'Grupo',

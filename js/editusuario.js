@@ -28,6 +28,7 @@ function addUsuario() {
 
 function comprobarUsuario(){
 	if(comprobarDNI("dni_usuario","errorFormatoDni") && comprobarNombreParam("labelusuario","errorFormatoDni") && comprobarContraseña()){
+		encriptar("contrasena");
 		return true;
 	}else{
 		return false;
