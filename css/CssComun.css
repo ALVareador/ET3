@@ -4,36 +4,27 @@
 
 }
 
-
-
 body {
     margin: 0;
     font-family: 'Ubuntu-Light';
 }
 
-
 /*NavBar*/
 .divMenuIdioma {
-
     display: flex;
     max-height: 100%;
-
 }
 
-
 .divMenuIdioma img {
-
     display: inline-flex;
     max-height: 30%;
     width: auto;
     object-fit: contain;
     margin-right: 20px;
     align-self: center;
-
 }
 
 .divMenuIdioma {
-
     display: flex;
     text-align: center;
     justify-content: center;
@@ -41,20 +32,16 @@ body {
     padding: 0px;
 }
 
-
 #navBar {
-
     display: flex;
     flex-direction: row;
     text-align: center;
     height: 70px;
     background-color: #137fe2;
     justify-content: center;
-
 }
 
 #CuadroIndex {
-
     display:flex;
     justify-content:center;
 	background: #ffffff;
@@ -66,32 +53,43 @@ body {
     margin-top: 6%;
     margin-left: 35%;
     margin-right: 35%;
-
 }
 
 .itemNavBar {
-
     margin-left: auto;
     margin-right: auto;
     color: white;
     align-self: center;
-
-
 }
 
 .navBarLink {
-
     color: white;
     text-decoration: none;
-
 }
 
 .menuIdioma {
     margin-top: 0px;
 }
 
+/*Footer*/
 
+#footerNombres {
+    display: flex;
+    background-color: #137fe2;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 9%;
+}
 
+.itemfooterNombres {
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    align-self: center;
+}
 
 /*Formulario*/
 h1 {
@@ -103,20 +101,54 @@ input, textarea {
     border-style: solid;
     border-radius: 3px;
     border-color: lightgray;
-
 }
 
 label {
     margin-right: 5px;
 }
 
-
 select {
     margin-top: 20px;
     border-style: solid;
     border-radius: 3px;
     border-color: lightgray;
+}
 
+legend
+{
+    font-size: 25px;
+    color: #137fe2;
+}
+
+.formulario { 
+    flex-direction: row;
+    height: 70px;
+    justify-content: center;
+    display:flex;
+    justify-content:center;
+	background: #ffffff;
+    position: fixed;
+    z-index: 20;
+    border-radius: 5px;
+    width: 40%;
+    height: auto;
+    margin-top: 1%;
+    margin-left: 30%;
+    margin-right: 30%;
+    box-shadow: 2px 2px;
+    border-style:solid;
+    border-width: 0.5px;
+    border-color: grey;
+}
+
+fieldset {
+    border-radius: 5px;
+    flex-direction: row;
+    margin-top: 5%;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-right: 10%;
+    margin-left: 10%;
 }
 
 #divDescripcion {
@@ -125,24 +157,33 @@ select {
     vertical-align: super;
 }
 
-#submitbuttom {
+#botones{
+    margin-left: auto; 
+    margin-right: auto;
+}
 
+#submitbuttom {
     margin-top: 20px;
     margin-right: 50px;
     border: none;
     background-color: white;
 }
 
-#divTabla {
+#cancelbuttom {
+    margin-top: 20px;
+    border: none;
+    margin-right: 30%;
+}
 
+/*Tabla*/
+
+#divTabla {
     margin-top: 0px;
     overflow-y: auto;
     overflow-x: auto;
     margin-left: 7%;
     margin-right: 7%;
     height: 70%;
-
-
 }
 
 table {
@@ -153,10 +194,8 @@ table {
 }
 
 th {
-
     border-bottom: 2px solid black;
     text-align: center;
-
 }
 
 td {
@@ -164,16 +203,13 @@ td {
     text-align: center;
 }
 
-
 .colorLinea0 {
-
     background-color: white;
     border-color: white;
     border-bottom: 1px solid #ddd;
 }
 
 .colorLinea1 {
-
     background-color: rgb(243, 241, 241);
     border-color: rgb(243, 241, 241);
     border-bottom: 1px solid #ddd;
@@ -182,13 +218,11 @@ td {
 .celdaAcciones {
     text-align: center;
     width: 200px;
-
 }
 
 .celdasDatos {
     text-align: center;
     width: 200px;
-
 }
 
 #iconoDetalles, #iconoEdit, #iconoDelete {
@@ -204,8 +238,9 @@ td {
     justify-content: center;
 }
 
-#Funciones {
+/*Funciones de insertar y buscar*/
 
+#Funciones {
     margin-left: 7%;
     margin-right: 7%;
     margin-top: 2%;
@@ -213,18 +248,14 @@ td {
     display: flex;
     flex-direction: row;
     justify-content: left;
-
 }
 
 .itemFunciones {
-
     background-color: #137fe2;
     color: White;
     padding: 5px;
     border: none;
     border-radius: 4px;
-
-
 }
 
 /*Botones de search y add*/
@@ -265,6 +296,7 @@ td {
 }
 
 /*Modal*/
+
 #modal {
 	width:100%; /*Toma el 100% del ancho de la página*/
 	height:100%; /*Toma el 100% del alto de la página*/
