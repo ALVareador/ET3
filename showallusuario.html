@@ -21,35 +21,37 @@
 <body onload="includeCabecera();validaAutenticado();getArrayGrupos();getLisUsuarios();setLang('');rellenaid_grupo();">
         <div id="navBar">
                 <div class="itemNavBar" id="linkUsuarios">
-                    <a class="USUARIOTOP navBarLink" class="navBarLink "  href="showallusuario.html"></a>
+                        <a class="USUARIOTOP navBarLink" class="navBarLink " href="showallusuario.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkGrupos">
-                    <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
+                        <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkResponsables">
-                    <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
+                        <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
                 </div>
-        
+
                 <div class="itemNavBar" id="linkPersonas">
-                    <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
+                        <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkEspacios">
-                    <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
+                        <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkCategorias">
-                    <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
+                        <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkActividades">
-                    <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
+                        <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkInscripciones">
-                    <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html"><h1></h1></a>
+                        <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html">
+                                <h1></h1>
+                        </a>
                 </div>
                 <div class="itemNavBar" id="UserDesconectar"></div>
-            </div>
+        </div>
 
-        <div id='divformgenericoUsuario' style="display:none">
-                <div id="contenidoForm">
+        <div id='divformgenericoUsuario' style="display:none" class='fondoFormulario'>
+                <div id="contenidoForm" class='formulario'>
                         <div class="formularioComun">
                                 <form name='formgenericoUsuario' id='formgenericoUsuario' method="post" action=""
                                         onsubmit="">
@@ -92,32 +94,34 @@
 
         <div id="divtablaUsuarios">
                 <div id="Funciones">
-        
-                        <button id='addButtom' class="itemFunciones" onclick="showAddUsuario()" alt="Insertar Actividad">
+
+                        <button id='addButtom' class="itemFunciones" onclick="showAddUsuario()"
+                                alt="Insertar Actividad">
                                 <img id='addButtomIcon' src="/images/iconos_oscar/cerrados/Add.svg" alt="">
                                 <p id="addButtomText" class="addButtomText"></p>
                         </button>
-        
-        
-                        <button id='searchButtom' class="itemFunciones" onclick="showBuscarUsuario()" alt="Buscar Actividad">
+
+
+                        <button id='searchButtom' class="itemFunciones" onclick="showBuscarUsuario()"
+                                alt="Buscar Actividad">
                                 <img id='searchButtomIcon' src="/images/iconos_oscar/cerrados/search.svg" alt="">
                                 <p id="searchButtomText" class="searchButtomText"></p>
                         </button>
-        
+
                 </div>
-        
+
                 <div id="divTabla">
-                <table id="tablaUsuarios" border='1'>
-                        <thead>
-                                <th class="dni_usuario"></th>
-                                <th class="labelusuario"></th>
-                                <th class="id_grupo"></th>
-                                <th class="borrado_usuario"></th>
-                                <th class="ACCIONES"></th>
-                        </thead>
-                        <tbody id="datosUsuarios">
-                        </tbody>
-                        </tbody>
+                        <table id="tablaUsuarios" border='1'>
+                                <thead>
+                                        <th class="dni_usuario"></th>
+                                        <th class="labelusuario"></th>
+                                        <th class="id_grupo"></th>
+                                        <th class="borrado_usuario"></th>
+                                        <th class="ACCIONES"></th>
+                                </thead>
+                                <tbody id="datosUsuarios">
+                                </tbody>
+                                </tbody>
                         </table>
                 </div>
         </div>
@@ -130,12 +134,13 @@
                                 <img class="iconCerrar" alt="Cerrar" src="images/icons/close.png" />
                         </a>
                 </div>
-                <div id="footerNombres">
-                        <p class="itemfooterNombres">Andrés García Figueroa</p>
-                        <p class="itemfooterNombres">Álvaro Nóvoa Fernández</p>
-                        <p class="itemfooterNombres">Óscar Lestón Casais</p>
-                        <p class="itemfooterNombres">Rubén Gómez Martínez</p>
-                </div>        </div>
+        </div>
+        <footer id="footerNombres">
+                <p class="itemfooterNombres">Andrés García Figueroa</p>
+                <p class="itemfooterNombres">Álvaro Nóvoa Fernández</p>
+                <p class="itemfooterNombres">Óscar Lestón Casais</p>
+                <p class="itemfooterNombres">Rubén Gómez Martínez</p>
+        </footer>
 </body>
 
 </html>

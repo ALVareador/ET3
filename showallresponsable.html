@@ -2,7 +2,7 @@
 
 <head lang='es'>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+
         <script type="text/javascript" src="js/showallresponsable.js"></script>
         <script type="text/javascript" src="js/editresponsable.js"></script>
         <script type="text/javascript" src="js/funcionesComunes.js"></script>
@@ -24,75 +24,84 @@
 <body onload="includeCabecera();validaAutenticado();GetLisResponsables();setLang('');">
         <div id="navBar">
                 <div class="itemNavBar" id="linkUsuarios">
-                    <a class="USUARIOTOP navBarLink" class="navBarLink "  href="showallusuario.html"></a>
+                        <a class="USUARIOTOP navBarLink" class="navBarLink " href="showallusuario.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkGrupos">
-                    <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
+                        <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkResponsables">
-                    <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
+                        <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
                 </div>
-        
+
                 <div class="itemNavBar" id="linkPersonas">
-                    <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
+                        <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkEspacios">
-                    <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
+                        <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkCategorias">
-                    <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
+                        <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkActividades">
-                    <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
+                        <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkInscripciones">
-                    <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html"><h1></h1></a>
+                        <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html">
+                                <h1></h1>
+                        </a>
                 </div>
                 <div class="itemNavBar" id="UserDesconectar"></div>
-            </div>
+        </div>
 
-        <div id='divformgenericoresponsable' style="display:none">
-                <div id="tituloForms"></div>
-                <form name='formgenericoresponsable' id='formgenericoresponsable'>
+        <div id='divformgenericoresponsable' style="display:none" class='fondoFormulario'>
+                <div id="contenidoForm" class='formulario'>
+                        <form name='formgenericoresponsable' id='formgenericoresponsable'>
 
-                        <h1 id="tituloAccion"></h1>
-                        <p id="subTituloAccion"></p>
-                        
-                        <label class='dni_responsable'></label>
-                        <input type='text' name='dni_responsable' id='dni_responsable' onblur=''><br>
-                        <div style="display:none" id="errorFormatoDni"></div>
+                                <h1 id="tituloAccion"></h1>
+                                <p id="subTituloAccion"></p>
 
-                        <label class='numCuenta_responsable'></label>
-                        <input type='text' name='numCuenta_responsable' id='numCuenta_responsable' onblur=''><br>
-                        <div style="display:none" id="errorFormatoCuenta"></div>
+                                <label class='dni_responsable'></label>
+                                <input type='text' name='dni_responsable' id='dni_responsable' onblur=''><br>
+                                <div style="display:none" id="errorFormatoDni"></div>
 
-                        <label class='curriculum_responsable' id='labeltxtcurriculumresponsable'></label>
-                        <input type='text' name='curriculum_responsable' id='txtcurriculumresponsable' onblur=''>
-                        <a href='' name='enlace_curriculum_responsable' id="enlacetxtcurriculumresponsable"></a><br>
-                        <label class='sube_curriculum_responsable' id='labelsubetxtcurriculumresponsable'></label>
-                        <input type='file' name='curriculum_responsable' id='subetxtcurriculumresponsable'><br>
-                        <div style="display:none" id="errorFormatoPassword"></div>
+                                <label class='numCuenta_responsable'></label>
+                                <input type='text' name='numCuenta_responsable' id='numCuenta_responsable'
+                                        onblur=''><br>
+                                <div style="display:none" id="errorFormatoCuenta"></div>
 
-                        <label class='borrado_responsable'></label>
-                        <select name='borrado_responsable' id='txtborradoresponsable'>
-                                <option value="0">Si</option>
-                                <option value="1">No</option>
-                        </select><br>
+                                <label class='curriculum_responsable' id='labeltxtcurriculumresponsable'></label>
+                                <input type='text' name='curriculum_responsable' id='txtcurriculumresponsable'
+                                        onblur=''>
+                                <a href='' name='enlace_curriculum_responsable'
+                                        id="enlacetxtcurriculumresponsable"></a><br>
+                                <label class='sube_curriculum_responsable'
+                                        id='labelsubetxtcurriculumresponsable'></label>
+                                <input type='file' name='curriculum_responsable' id='subetxtcurriculumresponsable'><br>
+                                <div style="display:none" id="errorFormatoPassword"></div>
 
-                        <div id="botones">
-                                <button id='submitbuttom' type='submit'><img
-                                                src="./images/iconos_oscar/cerrados/tick.svg" width="50px" /></button>
+                                <label class='borrado_responsable'></label>
+                                <select name='borrado_responsable' id='txtborradoresponsable'>
+                                        <option value="0">Si</option>
+                                        <option value="1">No</option>
+                                </select><br>
 
-                                <a onclick="reseteaPagina()"><img src='images/iconos_oscar/cerrados/cross.svg'
-                                                width="50px"></a>
-                        </div>
-                </form>
+                                <div id="botones">
+                                        <button id='submitbuttom' type='submit'><img
+                                                        src="./images/iconos_oscar/cerrados/tick.svg"
+                                                        width="50px" /></button>
+
+                                        <a onclick="reseteaPagina()"><img src='images/iconos_oscar/cerrados/cross.svg'
+                                                        width="50px"></a>
+                                </div>
+                        </form>
+                </div>
         </div>
 
         <div id="divtablaResponsables">
 
                 <div id="Funciones">
-                        <button id='addButtom' class="itemFunciones" onclick="showAddResponsable()" alt="Insertar Responsable">
+                        <button id='addButtom' class="itemFunciones" onclick="showAddResponsable()"
+                                alt="Insertar Responsable">
                                 <img id='addButtomIcon' src="/images/iconos_oscar/cerrados/Add.svg" alt="">
                                 <p id="addButtomText" class="addButtomText">Insertar Responsable</p>
                         </button>
@@ -133,12 +142,12 @@
                 </div>
         </div>
 
-        <div id="footerNombres">
+        <footer id="footerNombres">
                 <p class="itemfooterNombres">Andrés García Figueroa</p>
                 <p class="itemfooterNombres">Álvaro Nóvoa Fernández</p>
                 <p class="itemfooterNombres">Óscar Lestón Casais</p>
                 <p class="itemfooterNombres">Rubén Gómez Martínez</p>
-        </div>
+        </footer>
 
 </body>
 
