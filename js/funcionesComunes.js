@@ -563,7 +563,7 @@ function errorAutenticado(codigoResponse, idioma) {
     $("#mensajeError").removeClass();
     $("#mensajeError").addClass(codigoResponse);
     $("#cerrar").attr('onclick', "cerrar('modal', 'login.html', '')");
-    $("#imagenAviso").attr('src', "images/icons/prohibido.png");
+    $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/error.png");
     setLang(idioma);
     document.getElementById("modal").style.display = "block";
 }

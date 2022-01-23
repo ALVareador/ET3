@@ -189,7 +189,7 @@ function includeMenuIdioma() {
 /**Función que aplica los cambios necesarios cuando la respuesta de las petición Ajax ha sido OK*/
 function respuestaOKAjax() {
 
-    $("#imagenAviso").attr('src', "images/icons/ok-icon.png");
+    $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/exito.png");
     $("#cerrar").attr('onclick', "cerrar('modal', '', 'getLisUsers')");
     $("#formularioAcciones").attr('style', 'display: none');
     $("#mensajeError").attr('style', 'color: #005200; margin-top: 5%; margin-left: 17%');
