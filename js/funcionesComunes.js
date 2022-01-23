@@ -1135,8 +1135,6 @@ function comprobarEmailFormato(idElemento, idElementoError) {
 function showError(idError, tamanhoLetra, colorTexto, idMensajeErrormensaje) {
 
     var divError = document.getElementById(idError);
-    divError.style.height = tamanhoLetra + 20 + "px";
-    divError.style.fontSize = tamanhoLetra + "px";
     divError.style.color = colorTexto + "";
 
     //Limpia todas las clases

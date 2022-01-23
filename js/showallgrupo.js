@@ -49,7 +49,7 @@ function getLisGrupos() {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
             $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
-            $("#imagenAviso").attr('src', "images/icons/error.png");
+            $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/error.png");
             setLang(idioma);
             $("#modal").attr('style', 'display: block');
         }

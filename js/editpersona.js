@@ -332,6 +332,71 @@ function showEliminarPersona(dni_persona, nombre_persona, apellidos_persona, fec
     $("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
     setLang(getCookie("lang"));
 }
+
+function buscarPersona() {
+
+    var idioma = getCookie('lang');
+    var idSession = getCookie('sessionId');
+    addActionControler(document.formgenericoPersona, 'search', 'persona')
+    insertacampo(document.formgenericoPersona, 'ID_SESSION', idSession);
+
+    $.ajax({
+        method: "POST",
+        url: "http://193.147.87.202/ET3_IU/noRest.php",
+        data: $("#formgenericoPersona").serialize(),
+    }).done(function(response) {
+        if (response.ok == true) {
+            $("#datosPersonas").html("");
+            nodos = document.getElementById("formgenericoPersona").childNodes;
+            for (var i = 0; i < nodos.length; i++) {
+                var item = nodos[i];
+                if (item.id != undefined) {
+                    //  alert(item.id);
+                }
+            }
+            //alert(nodos);
+            for (var i = 0; i < response.resource.length; i++) {
+                var tr = construyeFila(response.resource[i]);
+                $("#datosPersonas").append(tr);
+            }
+
+            setLang(idioma);
+        } else {
+            $("#mensajeError").removeClass();
+            $("#mensajeError").addClass(response.code);
+            $("#mensajeError").append(response.code);
+            $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
+            $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/error.png");
+            setLang(idioma);
+            $("#modal").attr('style', 'display: block');
+        }
+
+        deleteActionController();
+
+    });
+}
+/**
+ * 
+ */
+function showBuscarPersona() {
+
+    // se resetea todo el formulario generico
+    resetearformulariopersona();
+
+    // se pone visible el formulario y se rellena el action y el onsubmit
+    $("#divformgenericoPersona").attr('style', 'display: block');
+    $("#formgenericoPersona").attr('action', 'javascript:buscarPersona();');
+    $("#formgenericoPersona").attr('onsubmit', '');
+
+    $("#tituloAccion").attr("class", "tituloBuscar");
+    $("#subefotopersona").attr('style', 'display:none');
+    //Se pone el titulo de la acción buscar
+
+    setLang(getCookie("lang"));
+    // rellenamos los onblur de los input que se validad
+    //$("#dni_persona").attr('onblur', '');
+    //$("#nombre_persona").attr('onblur', 'comprobarNombrePersona();');
+}
 /**
  * 
  * @param {*} idformUsado 
@@ -386,67 +451,3 @@ function resetearformulariopersona() {
 /**
  * 
  */
-function buscarPersona() {
-
-    var idioma = getCookie('lang');
-    var idSession = getCookie('sessionId');
-    addActionControler(document.formgenericoPersona, 'search', 'persona')
-    insertacampo(document.formgenericoPersona, 'ID_SESSION', idSession);
-
-    $.ajax({
-        method: "POST",
-        url: "http://193.147.87.202/ET3_IU/noRest.php",
-        data: $("#formgenericoPersona").serialize(),
-    }).done(function(response) {
-        if (response.ok == true) {
-            $("#datosPersonas").html("");
-            nodos = document.getElementById("formgenericoPersona").childNodes;
-            for (var i = 0; i < nodos.length; i++) {
-                var item = nodos[i];
-                if (item.id != undefined) {
-                    //  alert(item.id);
-                }
-            }
-            //alert(nodos);
-            for (var i = 0; i < response.resource.length; i++) {
-                var tr = construyeFila(response.resource[i]);
-                $("#datosPersonas").append(tr);
-            }
-
-            setLang(idioma);
-        } else {
-            $("#mensajeError").removeClass();
-            $("#mensajeError").addClass(response.code);
-            $("#mensajeError").append(response.code);
-            $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
-            $("#imagenAviso").attr('src', "images/icons/error.png");
-            setLang(idioma);
-            $("#modal").attr('style', 'display: block');
-        }
-
-        deleteActionController();
-
-    });
-}
-/**
- * 
- */
-function showBuscarPersona() {
-
-    // se resetea todo el formulario generico
-    resetearformulariopersona();
-
-    // se pone visible el formulario y se rellena el action y el onsubmit
-    $("#divformgenericoPersona").attr('style', 'display: block');
-    $("#formgenericoPersona").attr('action', 'javascript:buscarPersona();');
-    $("#formgenericoPersona").attr('onsubmit', '');
-
-    $("#tituloAccion").attr("class", "tituloBuscar");
-    $("#subefotopersona").attr('style', 'display:none');
-    //Se pone el titulo de la acción buscar
-
-    setLang(getCookie("lang"));
-    // rellenamos los onblur de los input que se validad
-    //$("#dni_persona").attr('onblur', '');
-    //$("#nombre_persona").attr('onblur', 'comprobarNombrePersona();');
-}

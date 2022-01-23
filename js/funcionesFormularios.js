@@ -200,7 +200,7 @@ function respuestaOKAjax() {
 function respuestaKOAjax(opcion) {
 
     $("#cerrar").attr('onclick', "cerrar('modal', '" + opcion + "', '')");
-    $("#imagenAviso").attr('src', "images/icons/error.png");
+    $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/error.png");
     $("#mensajeError").attr('style', 'color: #ff0000; margin-right: 20px');
 
 }

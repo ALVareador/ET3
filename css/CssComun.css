@@ -338,7 +338,7 @@ td {
 }
 
 #contenido-interno {
-    background: #d7e6ec;
+    background: lightgrey;
     position: absolute;
     z-index: 20;
     border-radius: 5px;
@@ -367,8 +367,11 @@ td {
     margin-top: 2%;
     color: #ff0000;
     text-align: center;
+    top:32.5%;
 }
-
+.imagenAvisoSVG{
+    width:800%;
+}
 #cerrar {
     position: absolute;
     top: 0px;
@@ -421,4 +424,9 @@ td {
 
 #formularioLogin{
     margin-left: 20px;
+}
+
+.textbox{
+    display:flex;
+    justify-content:center;
 }

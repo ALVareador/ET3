@@ -1,23 +1,15 @@
-
 arrayES = {
 	'obligatorio': '*',
-	// generales base de datos
 	'00000': 'Error al conectar con la base de datos. Contacte con su administrador',
 	'00001': 'Éxito al ejecutar el SQL',
 	'00002': 'Error al ejecutar el SQL',
 	'00003': 'El recordset está vacío',
 	'00004': 'El recordset no está vacío',
 	'no_coincide_usuario': 'No puedes cambiar una contraseña que no sea la tuya',
-	// generales interfaz
 	'usuarioConectado': 'Usuario conectado: ',
-
-	//idiomas
 	'esp': 'Español',
 	'gal': 'Gallego',
 	'eng': 'Inglés',
-
-	// usuario
-	//-titulos NavBar
 	'go_Espacios': 'Ir a espacios',
 	'go_Categorias': 'Ir a categorías',
 	'go_Actividades': 'Ir a actividades',
@@ -27,8 +19,6 @@ arrayES = {
 	'go_Personas': 'Ir a personas',
 	'go_Grupos': 'Ir a grupos',
 	'Opciones_pesonales': 'Ir a ajustes',
-
-	//- titulos
 	'Inicio': 'Inicio',
 	'bienvenida': 'Bienvenido',
 	'listUsers': 'Bienvenido a la tabla de muestra de usuarios',
@@ -44,7 +34,6 @@ arrayES = {
 	'datosRegistro': 'Introduzca los siguientes datos',
 	'datosPersonales': 'Datos personales',
 	'datosUsuario': 'Datos usuario',
-	//- atributos
 	'recuperar_contrasena': 'Recuperar Contraseña',
 	'contrasena_recuperada_es': 'La contraseña de este usuario es: ',
 	'correorecuperacion': 'Correo asociado a la contraseña',
@@ -63,30 +52,23 @@ arrayES = {
 	'SI': 'Sí',
 	'NO': 'No',
 	'seleccionNula': 'Seleccione una opción',
-
 	'nombre_grupo': 'Nombre de Grupo',
 	'descripcion_grupo': 'Descripcion de Grupo',
-
 	'dni_responsable': 'DNI de Responsable',
 	'curriculum_responsable': 'Curriculum de Responsable',
 	'enlace_curriculum_responsable': 'Curriculum de Responsable',
 	'sube_curriculum_responsable': 'Subir curriculum',
 	'numCuenta_responsable': 'Número de Cuenta',
 	'borrado_responsable': 'Activo',
-
 	'fecha_solicitud_inscripcion': 'Fecha Solicitud',
 	'documento_pago': 'Documento Pago',
 	'fecha_pago_inscripcion': 'Fecha Pago',
 	'fecha_aceptacion_inscripcion': 'Fecha Aceptacion',
 	'borrado_inscripcion': 'Activo',
 	'label_sube_documento_pago' : 'Documento Pago',
-
 	'nombre_actividad': 'Nombre actividad',
-
-	//- warnning bloqueo mayusculas
 	'BLOQUEO_MAYUSCULAS': 'Bloqueo de Mayúsculas activado',
 	'campoObligatorio': 'Campo Obligatorio',
-	//- imagenes
 	'iconEntrar': 'Entrar',
 	'iconRegistrar': 'Registrar',
 	'iconVolver': 'Volver',
@@ -108,112 +90,72 @@ arrayES = {
 	'iconOk': 'OK',
 	'iconLogin': 'Acceso',
 	'iconRecuperar': 'Recuperar',
-
-	//************************************************************************************************
-	// login registro
-	//************************************************************************************************
-
-	//exito
 	'LOGIN_USU_CORRECTO': 'El Usuario accedió correctamente',
 	'session_stored_ok': 'Sesión guardada en BD',
 	'session_disconnect_ok': 'Sesión eliminada de BD y usuario desconectado',
-
-	//fin exito
-
-	//- errores accion
 	'LOGIN_USUARIO_INCORRECTO': 'No existe el usuario',
 	'LOGIN_CONTRASENA_INCORRECTO': 'La contraseña no es correcta',
 	'session_stored_fail': 'No existe la sesión en BD',
 	'user_in_session': 'Usuario con sesión activa',
-
 	'registro_usuario_ya_existe': 'No se puede registrar porque el usuario ya existe',
 	'registro_email_persona_ya_existe': 'No se puede registrar porque el email ya existe',
 	'fallo_conexion_registrar': 'Fallo de BD al realizar el registro',
-	//fin errores accion
-
-	//errores formato
-
 	'error_id_vacia': 'El id no puede estar vacío.',
 	'error_id_muyGrande': 'El id debe tener como máximo 11 números: 11111111',
-
 	'error_dni_vacio': 'El DNI no puede estar vacío.',
 	'error_formato_dni': 'El DNI debe tener 8 números y una letra.(11111111T)',
 	'error_formato_dni_letra': 'La letra introducida no se corresponde con el número',
-
 	'error_apellidos_vacio': 'El campo apellidos no puede estar vacío',
 	'error_formato_apellidos_corto': 'Los apellidos deben tener más de 2 caracteres',
 	'error_formato_apellidos_largo': 'Los apellidos deben tener a lo sumo 100 caracteres',
 	'error_formato_apellidos_persona': 'Introduzca los apellidos separados por espacios sin utilizar números ni símbolos',
-
 	'error_nombre_persona_vacio': 'El nombre no puede estar vacío',
 	'error_formato_nombre_persona': 'Introduzca el nombre sin utilizar números ni símbolos',
 	'error_formato_nombre_corto': 'El nombre debe tener más de 2 caracteres',
 	'error_formato_nombre_largo': 'El nombre debe tener menos de 46 caracteres',
-
 	'error_descripcion_vacio': 'La descripcion no puede ser vacía',
 	'error_formato_descripcion': 'Introduzca la descripción sin utilizar números ni símbolos',
 	'error_formato_descripcion_corto': 'La descripcion debe tener más de 19 caracteres',
 	'error_formato_descripcion_largo': 'La descripcion debe tener a lo sumo 200 caracteres',
-
 	'error_fecha_vacia': 'La fecha no puede estar vacía',
 	'error_fecha_mayor_actual': 'La fecha de nacimiento supera a la actual',
 	'error_menor_edad': 'Debe ser mayor de edad.',
 	'error_fecha_nacimiento_negativa': 'Cuando hayas nacido vuelve a intentarlo',
-
 	'error_cuenta_vacia': 'El número de cuenta no puede estar vacía',
 	'error_cuenta_corto': 'El número de cuenta no puede tener menos de 24 caracteres',
 	'error_cuenta_largo': 'El número de cuenta no puede tener más de 24 caracteres',
 	'error_cuenta_formato': 'El formato del numero de cuenta debe ser 2 letras seguido de 22 números',
-
 	'error_formato_direccion_caracteres': 'No admitidos caracteres que no sean alfanuméricos o º,ª,.,,',
 	'error_formato_direccion_corto': 'La dirección debe tener más de 2 caracteres',
 	'error_formato_direccion_largo': 'La direccion debe tener menos de 200 caracteres',
 	'error_direccion_vacia': 'La direccion no puede estar vacía',
-
 	'error_formato_telefono': 'Introduce el telefono sin simbolos ni letras, ejemplo: 111222333',
 	'error_telefono_vacio': 'El campo no puede estar vacío',
 	'error_telefono_largo': 'El telefono no debe tener más de 9 dígitos',
 	'error_telefono_corto': 'El telefono no debe tener menos de 9 dígitos',
-
 	'error_email_vacio': 'El email no puede estar vacío.',
 	'error_email_corto': 'El email no puede ser menor de 3 caracteres',
 	'error_email_largo': 'El email no puede exceder los 45 caracteres',
 	'error_formato_email': 'Formato de email incorrecto, ejemplo: enlafabricadesuenos@gmail.com',
-
 	'error_foto_corto': 'El email no puede ser menor de 5 caracteres',
 	'error_foto_largo': 'El email no puede exceder los 100 caracteres',
-
 	'error_password_disintas': 'Las contraseñas deben coincidir',
 	'error_password_iguales': 'La nueva contraseña es igual a la antigua',
-	//fin errores formato
-
-	//************************************************************************************************
-	// usuario
-	//************************************************************************************************
-
 	'ADD_usuario_ya_existe': 'El login de usuario ya existe',
 	'dni_usuario_ya_existe': 'el DNI de usuario ya existe',
 	'dni_usuario_no_existe_en_persona': 'El DNI debería existir en persona',
 	'dni_admin_no_se_puede_modificar': 'No se puede modificar el dni del admin',
 	'admin_no_se_puede_borrar': 'El administrador no se puede borrar',
-
 	'ERROR_INSERTAR_USUARIO': 'Error al insertar el usuario',
 	'ERROR_MODIFICAR_USUARIO': 'Error al modificar el usuario',
 	'ERROR_BORRAR_USUARIO': 'Error al borrar el usuario',
 	'ERROR_AUTENTICAR_USUARIO': 'Error de autenticación. No estás autenticado',
-
-	//-exito
 	'USUARIO_INSERTAR_OK': 'Usuario insertado correctamente',
 	'usuario_modificado_ok': 'Usuario modificado correctamente',
 	'USUARIO_BORRAR_OK': 'Usuario borrado correctamente',
 	'registro_ok': 'Usuario registrado correctamente',
 	'USUARIO_LOGUEAR_OK': 'Usuario logueado correctamente',
-
-	//************************************************************************************************
-	// persona
-	//************************************************************************************************
 	'error_id_soloNum': 'El id solo debe llevar hasta 11 números, ejemplo: 11111111',
-	//- atributos persona
 	'dni_persona': 'DNI de Persona',
 	'nombre_persona': 'Nombre de Persona',
 	'apellidos_persona': 'Apellidos de Persona',
@@ -221,13 +163,10 @@ arrayES = {
 	'direccion_persona': 'Dirección de Persona',
 	'telefono_persona': 'Teléfono de Persona',
 	'email_persona': 'Correo electrónico de Persona',
-
 	'foto_persona': 'Foto de Persona',
 	'subefotopersona': 'Sube foto: ',
-
 	'esCeliaco_persona': 'Persona Celíaca',
 	'borrado_persona': 'Persona Inactiva',
-
 	'dni_persona_ya_existe': 'El dni ya existe en Persona',
 	'email_persona_ya_existe': 'El correo electrónico ya existe en persona',
 	'PERSONA_BORRAR_NO_EXISTE': 'La persona a borrar no existe',
@@ -235,35 +174,17 @@ arrayES = {
 	'ERROR_INSERTAR_PERSONA': 'Error al insertar la persona, compruebe posibles errores de formato o si falta algún campo obligatorio marcado con "*"',
 	'ERROR_MODIFICAR_PERSONA': 'Error al modificar la persona',
 	'ERROR_BORRAR_PERSONA ': 'Error al borrar la persona',
-
-	//-exito
 	'PERSONA_INSERTAR_OK': 'Persona insertada correctamente',
 	'PERSONA_MODIFICAR_OK': 'Persona modificada correctamente',
-
-	//errores Accion
 	'ERROR_INSERTAR_GRUPO': 'Error al insertar el grupo',
 	'ERROR_MODIFICAR_GRUPO': 'Error al modificar el grupo',
 	'ERROR_BORRAR_GRUPO ': 'Error al borrar el grupo',
-
-	//-exito
-
-	//************************************************************************************************
-	// Categoría
-	//************************************************************************************************
 	"id_categoria": 'Categoría',
 	"nombre_categoria": 'Nombre de categoría',
 	"descripcion_categoria": 'Descripción de categoría',
-
-	//************************************************************************************************
-	// Espacio
-	//************************************************************************************************
 	"id_espacio": 'Espacio',
 	"nombre_espacio": 'Nombre de espacio',
 	"descripcion_espacio": 'Descripción de espacio',
-	//************************************************************************************************
-	// Actividad
-	//************************************************************************************************
-
 	"id_actividad": 'Id de actividad',
 	"nombre_actividad": 'Nombre de actividad',
 	"descripcion_actividad": 'Descripción de actividad',
@@ -271,7 +192,6 @@ arrayES = {
 	"numPlazas_actividad": 'NºPlazas',
 	"color_actividad": 'Color de actividad',
 	"color_nombre_actividad": 'Color del nombre de actividad',
-
 	'02100': 'Error al insertar el usuario',
 	'02101': 'El login de usuario ya existe',
 	'02102': 'No existe el usuario',
@@ -283,13 +203,11 @@ arrayES = {
 	'02108': 'Error al borrar el usuario',
 	'02109': 'Acceso denegado!!!!!!!!! Necesitas autenticarte',
 	'02127': 'Error al eliminar un usuario Administrador',
-	//-exito
 	'02001': 'Éxito al insertar el usuario',
 	'02002': 'Usuario modificado correctamente',
 	'02003': 'Usuario borrado correctamente',
 	'02004': 'Usuario registrado correctamente',
 	'02005': 'Usuario logueado correctamente',
-	// errores de formato
 	'02110': 'El tamaño del nombre de usuario no puede ser menor que 3',
 	'02111': 'El tamaño del nombre de usuario no puede ser mayor que 15',
 	'02112': 'El nombre de usuario no puede contener más que letras y números',
@@ -307,8 +225,6 @@ arrayES = {
 	'02124': 'Seguridad de la password comprometida. Password encriptada corta',
 	'02125': 'Seguridad de la password comprometida. Password encriptada larga',
 	'02126': 'Seguridad de la password comprometida. Password encriptada caracteres no permitidos',
-
-	//test
 	'PRUEBA': 'Prueba',
 	'VALORESPERADO': 'Valor Esperado',
 	'VALOROBTENIDO': 'Valor Obtenido',
@@ -316,9 +232,7 @@ arrayES = {
 	'EXITO': 'Éxito',
 	'session_stored_ok': 'Sesión guardada en BD',
 	'session_disconnect_ok': 'Sesión eliminada de BD y usuario desconectado',
-
 	'id_inscripcion': 'Id de inscripcion',
-	/////////////////////////////////////////////////////////////////////////////////
 	'CONTRASENA_CAMBIADA_EMAILOK': 'Contraseña cambiada corrcetamente',
 	'CONTRASENA_CAMBIADA_EMAILKO': 'Contraseña no pudo cambiarse',
 	'CORREO_ELECTRONICO_NO_EXISTE': 'Este email no está registrado',
@@ -369,20 +283,16 @@ arrayES = {
 	'PERSONA_BORRAR_OK': 'Persona eliminada correctamente',
 	'ERROR_INSERTAR_ESPACIO': 'No se puede introducir el espacio, compruebe posibles errores de formato',
 	'ERROR_INSERTAR_CATEGORIA': 'No se puede introducir la categoría, compruebe errores de formato de cada campo',
-
 	'tituloAnadir': 'Formulario de inserción',
 	'tituloEditar': 'Formulario de edición',
-	'tituloDetalle': 'Formulario de detalle',
+	'tituloDetalle': 'Formulario detallado',
 	'tituloEliminar': 'Formulario de información',
 	'tituloBuscar': 'Formulario de búsqueda',
 	'tituloCambiar': 'Formulario de cambio de contraseña',
-
 	'datosInscripcion': 'Datos de la inscripción: ',
 	'datosPago': 'Datos del pago: ',
-
 	'error_fecha_pago_mayor_solicitud': 'La fecha de pago no puede ser menor que la de solicitud',
 	'error_fecha_pago_mayor_aceptacion': 'La fecha de aceptación no puede ser menor que la de pago',
-
 	'USUARIOTOP': 'Usuarios',
 	'GRUPOTOP': 'Grupos',
 	'RESPONSABLETOP': 'Responsables',
@@ -392,7 +302,6 @@ arrayES = {
 	'ACTIVIDADTOP': 'Actividades',
 	'INSCRIPCIONTOP': 'Inscripciones',
 	'CAMBIARCONTRASEÑATOP':'Cambiar Contraseña',
-
 	'precio_vacio': 'El precio no puede estar vacio',
 	'mas_dos_puntos': 'El precio no puede contener mas de dos puntos',
 	'precio_superior': 'El precio no puede ser superior a 9999',
@@ -411,11 +320,10 @@ arrayES = {
 	'error_caracteres_color': 'El campo  color debe de ser de 7 caracteres',
 	'error_formato_upload_cien': 'El nombre del archivo a subir debe tener como máximo 100 caracteres y como mínimo 5',
 	'error_formato_upload_doscientos': 'El nombre del archivo a subir debe tener como máximo 200 caracteres y como mínimo 5',
-
 	'usuario':'Nombre de Usuario: ',
 	'txtUsuario':'Nombre de Usuario: ',
-
-	'error_password_distintas':'Las contraseñas no coinciden'
+	'error_password_distintas':'Las contraseñas no coinciden',
+	'ACTIVIDAD_BORRAR_EXISTE_EN_INSCRIPCION':'La actividad a eliminar está asociada a una inscripción'
 }
 
 
