@@ -69,6 +69,12 @@ body {
     margin-top: 0px;
 }
 
+.iconNavBar {
+    max-height: 30%;
+    width: auto;
+    height: 25px;
+}
+
 /*Footer*/
 
 #footerNombres {
@@ -352,7 +358,6 @@ td {
     margin-left: 11%;
     margin-top: 2%;
     color: #ff0000;
-    font-family: "Times New Roman";
     text-align: center;
 }
 
