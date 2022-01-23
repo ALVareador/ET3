@@ -21,7 +21,6 @@ function construyeFila(fila, num) {
     var filaTabla = '<tr class=\"colorLinea' + color + '\"> <td>' + fila.dni_responsable +
         '</td> <td <tdclass=\"celdasDatos\">' + fila.numCuenta_responsable +
         '</td> <td <tdclass=\"celdasDatos\"> <a href=\'' + rutauploadcurriculum + fila.curriculum_responsable + '\'>' + fila.curriculum_responsable + '</a>' +
-        '</td> <td <tdclass=\"celdasDatos\">' + fila.borrado_responsable +
         '</td> <td class=\"celdaAcciones\">' + celdaAcciones +
         '</td> </tr>';
 

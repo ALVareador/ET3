@@ -23,42 +23,47 @@
 
 <body onload="includeCabecera();validaAutenticado();GetLisResponsables();setLang('');">
         <div id="navBar">
-                <div class="itemNavBar" id="linkUsuarios">
-                        <a class="USUARIOTOP navBarLink" class="navBarLink " href="showallusuario.html"></a>
-                </div>
-                <div class="itemNavBar" id="linkGrupos">
-                        <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
-                </div>
-                <div class="itemNavBar" id="linkResponsables">
-                        <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
-                </div>
-
-                <div class="itemNavBar" id="linkPersonas">
-                        <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
-                </div>
-                <div class="itemNavBar" id="linkEspacios">
-                        <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
-                </div>
-                <div class="itemNavBar" id="linkCategorias">
-                        <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
-                </div>
-                <div class="itemNavBar" id="linkActividades">
-                        <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
-                </div>
-                <div class="itemNavBar" id="linkInscripciones">
-                        <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html">
+                <div id="navBar">
+                        <div class="itemNavBar" id="linkMenu">
+                            <a class="navBarLink" href="menu.html">
+                                <img class="iconNavBar" alt="" src="images/iconos_oscar/cerrados/logo.svg" />
+                            </a>
+                        </div>
+                
+                        <div class="itemNavBar" id="linkUsuarios">
+                            <a class="USUARIOTOP navBarLink" class="navBarLink " href="showallusuario.html"></a>
+                        </div>
+                        <div class="itemNavBar" id="linkGrupos">
+                            <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
+                        </div>
+                        <div class="itemNavBar" id="linkResponsables">
+                            <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
+                        </div>
+                        <div class="itemNavBar" id="linkPersonas">
+                            <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
+                        </div>
+                        <div class="itemNavBar" id="linkEspacios">
+                            <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
+                        </div>
+                        <div class="itemNavBar" id="linkCategorias">
+                            <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
+                        </div>
+                        <div class="itemNavBar" id="linkActividades">
+                            <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
+                        </div>
+                        <div class="itemNavBar" id="linkInscripciones">
+                            <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html">
                                 <h1></h1>
-                        </a>
-                </div>
-                <div class="itemNavBar" id="linkCambiarContraseña">
-                        <a class="navBarLink" href="cambiarcontrasena.html">
-                                <img class="CAMBIARTOP" alt=""
-                                        src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
-                        </a>
-                </div>
-
-                <div class="itemNavBar" id="UserDesconectar"></div>
-        </div>
+                            </a>
+                        </div>
+                        <div class="itemNavBar" id="linkCambiarContraseña">
+                            <a class="navBarLink" href="cambiarcontrasena.html">
+                                <img class="iconNavBar" alt="" src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
+                            </a>
+                        </div>
+                
+                        <div class="itemNavBar" id="UserDesconectar"></div>
+                    </div>
 
         <div id='divformgenericoresponsable' style="display:none" class='fondoFormulario'>
                 <div id="contenidoForm" class='formulario'>
@@ -96,7 +101,7 @@
                                                         src="./images/iconos_oscar/cerrados/tick.svg"
                                                         width="50px" /></button>
 
-                                        <a onclick="reseteaPagina()"><img src='images/iconos_oscar/cerrados/cross.svg'
+                                        <a onclick="cerrar('divformgenericoresponsable','','')"><img src='images/iconos_oscar/cerrados/cross.svg'
                                                         width="50px"></a>
                                 </div>
                         </form>
@@ -127,7 +132,6 @@
                                         <th class="dni_responsable"></th>
                                         <th class="numCuenta_responsable"></th>
                                         <th class="curriculum_responsable"></th>
-                                        <th class="borrado_responsable"></th>
                                         <th class="ACCIONES"></th>
                                 </thead>
                                 <tbody id="datosResponsables">
