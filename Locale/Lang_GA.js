@@ -323,4 +323,5 @@ arrayGA = {
 	'usuario': 'Nome de usuario: ',
 	'txtUsuario': 'Nome de usuario: ',
 	'error_password_distintas': 'Os contrasinais non coinciden',
+	'ACTIVIDAD_BORRAR_EXISTE_EN_INSCRIPCION':'A actividade a eliminar está asociada a unha inscrición'
 }

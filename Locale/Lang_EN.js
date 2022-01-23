@@ -186,7 +186,7 @@ arrayEN = {
     'nombre_espacio': 'Space name',
     'descripcion_espacio': 'Space description',
     'id_actividad': 'Activity id',
-    "nombre_actividad": 'Avtivity name',
+    "nombre_actividad": 'Activity name',
     'descripcion_actividad': 'Activity description',
     'precio_actividad': 'Activity price',
     'numPlazas_actividad': 'No. Places',
@@ -323,4 +323,5 @@ arrayEN = {
     'usuario': 'Username: ',
     'txtUsuario': 'Username: ',
     'error_password_distintas': 'Passwords do not match',
+    'ACTIVIDAD_BORRAR_EXISTE_EN_INSCRIPCION':'Activity on a inscripction, firstly delete the inscription'
 }

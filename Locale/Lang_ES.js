@@ -322,7 +322,8 @@ arrayES = {
 	'error_formato_upload_doscientos': 'El nombre del archivo a subir debe tener como máximo 200 caracteres y como mínimo 5',
 	'usuario':'Nombre de Usuario: ',
 	'txtUsuario':'Nombre de Usuario: ',
-	'error_password_distintas':'Las contraseñas no coinciden'
+	'error_password_distintas':'Las contraseñas no coinciden',
+	'ACTIVIDAD_BORRAR_EXISTE_EN_INSCRIPCION':'La actividad a eliminar está asociada a una inscripción'
 }
 
 
