@@ -20,38 +20,41 @@
 <body onload="includeCabecera();validaAutenticado();getLisEspacios();setLang('');">
         <div id="navBar">
                 <div class="itemNavBar" id="linkUsuarios">
-                    <a class="USUARIOTOP navBarLink" class="navBarLink "  href="showallusuario.html"></a>
+                        <a class="USUARIOTOP navBarLink" class="navBarLink " href="showallusuario.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkGrupos">
-                    <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
+                        <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkResponsables">
-                    <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
+                        <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
                 </div>
-        
+
                 <div class="itemNavBar" id="linkPersonas">
-                    <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
+                        <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkEspacios">
-                    <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
+                        <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkCategorias">
-                    <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
+                        <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkActividades">
-                    <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
+                        <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkInscripciones">
-                    <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html"><h1></h1></a>
+                        <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html">
+                                <h1></h1>
+                        </a>
                 </div>
                 <div class="itemNavBar" id="linkCambiarContraseña">
                         <a class="navBarLink" href="cambiarcontrasena.html">
-                            <img class="CAMBIARTOP" alt="" src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
+                                <img class="CAMBIARTOP" alt=""
+                                        src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
                         </a>
-                    </div>
-                    
-                    <div class="itemNavBar" id="UserDesconectar"></div>
-            </div>
+                </div>
+
+                <div class="itemNavBar" id="UserDesconectar"></div>
+        </div>
 
         <div id='divformgenericoEspacio' style="display:none;" class='fondoFormulario'>
                 <div id="contenidoForm" class='formulario'>
@@ -78,13 +81,15 @@
                                                 <button id='submitbuttom' type='submit'><img
                                                                 src="./images/iconos_oscar/cerrados/tick.svg"
                                                                 width="50px" /></button>
+                                                <a id="cerrarForm" href="#"
+                                                        onclick="cerrar('divformgenericoEspacio','','')"
+                                                        class="tooltip">
+                                                        <img alt="Cerrar" width="50px"
+                                                                src="./images/iconos_oscar/cerrados/cross.svg" />
+                                                </a>
                                         </div>
                                 </form>
-                                <a id="cerrarForm" href="#" onclick="cerrar('divformgenericoEspacio','','')"
-                                        class="tooltip">
-                                        <img class="iconCerrar" alt="Cerrar"
-                                                src="./images/iconos_oscar/cerrados/cross.svg" />
-                                </a>
+
                         </div>
                 </div>
         </div>
@@ -123,7 +128,8 @@
                 <div id="contenido-interno">
                         <div id="aviso"><img src="" name="aviso" id="imagenAviso" /></div>
                         <div id="mensajeError"></div>
-                        <a id="cerrar" href="showallespacio.html" onclick="cerrar('modal', '', '');" onclick="cerrar('divformgenericoEspacio', '', '');" class="tooltip">
+                        <a id="cerrar" href="showallespacio.html" onclick="cerrar('modal', '', '');"
+                                onclick="cerrar('divformgenericoEspacio', '', '');" class="tooltip">
                                 <img class="iconCerrar" src="images/iconos_oscar/cerrados/cross.svg" />
                         </a>
                 </div>
