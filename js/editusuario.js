@@ -17,7 +17,6 @@ function addUsuario() {
 		} else {
 			respuestaKOAjax('add');
 		}
-
 		actualizaMensajesRespuestAjax(response.code);
 		setLang(idioma);
 		resetearformulariousuario();
@@ -136,7 +135,7 @@ function showDetalleUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario)
     $("#formgenericoUsuario").attr('action', 'javascript:detalleusuario();');
 	
 	$("#tituloAccion").attr("class", "tituloDetalle");
-
+	
 	$("#dni_usuario").val(dni_usuario);
 	$("#labelusuario").val(usuario);
 	
@@ -310,7 +309,7 @@ function showBuscarUsuario() {
     setLang(getCookie("lang"));
 }
 
-function resetearformulariousuario(idformUsado) {
+function resetearformulariousuario() {
 
 	$("formgenericoUsuario").attr('action', '');
 	$("formgenericoUsuario").attr('onsubmit', '');

@@ -69,7 +69,7 @@ function getLisUsuarios() {
     insertacampo(document.formgenericoUsuario, 'ID_SESSION', idSession);
     insertacampo(document.formgenericoUsuario, 'controlador', 'usuario');
     insertacampo(document.formgenericoUsuario, 'action', 'buscar');
-
+    
     $.ajax({
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
@@ -82,7 +82,6 @@ function getLisUsuarios() {
             for (var i = 0; i < nodos.length; i++) {
                 var item = nodos[i];
                 if (item.id != undefined) {
-                    //  alert(item.id);
                 }
             }
             for (var i = 0; i < response.resource.length; i++) {
@@ -99,7 +98,6 @@ function getLisUsuarios() {
             setLang(idioma);
             $("#modal").attr('style', 'display: block');
         }
-
         deleteActionController();
     });
 }
