@@ -83,6 +83,15 @@ body {
     left:1.5%;
     top:2.5%;
 }
+
+.CAMBIARTOP{
+    width:40px;
+}
+
+#UserDesconectar{
+    width:40px;
+}
+
 /*Footer*/
 
 #footerNombres {
