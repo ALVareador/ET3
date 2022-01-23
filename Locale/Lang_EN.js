@@ -164,7 +164,7 @@ arrayEN = {
     'telefono_persona': 'Person Phone',
     'email_persona': 'Person Email',
     'foto_persona': 'Person Photo',
-    'subefotopersona': 'Upload photo: ',
+    'sube_persona': 'Upload photo: ',
     'esCeliaco_persona': 'Celiac Person',
     'borrado_persona': 'Inactive Person',
     'dni_persona_ya_existe': 'The ID already exists in Person',

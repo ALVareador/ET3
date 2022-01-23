@@ -164,7 +164,7 @@ arrayES = {
 	'telefono_persona': 'Teléfono de Persona',
 	'email_persona': 'Correo electrónico de Persona',
 	'foto_persona': 'Foto de Persona',
-	'subefotopersona': 'Sube foto: ',
+	'sube_persona': 'Sube foto: ',
 	'esCeliaco_persona': 'Persona Celíaca',
 	'borrado_persona': 'Persona Inactiva',
 	'dni_persona_ya_existe': 'El dni ya existe en Persona',

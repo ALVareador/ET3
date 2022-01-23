@@ -164,7 +164,7 @@ arrayGA = {
 	'telefono_persona': 'Teléfono de persoa',
 	'email_persona': 'Correo electrónico da persoa',
 	'foto_persona': 'Foto da persoa',
-	'subefotopersona': 'Cargar foto:',
+	'sube_persona': 'Cargar foto:',
 	'esCeliaco_persona': 'Persoa celíaca',
 	'borrado_persona': 'Persoa inactiva',
 	'dni_persona_ya_existe': 'O DNI xa existe en persoa',
