@@ -413,7 +413,7 @@ arrayES = {
 	'error_formato_upload_doscientos': 'El nombre del archivo a subir debe tener como máximo 200 caracteres y como mínimo 5',
 
 	'usuario':'Nombre de Usuario: ',
-	'txtUsuario':'Nombre de Uusario: '
+	'txtUsuario':'Nombre de Usuario: '
 
 }
 
