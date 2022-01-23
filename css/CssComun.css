@@ -75,6 +75,14 @@ body {
     height: 25px;
 }
 
+.iconNavBarLogo{
+    max-height: 30%;
+    width: 50px;
+    height: 25px;
+    position:absolute;
+    left:1.5%;
+    top:2.5%;
+}
 /*Footer*/
 
 #footerNombres {

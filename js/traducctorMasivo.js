@@ -36,6 +36,13 @@ function actuarDiccionario(accion, diccionario) {
             }
             console.log(toret);
             break;
+        case 'contar':
+            var i = 0;
+            for (var clave in diccionario) {
+                i++;
+            }
+            console.log(i);
+            break;
         default:
             console.log("escribirValores,mostrarValores,mostrarClaves,mostrarTodo")
             break;
