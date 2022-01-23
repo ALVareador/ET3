@@ -319,6 +319,6 @@ arrayEN = {
     'error_formato_upload_cien': 'The name of the file to upload must have a maximum of 200 characters and a minimum of 5',
     'error_formato_upload_doscientos': 'Username: ',
     'usuario': 'Username: ',
-    'txtUsuario': 'undefined',
-
+    'txtUsuario': 'Username',
+    'error_password_distintas':'Both passwords must be the same'
 }

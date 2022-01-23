@@ -318,7 +318,8 @@ arrayGA = {
 	'error_formato_upload_cien': 'O nome do ficheiro a cargar debe ter un máximo de 200 caracteres e un mínimo de 5',
 	'error_formato_upload_doscientos': 'Nome de usuario: ',
 	'usuario': 'Nome de usuario: ',
-	'txtUsuario': 'undefined',
+	'txtUsuario': 'Nome de usuario',
+	'error_password_distintas':'As contrasinales non coinciden'
 
 }
 
