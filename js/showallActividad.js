@@ -12,15 +12,22 @@ function construyeFila(fila,num) {
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
+    if(ArrayEspacios == undefined || ArrayCategorias == undefined ){
+
+        location.reload();
+    }
+
 
     for (var j = 0; j <ArrayEspacios.length; j++) {
         if(ArrayEspacios[j]['id_espacio'] == fila.id_espacio)
         fila.id_espacio = ArrayEspacios[j]['nombre_espacio'];
+        fila.id_espacio = fila.id_espacio.replace(/%20/g," ");
     }
 
     for (var j = 0; j <ArrayCategorias.length; j++) {
         if(ArrayCategorias[j]['id_categoria'] == fila.id_categoria)
         fila.id_categoria = ArrayCategorias[j]['nombre_categoria'];
+        fila.id_categoria = fila.id_categoria.replace(/%20/g," ");
     }
 
     var filaTabla = '<tr class=\"colorLinea' + color +'\"> <td>' + fila.id_actividad +
@@ -69,6 +76,7 @@ function GetArrayEspacios() {
 
         deleteActionController();
     });
+    
 }
 
 var ArrayCategorias;
@@ -119,15 +127,11 @@ function GetLisActividades() {
         url: "http://193.147.87.202/ET3_IU/noRest.php",
         data: $("#formgenericoActividad").serialize(),
     }).done(function (response) {
+
         if (response.ok == true) {
             $("#datosActividad").html("");
-            nodos = document.getElementById("formgenericoActividad").childNodes;
+
             
-            for (var i = 0; i < nodos.length; i++) {
-                var item = nodos[i];
-                if (item.id != undefined) {
-                }
-            }
             
             var arrayActividades = response.resource;
 

@@ -146,6 +146,7 @@ function includeUserDesconectar() {
         '</div>';
 
     $("#UserDesconectar").append(UserDesconectar);
+    
 }
 
 /**Función generadora el menú de idioma, llama a la función setLang cuando cambia el valor del ComboBox */
