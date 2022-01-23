@@ -27,12 +27,9 @@ body {
 .divMenuIdioma {
     display: flex;
     text-align: center;
-    justify-content: flex-end;
+    justify-content: center;
     margin: 0px;
     padding: 0px;
-    position:absolute;
-    height:10%;
-    left:87%;
 }
 #navBar {
     display: flex;
@@ -62,10 +59,10 @@ body {
     text-decoration: none;
 }
 .itemNavBar {
-    margin-left: 3%;
+    margin-left: auto;
+    margin-right: auto;
     color: white;
     align-self: center;
-    width: 8.33%;
 }
 
 .menuIdioma {
