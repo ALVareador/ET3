@@ -21,7 +21,9 @@ function addUsuario() {
 		actualizaMensajesRespuestAjax(response.code);
 		setLang(idioma);
 		resetearformulariousuario();
+		getLisUsuarios();
 		deleteActionController();
+		hasProbadoAReiniciarlo();
 	});
 
 }
@@ -51,6 +53,8 @@ function showAddUsuario() {
 	$("#labelusuario").attr('onblur', 'comprobarNombreParam("labelusuario");');
 	$("#contrasena").attr('onblur', 'comprobarContraseña();');
 	
+	$("#iconoAcciones").attr('src', "./images/icons/addUser.png");
+    setLang(getCookie("lang"));
 }
 
 function editUsuario() {
@@ -78,7 +82,7 @@ function editUsuario() {
 		getLisUsuarios();
 		setLang(idioma);
 		deleteActionController();
-		//hasProbadoAReiniciarlo();
+		hasProbadoAReiniciarlo();
 	});
 
 }
@@ -115,13 +119,14 @@ function showEditarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, borra
 	rellenaid_grupo(id_grupo, borrado_usuario);
 
 	$("#dni_usuario").attr('disabled', true);
+	setLang(getCookie("lang"));
 }
 
 function detalleusuario() {
 
     var idioma = getCookie('lang');
     resetearformulariousuario();
-    GetLisUsuarios()
+    getLisUsuarios()
     setLang(idioma);
 }
 
@@ -138,6 +143,9 @@ function showDetalleUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario)
 	deleteoptionsSelect("id_grupo");
 	rellenaid_grupo(id_grupo, borrado_usuario);
 	
+	$("#submitbuttom").attr('style', '');
+    document.getElementById('submitbuttom').style.visibility = 'hidden';
+
 	$("#dni_usuario").attr('disabled', true);
 	$("#labelusuario").attr('disabled', true);
 	$("#labelcontrasena").attr('style',"visibility: hidden;");
@@ -148,7 +156,7 @@ function showDetalleUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario)
 	$("#id_grupo").attr('disabled', true);
 	$("#borrado_usuario").attr('disabled', true);
 
-	setLang('');
+	setLang(getCookie("lang"));
 
 }
 
@@ -205,6 +213,8 @@ function showEliminarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, bor
 	$("#contrasena").attr('disabled', true);
 	$("#id_grupo").attr('disabled', true);
 	$("#borrado_usuario").attr('disabled', true);
+
+	setLang(getCookie("lang"));
 }
 
 function rellenaid_grupo(id) { 
@@ -237,37 +247,6 @@ function rellenaid_grupo(id) {
 
         deleteActionController();
     });
-}
-
-function resetearformulariousuario(idformUsado) {
-
-	$("idformUsado").attr('action', '');
-	$("idformUsado").attr('onsubmit', '');
-
-	$("#id").val('');
-	$("#dni_usuario").val('');
-	$("#labelusuario").val('');
-	$("#contrasena").val('');
-	$("#id_grupo").val('');
-
-	$("#labelcontrasena").attr('style',"visibility: visible;");
-	$("#contrasena").attr('type', 'password');
-	$("#contrasena").attr('style', 'display:block');
-
-	$("#id").attr('onblur', '');
-	$("#dni_usuario").attr('onblur', '');
-	$("#labelusuario").attr('onblur', '');
-	$("#contrasena").attr('onblur', '');
-
-	$("divformgenericoUsuario").attr('style', 'display: none');
-
-	$("#id").attr('disabled', false);
-	$("#dni_usuario").attr('disabled', false);
-	$("#labelusuario").attr('disabled', false);
-	$("#contrasena").attr('disabled', false);
-	$("#id_grupo").attr('disabled', false);
-	$("#borrado_usuario").attr('disabled', false);
-	document.getElementById('submitbuttom').style.visibility = 'visible';
 }
 
 function buscarUsuario() {
@@ -329,4 +308,35 @@ function showBuscarUsuario() {
     //Se pone el titulo de la acción buscar
 
     setLang(getCookie("lang"));
+}
+
+function resetearformulariousuario(idformUsado) {
+
+	$("formgenericoUsuario").attr('action', '');
+	$("formgenericoUsuario").attr('onsubmit', '');
+
+	$("#dni_usuario").val('');
+	$("#labelusuario").val('');
+	$("#contrasena").val('');
+	$("#id_grupo").val('');
+	$("#borrado_usuario").val('');
+
+	$("#labelcontrasena").attr('style',"visibility: visible;");
+	$("#contrasena").attr('type', 'password');
+	$("#contrasena").attr('style', 'display:block');
+
+	$("#dni_usuario").attr('onblur', '');
+	$("#labelusuario").attr('onblur', '');
+	$("#contrasena").attr('onblur', '');
+	$("#id_grupo").attr('onblur', '');
+	$("#borrado_usuario").attr('onblur', '');
+
+	$("divformgenericoUsuario").attr('style', 'display: none');
+
+	$("#dni_usuario").attr('disabled', false);
+	$("#labelusuario").attr('disabled', false);
+	$("#contrasena").attr('disabled', false);
+	$("#id_grupo").attr('disabled', false);
+	$("#borrado_usuario").attr('disabled', false);
+	document.getElementById('submitbuttom').style.visibility = 'visible';
 }

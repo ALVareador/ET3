@@ -228,7 +228,7 @@ function showAddResponsable() {
 
 	//cambiar icono submit
 	$("#iconoAcciones").attr('src', "./images/icons/addUser.png");
-
+	setLang(getCookie("lang"));
 }
 
 function showDetalleResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
@@ -266,7 +266,7 @@ function showDetalleResponsable(dni_responsable, numCuenta_responsable, curricul
 
 	//cambiar icono submit
 	$("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
-
+	setLang(getCookie("lang"));
 }
 
 function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
@@ -299,7 +299,7 @@ function showEditarResponsable(dni_responsable, numCuenta_responsable, curriculu
 
 	//cambiar icono submit
 	$("#iconoAcciones").attr('src', "./images/icons/editUser.png");
-
+	setLang(getCookie("lang"));
 }
 
 function showEliminarResponsable(dni_responsable, numCuenta_responsable, curriculum_responsable, borrado_responsable) {
@@ -330,7 +330,7 @@ function showEliminarResponsable(dni_responsable, numCuenta_responsable, curricu
 
 	//cambiar icono submit
 	$("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
-
+	setLang(getCookie("lang"));
 }
 
 function showBuscarResponsable() {
@@ -361,7 +361,7 @@ function showBuscarResponsable() {
 
 	//cambiar icono submit
 	$("#iconoAcciones").attr('src', "./images/icons/addUser.png");
-
+	setLang(getCookie("lang"));
 }
 
 //Otras funciones -------------------------------------------------------------------------------------------------------------------------------------------------------------

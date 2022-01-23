@@ -332,60 +332,7 @@ function showEliminarPersona(dni_persona, nombre_persona, apellidos_persona, fec
     $("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
     setLang(getCookie("lang"));
 }
-/**
- * 
- * @param {*} idformUsado 
- */
-function resetearformulariopersona() {
 
-    $("formgenericoPersona").attr('action', '');
-    $("formgenericoPersona").attr('onsubmit', '');
-
-    $("#dni_persona").val('');
-    $("#nombre_persona").val('');
-    $("#apellidos_persona").val('');
-    $("#fechaNacimiento_persona").val('');
-    $("#direccion_persona").val('');
-    $("#telefono_persona").val('');
-    $("#email_persona").val('');
-    $("#foto_persona").val('');
-    $("#esCeliaco_persona").val('');
-    $("#borrado_persona").val('');
-
-
-    $("#dni_persona").attr('onblur', '');
-    $("#nombre_persona").attr('onblur', '');
-    $("#apellidos_persona").attr('onblur', '');
-    $("#fechaNacimiento_persona").attr('onblur', '');
-    $("#direccion_persona").attr('onblur', '');
-    $("#telefono_persona").attr('onblur', '');
-    $("#email_persona").attr('onblur', '');
-    $("#foto_persona").attr('onblur', '');
-    $("#esCeliaco_persona").attr('onblur', '');
-    $("#borrado_persona").attr('onblur', '');
-
-    $("divformgenericoPersona").attr('style', 'display: none');
-
-    $("#foto_persona").attr('style', 'display:');
-    $("#labelsubefotopersona").attr('style', 'display:');
-    $("#subefotopersona").attr('style', 'display:');
-
-    $("#dni_persona").attr('disabled', false);
-    $("#nombre_persona").attr('disabled', false);
-    $("#apellidos_persona").attr('disabled', false);
-    $("#fechaNacimiento_persona").attr('disabled', false);
-    $("#email_persona").attr('disabled', false);
-    $("#direccion_persona").attr('disabled', false);
-    $("#telefono_persona").attr('disabled', false);
-    $("#email_persona").attr('disabled', false);
-    $("#foto_persona").attr('disabled', false);
-    $("#esCeliaco_persona").attr('disabled', false);
-    $("#borrado_persona").attr('disabled', false);
-    document.getElementById('submitbuttom').style.visibility = 'visible';
-}
-/**
- * 
- */
 function buscarPersona() {
 
     var idioma = getCookie('lang');
@@ -450,3 +397,57 @@ function showBuscarPersona() {
     //$("#dni_persona").attr('onblur', '');
     //$("#nombre_persona").attr('onblur', 'comprobarNombrePersona();');
 }
+/**
+ * 
+ * @param {*} idformUsado 
+ */
+function resetearformulariopersona() {
+
+    $("formgenericoPersona").attr('action', '');
+    $("formgenericoPersona").attr('onsubmit', '');
+
+    $("#dni_persona").val('');
+    $("#nombre_persona").val('');
+    $("#apellidos_persona").val('');
+    $("#fechaNacimiento_persona").val('');
+    $("#direccion_persona").val('');
+    $("#telefono_persona").val('');
+    $("#email_persona").val('');
+    $("#foto_persona").val('');
+    $("#esCeliaco_persona").val('');
+    $("#borrado_persona").val('');
+
+
+    $("#dni_persona").attr('onblur', '');
+    $("#nombre_persona").attr('onblur', '');
+    $("#apellidos_persona").attr('onblur', '');
+    $("#fechaNacimiento_persona").attr('onblur', '');
+    $("#direccion_persona").attr('onblur', '');
+    $("#telefono_persona").attr('onblur', '');
+    $("#email_persona").attr('onblur', '');
+    $("#foto_persona").attr('onblur', '');
+    $("#esCeliaco_persona").attr('onblur', '');
+    $("#borrado_persona").attr('onblur', '');
+
+    $("divformgenericoPersona").attr('style', 'display: none');
+
+    $("#foto_persona").attr('style', 'display:');
+    $("#labelsubefotopersona").attr('style', 'display:');
+    $("#subefotopersona").attr('style', 'display:');
+
+    $("#dni_persona").attr('disabled', false);
+    $("#nombre_persona").attr('disabled', false);
+    $("#apellidos_persona").attr('disabled', false);
+    $("#fechaNacimiento_persona").attr('disabled', false);
+    $("#email_persona").attr('disabled', false);
+    $("#direccion_persona").attr('disabled', false);
+    $("#telefono_persona").attr('disabled', false);
+    $("#email_persona").attr('disabled', false);
+    $("#foto_persona").attr('disabled', false);
+    $("#esCeliaco_persona").attr('disabled', false);
+    $("#borrado_persona").attr('disabled', false);
+    document.getElementById('submitbuttom').style.visibility = 'visible';
+}
+/**
+ * 
+ */

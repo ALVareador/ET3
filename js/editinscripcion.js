@@ -260,7 +260,7 @@ function showDetalleInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_
 
     //cambiar icono submit
     $("#iconoAcciones").attr('src', "./images/icons/detailUser.png");
-
+    setLang(getCookie("lang"));
 }
 
 function showEditarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
@@ -271,7 +271,8 @@ function showEditarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_s
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
     $("#formgenericoinscripcion").attr('action', 'javascript:editinscripcion();');
-    $("#formgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
+    $("#formgenericoinscripcion").attr('onsubmit', 'comprobarInscripcion()');
+
     $("#tituloAccion").attr("class", "tituloEditar");
     //rellenamos los tipo text
     $("#id_inscripcion").val(id_inscripcion);
@@ -298,7 +299,7 @@ function showEditarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_s
     $("#fecha_solicitud_inscripcion").attr('onblur', 'comprobarFecha("fecha_solicitud_inscripcion", "errorFormatoFechaInscripcion");');
     $("#fecha_pago_inscripcion").attr('onblur', 'comprobarFecha("fecha_pago_inscripcion", "errorFormatoFechaPago");');
     $("#fecha_aceptacion_inscripcion").attr('onblur', 'comprobarFecha("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion");');
-
+    
     // se deshabilita el id para que no pueda cambiarse
     $("#id_actividad").attr('disabled', false);
     $("#id_inscripcion").attr('disabled', true);
@@ -310,7 +311,7 @@ function showEditarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_s
     $("#fecha_aceptacion_inscripcion").attr('disabled', false);
     //cambiar icono submit
     $("#iconoAcciones").attr('src', "./images/icons/editUser.png");
-
+    setLang(getCookie("lang"));
 }
 
 function showAddInscripcion() {
@@ -321,7 +322,8 @@ function showAddInscripcion() {
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
     $("#formgenericoinscripcion").attr('action', 'javascript:addinscripcion();');
-    $("#formgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
+    $("#formgenericoinscripcion").attr('onsubmit', 'comprobarInscripcion();');
+    
     $("#tituloAccion").attr("class", "tituloAnadir");
     // rellenamos los onblur de los input que se validad
     $("#id_inscripcion").attr('onblur', 'comprobarId("id_inscripcion", "errorFormatoId");');
@@ -349,6 +351,8 @@ function showAddInscripcion() {
     $("#documento_pago").attr('disabled', false);
     $("#fecha_pago_inscripcion").attr('disabled', false);
     $("#fecha_aceptacion_inscripcion").attr('disabled', false);
+
+    setLang(getCookie("lang"));
 }
 
 function showEliminarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha_solicitud_inscripcion, documento_pago, fecha_pago_inscripcion, fecha_aceptacion_inscripcion) {
@@ -397,6 +401,7 @@ function showEliminarInscripcion(id_inscripcion, id_actividad, id_usuario, fecha
 
     //cambiar icono submit
     $("#iconoAcciones").attr('src', "./images/icons/deleteUser.png");
+    setLang(getCookie("lang"));
 }
 
 function showBuscarInscripcion() {
@@ -407,7 +412,7 @@ function showBuscarInscripcion() {
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoinscripcion").attr('style', 'display: block');
     $("#formgenericoinscripcion").attr('action', 'javascript:buscarinscripcion();');
-    $("#formgenericoinscripcion").attr('onsubmit', 'comprobareditsubmit();');
+
     $("#tituloAccion").attr("class", "tituloBuscar");
 
     // rellenamos los onblur de los input que se validad
@@ -436,6 +441,7 @@ function showBuscarInscripcion() {
     $("#documento_pago").attr('disabled', false);
     $("#fecha_pago_inscripcion").attr('disabled', false);
     $("#fecha_aceptacion_inscripcion").attr('disabled', false);
+    setLang(getCookie("lang"));
 
 }
 
@@ -443,8 +449,8 @@ function showBuscarInscripcion() {
 
 function resetearformularioinscripcion() {
 
-    $("formgenericoActividad").attr('action', '');
-    $("formgenericoActividad").attr('onsubmit', '');
+    $("formgenericoinscripcion").attr('action', '');
+    $("formgenericoinscripcion").attr('onsubmit', '');
 
     $("#id_inscripcion").attr('disabled', true);
 
@@ -507,15 +513,13 @@ function rellenaId_actividad(id_inscripcion) {
     });
 }
 
-function comprobareditsubmit() {
+function comprobarInscripcion() {
 
-    /*if (comprobarUser()) {
-        return true;
-    }
-    else {
-        return false;
-    }*/
-    return true;
+   if(comprobarDNI("dni_usuario", "errorFormatoDni")&& comprobarFecha("fecha_solicitud_inscripcion", "errorFormatoFechaInscripcion") && comprobarFecha("fecha_pago_inscripcion", "errorFormatoFechaPago") && comprobarFecha("fecha_aceptacion_inscripcion", "errorFormatoFechaAceptacion")){
+       return true;
+   }else{
+       return false;
+   }
 }
 
 function reseteaPagina() {

@@ -186,6 +186,7 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
     $("#color_nombre_actividad").attr('onblur', 'comprobarColorActividad(\'color_nombre_actividad\',\'errorFormatoColorNombre\');');
     $("#numPlazas_actividad").attr('onblur', 'comprobarNumeroPlaazas();');
 
+    setLang(getCookie("lang"));
 }
 
 
@@ -228,7 +229,7 @@ function showDetalleActividad(id_actividad, nombre_actividad, descripcion_activi
     $("#color_nombre_actividad").attr('disabled', true);
     $("#id_espacio").attr('disabled', true);
     $("#id_categoria").attr('disabled', true);
-
+    setLang(getCookie("lang"));
 }
 
 function showEliminarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
@@ -269,7 +270,7 @@ function showEliminarActividad(id_actividad, nombre_actividad, descripcion_activ
     $("#id_espacio").attr('disabled', true);
     $("#id_categoria").attr('disabled', true);
 
-
+    setLang(getCookie("lang"));
 }
 
 function showAddActividad() {
@@ -295,7 +296,7 @@ function showAddActividad() {
     $("#color_actividad").attr('onblur', 'comprobarColorActividad(\'color_actividad\',\'errorFormatoColorActividad\');');
     $("#color_nombre_actividad").attr('onblur', 'comprobarColorActividad(\'color_nombre_actividad\',\'errorFormatoColorNombre\');');
     $("#numPlazas_actividad").attr('onblur', 'comprobarNumeroPlaazas();');
-
+    setLang(getCookie("lang"));
 }
 
 function showBuscarActividad() {
@@ -315,6 +316,7 @@ function showBuscarActividad() {
     // rellenamos los onblur de los input que se validad
     $("#id_actividad").attr('onblur', 'comprobarIdActividad(\"id_actividad\");');
     $("#nombre_actividad").attr('onblur', 'comprobarNombreActividad();');
+    setLang(getCookie("lang"));
 }
 
 function resetearformularioActividad() {
