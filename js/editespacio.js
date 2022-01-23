@@ -12,8 +12,7 @@ function addEspacio() {
 
 	insertacampo(document.formgenericoEspacio, 'controlador', 'espacio');
 	insertacampo(document.formgenericoEspacio, 'action', 'insertar');
-	//insertacampo(document.formgenericoEspacio,'ID_SESSION', idSession); Solo para buscar
-	console.log(document.formgenericoEspacio);
+
 	var idioma = getCookie('lang');
 
 	$.ajax({
@@ -175,16 +174,10 @@ function comprobareditsubmit() {
 
 function buscarEspacio() {
 
-	console.log("GetLisEspacios -> GetLisEspacios triggered");
-
 	var idioma = getCookie('lang');
 	var idSession = getCookie('sessionId');
-	console.log("GetLisEspacios -> formulario oculto  construyendose");
 	addActionControler(document.formgenericoEspacio, 'search', 'espacio')
 	insertacampo(document.formgenericoEspacio, 'ID_SESSION', idSession);
-
-	console.log("GetLisEspacios ->formulario oculto  construido");
-	console.log(document.formgenericoEspacio);
 
 	$.ajax({
 		method: "POST",

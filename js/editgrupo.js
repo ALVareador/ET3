@@ -12,8 +12,7 @@ function addGrupo() {
 
 	insertacampo(document.formgenericoGrupo, 'controlador', 'grupo');
 	insertacampo(document.formgenericoGrupo, 'action', 'insertar');
-	//insertacampo(document.formgenericoGrupo,'ID_SESSION', idSession); Solo para buscar
-	console.log(document.formgenericoGrupo);
+
 	var idioma = getCookie('lang');
 
 	$.ajax({
@@ -175,16 +174,11 @@ function comprobareditsubmit() {
 
 function buscarGrupo() {
 
-	console.log("GetLisGrupos -> GetLisGrupos triggered");
-
 	var idioma = getCookie('lang');
 	var idSession = getCookie('sessionId');
-	console.log("GetLisGrupos -> formulario oculto  construyendose");
+
 	addActionControler(document.formgenericoGrupo, 'search', 'grupo')
 	insertacampo(document.formgenericoGrupo, 'ID_SESSION', idSession);
-
-	console.log("GetLisGrupos ->formulario oculto  construido");
-	console.log(document.formgenericoGrupo);
 
 	$.ajax({
 		method: "POST",

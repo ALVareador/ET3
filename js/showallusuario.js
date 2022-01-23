@@ -21,12 +21,10 @@ function construyeFila(fila, num) {
     var filaTabla = '<tr class=\"colorLinea' + color + '\"> <td>' + fila.dni_usuario +
         '</td> <td <tdclass=\"celdasDatos\">' + fila.usuario +
         '</td> <td <tdclass=\"celdasDatos\">' + fila.id_grupo +
-        '</td> <td <tdclass=\"celdasDatos\">' + fila.borrado_usuario +
         '</td> <td class=\"celdasAcciones\">' + celdaAcciones +
         '</td> </tr>';
 
     return filaTabla;
-    console.log(resource.response);
 }
 
 ArrayGrupos = null;
@@ -47,7 +45,6 @@ function getArrayGrupos() {
         if (response.ok == true) {
 
             ArrayGrupos = response.resource;
-            console.log(console.resource);
             return response.resource;
 
         } else {
@@ -88,7 +85,6 @@ function getLisUsuarios() {
                     //  alert(item.id);
                 }
             }
-            //console.log(response.resource);
             for (var i = 0; i < response.resource.length; i++) {
                 var tr = construyeFila(response.resource[i],i);
                 $("#datosUsuarios").append(tr);
