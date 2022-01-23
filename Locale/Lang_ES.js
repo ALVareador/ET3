@@ -323,7 +323,17 @@ arrayES = {
 	'usuario':'Nombre de Usuario: ',
 	'txtUsuario':'Nombre de Usuario: ',
 	'error_password_distintas':'Las contraseñas no coinciden',
-	'ACTIVIDAD_BORRAR_EXISTE_EN_INSCRIPCION':'La actividad a eliminar está asociada a una inscripción'
+	'ACTIVIDAD_BORRAR_EXISTE_EN_INSCRIPCION':'La actividad a eliminar está asociada a una inscripción',
+	'INSCRIPCION_INSERTAR_OK':'Inscripción insertada correctamente',
+	'INSCRIPCION_ADD_YA_EXISTE':'La inscripción a insertar ya existe',
+	'INSCRIPCION_ADD_ACTIVIDAD_NO_EXISTE':'La actividad que se quiere asociar no existe',
+	'INSCRIPCION_ADD_USUARIO_NO_EXISTE':'El usuario que se quiere asociar no existe',
+	'INSCRIPCION_MODIFICAR_OK ':'Inscripción modificada correctamente',
+	'INSCRIPCION_EDITAR_INSCRIPCION_NO_EXISTE ':'La inscripción a editar no existe',
+	'INSCRIPCION_EDITAR_ACTIVIDAD_NO_EXISTE ':'La actividad que se quiere editar en la inscripción no existe',
+	'INSCRIPCION_EDITAR_USUARIO_NO_EXISTE ':'El usuario que se quiere al que se quiere editar en inscripción no existe ',
+	'INSCRIPCION_BORRAR_OK ':'Inscripción eliminada correctamente',
+	'INSCRIPCION_BORRAR_NO_EXISTE ':'La inscripción a eliminar no existe'
 }
 
 

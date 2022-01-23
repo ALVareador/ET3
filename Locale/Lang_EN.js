@@ -323,5 +323,15 @@ arrayEN = {
     'usuario': 'Username: ',
     'txtUsuario': 'Username: ',
     'error_password_distintas': 'Passwords do not match',
-    'ACTIVIDAD_BORRAR_EXISTE_EN_INSCRIPCION':'Activity on a inscripction, firstly delete the inscription'
+    'ACTIVIDAD_BORRAR_EXISTE_EN_INSCRIPCION':'Activity linked to a inscription',
+	'INSCRIPCION_INSERTAR_OK':'Inscription added correctly',
+	'INSCRIPCION_ADD_YA_EXISTE':'The inscription does exists',
+	'INSCRIPCION_ADD_ACTIVIDAD_NO_EXISTE':'The activity does not exist',
+	'INSCRIPCION_ADD_USUARIO_NO_EXISTE':'The user does not exist',
+	'INSCRIPCION_MODIFICAR_OK ':'Inscription modified correctly',
+	'INSCRIPCION_EDITAR_INSCRIPCION_NO_EXISTE ':'This inscription does not exist',
+	'INSCRIPCION_EDITAR_ACTIVIDAD_NO_EXISTE ':'This activity does not exist',
+	'INSCRIPCION_EDITAR_USUARIO_NO_EXISTE ':'This user does not exist ',
+	'INSCRIPCION_BORRAR_OK ':'Inscripton deleted correctly',
+	'INSCRIPCION_BORRAR_NO_EXISTE ':'The requiredinscription does not exist'
 }
