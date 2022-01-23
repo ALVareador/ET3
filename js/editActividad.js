@@ -491,11 +491,12 @@ function reseteaPagina() {
     
     GetArrayEspacios();
     GetArrayCategorias();
-    GetLisActividades();
+    showDivTablaActividades();
+    resetearformularioActividad();
+    $("#divformgenericoActividad").attr('style', 'display: none');
+
     rellenaId_espacio(); 
     rellenaid_categoria();
     GetLisActividades();
-    showDivTablaActividades();
-    $("#divformgenericoActividad").attr('style', 'display: none');
 
 }

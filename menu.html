@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="css/iconos.css">
     <link rel="stylesheet" href="css/divs.css">
     <link rel="stylesheet" href="css/CssComun.css">
+    <link rel="stylesheet" href="css/menu.css">
 </head>
 
 <body onload="includeCabecera();setLang('');validaAutenticado();">
@@ -34,15 +35,18 @@
         <div class="itemNavBar" id="linkUsuarios">
             <a class="USUARIOTOP navBarLink" class="navBarLink " href="showallusuario.html"></a>
         </div>
+
         <div class="itemNavBar" id="linkGrupos">
             <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
         </div>
+
         <div class="itemNavBar" id="linkResponsables">
             <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
         </div>
         <div class="itemNavBar" id="linkPersonas">
             <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
         </div>
+
         <div class="itemNavBar" id="linkEspacios">
             <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
         </div>
@@ -66,49 +70,61 @@
         <div class="itemNavBar" id="UserDesconectar"></div>
     </div>
 
-    <div>
-        <div>
-            <a class="" href="showallActividad.html">
-                <img src="images/iconos_oscar/cerrados/actividades.svg">
-            </a>
+
+    <div id="divGrande">
+
+        <div id="divArriba">
+            <div class="iconContainer" >
+                <a class="" href="showallActividad.html">
+                    <img class="iconoMenu" src="images/iconos_oscar/cerrados/actividades.svg">
+                </a>
+            </div>
+
+            <div class="iconContainer">
+                <a class="" href="showallcategoria.html">
+                    <img class="iconoMenu" src="images/iconos_oscar/cerrados/Categoría.svg">
+                </a>
+            </div>
+            <div class="iconContainer">
+                <a class="" href="showallespacio.html">
+                    <img class="iconoMenu" src="images/iconos_oscar/cerrados/Espacio.svg">
+                </a>
+            </div>
+            <div class="iconContainer">
+                <a class="" href="showallgrupo.html">
+                    <img class="iconoMenu" src="images/iconos_oscar/cerrados/grupo.svg">
+                </a>
+            </div>
+
         </div>
 
-        <div>
-            <a class="" href="showallcategoria.html">
-                <img src="images/iconos_oscar/cerrados/Categoría.svg">
-            </a>
-        </div>
-        <div>
-            <a class="" href="showallespacio.html">
-                <img src="images/iconos_oscar/cerrados/Espacio.svg">
-            </a>
-        </div>
-        <div>
-            <a class="" href="showallgrupo.html">
-                <img src="images/iconos_oscar/cerrados/grupo.svg">
-            </a>
-        </div>
-        <div>
-            <a class="" href="showallinscripcion.html">
-                <img src="images/iconos_oscar/cerrados/inscripcion.svg" alt='gestion inscripcion'>
-            </a>
+        <!--   4 arriba 4 abajo-->
+
+        <div id="divAbajo">
+
+            <div class="iconContainer">
+                <a class="" href="showallinscripcion.html">
+                    <img class="iconoMenu" src="images/iconos_oscar/cerrados/inscripcion.svg" alt='gestion inscripcion'>
+                </a>
+            </div>
+
+            <div class="iconContainer">
+                <a class="" href="showallpersona.html">
+                    <img class="iconoMenu" src="images/iconos_oscar/cerrados/persona.svg" alt='gestion personas'>
+                </a>
+            </div>
+            <div class="iconContainer">
+                <a class="" href="showallresponsable.html">
+                    <img class="iconoMenu" src="images/iconos_oscar/cerrados/responsable.svg">
+                </a>
+            </div>
+            <div class="iconContainer">
+                <a class="" href="showallusuario.html">
+                    <img class="iconoMenu" src="images/iconos_oscar/cerrados/usuario.svg">
+                </a>
+            </div>
         </div>
 
-        <div>
-            <a class="" href="showallpersona.html">
-                <img src="images/iconos_oscar/cerrados/persona.svg" alt='gestion personas'>
-            </a>
-        </div>
-        <div>
-            <a class="" href="showallresponsable.html">
-                <img src="images/iconos_oscar/cerrados/responsable.svg">
-            </a>
-        </div>
-        <div>
-            <a class="" href="showallusuario.html">
-                <img src="images/iconos_oscar/cerrados/usuario.svg">
-            </a>
-        </div>
     </div>
 
     <div id="modal" style="display:none">
