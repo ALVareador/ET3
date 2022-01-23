@@ -5,7 +5,6 @@ function addUsuario() {
 	insertacampo(document.formgenericoUsuario, 'controlador', 'usuario');
 	insertacampo(document.formgenericoUsuario, 'action', 'insertar');
 	
-	console.log(document.formgenericoUsuario);
 	var idioma = getCookie('lang');
 
 	$.ajax({
@@ -20,7 +19,8 @@ function addUsuario() {
 		}
 
 		actualizaMensajesRespuestAjax(response.code);
-
+		setLang(idioma);
+		resetearformulariousuario();
 		deleteActionController();
 	});
 
@@ -37,8 +37,6 @@ function comprobarUsuario(){
 
 function showAddUsuario() {
 
-
-
 	// se resetea todo el formulario generico
 	resetearformulariousuario();
 
@@ -49,13 +47,6 @@ function showAddUsuario() {
 
 	$("#tituloAccion").attr("class", "tituloAnadir");
 	
-	//rellenamos los tipo text
-	/*$("#txtidresponsable").val("1");
-	$("#txtnumcuentaresponsable").val("1");
-	$("#txtcurriculumresponsable").val("1");*/
-
-	// rellenamos los onblur de los input que se validad
-
 	$("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario","errorFormatoDni");');
 	$("#labelusuario").attr('onblur', 'comprobarNombreParam("labelusuario");');
 	$("#contrasena").attr('onblur', 'comprobarContraseña();');
@@ -96,7 +87,6 @@ function editUsuario() {
 // Funcion para modificar un formulario generico para editar un usuario
 //
 function showEditarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, borrado_usuario) {
-	//console.log(id, dni_usuario, usuario, id_grupo, borrado_usuario);
 	// se resetea todo el formulario generico
 	resetearformulariousuario();
 
@@ -104,16 +94,17 @@ function showEditarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, borra
 	$("#divformgenericoUsuario").attr('style', 'display: block');
 	$("#formgenericoUsuario").attr('action', 'javascript:editUsuario();');
 	$("#formgenericoUsuario").attr('onsubmit', 'comprobarUsuario();');
-
+	
 	$("#tituloAccion").attr("class", "tituloEditar");
 	//rellenamos los tipo text
 	insertacampo(document.formgenericoUsuario,'id', id);
 	$("#dni_usuario").val(dni_usuario);
 	$("#labelusuario").val(usuario);
+	
 
+	$("#labelcontrasena").attr('style',"visibility: hidden;");
 	$("#contrasena").attr('type', 'hidden');	
 	$("#contrasena").attr('disabled', true);
-	$("#labelcontrasena").attr('style', 'display:none');
 
 	// rellenamos los onblur de los input que se validad
 	$("#dni_usuario").attr('onblur', 'comprobarDNI("dni_usuario","errorFormatoDni");');
@@ -149,7 +140,7 @@ function showDetalleUsuario(id, dni_usuario, usuario, id_grupo, borrado_usuario)
 	
 	$("#dni_usuario").attr('disabled', true);
 	$("#labelusuario").attr('disabled', true);
-
+	$("#labelcontrasena").attr('style',"visibility: hidden;");
 	$("#contrasena").attr('type', 'hidden');
 	$("#contrasena").attr('disabled', true);
 	$("#labelcontrasena").attr('style', 'display:none');
@@ -169,7 +160,6 @@ function deleteUsuario() {
 	insertacampo(document.formgenericoUsuario, 'action', 'borrar');
 	$("#dni_usuario").attr('disabled', false);
 
-	console.log(formgenericoUsuario);
 	var idioma = getCookie('lang');
 
 	$.ajax({
@@ -182,7 +172,6 @@ function deleteUsuario() {
 		} else {
 			respuestaKOAjax('borrar');
 		}
-		console.log(response.resource);
 		actualizaMensajesRespuestAjax(response.code);
 
 		setLang(idioma);
@@ -202,7 +191,7 @@ function showEliminarUsuario(id, dni_usuario, usuario, contrasena, id_grupo, bor
 	insertacampo(document.formgenericoUsuario,'id', id);
 	$("#dni_usuario").val(dni_usuario);
 	$("#labelusuario").val(usuario);
-
+	$("#labelcontrasena").attr('style',"visibility: hidden;");
 	$("#contrasena").attr('type', 'hidden');	
 	$("#contrasena").attr('disabled', true);
 	$("#contrasena").attr('style', 'display:none');
@@ -255,19 +244,13 @@ function resetearformulariousuario(idformUsado) {
 	$("idformUsado").attr('action', '');
 	$("idformUsado").attr('onsubmit', '');
 
-	$("#id").attr('disabled', false);
-	$("#dni_usuario").attr('disabled', false);
-	$("#labelusuario").attr('disabled', false);
-	$("#contrasena").attr('disabled', false);
-	$("#id_grupo").attr('disabled', false);
-	$("#borrado_usuario").attr('disabled', false);
-
 	$("#id").val('');
 	$("#dni_usuario").val('');
 	$("#labelusuario").val('');
 	$("#contrasena").val('');
 	$("#id_grupo").val('');
 
+	$("#labelcontrasena").attr('style',"visibility: visible;");
 	$("#contrasena").attr('type', 'password');
 	$("#contrasena").attr('style', 'display:block');
 
@@ -278,6 +261,13 @@ function resetearformulariousuario(idformUsado) {
 
 	$("divformgenericoUsuario").attr('style', 'display: none');
 
+	$("#id").attr('disabled', false);
+	$("#dni_usuario").attr('disabled', false);
+	$("#labelusuario").attr('disabled', false);
+	$("#contrasena").attr('disabled', false);
+	$("#id_grupo").attr('disabled', false);
+	$("#borrado_usuario").attr('disabled', false);
+	document.getElementById('submitbuttom').style.visibility = 'visible';
 }
 
 function buscarUsuario() {
@@ -286,8 +276,6 @@ function buscarUsuario() {
     var idSession = getCookie('sessionId');
     addActionControler(document.formgenericoUsuario, 'search', 'usuario')
     insertacampo(document.formgenericoUsuario, 'ID_SESSION', idSession);
-
-    console.log(document.formgenericoUsuario);
 
     $.ajax({
         method: "POST",
@@ -341,7 +329,4 @@ function showBuscarUsuario() {
     //Se pone el titulo de la acción buscar
 
     setLang(getCookie("lang"));
-    // rellenamos los onblur de los input que se validad
-    //$("#dni_persona").attr('onblur', '');
-    //$("#nombre_persona").attr('onblur', 'comprobarNombrePersona();');
 }

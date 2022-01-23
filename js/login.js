@@ -62,7 +62,6 @@ function recuperar() {
 		data: $("#formulariorecuperar").serialize(),
 	}).done(function (response) {
 		if (response.ok == true) {
-			console.log(response.resource);
 			document.getElementById("LabelContrasenaRecuperada").style.visibility = "visible";
 			document.getElementById("contrasenarecuperada").innerHTML = response.resource;
 		} else {
@@ -74,7 +73,6 @@ function recuperar() {
 		}
 
 	});
-	console.log(formulariorecuperar);
 }
 
 function resetearformulariorecuperar() {

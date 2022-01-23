@@ -655,7 +655,6 @@ function rellenaid_grupo(id, activo) {
     }).done(function (response) {
         if (response.ok == true) {
             addOptions('id_grupo', response.resource, "id_grupo", "nombre_grupo");
-            console.log(response.resource)
             $("#id_grupo option[value='" + id + "'").attr("selected", true);
             $("#borrado_usuario option[value='" + activo + "'").attr("selected", true);
         } else {
@@ -890,7 +889,6 @@ function fechamayoractual(fComp, campo) {
     var myYear = parseInt(arrFecha[2]);
 
     var fecha = new Date(myYear, myMonth, myDay);
-    console.log(fecha);
     if (fecha < fechaActual) {
         validacionOK("fechaNacimiento_persona", "errorFormatoFechaNacimiento");
         return true;
@@ -996,7 +994,6 @@ function comprobarMayorEdad(idElemento, idElementoError) {
     var dia_actual = fecha_actual.getDate();
     var mes_actual = fecha_actual.getMonth() + 1;
     var anho_actual = fecha_actual.getFullYear();
-    //console.log(dia_actual, mes_actual, anho_actual, dia_nacimiento, mes_nacimiento, anho_nacimiento);
     //hay formas más óptimas de hacerlo pero ya luego si dá tiempo, esta funciona
     if (anho_actual - anho_nacimiento > 18) {
         return true;
@@ -1125,7 +1122,6 @@ function showError(idError, tamanhoLetra, colorTexto, idMensajeErrormensaje) {
     //Limpia todas las clases
     var lclases = divError.classList;
     var len = lclases.length;
-    console.log(divError.classList)
     while (len > -1) {
 
         divError.classList.remove(lclases[len])

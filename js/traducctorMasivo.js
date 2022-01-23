@@ -9,7 +9,6 @@
  */
 function actuarDiccionario(accion, diccionario) {
 
-    console.log(diccionario);
     var toret = "";
     var valoresNuevos = [
        
@@ -19,17 +18,14 @@ function actuarDiccionario(accion, diccionario) {
             //muestra todo el diccionario en formato clave:valor
             for (var clave in diccionario)
                 toret = toret + '\n' + '\'' + clave + '\'' + ":" + '\'' + diccionario[clave] + '\',';
-            console.log(toret);
             break;
         case 'mostrarClaves':
             for (var clave in diccionario)
                 toret = toret + '\n' + '\'' + clave + '\',';
-            console.log(toret);
             break;
         case 'mostrarValores':
             for (var clave in diccionario)
                 toret = toret + '\n' + '\'' + diccionario[clave] + '\',';
-            console.log(toret);
             break;
         case 'escribirValores':
             var i = 0;
@@ -37,10 +33,8 @@ function actuarDiccionario(accion, diccionario) {
                 toret = toret + '\n' + '\'' + clave + '\'' + ':' + '\'' + valoresNuevos[i] + '\',';
                 i++;
             }
-            console.log(toret);
             break;
         default:
-            console.log("Las opciones son mostrarTodo mostrarClaves mostrarValores escribirValores")
             break;
     }
 }

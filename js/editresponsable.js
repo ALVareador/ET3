@@ -156,16 +156,10 @@ function deleteresponsable() {
 //*
 function buscarresponsable() {
 
-	console.log("getLisResponsable -> getLisResponsable triggered");
-
 	var idioma = getCookie('lang');
 	var idSession = getCookie('sessionId');
-	console.log("getLisResponsable -> formulario oculto  construyendose");
 	addActionControler(document.formgenericoresponsable, 'search', 'responsable')
 	insertacampo(document.formgenericoresponsable, 'ID_SESSION', idSession);
-
-	console.log("getLisResponsable ->formulario oculto  construido");
-	console.log(document.formgenericoresponsable);
 
 	$.ajax({
 		method: "POST",

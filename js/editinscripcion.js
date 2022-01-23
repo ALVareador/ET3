@@ -92,7 +92,7 @@ function addinscripcion() {
     var datos = new FormData();
     datos.append("upload", file);
     datos.append("formulario", formdata);
-    console.log(formdata);
+
     $.ajax({
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
@@ -135,7 +135,6 @@ function deleteinscripcion() {
     $("#id_inscripcion").attr("disabled", false);
 
     var idioma = getCookie('lang');
-    console.log($("#formgenericoinscripcion").serialize());
     $.ajax({
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
@@ -167,16 +166,10 @@ function deleteinscripcion() {
 //*
 function buscarinscripcion() {
 
-    console.log("getLisInscripcion -> getLisInscripcion triggered");
-
     var idioma = getCookie('lang');
     var idSession = getCookie('sessionId');
-    console.log("getLisInscripcion -> formulario oculto  construyendose");
     addActionControler(document.formgenericoinscripcion, 'search', 'inscripcion')
     insertacampo(document.formgenericoinscripcion, 'ID_SESSION', idSession);
-
-    console.log("getLisInscripcion ->formulario oculto  construido");
-    console.log(document.formgenericoinscripcion);
 
     $.ajax({
         method: "POST",
