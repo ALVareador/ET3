@@ -13,7 +13,6 @@ function addPersona() {
     insertacampo(document.formgenericoPersona, 'controlador', 'persona');
     insertacampo(document.formgenericoPersona, 'action', 'insertar');
 
-    console.log(document.formgenericoPersona);
     var idioma = getCookie('lang');
 
     var formdata = $("#formgenericoPersona").serialize();
@@ -22,7 +21,7 @@ function addPersona() {
     var datos = new FormData();
     datos.append("upload", file);
     datos.append("formulario", formdata);
-    console.log("subefotopersona")
+
     $.ajax({
         method: "POST",
         url: "http://193.147.87.202/ET3_IU/noRest.php",
@@ -393,8 +392,6 @@ function buscarPersona() {
     var idSession = getCookie('sessionId');
     addActionControler(document.formgenericoPersona, 'search', 'persona')
     insertacampo(document.formgenericoPersona, 'ID_SESSION', idSession);
-
-    console.log(document.formgenericoPersona);
 
     $.ajax({
         method: "POST",

@@ -50,10 +50,10 @@
         </div>
         <div class="itemNavBar" id="linkCambiarContraseña">
             <a class="navBarLink" href="cambiarcontrasena.html">
-                <img class="CAMBIARTOP" alt="" src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
+                <img class="iconNavBar" alt="" src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
             </a>
         </div>
-        
+
         <div class="itemNavBar" id="UserDesconectar"></div>
 
     </div>
@@ -68,42 +68,42 @@
                     <label class='dni_persona'></label>
                     <input type='text' name='dni_persona' id='dni_persona'
                         onblur='return comprobarDNI("dni_persona","errorFormatoDni")'><br>
-                    <div style="display:none" id="errorFormatoDni"></div>
+                    <div style="display:none" id="errorFormatoDni" class="ErrorFormato"></div>
 
                     <label class='nombre_persona'></label>
                     <input type='text' name='nombre_persona' id='nombre_persona'
                         onblur='return comprobarNombreParam("nombre_persona")'><br>
-                    <div style="display:none" id="errorFormatoNombre"></div>
+                    <div style="display:none" id="errorFormatoNombre" class="ErrorFormato"></div>
 
                     <label class='apellidos_persona'></label>
                     <input type='text' name='apellidos_persona' id='apellidos_persona'
                         onblur='return comprobarApellidosParam("apellidos_persona")'><br>
-                    <div style="display:none" id="errorFormatoApellidos"></div>
+                    <div style="display:none" id="errorFormatoApellidos" class="ErrorFormato"></div>
 
                     <label class='fechaNacimiento_persona'></label>
                     <input type="text" name="fechaNacimiento_persona" id="fechaNacimiento_persona" class="tcal"
                         onblur='return comprobarFechaDeNacimiento()'> <br>
-                    <div style="display:none" id="errorFormatoFechaNacimiento"></div>
+                    <div style="display:none" id="errorFormatoFechaNacimiento" class="ErrorFormato"></div>
 
                     <label class='direccion_persona'></label>
                     <input type='text' name='direccion_persona' id='direccion_persona'
                         onblur='return comprobarDireccion()'><br>
-                    <div style="display:none" id="errorFormatoDireccion"></div>
+                    <div style="display:none" id="errorFormatoDireccion" class="ErrorFormato"></div>
 
                     <label class='telefono_persona'></label>
                     <input type='text' name='telefono_persona' id='telefono_persona'
                         onblur='return comprobarTelefono()'><br>
-                    <div style="display:none" id="errorFormatoTelefono"></div>
+                    <div style="display:none" id="errorFormatoTelefono" class="ErrorFormato"></div>
 
                     <label class='email_persona'></label>
                     <input type='text' name='email_persona' id='email_persona' onblur='return comprobarEmail()'><br>
-                    <div style="display:none" id="errorFormatoEmail"></div>
+                    <div style="display:none" id="errorFormatoEmail" class="ErrorFormato"></div>
 
                     <label class='foto_persona' id='labelfotopersona'></label>
                     <input type='text' name='foto_persona' id='foto_persona' onblur=''><br>
                     <label class='sube_persona' id='labelfotopersona'></label>
                     <input type='file' accept=".png, .jpg" name='subefotopersona' id='subefotopersona' onblur=""><br>
-                    <div style="display:none" id="errorFormatoUpload"></div>
+                    <div style="display:none" id="errorFormatoUpload" class="ErrorFormato"></div>
 
                     <label class='esCeliaco_persona'></label>
                     <select name='esCeliaco_persona' id='esCeliaco_persona'>
@@ -121,11 +121,12 @@
                     <div id="botones">
                         <button id='submitbuttom' type='submit'><img src="./images/iconos_oscar/cerrados/tick.svg"
                                 width="50px" /></button>
+                        <a id="cerrarForm" href="#" onclick="cerrar('divformgenericoPersona','','')" class="tooltip">
+                            <img alt="Cerrar" width="50px" src="images/iconos_oscar/cerrados/cross.svg" />
+                        </a>
                     </div>
                 </form>
-                <a id="cerrarForm" href="#" onclick="cerrar('divformgenericoPersona','','')" class="tooltip">
-                    <img class="iconCerrar" alt="Cerrar" src="images/iconos_oscar/cerrados/cross.svg" />
-                </a>
+
             </div>
 
 

@@ -49,11 +49,12 @@
                 </div>
                 <div class="itemNavBar" id="linkCambiarContraseña">
                         <a class="navBarLink" href="cambiarcontrasena.html">
-                            <img class="CAMBIARTOP" alt="" src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
+                                <img class="iconNavBar" alt=""
+                                        src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
                         </a>
-                    </div>
-                    
-                    <div class="itemNavBar" id="UserDesconectar"></div>
+                </div>
+
+                <div class="itemNavBar" id="UserDesconectar"></div>
         </div>
 
         <div id='divformgenericoCategoria' style="display:none" class='fondoFormulario'>
@@ -65,26 +66,30 @@
                                         <label class='id_categoria'></label>
                                         <input type='text' name='id_categoria' id='id_categoria'
                                                 onblur='return comprobarId("id_categoria","errorFormatoId")'><br>
-                                        <div style="display:none" id="errorFormatoId"></div>
+                                        <div style="display:none" id="errorFormatoId" class="ErrorFormato"></div>
                                         <label class='nombre_categoria'></label>
                                         <input type='text' name='nombre_categoria' id='nombre_categoria'
                                                 onblur='return comprobarNombreParam("nombre_categoria")'><br>
-                                        <div style="display:none" id="errorFormatoNombre"></div>
+                                        <div style="display:none" id="errorFormatoNombre" class="ErrorFormato"></div>
                                         <label class='descripcion_categoria'></label>
                                         <input type='text' name='descripcion_categoria' id='descripcion_categoria'
                                                 onblur='return comprobarDescripcionParam("descripcion_categoria")'><br>
-                                        <div style="display:none" id="errorFormatoDescr"></div>
+                                        <div style="display:none" id="errorFormatoDescr" class="ErrorFormato"></div>
 
                                         <br>
-                                        <button id='submitbuttom' type='submit'><img
-                                                        src="images/iconos_oscar/cerrados/tick.svg"
-                                                        width="50px" /></button><br>
+                                        <div id="botones">
+                                                <button id='submitbuttom' type='submit'><img
+                                                                src="images/iconos_oscar/cerrados/tick.svg"
+                                                                width="50px" /></button><br>
+                                                <a id="cerrarForm" href="#"
+                                                        onclick="cerrar('divformgenericoCategoria','','')"
+                                                        class="tooltip">
+                                                        <img alt="Cerrar" width="50px"
+                                                                src="images/iconos_oscar/cerrados/cross.svg" />
+                                                </a>
+                                        </div>
                                 </form>
-                                <a id="cerrarForm" href="#" onclick="cerrar('divformgenericoCategoria','','')"
-                                        class="tooltip">
-                                        <img class="iconCerrar" alt="Cerrar"
-                                                src="images/iconos_oscar/cerrados/cross.svg" />
-                                </a>
+
                         </div>
                 </div>
         </div>

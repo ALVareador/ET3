@@ -53,7 +53,6 @@ function getLisPersonas() {
                     //  alert(item.id);
                 }
             }
-            //console.log(response.resource);
             for (var i = 0; i < response.resource.length; i++) {
                 var tr = construyeFila(response.resource[i], i);
                 $("#datosPersonas").append(tr);

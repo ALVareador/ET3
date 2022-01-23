@@ -14,21 +14,15 @@ function registrarUsuario() {
 	var idSession = getCookie('sessionId');
 	insertacampo(document.formularioRegistro, 'ID_SESSION', idSession);
 	addActionControler(document.formularioRegistro, "registrar", "AUTH");
-	console.log(document.formularioRegistro);
 	var idioma = getCookie('lang');
 
 	var formdata = $("#formularioRegistro").serialize();
 	formdata = decodeURIComponent(formdata.replace(/%2F/g, "/"));
 	var file = $("#foto_persona")[0].files[0];
-	console.log($("#foto_persona")[0].files[0]);
-	console.log(file);
 
 	var datos = new FormData();
 	datos.append("upload", file);
 	datos.append("formulario", formdata);
-
-	console.log(document.getElementById("foto_persona").value);
-
 
 	$.ajax({
 		method: "POST",

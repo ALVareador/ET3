@@ -48,11 +48,12 @@
                 </div>
                 <div class="itemNavBar" id="linkCambiarContraseña">
                         <a class="navBarLink" href="cambiarcontrasena.html">
-                            <img class="CAMBIARTOP" alt="" src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
+                                <img class="CAMBIARTOP" alt=""
+                                        src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
                         </a>
-                    </div>
-                    
-                    <div class="itemNavBar" id="UserDesconectar"></div>
+                </div>
+
+                <div class="itemNavBar" id="UserDesconectar"></div>
         </div>
 
         <div id='divformgenericoUsuario' style="display:none" class='fondoFormulario'>
@@ -66,17 +67,17 @@
                                         <label class='dni_usuario'></label>
                                         <input type='text' name='dni_usuario' id='dni_usuario'
                                                 onblur='return comprobarDNI("dni_usuario","errorFormatoDni")'><br>
-                                        <div style="display:none" id="errorFormatoDni"></div>
+                                        <div style="display:none" id="errorFormatoDni" class="ErrorFormato"></div>
 
                                         <label class='labelusuario'></label>
                                         <input type='text' name='usuario' id='labelusuario'
                                                 onblur='return comprobarNombreParam("labelusuario");'><br>
-                                        <div style="display:none" id="errorFormatoNombre"></div>
+                                        <div style="display:none" id="errorFormatoNombre" class="ErrorFormato"></div>
 
-                                        <label class='labelcontrasena'></label>
+                                        <label class='labelcontrasena' id='labelcontrasena'></label>
                                         <input type='password' name='contrasena' id='contrasena'
                                                 onblur='return comprobarContraseña()'><br>
-                                        <div style="display:none" id="errorFormatoPassword"></div>
+                                        <div style="display:none" id="errorFormatoPassword" class="ErrorFormato"></div>
 
                                         <label class='id_grupo'></label>
                                         <select name='id_grupo' id='id_grupo'><br>
@@ -84,8 +85,8 @@
 
                                         <label class='borrado_usuario'></label>
                                         <select name='borrado_usuario' id='borrado_usuario'>
-                                                <option value="0">Si</option>
-                                                <option value="1">No</option>
+                                                <option value="1" class="SI"></option>
+                                                <option value="0" class="NO"></option>
                                         </select>
 
                                         <br>
@@ -96,8 +97,8 @@
                                                 <a id="cancelbuttom" href="#"
                                                         onclick="cerrar('divformgenericoUsuario','','')"
                                                         class="tooltip">
-                                                        <img alt="Cerrar"
-                                                                src="images/iconos_oscar/cerrados/cross.svg" width="50px" />
+                                                        <img alt="Cerrar" src="images/iconos_oscar/cerrados/cross.svg"
+                                                                width="50px" />
                                         </div>
                                         </a>
                                 </form>

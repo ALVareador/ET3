@@ -43,11 +43,11 @@
             onsubmit="return comprobarRecuperarContrasena()">
             <label class='correorecuperacion'></label>
             <input type='text' name='email_persona' id='email_persona' onblur="return comprobarEmail()"><br>
-            <div style="display:none" id="errorFormatoEmail"></div>
+            <div style="display:none" id="errorFormatoEmail" class="ErrorFormato"></div>
 
             <label class='usuariorecuperacion'></label>
             <input type='text' name='usuario' id='txtUsuario' onblur='return comprobarUser()'><br>
-            <div style="display:none" id="errorFormatoUser"></div><br>
+            <div style="display:none" id="errorFormatoUser" class="ErrorFormato"></div><br>
 
             <label id="LabelContrasenaRecuperada" class="contrasena_recuperada_es" style="visibility: hidden;"></label>
             <div style="display: inline;" id="contrasenarecuperada"></div>

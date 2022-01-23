@@ -50,7 +50,7 @@
         </div>
         <div class="itemNavBar" id="linkCambiarContraseña">
             <a class="navBarLink" href="cambiarcontrasena.html">
-                <img class="CAMBIARTOP" alt="" src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
+                <img class="iconNavBar" alt="" src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
             </a>
         </div>
         
@@ -66,21 +66,21 @@
                     <!-- Id Inscripcion-->
                     <label class='id_inscripcion'></label>
                     <input type='text' name='id_inscripcion' id='id_inscripcion' onblur=''><br>
-                    <div style="display:none" id="errorFormatoId"></div>
+                    <div style="display:none" id="errorFormatoId" class="ErrorFormato"></div>
                     <!--Nombre de la Actividad a la que se va a inscribir-->
                     <label class='nombre_actividad'></label>
                     <select name="id_actividad" id="id_actividad"></select><br>
-                    <div style="display:none" id="errorFormatoActividad"></div>
+                    <div style="display:none" id="errorFormatoActividad" class="ErrorFormato"></div>
                     <!--Usuario que se inscribe-->
                     <label class='dni_usuario'></label>
                     <input type='text' name='id_usuario' id='id_usuario' style='display: none;' onblur=''>
                     <input type='text' name='dni_usuario' id='dni_usuario' onblur=''><br>
-                    <div style="display:none" id="errorFormatoDni"></div>
+                    <div style="display:none" id="errorFormatoDni" class="ErrorFormato"></div>
                     <!--Fecha de la inscripcion-->
                     <label class='fecha_solicitud_inscripcion'></label>
                     <input type='text' name='fecha_solicitud_inscripcion' id='fecha_solicitud_inscripcion' class="tcal"
                         onblur=''><br>
-                    <div style="display:none" id="errorFormatoFechaInscripcion"></div>
+                    <div style="display:none" id="errorFormatoFechaInscripcion" class="ErrorFormato"></div>
                 </fieldset>
 
                 <fieldset>
@@ -91,17 +91,17 @@
                     <a href='' name='enlace_documento_pago' id="enlace_documento_pago"></a><br>
                     <label class='sube_documento_pago' id='label_sube_documento_pago'></label>
                     <input type='file' name='documento_pago' id='sube_documento_pago'><br>
-                    <div style="display:none" id="errorFormatoDocumentoPago"></div>
+                    <div style="display:none" id="errorFormatoDocumentoPago" class="ErrorFormato"></div>
                     <!--Fecha de realizacion del Pago-->
                     <label class='fecha_pago_inscripcion'></label>
                     <input type='text' name='fecha_pago_inscripcion' id='fecha_pago_inscripcion' class="tcal"
                         onblur=''><br>
-                    <div style="display:none" id="errorFormatoFechaPago"></div>
+                    <div style="display:none" id="errorFormatoFechaPago" class="ErrorFormato"></div>
                     <!--Fecha aceptacion del Pago-->
                     <label class='fecha_aceptacion_inscripcion'></label>
                     <input type='text' name='fecha_aceptacion_inscripcion' id='fecha_aceptacion_inscripcion'
                         class="tcal" onblur=''><br>
-                    <div style="display:none" id="errorFormatoFechaAceptacion"></div>
+                    <div style="display:none" id="errorFormatoFechaAceptacion" class="ErrorFormato"></div>
                 </fieldset>
 
                 <div id="botones">

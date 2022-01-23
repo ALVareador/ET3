@@ -52,11 +52,12 @@
                 </div>
                 <div class="itemNavBar" id="linkCambiarContraseña">
                         <a class="navBarLink" href="cambiarcontrasena.html">
-                            <img class="CAMBIARTOP" alt="" src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
+                                <img class="CAMBIARTOP" alt=""
+                                        src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
                         </a>
-                    </div>
-                    
-                    <div class="itemNavBar" id="UserDesconectar"></div>
+                </div>
+
+                <div class="itemNavBar" id="UserDesconectar"></div>
         </div>
 
         <div id='divformgenericoresponsable' style="display:none" class='fondoFormulario'>
@@ -67,12 +68,12 @@
 
                                 <label class='dni_responsable'></label>
                                 <input type='text' name='dni_responsable' id='dni_responsable' onblur=''><br>
-                                <div style="display:none" id="errorFormatoDni"></div>
+                                <div style="display:none" id="errorFormatoDni" class="ErrorFormato"></div>
 
                                 <label class='numCuenta_responsable'></label>
                                 <input type='text' name='numCuenta_responsable' id='numCuenta_responsable'
                                         onblur=''><br>
-                                <div style="display:none" id="errorFormatoCuenta"></div>
+                                <div style="display:none" id="errorFormatoCuenta" class="ErrorFormato"></div>
 
                                 <label class='curriculum_responsable' id='labeltxtcurriculumresponsable'></label>
                                 <input type='text' name='curriculum_responsable' id='txtcurriculumresponsable'
@@ -82,12 +83,12 @@
                                 <label class='sube_curriculum_responsable'
                                         id='labelsubetxtcurriculumresponsable'></label>
                                 <input type='file' name='curriculum_responsable' id='subetxtcurriculumresponsable'><br>
-                                <div style="display:none" id="errorFormatoPassword"></div>
+                                <div style="display:none" id="errorFormatoPassword " class="ErrorFormato"></div>
 
                                 <label class='borrado_responsable'></label>
                                 <select name='borrado_responsable' id='txtborradoresponsable'>
-                                        <option value="0">Si</option>
-                                        <option value="1">No</option>
+                                        <option value="1" class="SI"></option>
+                                        <option value="0" class="NO"></option>
                                 </select><br>
 
                                 <div id="botones">
