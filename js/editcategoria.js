@@ -13,7 +13,6 @@ function addCategoria() {
 	insertacampo(document.formgenericoCategoria, 'controlador', 'categoria');
 	insertacampo(document.formgenericoCategoria, 'action', 'insertar');
 	//insertacampo(document.formgenericoCategoria,'ID_SESSION', idSession); Solo para buscar
-	console.log(document.formgenericoCategoria);
 	var idioma = getCookie('lang');
 
 	$.ajax({
@@ -175,17 +174,12 @@ function comprobareditsubmit() {
 
 function buscarCategoria() {
 
-	console.log("GetLisCategorias -> GetLisCategorias triggered");
 
 	var idioma = getCookie('lang');
 	var idSession = getCookie('sessionId');
-	console.log("GetLisCategorias -> formulario oculto  construyendose");
 	addActionControler(document.formgenericoCategoria, 'search', 'categoria')
 	insertacampo(document.formgenericoCategoria, 'ID_SESSION', idSession);
-
-	console.log("GetLisCategorias ->formulario oculto  construido");
-	console.log(document.formgenericoCategoria);
-
+	
 	$.ajax({
 		method: "POST",
 		url: "http://193.147.87.202/ET3_IU/noRest.php",

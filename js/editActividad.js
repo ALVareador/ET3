@@ -38,7 +38,6 @@ function buscarActividad() {
 
     var idioma = getCookie('lang');
     var idSession = getCookie('sessionId');
-    console.log("GetLisActividades -> formulario oculto  construyendose");
     addActionControler(document.formgenericoActividad, 'search', 'actividad')
     insertacampo(document.formgenericoActividad, 'ID_SESSION', idSession);
 
