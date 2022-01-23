@@ -21,41 +21,39 @@
 <body onload="includeCabecera();validaAutenticado();getLisCategorias();setLang('');">
         <div id="navBar">
                 <div class="itemNavBar" id="linkUsuarios">
-                        <a class="USUARIOTOP navBarLink" class="navBarLink " href="showallusuario.html"></a>
+                    <a class="USUARIOTOP navBarLink" class="navBarLink " href="showallusuario.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkGrupos">
-                        <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
+                    <a class="GRUPOTOP navBarLink" class="navBarLink" href="showallgrupo.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkResponsables">
-                        <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
+                    <a class="RESPONSABLETOP navBarLink" class="navBarLink " href="showallresponsable.html"></a>
                 </div>
-
                 <div class="itemNavBar" id="linkPersonas">
-                        <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
+                    <a class="PERSONATOP navBarLink" class="navBarLink " href="showallpersona.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkEspacios">
-                        <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
+                    <a class="ESPACIOTOP navBarLink" class="navBarLink " href="showallespacio.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkCategorias">
-                        <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
+                    <a class="CATEGORIATOP navBarLink" class="navBarLink" href="showallcategoria.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkActividades">
-                        <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
+                    <a class="ACTIVIDADTOP navBarLink" class="navBarLink" href="showallActividad.html"></a>
                 </div>
                 <div class="itemNavBar" id="linkInscripciones">
-                        <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html">
-                                <h1></h1>
-                        </a>
+                    <a class="INSCRIPCIONTOP navBarLink" href="showallinscripcion.html">
+                        <h1></h1>
+                    </a>
                 </div>
                 <div class="itemNavBar" id="linkCambiarContraseña">
-                        <a class="navBarLink" href="cambiarcontrasena.html">
-                                <img class="iconNavBar" alt=""
-                                        src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
-                        </a>
+                    <a class="navBarLink" href="cambiarcontrasena.html">
+                        <img class="iconNavBar" alt="" src="images/iconos_oscar/cerrados/cambiarContrasenha.svg" />
+                    </a>
                 </div>
-
+        
                 <div class="itemNavBar" id="UserDesconectar"></div>
-        </div>
+            </div>
 
         <div id='divformgenericoCategoria' style="display:none" class='fondoFormulario'>
                 <div id="contenidoForm" class='formulario'>
@@ -72,8 +70,8 @@
                                                 onblur='return comprobarNombreParam("nombre_categoria")'><br>
                                         <div style="display:none" id="errorFormatoNombre" class="ErrorFormato"></div>
                                         <label class='descripcion_categoria'></label>
-                                        <input type='text' name='descripcion_categoria' id='descripcion_categoria'
-                                                onblur='return comprobarDescripcionParam("descripcion_categoria")'><br>
+                                        <textarea type='text' name='descripcion_categoria' id='descripcion_categoria'
+                                                onblur='return comprobarDescripcionParam("descripcion_categoria")'></textarea><br>
                                         <div style="display:none" id="errorFormatoDescr" class="ErrorFormato"></div>
 
                                         <br>
