@@ -55,15 +55,16 @@ function comprobarContraseña() {
 
 }
 
-function comprobarContraseña() {
+function comprobarContraseñaNueva() {
 
     document.getElementById("contrasenanueva").style.borderWidth = "2px";
 
-    if (validaNoVacio("contrasenanueva", "errorFormatoPassword", "contrasena") && comprobarLetrasNumeros("contrasenanueva", 16, 3, "errorFormatoPassword", "contrasena")) {
-        validacionOK("contrasenanueva", "errorFormatoPassword");
+    if (validaNoVacio("contrasenanueva", "errorFormatoPasswordNueva", "contrasenanueva") && comprobarLetrasNumeros("contrasenanueva", 16, 3, "errorFormatoPasswordNueva", "contrasenanueva") && 
+    comprobarPasswordIguales("contrasenanueva", "contrasena", "errorFormatoPasswordNueva")) {
+        validacionOK("contrasenanueva", "errorFormatoPasswordNueva");
         return true;
     } else {
-        validacionKO("contrasenanueva", "errorFormatoPassword");
+        validacionKO("contrasenanueva", "errorFormatoPasswordNueva");
         return false;
     }
 
@@ -158,6 +159,9 @@ function validaNoVacio(idElemento, idElementoError, campo) {
                 codigo = "02113"
                 break;
             case 'contrasena':
+                codigo = "02113"
+                break;
+            case 'contrasenanueva':
                 codigo = "02113"
                 break;
             case 'nombreRegistro':
@@ -404,6 +408,9 @@ function comprobarLetrasNumeros(idElemento, sizeMax, sizeMin, idElementoError, c
             case 'contrasena':
                 codigo = "02114"
                 break;
+            case 'contrasenanueva':
+                codigo = "02114"
+                break;    
             case 'passLogin':
                 codigo = "02114"
                 break;    

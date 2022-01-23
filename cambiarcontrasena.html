@@ -28,16 +28,21 @@
 			<h1 class="tituloCambiar"></h1>
 
 			<label class='dni_usuario'></label>
-			<input type='text' name='dni_usuario' id='dni_usuario' onblur='return comprobarUsuario();'><br>
+			<input type='text' name='dni_usuario' id='dni_usuario' onblur='return comprobarDNI("dni_usuario","errorFormatoDni")'><br>
 			<div style="display:none" id="errorFormatoDni" class="ErrorFormato"></div>
 			
 			<label class='labelusuario'></label>
-			<input type='text' name='usuario' id='labelusuario' onblur='return comprobarDNI("dni_usuario","errorFormatoDni")'><br>
+			<input type='text' name='usuario' id='labelusuario' onblur='return comprobarNombreParam("labelusuario");'><br>
 			<div style="display:none" id="errorFormatoNombre" class="ErrorFormato"></div>
 
 			<label class='contrasena'></label>
 			<input type='password' name='contrasena' id='contrasena' onblur='return comprobarContraseña()'><br>
 			<div style="display:none" id="errorFormatoPassword" class="ErrorFormato"></div>
+
+			<label class='contrasenanueva'></label>
+			<input type='password' name='contrasenanueva' id='contrasenanueva' onblur='return comprobarContraseñaNueva()'>
+			<div style="display:none" id="errorFormatoPasswordNueva" class="ErrorFormato"></div>
+			<br>
 
 			<label class='id_grupo'></label>
 			<select name='id_grupo' id='id_grupo'><br>
@@ -48,13 +53,6 @@
 				<option value="0">No</option>
 				<option value="1">Si</option>
 			</select><br>
-			
-			<label class='contrasenanueva'></label>
-			<input type='password' name='contrasenanueva' id='contrasenanueva' onblur='return comprobarContraseñaNueva()'>
-			<div style="display:none" id="errorFormatoPassword" class="ErrorFormato"></div>
-
-			<br>
-
 			<input type="submit">
 		</form>
 	</div>
