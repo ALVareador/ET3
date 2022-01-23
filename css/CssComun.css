@@ -422,3 +422,8 @@ td {
 #formularioLogin{
     margin-left: 20px;
 }
+
+.textbox{
+    display:flex;
+    justify-content:center;
+}
