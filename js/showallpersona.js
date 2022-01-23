@@ -4,11 +4,11 @@ function construyeFila(fila,num) {
     let atributosFunciones = ["'" + fila.dni_persona + "'", "'" + fila.nombre_persona + "'", "'" + fila.apellidos_persona + "'", "'" + fila.fechaNacimiento_persona + "'", "'" + fila.direccion_persona + "'", "'" + fila.telefono_persona + "'", "'" + fila.email_persona + "'", "'" + fila.foto_persona + "'", "'" + fila.esCeliaco_persona + "'", "'" + fila.borrado_persona + "'"];
 
     var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetallePersona(' + atributosFunciones +
-        ')" alt="Detalle Persona"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles Persona"></a></div>';
+        ')" alt="Detalle Persona"/><img id="iconoDetalles" src="./images/iconos_nuestros/cerrados/detalles.svg" alt="detalles Persona"></a></div>';
     var celdaAccionesEditar = '<div><a onclick="showEditarPersona(' + atributosFunciones +
-        ')" alt="Editar Persona"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar persona"></a></div>';
+        ')" alt="Editar Persona"/><img id="iconoEdit" src="./images/iconos_nuestros/cerrados/edit.svg" alt="editar persona"></a></div>';
     var celdaAccionesEliminar = '<div><a onclick="showEliminarPersona(' + atributosFunciones +
-        ')" alt="Eliminar Persona"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar persona"></a></div></div>';
+        ')" alt="Eliminar Persona"/><img id="iconoDelete" src="./images/iconos_nuestros/cerrados/delete.svg" alt="eliminar persona"></a></div></div>';
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
@@ -63,7 +63,7 @@ function getLisPersonas() {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
             $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
-            $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/error.png");
+            $("#imagenAviso").attr('src', "images/iconos_nuestros/cerrados/error.png");
             setLang(idioma);
             $("#modal").attr('style', 'display: block');
         }

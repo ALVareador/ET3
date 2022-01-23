@@ -26,7 +26,7 @@ function cambiarcontrasena() {
 			$("#mensajeError").addClass(response.code);
 			$("#mensajeError").append(response.code);
 			$("#cerrar").attr('onclick', "cerrar('modal', '', '')");
-			$("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/error.png");
+			$("#imagenAviso").attr('src', "images/iconos_nuestros/cerrados/error.png");
 			setLang(idioma);
 			$("#modal").attr('style', 'display: block');
 		}

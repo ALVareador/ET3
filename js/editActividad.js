@@ -63,7 +63,7 @@ function buscarActividad() {
         } else {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
-            $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/error.png");
+            $("#imagenAviso").attr('src', "images/iconos_nuestros/cerrados/error.png");
             setLang(idioma);
             $("#modal").attr('style', 'display: block');
         }

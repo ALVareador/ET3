@@ -142,7 +142,7 @@ function includeUserDesconectar() {
     $("#UserDesconectar").html("");
 
     var UserDesconectar = '<div class="UserDesconectar">' +
-        '<img onclick="desconectar();" class = "iconDesconectar" src="images/iconos_oscar/cerrados/logout.svg" id="iconoLogOut"> </img>' +
+        '<img onclick="desconectar();" class = "iconDesconectar" src="images/iconos_nuestros/cerrados/logout.svg" id="iconoLogOut"> </img>' +
         '</div>';
 
     $("#UserDesconectar").append(UserDesconectar);
@@ -189,7 +189,7 @@ function includeMenuIdioma() {
 /**Función que aplica los cambios necesarios cuando la respuesta de las petición Ajax ha sido OK*/
 function respuestaOKAjax() {
 
-    $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/exito.png");
+    $("#imagenAviso").attr('src', "images/iconos_nuestros/cerrados/exito.png");
     $("#cerrar").attr('onclick', "cerrar('modal', '', 'getLisUsers')");
     $("#formularioAcciones").attr('style', 'display: none');
     $("#mensajeError").attr('style', 'color: #005200; margin-top: 5%; margin-left: 17%');
@@ -200,7 +200,7 @@ function respuestaOKAjax() {
 function respuestaKOAjax(opcion) {
 
     $("#cerrar").attr('onclick', "cerrar('modal', '" + opcion + "', '')");
-    $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/error.png");
+    $("#imagenAviso").attr('src', "images/iconos_nuestros/cerrados/error.png");
     $("#mensajeError").attr('style', 'color: #ff0000; margin-right: 20px');
 
 }

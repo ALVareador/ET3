@@ -4,11 +4,11 @@ function construyeFila(fila,num) {
     let atributosFunciones = ["'" + fila.id_grupo + "'", "'" + fila.nombre_grupo + "'", "'" + fila.descripcion_grupo + "'"];
 
     var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetalleGrupo(' + atributosFunciones +
-        ')" alt="Detalle Grupo"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles Grupo"></a></div>';
+        ')" alt="Detalle Grupo"/><img id="iconoDetalles" src="./images/iconos_nuestros/cerrados/detalles.svg" alt="detalles Grupo"></a></div>';
     var celdaAccionesEditar = '<div><a onclick="showEditarGrupo(' + atributosFunciones +
-        ')" alt="Editar Grupo"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar grupo"></a></div>';
+        ')" alt="Editar Grupo"/><img id="iconoEdit" src="./images/iconos_nuestros/cerrados/edit.svg" alt="editar grupo"></a></div>';
     var celdaAccionesEliminar = '<div><a onclick="showEliminarGrupo(' + atributosFunciones +
-        ')" alt="Eliminar Grupo"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar grupo"></a></div></div>';
+        ')" alt="Eliminar Grupo"/><img id="iconoDelete" src="./images/iconos_nuestros/cerrados/delete.svg" alt="eliminar grupo"></a></div></div>';
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
@@ -49,7 +49,7 @@ function getLisGrupos() {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
             $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
-            $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/error.png");
+            $("#imagenAviso").attr('src', "images/iconos_nuestros/cerrados/error.png");
             setLang(idioma);
             $("#modal").attr('style', 'display: block');
         }

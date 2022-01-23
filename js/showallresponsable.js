@@ -5,11 +5,11 @@ function construyeFila(fila, num) {
     let atributosFunciones = ["'" + fila.dni_responsable + "'", "'" + fila.numCuenta_responsable + "'", "'" + fila.curriculum_responsable + "'", "'" + fila.borrado_responsable + "'"];
 
     var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetalleResponsable(' + atributosFunciones +
-        ')" alt="Detalle Responsable"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles responsable"></a></div>';
+        ')" alt="Detalle Responsable"/><img id="iconoDetalles" src="./images/iconos_nuestros/cerrados/detalles.svg" alt="detalles responsable"></a></div>';
     var celdaAccionesEditar = '<div><a onclick="showEditarResponsable(' + atributosFunciones +
-        ')" alt="Editar Responsable"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar responsable"></a></div>';
+        ')" alt="Editar Responsable"/><img id="iconoEdit" src="./images/iconos_nuestros/cerrados/edit.svg" alt="editar responsable"></a></div>';
     var celdaAccionesEliminar = '<div><a onclick="showEliminarResponsable(' + atributosFunciones +
-        ')" alt="Eliminar Responsable"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar responsable"></a></div></div>';
+        ')" alt="Eliminar Responsable"/><img id="iconoDelete" src="./images/iconos_nuestros/cerrados/delete.svg" alt="eliminar responsable"></a></div></div>';
 
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
@@ -63,7 +63,7 @@ function GetLisResponsables() {
             $("#mensajeError").addClass(response.code);
             $("#mensajeError").append(response.code);
             $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
-            $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/error.png");
+            $("#imagenAviso").attr('src', "images/iconos_nuestros/cerrados/error.png");
             setLang(idioma);
             $("#modal").attr('style', 'display: block');
         }

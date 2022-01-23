@@ -3,11 +3,11 @@ function construyeFila(fila, num) {
     let atributosFunciones = ["'" + fila.id_espacio + "'", "'" + fila.nombre_espacio + "'", "'" + fila.descripcion_espacio + "'"];
 
     var celdaAccionesDetalle = '<div id="divIconos"><div><a onclick="showDetalleEspacio(' + atributosFunciones +
-        ')" alt="Detalle Espacio"/><img id="iconoDetalles" src="./images/iconos_oscar/cerrados/detalles.svg" alt="detalles Espacio"></a></div>';
+        ')" alt="Detalle Espacio"/><img id="iconoDetalles" src="./images/iconos_nuestros/cerrados/detalles.svg" alt="detalles Espacio"></a></div>';
     var celdaAccionesEditar = '<div><a onclick="showEditarEspacio(' + atributosFunciones +
-        ')" alt="Editar Espacio"/><img id="iconoEdit" src="./images/iconos_oscar/cerrados/edit.svg" alt="editar espacio"></a></div>';
+        ')" alt="Editar Espacio"/><img id="iconoEdit" src="./images/iconos_nuestros/cerrados/edit.svg" alt="editar espacio"></a></div>';
     var celdaAccionesEliminar = '<div><a onclick="showEliminarEspacio(' + atributosFunciones +
-        ')" alt="Eliminar Espacio"/><img id="iconoDelete" src="./images/iconos_oscar/cerrados/delete.svg" alt="eliminar espacio"></a></div></div>';
+        ')" alt="Eliminar Espacio"/><img id="iconoDelete" src="./images/iconos_nuestros/cerrados/delete.svg" alt="eliminar espacio"></a></div></div>';
 
     var celdaAcciones = celdaAccionesDetalle + celdaAccionesEditar + celdaAccionesEliminar;
 
@@ -48,7 +48,7 @@ function getLisEspacios() {
             $("#mensajeError").removeClass();
             $("#mensajeError").addClass(response.code);
             $("#cerrar").attr('onclick', "cerrar('modal', '', '')");
-            $("#imagenAviso").attr('src', "images/iconos_oscar/cerrados/error.png");
+            $("#imagenAviso").attr('src', "images/iconos_nuestros/cerrados/error.png");
             setLang(idioma);
             $("#modal").attr('style', 'display: block');
         }
