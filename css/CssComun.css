@@ -395,6 +395,13 @@ td {
     text-align: center;
     height: 70px;
     background-color: #137fe2;
+    justify-content: space-around;
+}
+
+.itemfooterinfo {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     justify-content: center;
 }
 
@@ -402,7 +409,8 @@ td {
     margin-left: auto;
     margin-right: auto;
     color: white;
-    align-self: center;
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
 
 #FuncionesRegistro{
