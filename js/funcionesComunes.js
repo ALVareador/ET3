@@ -55,6 +55,20 @@ function comprobarContraseña() {
 
 }
 
+function comprobarContraseña() {
+
+    document.getElementById("contrasenanueva").style.borderWidth = "2px";
+
+    if (validaNoVacio("contrasenanueva", "errorFormatoPassword", "contrasena") && comprobarLetrasNumeros("contrasenanueva", 16, 3, "errorFormatoPassword", "contrasena")) {
+        validacionOK("contrasenanueva", "errorFormatoPassword");
+        return true;
+    } else {
+        validacionKO("contrasenanueva", "errorFormatoPassword");
+        return false;
+    }
+
+}
+
 function comprobarPass() {
 
 	document.getElementById("txtPassword").style.borderWidth = "2px";

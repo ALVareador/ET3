@@ -66,17 +66,17 @@
                                         <label class='dni_usuario'></label>
                                         <input type='text' name='dni_usuario' id='dni_usuario'
                                                 onblur='return comprobarDNI("dni_usuario","errorFormatoDni")'><br>
-                                        <div style="display:none" id="errorFormatoDni"></div>
+                                        <div style="display:none" id="errorFormatoDni" class="ErrorFormato"></div>
 
                                         <label class='labelusuario'></label>
                                         <input type='text' name='usuario' id='labelusuario'
                                                 onblur='return comprobarNombreParam("labelusuario");'><br>
-                                        <div style="display:none" id="errorFormatoNombre"></div>
+                                        <div style="display:none" id="errorFormatoNombre" class="ErrorFormato"></div>
 
                                         <label class='labelcontrasena' id= 'labelcontrasena'></label>
                                         <input type='password' name='contrasena' id='contrasena'
                                                 onblur='return comprobarContraseña()'><br>
-                                        <div style="display:none" id="errorFormatoPassword"></div>
+                                        <div style="display:none" id="errorFormatoPassword" class="ErrorFormato"></div>
 
                                         <label class='id_grupo'></label>
                                         <select name='id_grupo' id='id_grupo'><br>
