@@ -147,7 +147,6 @@ function deleteActividad() {
 function showEditarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
     resetearformularioActividad()
-    hideDivTablaActividades();
 
     // se resetea todo el formulario generico
 
@@ -188,8 +187,6 @@ function showEditarActividad(id_actividad, nombre_actividad, descripcion_activid
 function showDetalleActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
 
-    hideDivTablaActividades();
-
     // se resetea todo el formulario generico
     resetearformularioActividad()
 
@@ -229,7 +226,6 @@ function showDetalleActividad(id_actividad, nombre_actividad, descripcion_activi
 
 function showEliminarActividad(id_actividad, nombre_actividad, descripcion_actividad, precio_actividad, numPlazas_actividad, color_actividad, color_nombre_actividad, id_espacio, id_categoria) {
 
-    hideDivTablaActividades();
 
     resetearformularioActividad()
     // se resetea todo el formulario generico
@@ -272,7 +268,6 @@ function showAddActividad() {
 
     // se resetea todo el formulario generico
     resetearformularioActividad();
-    hideDivTablaActividades();
 
     // se pone visible el formulario y se rellena el action y el onsubmit
     $("#divformgenericoActividad").attr('style', 'display: block');
