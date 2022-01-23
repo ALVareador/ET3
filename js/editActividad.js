@@ -19,7 +19,6 @@ function addActividad() {
         if (response.ok == true) {
             respuestaOKAjax();
             location.reload();
-            alert(response.code);
 
         } else {
             respuestaKOAjax('add');
@@ -53,10 +52,8 @@ function buscarActividad() {
             for (var i = 0; i < nodos.length; i++) {
                 var item = nodos[i];
                 if (item.id != undefined) {
-                    //  alert(item.id);
                 }
             }
-            //alert(nodos);
             for (var i = 0; i < response.resource.length; i++) {
                 var tr = construyeFila(response.resource[i]);
                 $("#datosActividad").append(tr);
@@ -97,7 +94,6 @@ function editActividad() {
         if (response.ok == true) {
             respuestaOKAjax();
             location.reload();
-            alert(response.code);
         } else {
             respuestaKOAjax('edit');
         }
@@ -134,7 +130,6 @@ function deleteActividad() {
         if (response.ok == true) {
             respuestaOKAjax();
             location.reload();
-            alert(response.code);
         } else {
             respuestaKOAjax('borrar');
         }
