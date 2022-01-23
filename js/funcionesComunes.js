@@ -509,7 +509,6 @@ function estaAutenticado() {
             data: $("#formularioAutenticacion").serialize(),
         }).done(function (response) {
             if (response.ok == true) {
-                document.getElementById("usuario").innerHTML = response.resource[0].LOGIN_USUARIO;
             } else {
                 errorAutenticado(response.code, idioma);
             }
