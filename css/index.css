@@ -1,0 +1,33 @@
+#MainDiv {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 8%;
+
+}
+
+p {
+
+    color: #137fe2;
+    text-decoration: #137fe2;
+    text-decoration-style: solid;
+    text-decoration-line: underline ;
+}
+
+#iconos {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+}
+
+.iconoFuncion {
+
+    width: 50px;
+    margin-right: 25px;
+    margin-left: 25px;
+
+
+}
