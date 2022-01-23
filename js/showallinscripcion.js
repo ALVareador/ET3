@@ -17,6 +17,9 @@ function construyeFila(fila, num) {
     rutauploaddocumentos = rutauploaddocumentos.substring(29, 0);
     rutauploaddocumentos = rutauploaddocumentos + 'documentos/';
 
+    if(ArrayActividades == undefined || ArrayDNI == undefined){
+        location.reload;
+    }
         for (var j = 0; j < ArrayActividades.length; j++) {
             if (ArrayActividades[j]['id_actividad'] == fila.id_actividad)
                 fila.id_actividad = ArrayActividades[j]['nombre_actividad'];
